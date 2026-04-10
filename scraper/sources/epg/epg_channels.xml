@@ -1,0 +1,114 @@
+# epg_channels.xml
+# ==================
+# Custom channels list for iptv-org/epg grab tool.
+# Run with: npm run grab --- --channels epg_channels.xml --output guide.xml
+#
+# Site coverage for TVsport:
+#   sky.com          → UK: TNT Sports 1-4, Sky Sports (all), BBC Sport
+#   beinsports.com   → MENA: beIN Sports HD 1-5
+#   canalplus.com    → France + beIN Sports 1-3 France
+#   supersport.com   → Africa: SuperSport EPL, Football, Variety
+#   foxsports.com.au → Australia: Fox Sports (backup for Stan Sport)
+#   stan.com.au      → Australia: Stan Sport (if available)
+#   viaplay.com      → Nordic/NL (if site added to iptv-org)
+#   astro.com.my     → Malaysia: Astro SuperSport 2/3
+#
+# xmltv_id format: ChannelName.country@variant
+# These IDs are used by our XMLTV parser to identify the channel.
+
+<channels>
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- UNITED KINGDOM — sky.com                                   -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+
+  <!-- TNT Sports -->
+  <channel site="sky.com" site_id="3661" lang="en" xmltv_id="TNTSports1.uk@SD">TNT Sports 1</channel>
+  <channel site="sky.com" site_id="3663" lang="en" xmltv_id="TNTSports2.uk@SD">TNT Sports 2</channel>
+  <channel site="sky.com" site_id="3141" lang="en" xmltv_id="TNTSports4.uk@SD">TNT Sports 4</channel>
+
+  <!-- Sky Sports -->
+  <channel site="sky.com" site_id="506"  lang="en" xmltv_id="SkySportsMainEvent.uk@SD">Sky Sports Main Event</channel>
+  <channel site="sky.com" site_id="507"  lang="en" xmltv_id="SkySportsPremierLeague.uk@SD">Sky Sports Premier League</channel>
+  <channel site="sky.com" site_id="508"  lang="en" xmltv_id="SkySportsFootball.uk@SD">Sky Sports Football</channel>
+  <channel site="sky.com" site_id="509"  lang="en" xmltv_id="SkySportsAction.uk@SD">Sky Sports Action</channel>
+  <channel site="sky.com" site_id="510"  lang="en" xmltv_id="SkySports4K.uk@UHD">Sky Sports Ultra HDR</channel>
+
+  <!-- BBC Sport (highlights) -->
+  <channel site="sky.com" site_id="101"  lang="en" xmltv_id="BBCOne.uk@SD">BBC One</channel>
+  <channel site="sky.com" site_id="108"  lang="en" xmltv_id="BBCTwo.uk@SD">BBC Two</channel>
+
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- MIDDLE EAST & NORTH AFRICA — beinsports.com               -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+
+  <channel site="beinsports.com" site_id="bein-sports-1"  lang="en" xmltv_id="beINSports1.qa@MENA">beIN Sports HD 1</channel>
+  <channel site="beinsports.com" site_id="bein-sports-2"  lang="en" xmltv_id="beINSports2.qa@MENA">beIN Sports HD 2</channel>
+  <channel site="beinsports.com" site_id="bein-sports-3"  lang="en" xmltv_id="beINSports3.qa@MENA">beIN Sports HD 3</channel>
+  <channel site="beinsports.com" site_id="bein-sports-4"  lang="en" xmltv_id="beINSports4.qa@MENA">beIN Sports HD 4</channel>
+  <channel site="beinsports.com" site_id="bein-sports-5"  lang="en" xmltv_id="beINSports5.qa@MENA">beIN Sports HD 5</channel>
+
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- FRANCE — canalplus.com (includes beIN France)             -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+
+  <channel site="canalplus.com" site_id="#381" lang="fr" xmltv_id="beINSports1.qa@France">beIN Sports 1 (France)</channel>
+  <channel site="canalplus.com" site_id="#384" lang="fr" xmltv_id="beINSports2.qa@France">beIN Sports 2 (France)</channel>
+  <channel site="canalplus.com" site_id="#516" lang="fr" xmltv_id="beINSports3.qa@France">beIN Sports 3 (France)</channel>
+  <channel site="canalplus.com" site_id="#340" lang="fr" xmltv_id="CanalPlusSport.fr@SD">Canal+ Sport</channel>
+  <channel site="canalplus.com" site_id="#341" lang="fr" xmltv_id="CanalPlusSport2.fr@SD">Canal+ Sport 2</channel>
+
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- SUB-SAHARAN AFRICA — supersport.com                       -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+
+  <channel site="supersport.com" site_id="ss-prem-league" lang="en" xmltv_id="SuperSportPremierLeague.za@DStv">SuperSport Premier League</channel>
+  <channel site="supersport.com" site_id="ss-football"    lang="en" xmltv_id="SuperSportFootball.za@DStv">SuperSport Football</channel>
+  <channel site="supersport.com" site_id="ss-variety1"    lang="en" xmltv_id="SuperSportVariety1.za@DStv">SuperSport Variety 1</channel>
+
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- MALAYSIA — astro.com.my                                   -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+
+  <channel site="astro.com.my" site_id="236" lang="en" xmltv_id="AstroSuperSport2.my@Astro">Astro SuperSport 2</channel>
+  <channel site="astro.com.my" site_id="237" lang="en" xmltv_id="AstroSuperSport3.my@Astro">Astro SuperSport 3</channel>
+  <channel site="astro.com.my" site_id="238" lang="en" xmltv_id="AstroSuperSport4.my@Astro">Astro SuperSport 4</channel>
+
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- AUSTRALIA — stan.com.au / foxsports.com.au                -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+
+  <channel site="foxsports.com.au" site_id="fs503" lang="en" xmltv_id="FoxSports503.au@Foxtel">Fox Sports 503</channel>
+  <channel site="foxsports.com.au" site_id="fs504" lang="en" xmltv_id="FoxSports504.au@Foxtel">Fox Sports 504</channel>
+  <channel site="foxsports.com.au" site_id="fs505" lang="en" xmltv_id="FoxSports505.au@Foxtel">Fox Sports 505</channel>
+
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- GERMANY — sky.de (Sky Sport Premier League)               -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+
+  <channel site="sky.de" site_id="sky-sport-pl" lang="de" xmltv_id="SkySportPremierLeague.de@HD">Sky Sport Premier League DE</channel>
+  <channel site="sky.de" site_id="sky-sport-ue1" lang="de" xmltv_id="SkySportUEFA1.de@HD">Sky Sport UEFA Champions League 1</channel>
+
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- ITALY — skyitalia.it                                      -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+
+  <channel site="skyitalia.it" site_id="sky-sport-uno" lang="it" xmltv_id="SkySportUno.it@HD">Sky Sport Uno IT</channel>
+  <channel site="skyitalia.it" site_id="sky-sport-football" lang="it" xmltv_id="SkySportFootball.it@HD">Sky Sport Football IT</channel>
+
+
+  <!-- ══════════════════════════════════════════════════════════ -->
+  <!-- INDIA — hotstar.com / starsports.com                      -->
+  <!-- ══════════════════════════════════════════════════════════ -->
+
+  <channel site="hotstar.com" site_id="star-sports-select1" lang="en" xmltv_id="StarSportsSelectHD1.in@Hotstar">Star Sports Select HD1</channel>
+  <channel site="hotstar.com" site_id="star-sports-select2" lang="en" xmltv_id="StarSportsSelectHD2.in@Hotstar">Star Sports Select HD2</channel>
+
+</channels>

@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+scraper/sources/epg/epg_tool/
+scraper/sources/epg/guide.xml

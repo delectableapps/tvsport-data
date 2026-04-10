@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TVsport.live — Find every TV channel and streaming service showing live sport worldwide. Premier League, Champions League and more.">
+<meta name="theme-color" content="#00e5a0">
+<meta property="og:title" content="TVsport.live">
+<meta property="og:description" content="Find every broadcaster showing live sport worldwide">
+<meta property="og:url" content="https://tvsport.live">
+<title>TVsport — Find Where to Watch Live Sport</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07090c;--surface:#0d1117;--surface2:#131920;--border:#1c2530;--border2:#243040;--accent:#00e5a0;--accent2:#0094ff;--gold:#f5a623;--text:#e2e8f0;--muted:#4a5a6e;--muted2:#6a7d92;--danger:#ff4b6e;--free:#7ecb5e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,229,160,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.025) 1px,transparent 1px);background-size:48px 48px;pointer-events:none;z-index:0}
+.app{position:relative;z-index:1;max-width:760px;margin:0 auto;padding:0 20px 80px}
+
+header{padding:40px 0 30px;text-align:center}
+.logo{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:6px}
+.logo-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#00e5a0,#00b87a);display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 0 24px rgba(0,229,160,.3)}
+.logo-word{font-family:'Bebas Neue',cursive;font-size:40px;letter-spacing:4px}
+.logo-word span{color:var(--accent)}
+.tagline{font-size:12px;color:var(--muted2);letter-spacing:2.5px;text-transform:uppercase}
+
+.tz-bar{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:26px;padding:10px 18px;background:var(--surface);border:1px solid var(--border);border-radius:10px;font-size:12px;color:var(--muted2);flex-wrap:wrap}
+.tz-bar select{background:var(--surface2);border:1px solid var(--border2);color:var(--text);font-family:'DM Mono',monospace;font-size:11px;border-radius:6px;padding:4px 8px;cursor:pointer;outline:none}
+.tz-label{font-family:'DM Mono',monospace;color:var(--accent);font-size:11px}
+
+.steps{display:flex;align-items:center;justify-content:center;margin-bottom:30px}
+.step{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);transition:color .3s}
+.step.active{color:var(--accent)}.step.done{color:var(--accent2)}
+.step-num{width:26px;height:26px;border-radius:50%;background:var(--surface2);border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:11px;font-family:'DM Mono',monospace;transition:all .3s}
+.step.active .step-num{background:var(--accent);border-color:var(--accent);color:#000;font-weight:700}
+.step.done .step-num{background:var(--accent2);border-color:var(--accent2);color:#fff}
+.step-line{width:48px;height:1px;background:var(--border);margin:0 6px;transition:background .4s}
+.step-line.done{background:var(--accent2)}
+
+.panel{display:none;animation:fadeUp .35s cubic-bezier(.16,1,.3,1) forwards}
+.panel.active{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+.search-label{font-family:'Bebas Neue',cursive;font-size:30px;letter-spacing:2px;margin-bottom:6px}
+.search-sub{color:var(--muted2);font-size:14px;margin-bottom:20px}
+.search-box{position:relative;margin-bottom:8px}
+.search-input{width:100%;background:var(--surface);border:1px solid var(--border2);border-radius:14px;padding:17px 64px 17px 22px;color:var(--text);font-size:16px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s,box-shadow .2s}
+.search-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,229,160,.1)}
+.search-input::placeholder{color:var(--muted)}
+.search-btn{position:absolute;right:10px;top:50%;transform:translateY(-50%);background:var(--accent);border:none;border-radius:10px;width:44px;height:44px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#000;transition:transform .15s,filter .15s}
+.search-btn:hover{transform:translateY(-50%) scale(1.06);filter:brightness(1.1)}
+.filter-tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.ftab{padding:7px 16px;border-radius:20px;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:1px solid var(--border2);background:var(--surface);color:var(--muted2);transition:all .2s}
+.ftab:hover,.ftab.active{border-color:var(--accent);color:var(--accent);background:rgba(0,229,160,.06)}
+.ftab.ucl.active{border-color:var(--gold);color:var(--gold);background:rgba(245,166,35,.08)}
+.loading{display:none;text-align:center;padding:34px 0;color:var(--muted2);font-size:12px;letter-spacing:1.5px;text-transform:uppercase}
+.loading.active{display:block}
+.dots span{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin:0 3px;animation:bounce 1.2s infinite}
+.dots span:nth-child(2){animation-delay:.2s}.dots span:nth-child(3){animation-delay:.4s}
+@keyframes bounce{0%,80%,100%{transform:translateY(0);opacity:.35}40%{transform:translateY(-9px);opacity:1}}
+.date-lbl{font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:2px;font-weight:600;margin:16px 0 8px;font-family:'DM Mono',monospace}
+.result-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:15px 18px;margin-bottom:9px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:border-color .2s,transform .15s,background .2s;animation:fadeUp .3s ease forwards}
+.result-item:hover{border-color:var(--accent);background:var(--surface2);transform:translateX(5px)}
+.comp-badge{font-size:10px;padding:4px 10px;border-radius:20px;font-weight:600;text-transform:uppercase;letter-spacing:1px;white-space:nowrap;font-family:'DM Mono',monospace;flex-shrink:0}
+.badge-ucl{background:rgba(245,166,35,.15);color:var(--gold);border:1px solid rgba(245,166,35,.3)}
+.badge-epl{background:rgba(98,170,78,.15);color:#7ecb5e;border:1px solid rgba(98,170,78,.3)}
+.res-match{font-weight:600;font-size:15px;margin-bottom:3px}
+.res-meta{font-size:12px;color:var(--muted2);font-family:'DM Mono',monospace}
+.res-arrow{color:var(--muted);font-size:20px;transition:color .2s,transform .2s;margin-left:auto;flex-shrink:0}
+.result-item:hover .res-arrow{color:var(--accent);transform:translateX(4px)}
+
+/* CONFIRM */
+.confirm-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;overflow:hidden;margin-bottom:22px}
+.conf-hdr{padding:28px 28px 22px;position:relative;overflow:hidden;background:linear-gradient(135deg,#080f1a,#0b180d);border-bottom:1px solid var(--border)}
+.conf-hdr.ucl{background:linear-gradient(135deg,#12100a,#1a1406)}
+.conf-bg-emoji{position:absolute;right:-20px;top:-20px;font-size:110px;opacity:.04;line-height:1}
+.conf-badge{display:inline-flex;align-items:center;gap:7px;margin-bottom:18px}
+.conf-teams{display:flex;align-items:center;gap:16px}
+.team-blk{flex:1;text-align:center}
+.team-crest{width:60px;height:60px;border-radius:50%;border:2px solid var(--border2);background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:30px;margin:0 auto 10px}
+.team-nm{font-family:'Bebas Neue',cursive;font-size:21px;letter-spacing:1px;line-height:1.1}
+.vs-lbl{font-family:'Bebas Neue',cursive;font-size:22px;color:var(--muted);letter-spacing:2px;flex-shrink:0}
+.conf-details{display:grid;grid-template-columns:1fr 1fr 1fr}
+.det-item{padding:15px 20px;border-right:1px solid var(--border)}
+.det-item:last-child{border-right:none}
+.det-lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;font-weight:600}
+.det-val{font-size:14px;font-weight:600;font-family:'DM Mono',monospace}
+.det-val.hl{color:var(--accent)}
+.conf-actions{display:flex;gap:12px}
+.btn{flex:1;padding:16px;border-radius:12px;font-size:13px;font-weight:700;font-family:'DM Sans',sans-serif;cursor:pointer;border:none;transition:all .15s;letter-spacing:1px;text-transform:uppercase}
+.btn-primary{background:var(--accent);color:#000}
+.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 6px 20px rgba(0,229,160,.25)}
+.btn-secondary{background:transparent;color:var(--muted2);border:1px solid var(--border2)}
+.btn-secondary:hover{border-color:var(--text);color:var(--text)}
+
+/* BROADCAST */
+.bcast-hdr{margin-bottom:22px}
+.match-pill{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border2);border-radius:20px;padding:8px 16px;font-size:12px;color:var(--muted2);margin-bottom:14px;font-family:'DM Mono',monospace}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.bcast-title{font-family:'Bebas Neue',cursive;font-size:30px;letter-spacing:2px;margin-bottom:4px}
+.bcast-sub{font-size:13px;color:var(--muted2);font-family:'DM Mono',monospace}
+
+.sort-bar{display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.sort-lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-right:2px}
+.sort-btn{padding:6px 14px;border-radius:8px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border:1px solid var(--border2);background:var(--surface);color:var(--muted2);transition:all .2s;font-family:'DM Mono',monospace}
+.sort-btn.active,.sort-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,229,160,.06)}
+
+.cov-bar{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 20px;margin-bottom:20px;display:flex;align-items:center;gap:16px}
+.cov-num{font-family:'Bebas Neue',cursive;font-size:38px;color:var(--accent);line-height:1}
+.cov-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px}
+.cov-sub{font-size:13px;color:var(--text);margin-top:2px}
+
+/* Region groups */
+.rg{margin-bottom:22px;animation:fadeUp .4s ease forwards}
+.rg-label{display:flex;align-items:center;gap:10px;font-size:11px;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:var(--muted2);margin-bottom:10px}
+.rg-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* Broadcaster cards */
+.bc-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.bc-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:13px 15px;display:flex;align-items:flex-start;gap:11px;transition:border-color .2s,transform .15s}
+.bc-card:hover{transform:translateY(-2px)}
+.bc-card.tv:hover{border-color:rgba(0,148,255,.45)}
+.bc-card.stream:hover{border-color:rgba(0,229,160,.45)}
+.bc-card.free:hover{border-color:rgba(126,203,94,.45)}
+.b-ico{width:40px;height:40px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:19px;margin-top:1px}
+.b-ico.tv{background:rgba(0,148,255,.1)}.b-ico.stream{background:rgba(0,229,160,.1)}.b-ico.free{background:rgba(126,203,94,.1)}.b-ico.ppv{background:rgba(255,75,110,.1)}
+.b-body{flex:1;min-width:0}
+.b-name{font-weight:600;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-bottom:1px}
+.b-country{font-size:11px;color:var(--muted2);font-family:'DM Mono',monospace;margin-bottom:2px}
+.b-channel{font-size:11px;color:var(--accent2);font-family:'DM Mono',monospace;margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.b-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:3px}
+.b-tag{font-size:9px;padding:2px 7px;border-radius:4px;font-family:'DM Mono',monospace;font-weight:600;letter-spacing:.5px;text-transform:uppercase}
+.tag-live{background:rgba(0,229,160,.12);color:var(--accent)}
+.tag-hl{background:rgba(245,166,35,.12);color:var(--gold)}
+.tag-delay{background:rgba(0,148,255,.12);color:var(--accent2)}
+.tag-tv{background:rgba(0,148,255,.12);color:var(--accent2)}
+.tag-stream{background:rgba(0,229,160,.12);color:var(--accent)}
+.tag-free{background:rgba(126,203,94,.12);color:var(--free)}
+.b-time{font-size:11px;color:var(--muted2);font-family:'DM Mono',monospace;margin-top:4px;line-height:1.5}
+
+.src-note{background:rgba(0,148,255,.06);border:1px solid rgba(0,148,255,.18);border-radius:10px;padding:11px 15px;font-size:12px;color:var(--muted2);margin-bottom:18px;display:flex;gap:9px;line-height:1.5}
+.empty-state{text-align:center;padding:56px 20px;color:var(--muted)}
+.empty-icon{font-size:44px;margin-bottom:14px;opacity:.45}
+.empty-title{font-size:17px;font-weight:600;color:var(--text);margin-bottom:7px}
+.empty-sub{font-size:13px;line-height:1.6}
+.error-msg{display:none;background:rgba(255,75,110,.08);border:1px solid rgba(255,75,110,.25);border-radius:10px;padding:11px 15px;font-size:13px;color:var(--danger);margin-top:10px}
+.error-msg.active{display:block}
+.new-search-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;background:transparent;border:1px dashed var(--border2);border-radius:12px;color:var(--muted2);font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s;margin-top:22px}
+.new-search-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,229,160,.04)}
+.powered-by{text-align:center;margin-top:48px;font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase}
+.powered-by span{color:var(--accent)}
+.powered-by small{display:block;margin-top:4px;font-size:10px;opacity:.6}
+
+@media(max-width:520px){
+  .bc-grid{grid-template-columns:1fr}
+  .conf-details{grid-template-columns:1fr 1fr}
+  .det-item:nth-child(2){border-right:none}
+  .det-item{border-bottom:1px solid var(--border)}
+  .det-item:last-child{border-bottom:none}
+}
+
+/* Loading screen */
+#loadingScreen{position:fixed;inset:0;background:var(--bg);z-index:1000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px}
+#loadingScreen .logo-word{font-family:'Bebas Neue',cursive;font-size:48px;letter-spacing:4px}
+#loadingScreen .logo-word span{color:var(--accent)}
+.load-msg{color:var(--muted2);font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.load-dots span{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--accent);margin:0 3px;animation:bounce 1.2s infinite}
+.load-dots span:nth-child(2){animation-delay:.2s}.load-dots span:nth-child(3){animation-delay:.4s}
+/* Data banner */
+.data-banner{display:none;align-items:center;justify-content:center;padding:8px 16px;font-size:11px;border-radius:8px;margin-bottom:16px;font-family:'DM Mono',monospace;gap:8px}
+.data-banner.ok{background:rgba(0,229,160,.08);color:var(--accent);border:1px solid rgba(0,229,160,.2)}
+.data-banner.warn{background:rgba(245,166,35,.08);color:var(--gold);border:1px solid rgba(245,166,35,.2)}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- Loading screen (shown while fetching fixtures.json) -->
+<div id="loadingScreen">
+  <div class="logo"><div class="logo-icon">⚽</div><div class="logo-word">TV<span>sport</span></div></div>
+  <div class="load-dots"><span></span><span></span><span></span></div>
+  <div class="load-msg">Loading live sport...</div>
+</div>
+
+<!-- Data freshness banner -->
+<div class="data-banner" id="dataBanner"></div>
+
+
+<header>
+  <div class="logo"><div class="logo-icon">⚽</div><div class="logo-word">TV<span>sport</span></div></div>
+  <div class="tagline">Find where to watch live sport · Worldwide</div>
+</header>
+
+<div class="tz-bar">
+  <span>🌍</span><span>Times in:</span>
+  <select id="tzSel" onchange="onTzChange()"></select>
+  <span class="tz-label" id="tzNow"></span>
+</div>
+
+<div class="steps">
+  <div class="step active" id="s1"><div class="step-num" id="sn1">1</div>Search</div>
+  <div class="step-line" id="l1"></div>
+  <div class="step" id="s2"><div class="step-num" id="sn2">2</div>Confirm</div>
+  <div class="step-line" id="l2"></div>
+  <div class="step" id="s3"><div class="step-num" id="sn3">3</div>Watch</div>
+</div>
+
+<!-- PANEL 1 -->
+<div class="panel active" id="panel-search">
+  <div class="search-label">Which match do you<br>want to watch?</div>
+  <div class="search-sub">Search by team or competition, or browse fixtures below</div>
+  <div class="search-box">
+    <input class="search-input" id="searchInput" type="text" placeholder='e.g. "Liverpool", "Arsenal", "UCL", "Chelsea vs Man City"...' autocomplete="off"/>
+    <button class="search-btn" onclick="doSearch()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </button>
+  </div>
+  <div class="error-msg" id="errMsg">Please enter a team or competition name.</div>
+  <div class="filter-tabs">
+    <div class="ftab active" onclick="filterTab('all',this)">All fixtures</div>
+    <div class="ftab ucl" onclick="filterTab('UCL',this)">🏆 UCL</div>
+    <div class="ftab" onclick="filterTab('EPL',this)">🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League</div>
+  </div>
+  <div class="loading" id="ldSearch"><div class="dots"><span></span><span></span><span></span></div><p style="margin-top:12px">Finding matches...</p></div>
+  <div id="searchResults"></div>
+</div>
+
+<!-- PANEL 2 -->
+<div class="panel" id="panel-confirm">
+  <div class="search-label">Is this the right fixture?</div>
+  <div class="search-sub">Confirm the match to see all worldwide broadcasters</div>
+  <div class="confirm-card">
+    <div class="conf-hdr" id="confHdr">
+      <div class="conf-bg-emoji" id="confBgEmoji">⚽</div>
+      <div class="conf-badge" id="confBadge"></div>
+      <div class="conf-teams">
+        <div class="team-blk"><div class="team-crest" id="cHomeC"></div><div class="team-nm" id="cHomeName"></div></div>
+        <div class="vs-lbl">VS</div>
+        <div class="team-blk"><div class="team-crest" id="cAwayC"></div><div class="team-nm" id="cAwayName"></div></div>
+      </div>
+    </div>
+    <div class="conf-details">
+      <div class="det-item"><div class="det-lbl">Date</div><div class="det-val" id="cDate"></div></div>
+      <div class="det-item"><div class="det-lbl">Kick-off</div><div class="det-val hl" id="cTime"></div></div>
+      <div class="det-item"><div class="det-lbl">Round</div><div class="det-val" id="cRound"></div></div>
+    </div>
+  </div>
+  <div class="conf-actions">
+    <button class="btn btn-secondary" onclick="goBack()">← Change</button>
+    <button class="btn btn-primary" onclick="showBroadcasters()">Find Broadcasters →</button>
+  </div>
+</div>
+
+<!-- PANEL 3 -->
+<div class="panel" id="panel-broadcast">
+  <div class="bcast-hdr">
+    <div class="match-pill"><div class="live-dot"></div><span id="pillMatch"></span></div>
+    <div class="bcast-title">Where to Watch</div>
+    <div class="bcast-sub" id="bcastSub"></div>
+  </div>
+  <div class="loading" id="ldBcast"><div class="dots"><span></span><span></span><span></span></div><p style="margin-top:12px">Matching broadcast data worldwide...</p></div>
+  <div id="covBarEl" style="display:none" class="cov-bar">
+    <div><div class="cov-num" id="covCount">0</div></div>
+    <div><div class="cov-label">Territories with confirmed listings</div><div class="cov-sub" id="covSub"></div></div>
+  </div>
+  <div class="sort-bar">
+    <span class="sort-lbl">Sort:</span>
+    <button class="sort-btn active" id="sb0" onclick="setSortMode('region',this)">By Region</button>
+    <button class="sort-btn" id="sb1" onclick="setSortMode('broadcaster',this)">Broadcaster A–Z</button>
+    <button class="sort-btn" id="sb2" onclick="setSortMode('country',this)">Country A–Z</button>
+  </div>
+  <div class="src-note" id="srcNote" style="display:none"><span style="flex-shrink:0">ℹ️</span><span id="srcText"></span></div>
+  <div id="bcastList"></div>
+  <button class="new-search-btn" onclick="resetAll()">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+    Search another match
+  </button>
+</div>
+
+<div class="powered-by">Powered by <span>TVsport.live</span> · Data: April 2026<small>UCL rights: UEFA.com official list · EPL rights: premierleague.com · Schedules: tvguide.co.uk / Sky Sports / ESPN</small></div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════
+// TIMEZONE
+// ═══════════════════════════════════════════════════
+const TZS=[
+  {l:"UTC−8 · Los Angeles (PT)",z:"America/Los_Angeles"},
+  {l:"UTC−7 · Denver (MT)",z:"America/Denver"},
+  {l:"UTC−6 · Chicago (CT)",z:"America/Chicago"},
+  {l:"UTC−5 · New York (ET)",z:"America/New_York"},
+  {l:"UTC−3 · São Paulo (BRT)",z:"America/Sao_Paulo"},
+  {l:"UTC+0 · London (GMT/BST)",z:"Europe/London"},
+  {l:"UTC+1 · Paris / Berlin (CET/CEST)",z:"Europe/Paris"},
+  {l:"UTC+2 · Athens / Cairo",z:"Europe/Athens"},
+  {l:"UTC+3 · Moscow / Riyadh",z:"Europe/Moscow"},
+  {l:"UTC+4 · Dubai (GST)",z:"Asia/Dubai"},
+  {l:"UTC+5:30 · Mumbai (IST)",z:"Asia/Kolkata"},
+  {l:"UTC+7 · Bangkok (ICT)",z:"Asia/Bangkok"},
+  {l:"UTC+8 · Singapore / HK",z:"Asia/Singapore"},
+  {l:"UTC+9 · Tokyo (JST)",z:"Asia/Tokyo"},
+  {l:"UTC+10 · Sydney (AEST)",z:"Australia/Sydney"},
+  {l:"UTC+12 · Auckland (NZST)",z:"Pacific/Auckland"},
+];
+let userTz=Intl.DateTimeFormat().resolvedOptions().timeZone||"Europe/London";
+let sortMode="region",currentFx=null,curFilter="all";
+
+function buildTzSel(){
+  const sel=document.getElementById("tzSel");
+  TZS.forEach(t=>{const o=document.createElement("option");o.value=t.z;o.textContent=t.l;if(t.z===userTz)o.selected=true;sel.appendChild(o);});
+  if(!sel.value){const p=userTz.split("/")[0];[...sel.options].forEach(o=>{if(o.value.startsWith(p))o.selected=true;});}
+  updTzLabel();
+}
+function onTzChange(){userTz=document.getElementById("tzSel").value;updTzLabel();if(currentFx)renderBcast(currentFx,sortMode);renderFxList(getFx());}
+function updTzLabel(){const now=new Date();document.getElementById("tzNow").textContent=new Intl.DateTimeFormat("en-GB",{timeZone:userTz,hour:"2-digit",minute:"2-digit",timeZoneName:"short"}).format(now);}
+function fmtTime(iso){return new Intl.DateTimeFormat("en-GB",{timeZone:userTz,hour:"2-digit",minute:"2-digit",hour12:false}).format(new Date(iso));}
+function fmtDate(iso){return new Intl.DateTimeFormat("en-GB",{timeZone:userTz,weekday:"short",day:"numeric",month:"short"}).format(new Date(iso));}
+function tzAbbr(){return new Intl.DateTimeFormat("en-GB",{timeZone:userTz,timeZoneName:"short"}).formatToParts(new Date()).find(p=>p.type==="timeZoneName")?.value||"";}
+function bstToUtc(isoDate,bstTime){const[h,m]=bstTime.split(":").map(Number);const d=new Date(isoDate);return new Date(Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate(),h-1,m)).toISOString();}
+
+
+// ═══════════════════════════════════════════════════
+// LIVE DATA — fetched from fixtures.json
+// Generated nightly by the TVsport scraper pipeline
+// Fallback to hardcoded data if fetch fails
+// ═══════════════════════════════════════════════════
+
+// JSON endpoint — replace YOUR_USERNAME with your GitHub username
+// Format: https://cdn.jsdelivr.net/gh/YOUR_USERNAME/tvsport-data@main/output/fixtures.json
+const FIXTURES_JSON_URL = "https://cdn.jsdelivr.net/gh/YOUR_USERNAME/tvsport-data@main/output/fixtures.json";
+
+// In-memory store — populated on load
+let FX = [];
+let DATA_META = { generated: null, source: "loading" };
+
+// ── Map JSON fixture format → app internal format ────────────────────────
+function mapJsonFixture(jfx, index) {
+  return {
+    id: index + 1,
+    comp: jfx.competition,
+    round: jfx.round || "",
+    home: jfx.home,
+    away: jfx.away,
+    hE: jfx.homeEmoji || "⚽",
+    aE: jfx.awayEmoji || "⚽",
+    ko: jfx.kickoff_utc,
+    venue: jfx.venue || "",
+    ukBlackout: jfx.uk_blackout || false,
+    note: jfx.note || "",
+    // Store full broadcaster list from JSON
+    _broadcasters: jfx.broadcasters || [],
+  };
+}
+
+// ── Fetch fixtures from JSON endpoint ────────────────────────────────────
+async function loadFixtures() {
+  showLoadingScreen(true);
+
+  try {
+    const response = await fetch(FIXTURES_JSON_URL, {
+      cache: "no-cache",
+      headers: { "Accept": "application/json" }
+    });
+
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const data = await response.json();
+    FX = (data.fixtures || []).map(mapJsonFixture);
+    DATA_META = {
+      generated: data.generated,
+      fixture_count: data.fixture_count,
+      source: "live",
+      window_days: data.window_days,
+    };
+
+    console.log(`✅ Loaded ${FX.length} fixtures (generated: ${data.generated})`);
+    showLoadingScreen(false);
+    initApp();
+
+  } catch (err) {
+    console.warn(`⚠️ Could not fetch live data: ${err.message}. Using fallback.`);
+    loadFallback();
+  }
+}
+
+// ── Fallback: use hardcoded fixture data if fetch fails ───────────────────
+function loadFallback() {
+  FX = FALLBACK_FX.map(mapJsonFixtureFallback);
+  DATA_META = { generated: "fallback", source: "fallback" };
+  showLoadingScreen(false);
+  initApp();
+}
+
+// Fallback mapper for hardcoded format
+function mapJsonFixtureFallback(fx) {
+  return {
+    id: fx.id,
+    comp: fx.comp,
+    round: fx.round,
+    home: fx.home,
+    away: fx.away,
+    hE: fx.hE,
+    aE: fx.aE,
+    ko: fx.ko,
+    venue: fx.venue,
+    ukBlackout: fx.ukBlackout || false,
+    note: fx.note || "",
+    _broadcasters: fx._broadcasters || [],
+  };
+}
+
+// ── Loading screen ────────────────────────────────────────────────────────
+function showLoadingScreen(show) {
+  const el = document.getElementById("loadingScreen");
+  if (el) el.style.display = show ? "flex" : "none";
+}
+
+// ── Data freshness banner ─────────────────────────────────────────────────
+function showDataBanner() {
+  const banner = document.getElementById("dataBanner");
+  if (!banner) return;
+
+  if (DATA_META.source === "fallback") {
+    banner.innerHTML = `⚠️ Using cached data — live update unavailable`;
+    banner.className = "data-banner warn";
+    banner.style.display = "flex";
+  } else if (DATA_META.generated) {
+    const d = new Date(DATA_META.generated);
+    const age = Math.floor((Date.now() - d.getTime()) / 3600000);
+    const ageStr = age < 1 ? "just now" : age === 1 ? "1 hour ago" : `${age} hours ago`;
+    banner.innerHTML = `✅ Live data · Updated ${ageStr} · ${DATA_META.fixture_count} fixtures · ${DATA_META.window_days}-day window`;
+    banner.className = "data-banner ok";
+    banner.style.display = "flex";
+    // Auto-hide after 5s
+    setTimeout(() => { if (banner) banner.style.display = "none"; }, 5000);
+  }
+}
+
+// ── Fallback hardcoded fixtures (last known good state) ───────────────────
+// These are used if the JSON fetch fails — keeps the app working offline
+const FALLBACK_FX = [
+  {id:1,comp:"UCL",round:"QF · 1st Leg",home:"Paris Saint-Germain",away:"Liverpool",hE:"🔵",aE:"🔴",ko:"2026-04-08T19:00:00Z",venue:"Parc des Princes, Paris",ukBlackout:false,
+   _broadcasters:[
+    {broadcaster:"TNT Sports",country:"United Kingdom",region:"🇬🇧 United Kingdom",channels:"TNT Sports 1",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:"2026-04-08T17:00:00Z"},
+    {broadcaster:"BBC Sport",country:"United Kingdom",region:"🇬🇧 United Kingdom",channels:"BBC One · BBC iPlayer",type:"free",icon:"📡",coverageType:"HIGHLIGHTS",coverageStart:null},
+    {broadcaster:"CBS Sports / Paramount+",country:"United States",region:"🇺🇸 United States",channels:"Paramount+",type:"stream",icon:"📱",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"Stan Sport",country:"Australia",region:"🇦🇺 Australia / New Zealand",channels:"Stan Sport",type:"stream",icon:"📱",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"beIN Sports",country:"Middle East & North Africa",region:"🌍 Middle East & North Africa",channels:"beIN Sports HD 1",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"SuperSport",country:"Sub-Saharan Africa",region:"🌍 Sub-Saharan Africa",channels:"SuperSport Football",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"Sony Sports / SonyLIV",country:"India / South Asia",region:"🇮🇳 India / South Asia",channels:"Sony Ten 2",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:null},
+  ]},
+  {id:2,comp:"UCL",round:"QF · 1st Leg",home:"Barcelona",away:"Atlético Madrid",hE:"🔵",aE:"🔴",ko:"2026-04-08T19:00:00Z",venue:"Spotify Camp Nou, Barcelona",ukBlackout:false,_broadcasters:[]},
+  {id:3,comp:"EPL",round:"Matchday 33",home:"Arsenal",away:"AFC Bournemouth",hE:"🔴",aE:"⚫",ko:"2026-04-11T11:30:00Z",venue:"Emirates Stadium, London",ukBlackout:false,
+   _broadcasters:[
+    {broadcaster:"TNT Sports",country:"United Kingdom",region:"🇬🇧 United Kingdom",channels:"TNT Sports 1 · TNT Sports Ultimate · HBO Max",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:"2026-04-11T09:00:00Z"},
+    {broadcaster:"BBC Sport",country:"United Kingdom",region:"🇬🇧 United Kingdom",channels:"BBC One · BBC iPlayer (Match of the Day)",type:"free",icon:"📡",coverageType:"HIGHLIGHTS",coverageStart:null},
+    {broadcaster:"NBC Sports / Peacock",country:"United States",region:"🇺🇸 United States",channels:"USA Network · Peacock",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"Stan Sport",country:"Australia",region:"🇦🇺 Australia / New Zealand",channels:"Stan Sport",type:"stream",icon:"📱",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"beIN Sports",country:"Middle East & North Africa",region:"🌍 Middle East & North Africa",channels:"beIN Sports HD 1",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"SuperSport",country:"Sub-Saharan Africa",region:"🌍 Sub-Saharan Africa",channels:"SuperSport Premier League (DStv #203)",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:null},
+  ]},
+  {id:4,comp:"EPL",round:"Matchday 33",home:"Brentford",away:"Everton",hE:"🟡",aE:"🔵",ko:"2026-04-11T14:00:00Z",venue:"Gtech Community Stadium, London",ukBlackout:true,
+   _broadcasters:[
+    {broadcaster:"Premier Sports",country:"Republic of Ireland",region:"🇮🇪 Republic of Ireland",channels:"Premier Sports 1",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"NBC Sports / Peacock",country:"United States",region:"🇺🇸 United States",channels:"Peacock",type:"stream",icon:"📱",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"Stan Sport",country:"Australia",region:"🇦🇺 Australia / New Zealand",channels:"Stan Sport",type:"stream",icon:"📱",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"beIN Sports",country:"Middle East & North Africa",region:"🌍 Middle East & North Africa",channels:"beIN Sports HD 2",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"SuperSport",country:"Sub-Saharan Africa",region:"🌍 Sub-Saharan Africa",channels:"SuperSport Premier League (DStv #203)",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"Sky Deutschland",country:"Germany",region:"🇪🇺 Europe",channels:"Sky Sport Premier League HD",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"DAZN",country:"Spain",region:"🇪🇺 Europe",channels:"DAZN España",type:"stream",icon:"📱",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"Canal+",country:"France",region:"🇪🇺 Europe",channels:"Canal+ Sport",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"Viaplay",country:"Norway",region:"🇪🇺 Europe",channels:"Viaplay Football",type:"stream",icon:"📱",coverageType:"LIVE",coverageStart:null},
+  ]},
+  {id:5,comp:"EPL",round:"Matchday 33",home:"Liverpool",away:"Fulham",hE:"🔴",aE:"⚪",ko:"2026-04-11T16:30:00Z",venue:"Anfield, Liverpool",ukBlackout:false,
+   _broadcasters:[
+    {broadcaster:"Sky Sports",country:"United Kingdom",region:"🇬🇧 United Kingdom",channels:"Sky Sports Main Event · Sky Sports Premier League · Sky Sports Ultra HDR",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:"2026-04-11T15:00:00Z"},
+    {broadcaster:"BBC Sport",country:"United Kingdom",region:"🇬🇧 United Kingdom",channels:"BBC One · BBC iPlayer (Match of the Day)",type:"free",icon:"📡",coverageType:"HIGHLIGHTS",coverageStart:null},
+    {broadcaster:"NBC Sports / Peacock",country:"United States",region:"🇺🇸 United States",channels:"NBC · Peacock",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"Stan Sport",country:"Australia",region:"🇦🇺 Australia / New Zealand",channels:"Stan Sport",type:"stream",icon:"📱",coverageType:"LIVE",coverageStart:null},
+    {broadcaster:"beIN Sports",country:"Middle East & North Africa",region:"🌍 Middle East & North Africa",channels:"beIN Sports HD 1",type:"tv",icon:"📺",coverageType:"LIVE",coverageStart:null},
+  ]},
+];
+
+const REGION_GROUPS = {
+  "🇬🇧 United Kingdom": ["United Kingdom"],
+  "🇮🇪 Republic of Ireland": ["Republic of Ireland"],
+  "🇪🇺 Europe": [
+    "Albania","Andorra","Armenia","Austria","Azerbaijan","Belarus","Belgium",
+    "Bosnia & Herzegovina","Bulgaria","Croatia","Cyprus","Czechia","Czech Republic",
+    "Denmark","Estonia","Finland","France","Georgia","Germany","Gibraltar","Greece",
+    "Hungary","Iceland","Israel","Italy","Kazakhstan","Kosovo","Latvia","Lithuania",
+    "Luxembourg","Malta","Moldova","Montenegro","Netherlands","North Macedonia",
+    "Norway","Poland","Portugal","Romania","Russia","Serbia","Slovakia","Slovenia",
+    "Spain","Sweden","Switzerland","Turkey","Ukraine"
+  ],
+  "🇺🇸 United States": ["United States"],
+  "🇨🇦 Canada": ["Canada"],
+  "🌎 Americas": [
+    "Brazil","Argentina","Mexico","Central America","South America","Caribbean",
+    "Dominican Republic","Haiti","Suriname","Saint Lucia","Colombia","Chile","Peru"
+  ],
+  "🌍 Middle East & North Africa": ["Middle East & North Africa"],
+  "🌍 Sub-Saharan Africa": ["Sub-Saharan Africa","Cameroon","Ivory Coast","Mauritius","Nigeria","South Africa"],
+  "🇮🇳 India / South Asia": ["India / South Asia","Bangladesh","Pakistan"],
+  "🌏 Asia": [
+    "China","Chinese Taipei","Hong Kong","Indonesia","Japan","Malaysia","Singapore",
+    "Philippines","Thailand","South Korea","Taiwan","Vietnam","Brunei","Cambodia",
+    "Laos","Timor-Leste","Myanmar","Mongolia","Macau","Uzbekistan","Kazakhstan"
+  ],
+  "🇦🇺 Australia / New Zealand": ["Australia","New Zealand"],
+  "🌏 Pacific Islands": ["Pacific Islands"],
+  "✈️ In-flight / Ships": ["In-flight / Ships"],
+};
+
+const REGION_ORDER = [
+  "🇬🇧 United Kingdom","🇮🇪 Republic of Ireland","🇪🇺 Europe",
+  "🇺🇸 United States","🇨🇦 Canada","🌎 Americas",
+  "🌍 Middle East & North Africa","🌍 Sub-Saharan Africa",
+  "🇮🇳 India / South Asia","🌏 Asia",
+  "🇦🇺 Australia / New Zealand","🌏 Pacific Islands","✈️ In-flight / Ships"
+];
+
+function getRegionFor(country){
+  for(const[region,countries] of Object.entries(REGION_GROUPS)){
+    if(countries.includes(country)) return region;
+  }
+  return "🌐 "+country;
+}
+
+// ═══════════════════════════════════════════════════
+// PER-MATCH CHANNEL OVERRIDES
+// Keyed by: fixture id → country → broadcaster → {channels, coverageStart}
+// This ensures Amazon Prime Video, DAZN etc. always show THEIR OWN channel/service
+// name, not the channel number of a co-broadcaster in the same country.
+// Source: tvguide.co.uk, ESPN, Sports Mole, Liverpool FC, CBS Sports
+// ═══════════════════════════════════════════════════
+
+// Streaming services that have no sub-channels — always display their own name
+const STREAMING_SERVICES = new Set([
+  "Amazon Prime Video","Paramount+","DAZN","DAZN USA","Stan Sport","Fubo",
+  "discovery+","Peacock","HBO Max","Max","iQIYI","SonyLIV","JioStar / StarSports",
+  "Megogo","Viaplay","Go3","Pro Plus","TV Nova","Okko","Coupang","U-Next","U-NEXT",
+  "VTVcab","Viettel","FPT Play / Jasmine","PCCW / Now TV","Lemino","Tapmad",
+  "Blue Sport","DAZN Canada","DAZN NZ","DAZN Portugal","DAZN Luxembourg",
+  "Flow Sports / SportsMax","ESPN","ESPN (stream)","beIN Connect",
+]);
+
+// Returns the correct channel string for a broadcaster entry.
+// Streaming services always show their own broadcaster name.
+// TV channels show the specific channel override if available, otherwise their default.
+function resolveChannel(broadcaster, country, defaultCh, type, matchOverrides) {
+  // Streaming services: always show their own name, never a TV channel number
+  if (type === "stream" || STREAMING_SERVICES.has(broadcaster)) {
+    return broadcaster;
+  }
+  // For TV / free broadcasters: use match-specific override if one exists for
+  // this exact broadcaster in this country, otherwise use default
+  const countryOverrides = matchOverrides[country];
+  if (countryOverrides && countryOverrides[broadcaster]) {
+    return countryOverrides[broadcaster].channels;
+  }
+  return defaultCh;
+}
+
+function resolveCoverageStart(broadcaster, country, type, matchOverrides) {
+  if (type === "stream" || STREAMING_SERVICES.has(broadcaster)) return null;
+  const countryOverrides = matchOverrides[country];
+  if (countryOverrides && countryOverrides[broadcaster]) {
+    return countryOverrides[broadcaster].coverageStart || null;
+  }
+  return null;
+}
+
+// Override structure: { country: { broadcaster: { channels, coverageStart? } } }
+const MATCH_CHANNELS = {
+  // PSG vs Liverpool — QF 1st Leg Apr 8 (TODAY)
+  1: {
+    "United Kingdom": {
+      "TNT Sports":          {channels:"TNT Sports 1", coverageStart:"18:00"},
+      "BBC Sport":           {channels:"BBC One / BBC iPlayer"},
+    },
+    "Republic of Ireland": {
+      "RTÉ":                 {channels:"RTÉ Two"},
+      "Premier Sports":      {channels:"Premier Sports 1"},
+      "Virgin Media":        {channels:"Virgin Media Two"},
+    },
+    "Germany": {
+      "DAZN":                {channels:"DAZN 1"},
+      "ZDF":                 {channels:"ZDF"},
+    },
+    "France": {
+      "Canal+":              {channels:"Canal+ Sport"},
+      "M6":                  {channels:"M6"},
+    },
+    "Spain": {
+      "Movistar Plus+":      {channels:"Movistar Liga de Campeones 1"},
+    },
+    "Italy": {
+      "Sky Italia":          {channels:"Sky Sport Uno"},
+    },
+    "Netherlands": {
+      "Ziggo Sport":         {channels:"Ziggo Sport Voetbal"},
+    },
+    "Portugal": {
+      "Sport TV":            {channels:"Sport TV1"},
+    },
+    "Norway": {
+      "TV2 Norway":          {channels:"TV2 Sport Premium"},
+    },
+    "Sweden": {
+      "Viaplay":             {channels:"Viaplay Football"},
+    },
+    "Denmark": {
+      "Viaplay":             {channels:"Viaplay Football"},
+    },
+    "Poland": {
+      "Canal+":              {channels:"Canal+ Sport PL"},
+    },
+    "Turkey": {
+      "TRT":                 {channels:"TRT Spor"},
+    },
+    "South Korea": {
+      "SPOTV":               {channels:"SPOTV"},
+    },
+    "Middle East & North Africa": {
+      "beIN Sports":         {channels:"beIN Sports HD 1"},
+    },
+    "Sub-Saharan Africa": {
+      "SuperSport":          {channels:"SuperSport Football"},
+      "Canal+ Afrique":      {channels:"Canal+ Sport Afrique"},
+    },
+    "India / South Asia": {
+      "Sony Sports / SonyLIV": {channels:"Sony Ten 2"},
+    },
+    "Japan": {
+      "WOWOW":               {channels:"WOWOW Prime"},
+    },
+    "Brazil": {
+      "TNT Sports":          {channels:"TNT Sports BR"},
+      "SBT":                 {channels:"SBT"},
+    },
+    "United States": {
+      "CBS Sports":          {channels:"CBS Sports Network"},
+      "TUDN / TelevisaUnivision": {channels:"TUDN"},
+    },
+  },
+
+  // Barcelona vs Atlético — QF 1st Leg Apr 8
+  2: {
+    "United Kingdom": {
+      "TNT Sports":          {channels:"TNT Sports 2", coverageStart:"18:00"},
+      "BBC Sport":           {channels:"BBC iPlayer"},
+    },
+    "Spain": {
+      "Movistar Plus+":      {channels:"Movistar Liga de Campeones 2"},
+    },
+    "Germany": {
+      "DAZN":                {channels:"DAZN 2"},
+    },
+    "France": {
+      "Canal+":              {channels:"Canal+ Sport 2"},
+    },
+    "Italy": {
+      "Sky Italia":          {channels:"Sky Sport Football"},
+    },
+    "Middle East & North Africa": {
+      "beIN Sports":         {channels:"beIN Sports HD 2"},
+    },
+    "Sub-Saharan Africa": {
+      "SuperSport":          {channels:"SuperSport Football"},
+    },
+    "United States": {
+      "CBS Sports":          {channels:"CBS Sports Network"},
+      "TUDN / TelevisaUnivision": {channels:"TUDN"},
+    },
+  },
+
+  // Sporting CP vs Arsenal — QF 1st Leg Apr 7
+  3: {
+    "United Kingdom": {
+      "TNT Sports":          {channels:"TNT Sports 1"},
+      "BBC Sport":           {channels:"BBC iPlayer"},
+    },
+    "Portugal": {
+      "Sport TV":            {channels:"Sport TV1"},
+    },
+    "Germany": {
+      "DAZN":                {channels:"DAZN 1"},
+    },
+    "Middle East & North Africa": {
+      "beIN Sports":         {channels:"beIN Sports HD 2"},
+    },
+    "United States": {
+      "CBS Sports":          {channels:"Paramount+ / CBS Sports"},
+    },
+  },
+
+  // Real Madrid vs Bayern Munich — QF 1st Leg Apr 7
+  4: {
+    "United Kingdom": {
+      "TNT Sports":          {channels:"TNT Sports 2"},
+      "BBC Sport":           {channels:"BBC iPlayer"},
+    },
+    "Spain": {
+      "Movistar Plus+":      {channels:"Movistar Liga de Campeones 1"},
+    },
+    "Germany": {
+      "DAZN":                {channels:"DAZN 1"},
+      "ZDF":                 {channels:"ZDF"},
+    },
+    "France": {
+      "Canal+":              {channels:"Canal+ Sport"},
+    },
+    "Middle East & North Africa": {
+      "beIN Sports":         {channels:"beIN Sports HD 1"},
+    },
+    "United States": {
+      "CBS Sports":          {channels:"CBS Sports Network"},
+    },
+  },
+
+  // Liverpool vs PSG — QF 2nd Leg Apr 14
+  6: {
+    "United Kingdom": {
+      "TNT Sports":          {channels:"TNT Sports 1", coverageStart:"18:00"},
+      "BBC Sport":           {channels:"BBC One / BBC iPlayer"},
+    },
+    "Republic of Ireland": {
+      "RTÉ":                 {channels:"RTÉ Two"},
+      "Premier Sports":      {channels:"Premier Sports 1"},
+      "Virgin Media":        {channels:"Virgin Media Two"},
+    },
+    "France": {
+      "Canal+":              {channels:"Canal+ Sport"},
+    },
+    "Germany": {
+      "DAZN":                {channels:"DAZN 1"},
+    },
+    "Spain": {
+      "Movistar Plus+":      {channels:"Movistar Liga de Campeones 1"},
+    },
+    "Italy": {
+      "Sky Italia":          {channels:"Sky Sport Uno"},
+    },
+    "Netherlands": {
+      "Ziggo Sport":         {channels:"Ziggo Sport Voetbal"},
+    },
+    "Portugal": {
+      "Sport TV":            {channels:"Sport TV1"},
+    },
+    "Norway": {
+      "TV2 Norway":          {channels:"TV2 Sport Premium"},
+    },
+    "Sweden": {
+      "Viaplay":             {channels:"Viaplay Football"},
+    },
+    "South Korea": {
+      "SPOTV":               {channels:"SPOTV"},
+    },
+    "Middle East & North Africa": {
+      "beIN Sports":         {channels:"beIN Sports HD 1"},
+    },
+    "Sub-Saharan Africa": {
+      "SuperSport":          {channels:"SuperSport Football"},
+    },
+    "India / South Asia": {
+      "Sony Sports / SonyLIV": {channels:"Sony Ten 2"},
+    },
+    "Japan": {
+      "WOWOW":               {channels:"WOWOW Prime"},
+    },
+    "Brazil": {
+      "TNT Sports":          {channels:"TNT Sports BR"},
+    },
+    "United States": {
+      "CBS Sports":          {channels:"CBS Sports Network"},
+      "TUDN / TelevisaUnivision": {channels:"TUDN"},
+    },
+  },
+
+  // Atlético vs Barcelona — QF 2nd Leg Apr 14
+  5: {
+    "United Kingdom": {
+      "TNT Sports":          {channels:"TNT Sports 2"},
+      "BBC Sport":           {channels:"BBC iPlayer"},
+    },
+    "Spain": {
+      "Movistar Plus+":      {channels:"Movistar Liga de Campeones 1"},
+    },
+    "United States": {
+      "CBS Sports":          {channels:"CBS Sports Network"},
+    },
+  },
+
+  // Arsenal vs Sporting CP — QF 2nd Leg Apr 15
+  7: {
+    "United Kingdom": {
+      "TNT Sports":          {channels:"TNT Sports 1"},
+      "BBC Sport":           {channels:"BBC iPlayer"},
+    },
+    "Portugal": {
+      "Sport TV":            {channels:"Sport TV1"},
+    },
+    "United States": {
+      "CBS Sports":          {channels:"CBS Sports Network"},
+    },
+  },
+
+  // Bayern vs Real Madrid — QF 2nd Leg Apr 15
+  8: {
+    "United Kingdom": {
+      "TNT Sports":          {channels:"TNT Sports 2"},
+      "BBC Sport":           {channels:"BBC iPlayer"},
+    },
+    "Germany": {
+      "DAZN":                {channels:"DAZN 1"},
+      "ZDF":                 {channels:"ZDF"},
+    },
+    "Spain": {
+      "Movistar Plus+":      {channels:"Movistar Liga de Campeones 1"},
+    },
+    "United States": {
+      "CBS Sports":          {channels:"CBS Sports Network"},
+    },
+  },
+};
+
+// EPL match channel overrides — from tvguide.co.uk
+// Structure: { country: { broadcaster: { channels, coverageStart? } } }
+
+// ═══════════════════════════════════════════════════
+// APP STATE & HELPERS
+// ═══════════════════════════════════════════════════
+const PNL={search:"panel-search",confirm:"panel-confirm",broadcast:"panel-broadcast"};
+function showPanel(n){Object.values(PNL).forEach(id=>document.getElementById(id).classList.remove("active"));document.getElementById(PNL[n]).classList.add("active")}
+function setStep(n){for(let i=1;i<=3;i++){const s=document.getElementById("s"+i),sn=document.getElementById("sn"+i);s.classList.remove("active","done");if(i<n){s.classList.add("done");sn.textContent="✓"}else if(i===n){s.classList.add("active");sn.textContent=i}else sn.textContent=i;if(i<=2)document.getElementById("l"+i).classList.toggle("done",i<n);}}
+function bcCard(e,f){
+  const coverageTag=e.hlOnly
+    ?`<span class="b-tag tag-hl">📋 Highlights</span>`
+    :`<span class="b-tag tag-live">🔴 Live</span>`;
+  const typeTag=e.type==="free"
+    ?`<span class="b-tag tag-free">Free</span>`
+    :e.type==="stream"
+    ?`<span class="b-tag tag-stream">Stream</span>`
+    :`<span class="b-tag tag-tv">TV</span>`;
+
+  let timeStr="";
+  if(e.coverageStart&&!e.hlOnly){
+    // Convert BST coverage start to user timezone
+    const coverUtc=bstToUtc(f.ko,e.coverageStart);
+    timeStr=`<div class="b-time">📺 Coverage ${fmtTime(coverUtc)} ${tzAbbr()} · ⚽ KO ${fmtTime(f.ko)} ${tzAbbr()}</div>`;
+  } else if(!e.hlOnly){
+    timeStr=`<div class="b-time">⚽ KO ${fmtTime(f.ko)} ${tzAbbr()}</div>`;
+  }
+
+  return `<div class="bc-card ${e.type}">
+    <div class="b-ico ${e.type}">${e.icon}</div>
+    <div class="b-body">
+      <div class="b-name">${e.broadcaster}</div>
+      <div class="b-country">${e.country}</div>
+      <div class="b-channel">${e.channels}</div>
+      <div class="b-tags">${coverageTag}${typeTag}</div>
+      ${timeStr}
+    </div>
+  </div>`;
+}
+
+
+// ═══════════════════════════════════════════════════
+// RENDER BROADCASTER LIST — reads from fx._broadcasters (live JSON)
+// ═══════════════════════════════════════════════════
+
+function renderBcast(f, mode) {
+  const listEl = document.getElementById("bcastList");
+  const covBar = document.getElementById("covBarEl");
+  const noteEl = document.getElementById("srcNote");
+  const isUCL = f.comp === "UCL";
+
+  // Get broadcasters from the live JSON data attached to the fixture
+  const allBroadcasters = f._broadcasters || [];
+
+  if (!allBroadcasters.length) {
+    listEl.innerHTML = `<div class="empty-state"><div class="empty-icon">📡</div><div class="empty-title">Broadcast data not yet confirmed</div><div class="empty-sub">Check back closer to the match date — broadcaster listings are usually confirmed 5–7 days ahead.</div></div>`;
+    covBar.style.display = "none";
+    noteEl.style.display = "none";
+    return;
+  }
+
+  // Coverage count
+  const territories = new Set(allBroadcasters.map(b => b.country)).size;
+  covBar.style.display = "flex";
+  document.getElementById("covCount").textContent = territories;
+  const blackoutNote = (!isUCL && f.ukBlackout)
+    ? ` <strong style="color:var(--danger)">⚠️ UK 3pm Saturday blackout — this match cannot be broadcast live in the UK. Overseas broadcasters listed below.</strong>`
+    : "";
+  document.getElementById("covSub").textContent =
+    `territories with confirmed broadcast listings for ${isUCL ? "UEFA Champions League 2025–27" : "Premier League 2025–28"}${(!isUCL && f.ukBlackout) ? " (UK blackout — overseas only)" : ""}`;
+
+  // Source note
+  noteEl.style.display = "flex";
+  const dataAge = DATA_META.generated && DATA_META.generated !== "fallback"
+    ? `Last updated: <strong>${new Date(DATA_META.generated).toLocaleDateString("en-GB", {day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}</strong>.`
+    : "Using cached data.";
+  document.getElementById("srcText").innerHTML =
+    `<strong>Sources:</strong> live-footballontv.com · tvguide.co.uk · NBC Sports · UEFA.com · Your broadcast rights database. ${dataAge} Kick-off: <strong>${fmtTime(f.ko)} ${tzAbbr()}</strong>.${blackoutNote}`;
+
+  let html = "";
+
+  if (mode === "region") {
+    // Group by region using the region field from JSON
+    const grouped = {};
+    allBroadcasters.forEach(b => {
+      const r = b.region || getRegionFor(b.country);
+      if (!grouped[r]) grouped[r] = [];
+      grouped[r].push(b);
+    });
+    const keys = Object.keys(grouped).sort((a, b2) => {
+      const ai = REGION_ORDER.indexOf(a), bi = REGION_ORDER.indexOf(b2);
+      return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+    });
+    keys.forEach((region, ri) => {
+      html += `<div class="rg" style="animation-delay:${ri * .05}s">
+        <div class="rg-label">${region}</div>
+        <div class="bc-grid">${grouped[region].map(b => bcCardFromJson(b, f)).join("")}
+        </div></div>`;
+    });
+
+  } else if (mode === "broadcaster") {
+    const sorted = [...allBroadcasters].sort((a, b2) =>
+      a.broadcaster.localeCompare(b2.broadcaster));
+    const letters = {};
+    sorted.forEach(b => {
+      const l = b.broadcaster[0].toUpperCase();
+      if (!letters[l]) letters[l] = [];
+      letters[l].push(b);
+    });
+    Object.keys(letters).sort().forEach((lt, li) => {
+      html += `<div class="rg" style="animation-delay:${li * .04}s">
+        <div class="rg-label">${lt}</div>
+        <div class="bc-grid">${letters[lt].map(b => bcCardFromJson(b, f)).join("")}
+        </div></div>`;
+    });
+
+  } else { // country A-Z
+    const sorted = [...allBroadcasters].sort((a, b2) =>
+      a.country.localeCompare(b2.country));
+    const countries = {};
+    sorted.forEach(b => {
+      if (!countries[b.country]) countries[b.country] = [];
+      countries[b.country].push(b);
+    });
+    Object.keys(countries).sort().forEach((c, ci) => {
+      html += `<div class="rg" style="animation-delay:${ci * .03}s">
+        <div class="rg-label">${c}</div>
+        <div class="bc-grid">${countries[c].map(b => bcCardFromJson(b, f)).join("")}
+        </div></div>`;
+    });
+  }
+
+  listEl.innerHTML = html || `<div class="empty-state"><div class="empty-icon">📡</div><div class="empty-title">No broadcaster data</div></div>`;
+}
+
+// Render a broadcaster card from a JSON broadcaster object
+function bcCardFromJson(b, f) {
+  const isHL = b.coverageType === "HIGHLIGHTS";
+  const isDelay = b.coverageType === "DELAYED";
+  const coverageTag = isHL
+    ? `<span class="b-tag tag-hl">📋 Highlights</span>`
+    : isDelay
+    ? `<span class="b-tag tag-delay">⏱ Delayed</span>`
+    : `<span class="b-tag tag-live">🔴 Live</span>`;
+
+  const typeTag = b.type === "free"
+    ? `<span class="b-tag tag-free">Free</span>`
+    : b.type === "stream"
+    ? `<span class="b-tag tag-stream">Stream</span>`
+    : `<span class="b-tag tag-tv">TV</span>`;
+
+  let timeStr = "";
+  if (!isHL && b.coverageStart) {
+    timeStr = `<div class="b-time">📺 Coverage ${fmtTime(b.coverageStart)} ${tzAbbr()} · ⚽ KO ${fmtTime(f.ko)} ${tzAbbr()}</div>`;
+  } else if (!isHL) {
+    timeStr = `<div class="b-time">⚽ KO ${fmtTime(f.ko)} ${tzAbbr()}</div>`;
+  }
+
+  return `<div class="bc-card ${b.type}">
+    <div class="b-ico ${b.type}">${b.icon || "📺"}</div>
+    <div class="b-body">
+      <div class="b-name">${b.broadcaster}</div>
+      <div class="b-country">${b.country}</div>
+      <div class="b-channel">${b.channels || b.broadcaster}</div>
+      <div class="b-tags">${coverageTag}${typeTag}</div>
+      ${timeStr}
+    </div>
+  </div>`;
+}
+
+// ═══════════════════════════════════════════════════
+// UPDATED FIXTURE LIST RENDER — works with new FX format
+// ═══════════════════════════════════════════════════
+
+function renderFxList(fixtures) {
+  const el = document.getElementById("searchResults");
+  if (!fixtures.length) {
+    el.innerHTML = `<div class="empty-state"><div class="empty-icon">🔍</div><div class="empty-title">No fixtures found</div><div class="empty-sub">Try "Liverpool", "Arsenal", "UCL" or "Premier League"</div></div>`;
+    return;
+  }
+  const byD = {};
+  fixtures.forEach(f => {
+    const d = fmtDate(f.ko);
+    if (!byD[d]) byD[d] = [];
+    byD[d].push(f);
+  });
+  let html = "", delay = 0;
+  for (const [date, matches] of Object.entries(byD)) {
+    html += `<div class="date-lbl">${date}</div>`;
+    matches.forEach(f => {
+      const blackoutBadge = f.ukBlackout
+        ? `<span style="font-size:10px;color:var(--danger);font-family:'DM Mono',monospace;margin-left:4px">🚫 UK</span>`
+        : "";
+      html += `<div class="result-item" style="animation-delay:${delay * .05}s" onclick="selectFx(${f.id})">
+        <div style="font-size:22px">${f.hE}</div>
+        <div style="flex:1">
+          <div class="res-match">${f.home} vs ${f.away}${blackoutBadge}</div>
+          <div class="res-meta">${fmtTime(f.ko)} ${tzAbbr()} · ${f.venue ? f.venue.split(",")[0] : f.round}</div>
+        </div>
+        <div class="comp-badge badge-${f.comp.toLowerCase()}">${f.comp === "UCL" ? "🏆 UCL" : "🏴󠁧󠁢󠁥󠁮󠁧󠁿 EPL"}</div>
+        <div class="res-arrow">›</div>
+      </div>`;
+      delay++;
+    });
+  }
+  el.innerHTML = html;
+}
+
+// ═══════════════════════════════════════════════════
+// UPDATED selectFx — works with new format
+// ═══════════════════════════════════════════════════
+
+function selectFx(id) {
+  currentFx = FX.find(f => f.id === id);
+  if (!currentFx) return;
+  const f = currentFx, isU = f.comp === "UCL";
+  document.getElementById("confHdr").className = "conf-hdr" + (isU ? " ucl" : "");
+  document.getElementById("confBgEmoji").textContent = isU ? "🏆" : "⚽";
+  document.getElementById("confBadge").innerHTML =
+    `<span class="comp-badge badge-${f.comp.toLowerCase()}">${isU ? "🏆 UEFA Champions League" : "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Premier League"}</span>`;
+  document.getElementById("cHomeC").textContent = f.hE;
+  document.getElementById("cAwayC").textContent = f.aE;
+  document.getElementById("cHomeName").textContent = f.home;
+  document.getElementById("cAwayName").textContent = f.away;
+  document.getElementById("cDate").textContent = fmtDate(f.ko);
+  document.getElementById("cTime").textContent = `${fmtTime(f.ko)} ${tzAbbr()} (kick-off)`;
+  document.getElementById("cRound").textContent = f.round;
+  showPanel("confirm"); setStep(2);
+}
+
+// ── Broadcaster screen ──────────────────────────────────────────────────
+async function showBroadcasters() {
+  if (!currentFx) return;
+  showPanel("broadcast"); setStep(3);
+  const f = currentFx;
+  document.getElementById("pillMatch").textContent = `${f.home} vs ${f.away}`;
+  document.getElementById("bcastSub").textContent =
+    `${fmtDate(f.ko)} · Kick-off ${fmtTime(f.ko)} ${tzAbbr()} · ${f.round}`;
+  const ld = document.getElementById("ldBcast");
+  ld.classList.add("active");
+  document.getElementById("bcastList").innerHTML = "";
+  document.getElementById("covBarEl").style.display = "none";
+  await new Promise(r => setTimeout(r, 600));
+  ld.classList.remove("active");
+  renderBcast(f, sortMode);
+}
+
+function setSortMode(m, el) {
+  sortMode = m;
+  document.querySelectorAll(".sort-btn").forEach(b => b.classList.remove("active"));
+  el.classList.add("active");
+  if (currentFx) renderBcast(currentFx, m);
+}
+
+function getFx() { return FX.filter(f => curFilter === "all" || f.comp === curFilter); }
+
+function filterTab(c, el) {
+  curFilter = c;
+  document.querySelectorAll(".ftab").forEach(t => t.classList.remove("active"));
+  el.classList.add("active");
+  renderFxList(getFx());
+}
+
+function doSearch() {
+  const q = document.getElementById("searchInput").value.trim();
+  if (!q) { document.getElementById("errMsg").classList.add("active"); return; }
+  document.getElementById("errMsg").classList.remove("active");
+  const ql = q.toLowerCase();
+  const res = FX.filter(f =>
+    f.home.toLowerCase().includes(ql) ||
+    f.away.toLowerCase().includes(ql) ||
+    f.comp.toLowerCase().includes(ql) ||
+    f.round.toLowerCase().includes(ql) ||
+    (ql.includes("ucl") || ql.includes("champions")) && f.comp === "UCL" ||
+    (ql.includes("epl") || ql.includes("premier")) && f.comp === "EPL"
+  );
+  const ld = document.getElementById("ldSearch");
+  ld.classList.add("active");
+  document.getElementById("searchResults").innerHTML = "";
+  setTimeout(() => {
+    ld.classList.remove("active");
+    renderFxList(res.length ? res : getFx());
+  }, 400);
+}
+
+function goBack() { showPanel("confirm"); setStep(2); }
+
+function resetAll() {
+  currentFx = null; curFilter = "all"; sortMode = "region";
+  document.getElementById("searchInput").value = "";
+  document.getElementById("errMsg").classList.remove("active");
+  document.querySelectorAll(".ftab").forEach((t, i) => t.classList.toggle("active", i === 0));
+  document.querySelectorAll(".sort-btn").forEach((b, i) => b.classList.toggle("active", i === 0));
+  renderFxList(getFx());
+  showPanel("search"); setStep(1);
+}
+
+document.getElementById("searchInput").addEventListener("keydown", e => {
+  if (e.key === "Enter") doSearch();
+});
+
+// ── Init ──────────────────────────────────────────────────────────────────
+function initApp() {
+  buildTzSel();
+  renderFxList(FX);
+  showDataBanner();
+}
+
+// Start: load fixtures from JSON, fall back to hardcoded if needed
+loadFixtures();
+
+</script>
+</body>
+</html>

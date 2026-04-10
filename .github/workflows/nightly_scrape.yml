@@ -1,0 +1,119 @@
+name: Nightly TVsport Data Scrape
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: pip install -r scraper/requirements.txt
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Cache iptv-org/epg tool
+        uses: actions/cache@v4
+        id: epg-cache
+        with:
+          path: scraper/sources/epg/epg_tool
+          key: iptv-org-epg-${{ hashFiles('scraper/sources/epg/epg_channels.xml') }}
+          restore-keys: iptv-org-epg-
+
+      - name: Clone iptv-org/epg (if not cached)
+        if: steps.epg-cache.outputs.cache-hit != 'true'
+        run: |
+          git clone --depth 1 https://github.com/iptv-org/epg.git \
+            scraper/sources/epg/epg_tool
+          cd scraper/sources/epg/epg_tool && npm install
+          echo "iptv-org/epg ready"
+
+      - name: Update iptv-org/epg (if cached)
+        if: steps.epg-cache.outputs.cache-hit == 'true'
+        run: |
+          cd scraper/sources/epg/epg_tool
+          git pull --depth 1 origin master || true
+          npm install --prefer-offline
+
+      - name: Run TVsport scraper
+        run: |
+          cd scraper
+          python merger.py
+        env:
+          PYTHONPATH: .
+          EPG_TOOL_DIR: sources/epg/epg_tool
+
+      - name: Validate fixtures.json
+        run: |
+          python -c "
+          import json, sys
+          data = json.load(open('output/fixtures.json'))
+          count = data['fixture_count']
+          epl = sum(1 for fx in data['fixtures'] if fx['competition']=='EPL')
+          ucl = sum(1 for fx in data['fixtures'] if fx['competition']=='UCL')
+          blackout = sum(1 for fx in data['fixtures'] if fx.get('uk_blackout'))
+          avg_bc = sum(len(fx['broadcasters']) for fx in data['fixtures']) / max(count,1)
+          print(f'Fixtures: {count} ({epl} EPL, {ucl} UCL, {blackout} blackouts)')
+          print(f'Avg broadcasters/fixture: {avg_bc:.0f}')
+          if count == 0:
+              print('ERROR: Zero fixtures'); sys.exit(1)
+          if avg_bc < 5:
+              print('WARNING: Low broadcaster count — EPG may have failed')
+          "
+
+      - name: Commit updated fixtures.json
+        run: |
+          git config user.name "TVsport Bot"
+          git config user.email "tvsport-bot@noreply.github.com"
+          git add output/fixtures.json
+          if git diff --staged --quiet; then
+            echo "No changes"
+          else
+            COUNT=$(python -c "import json; print(json.load(open('output/fixtures.json'))['fixture_count'])")
+            STAMP=$(date -u '+%Y-%m-%d %H:%M UTC')
+            git commit -m "chore: nightly update — ${COUNT} fixtures (${STAMP})"
+            git push
+          fi
+
+      - name: Job summary
+        if: always()
+        run: |
+          python -c "
+          import json
+          try:
+              data = json.load(open('output/fixtures.json'))
+              fx = data['fixtures']
+              epl = sum(1 for f in fx if f['competition']=='EPL')
+              ucl = sum(1 for f in fx if f['competition']=='UCL')
+              blackout = sum(1 for f in fx if f.get('uk_blackout'))
+              avg_bc = sum(len(f['broadcasters']) for f in fx) / max(len(fx),1)
+              print('## TVsport Nightly Scrape\n')
+              print('| Metric | Value |')
+              print('|--------|-------|')
+              print(f'| Generated | {data[\"generated\"]} |')
+              print(f'| Total fixtures | {data[\"fixture_count\"]} |')
+              print(f'| EPL | {epl} |')
+              print(f'| UCL | {ucl} |')
+              print(f'| UK Blackouts | {blackout} |')
+              print(f'| Avg broadcasters | {avg_bc:.0f} |')
+          except Exception as e:
+              print(f'Summary error: {e}')
+          " >> $GITHUB_STEP_SUMMARY
