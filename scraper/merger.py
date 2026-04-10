@@ -33,7 +33,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from rights_db import get_rights, get_meta, is_streaming_service
 from sources.fixtures_premierleague import get_all_fixtures as get_epl_fixtures
 from sources.fixtures_uefa import get_ucl_fixtures
-from sources.epg.epg_xmltv_parser import scrape_all_epg
+from sources.epg.epg_xmltv_parser import parse_guide
 from sources.uk_live_footballontv import scrape_all as scrape_uk_html
 from sources.uk_tvguide import scrape as scrape_tvguide
 from sources.us_nbcsports import scrape_epl as scrape_us_epl, scrape_ucl as scrape_us_ucl
@@ -140,7 +140,7 @@ def run(output_path=None):
 
     # Layer 2: EPG (primary)
     logger.info("Layer 2: EPG sources...")
-    epg_data = scrape_all_epg(EPG_RELIABLE_DAYS)
+    epg_data = parse_guide("guide.xml", days_ahead=EPG_RELIABLE_DAYS)
     logger.info(f"  EPG fixtures with channel data: {len(epg_data)}")
 
     # Layer 3: HTML scrapers (supplement)
