@@ -1,3 +1,4 @@
+# TVsport scraper v2
 """
 merger.py  (v2 — EPG-first architecture)
 ==========================================
