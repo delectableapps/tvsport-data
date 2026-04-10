@@ -33,7 +33,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from rights_db import get_rights, get_meta, is_streaming_service
 from sources.fixtures_premierleague import get_all_fixtures as get_epl_fixtures
 from sources.fixtures_uefa import get_ucl_fixtures
-from sources.epg_xmltv import scrape_all_epg
+from sources.epg.epg_xmltv_parser import scrape_all_epg
 from sources.uk_live_footballontv import scrape_all as scrape_uk_html
 from sources.uk_tvguide import scrape as scrape_tvguide
 from sources.us_nbcsports import scrape_epl as scrape_us_epl, scrape_ucl as scrape_us_ucl
