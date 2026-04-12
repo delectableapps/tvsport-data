@@ -13,14 +13,14 @@ from bs4 import BeautifulSoup
 log = logging.getLogger(__name__)
 
 SPFL_LEAGUE_IDS = {
-    "SPL":  "4335",   # Scottish Premiership
-    "SCH":  "4336",   # Scottish Championship
-    "SL1":  "4337",   # Scottish League One
-    "SL2":  "4338",   # Scottish League Two
+    "SPL":  "4330",   # Scottish Premiership  (confirmed: thesportsdb.com/league/4330)
+    "SCH":  "4409",   # Scottish Championship (confirmed: thesportsdb.com/league/4409)
+    "SL1":  "4668",   # Scottish League One   (confirmed: thesportsdb.com/league/4668)
+    "SL2":  "4670",   # Scottish League Two   (confirmed: thesportsdb.com/league/4670)
 }
 
 # Scottish Cup uses a different endpoint (cup competition)
-SCUP_ID = "4339"
+SCUP_ID = "4571"  # Scottish Cup (thesportsdb.com/league/4571)
 
 SEASON = "2025-2026"
 SPORTSDB_API = "https://www.thesportsdb.com/api/v1/json/3"

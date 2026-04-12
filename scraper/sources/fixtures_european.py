@@ -12,20 +12,20 @@ from bs4 import BeautifulSoup
 
 log = logging.getLogger(__name__)
 
-# thesportsdb league IDs
+# thesportsdb league IDs — all confirmed from thesportsdb.com URLs
 EUROPEAN_LEAGUES = {
     "LALIGA":     {"id": "4335", "name": "La Liga",       "country": "Spain"},
     "BUNDESLIGA": {"id": "4331", "name": "Bundesliga",    "country": "Germany"},
     "SERIEA":     {"id": "4332", "name": "Serie A",       "country": "Italy"},
-    "SERIEB":     {"id": "4397", "name": "Serie B",       "country": "Italy"},
+    "SERIEB":     {"id": "4399", "name": "Serie B",       "country": "Italy"},
     "LIGUE1":     {"id": "4334", "name": "Ligue 1",       "country": "France"},
     "EREDIVISIE": {"id": "4337", "name": "Eredivisie",    "country": "Netherlands"},
     "PRIMEIRA":   {"id": "4344", "name": "Primeira Liga", "country": "Portugal"},
 }
 
-# Fallback official site URLs
+# Fallback official site URLs — using more stable endpoints
 OFFICIAL_URLS = {
-    "LALIGA":     "https://www.laliga.com/en-GB/laliga-easports/fixtures",
+    "LALIGA":     "https://www.laliga.com/en-GB/laliga-easports/calendar",
     "BUNDESLIGA": "https://www.bundesliga.com/en/bundesliga/schedule",
     "SERIEA":     "https://www.legaseriea.it/en/serie-a/calendar-and-results",
     "LIGUE1":     "https://www.ligue1.com/calendar-results",

@@ -12,12 +12,12 @@ from bs4 import BeautifulSoup
 
 log = logging.getLogger(__name__)
 
-# thesportsdb.com league IDs
+# thesportsdb.com league IDs — verified from thesportsdb.com URLs
 EFL_LEAGUE_IDS = {
-    "EFL-CH": "4331",   # English Championship
-    "EFL-L1": "4332",   # English League One
-    "EFL-L2": "4333",   # English League Two
-    "NAT":    "4334",   # National League
+    "EFL-CH": "4329",   # English Championship  (confirmed: thesportsdb.com/league/4329)
+    "EFL-L1": "4396",   # English League One    (confirmed: thesportsdb.com/league/4396)
+    "EFL-L2": "4397",   # English League Two    (confirmed: thesportsdb.com/league/4397)
+    "NAT":    "4398",   # National League       (thesportsdb.com/league/4398)
 }
 
 EFL_SEASON = "2025-2026"

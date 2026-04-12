@@ -41,14 +41,28 @@ from rights_db import COMPETITION_RIGHTS
 # IMPORT SCRAPERS (each returns list of fixture dicts)
 # ─────────────────────────────────────────────────────────────────────
 
-def _safe_import(module_name: str, func_name: str):
-    """Import a scraper function safely; return None on failure."""
+def _safe_import(module_name: str, *func_names):
+    """
+    Import a scraper function safely, trying multiple possible function names.
+    Returns the first one found, or None if none exist.
+    This handles cases where existing scrapers use different naming conventions.
+    """
     try:
-        mod = __import__(f"sources.{module_name}", fromlist=[func_name])
-        return getattr(mod, func_name)
-    except Exception as e:
-        log.warning(f"Could not import {module_name}.{func_name}: {e}")
+        mod = __import__(f"sources.{module_name}", fromlist=list(func_names))
+    except ImportError as e:
+        log.warning(f"Could not import module {module_name}: {e}")
         return None
+
+    for func_name in func_names:
+        fn = getattr(mod, func_name, None)
+        if fn is not None:
+            log.debug(f"  {module_name}: using function '{func_name}'")
+            return fn
+
+    # None of the expected names found — list what IS available
+    available = [x for x in dir(mod) if not x.startswith('_')]
+    log.warning(f"  {module_name}: none of {func_names} found. Available: {available}")
+    return None
 
 
 def _run_scraper(label: str, fn, *args) -> list:
@@ -123,39 +137,55 @@ def run():
 
     # ── 1. EPL ────────────────────────────────────────────────────────
     log.info("── EPL ──")
-    scrape_epl = _safe_import("fixtures_premierleague", "scrape_epl_fixtures")
+    scrape_epl = _safe_import("fixtures_premierleague",
+                               "scrape_epl_fixtures", "get_epl_fixtures",
+                               "scrape_fixtures", "get_fixtures", "main")
     all_fixtures += _run_scraper("EPL fixtures", scrape_epl)
 
     # ── 2. UK channels (EPL + UCL) ────────────────────────────────────
     log.info("── UK channels ──")
-    scrape_uk_fotv  = _safe_import("uk_live_footballontv", "scrape_uk_channels")
-    scrape_uk_tvg   = _safe_import("uk_tvguide", "scrape_uk_times")
+    scrape_uk_fotv = _safe_import("uk_live_footballontv",
+                                   "scrape_uk_channels", "get_uk_channels",
+                                   "scrape", "get_channels", "scrape_footballontv")
+    scrape_uk_tvg  = _safe_import("uk_tvguide",
+                                   "scrape_uk_times", "get_uk_times",
+                                   "scrape", "scrape_tvguide", "get_times")
     uk_channels = _run_scraper("UK live-footballontv", scrape_uk_fotv)
     uk_times    = _run_scraper("UK tvguide.co.uk",     scrape_uk_tvg)
 
     # ── 3. UCL ────────────────────────────────────────────────────────
     log.info("── UCL ──")
-    scrape_ucl = _safe_import("fixtures_uefa", "scrape_ucl_fixtures")
+    scrape_ucl = _safe_import("fixtures_uefa",
+                               "scrape_ucl_fixtures", "get_ucl_fixtures",
+                               "scrape_fixtures", "get_fixtures", "main")
     all_fixtures += _run_scraper("UCL fixtures", scrape_ucl)
 
     # ── 4. US channels ────────────────────────────────────────────────
     log.info("── US channels ──")
-    scrape_us = _safe_import("us_nbcsports", "scrape_us_channels")
+    scrape_us = _safe_import("us_nbcsports",
+                              "scrape_us_channels", "get_us_channels",
+                              "scrape", "scrape_nbcsports", "get_channels")
     us_channels = _run_scraper("US NBC/CBS", scrape_us)
 
     # ── 5. Africa channels ────────────────────────────────────────────
     log.info("── Africa ──")
-    scrape_africa = _safe_import("africa_supersport", "scrape_supersport")
+    scrape_africa = _safe_import("africa_supersport",
+                                  "scrape_supersport", "get_supersport",
+                                  "scrape", "scrape_africa", "get_channels")
     africa_data = _run_scraper("SuperSport Africa", scrape_africa)
 
     # ── 6. Asia channels ──────────────────────────────────────────────
     log.info("── Asia ──")
-    scrape_asia = _safe_import("asia_scrapers", "scrape_asia")
+    scrape_asia = _safe_import("asia_scrapers",
+                                "scrape_asia", "get_asia_channels",
+                                "scrape", "scrape_astro", "get_channels")
     asia_data = _run_scraper("Asia (Astro/Star)", scrape_asia)
 
     # ── 7. EPG (beIN, Sky, TNT, Canal+, Viaplay, etc.) ───────────────
     log.info("── EPG ──")
-    scrape_epg = _safe_import("epg.epg_runner", "run_epg_grab")
+    scrape_epg = _safe_import("epg.epg_runner",
+                               "run_epg_grab", "scrape_epg",
+                               "run", "main", "grab")
     epg_data = _run_scraper("iptv-org/epg", scrape_epg)
 
     # ── 7b. Amazon Prime Video ─────────────────────────────────────────
