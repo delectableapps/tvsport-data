@@ -138,8 +138,8 @@ def run():
     # ── 1. EPL ────────────────────────────────────────────────────────
     log.info("── EPL ──")
     scrape_epl = _safe_import("fixtures_premierleague",
-                               "scrape_epl_fixtures", "get_epl_fixtures",
-                               "scrape_fixtures", "get_fixtures", "main")
+                               "get_all_fixtures", "scrape_epl_fixtures",
+                               "get_epl_fixtures", "scrape_fixtures", "get_fixtures")
     all_fixtures += _run_scraper("EPL fixtures", scrape_epl)
 
     # ── 2. UK channels (EPL + UCL) ────────────────────────────────────
@@ -157,21 +157,21 @@ def run():
     log.info("── UCL ──")
     scrape_ucl = _safe_import("fixtures_uefa",
                                "scrape_ucl_fixtures", "get_ucl_fixtures",
-                               "scrape_fixtures", "get_fixtures", "main")
+                               "get_all_fixtures", "scrape_fixtures", "get_fixtures")
     all_fixtures += _run_scraper("UCL fixtures", scrape_ucl)
 
     # ── 4. US channels ────────────────────────────────────────────────
     log.info("── US channels ──")
     scrape_us = _safe_import("us_nbcsports",
-                              "scrape_us_channels", "get_us_channels",
-                              "scrape", "scrape_nbcsports", "get_channels")
+                              "scrape_all", "scrape_epl", "scrape_ucl",
+                              "scrape_us_channels", "get_us_channels", "get_channels")
     us_channels = _run_scraper("US NBC/CBS", scrape_us)
 
     # ── 5. Africa channels ────────────────────────────────────────────
     log.info("── Africa ──")
     scrape_africa = _safe_import("africa_supersport",
-                                  "scrape_supersport", "get_supersport",
-                                  "scrape", "scrape_africa", "get_channels")
+                                  "scrape_all", "scrape_channel",
+                                  "scrape_supersport", "get_supersport", "get_channels")
     africa_data = _run_scraper("SuperSport Africa", scrape_africa)
 
     # ── 6. Asia channels ──────────────────────────────────────────────
@@ -184,8 +184,8 @@ def run():
     # ── 7. EPG (beIN, Sky, TNT, Canal+, Viaplay, etc.) ───────────────
     log.info("── EPG ──")
     scrape_epg = _safe_import("epg.epg_runner",
-                               "run_epg_grab", "scrape_epg",
-                               "run", "main", "grab")
+                               "get_epg_fixtures", "grab_epg",
+                               "run_epg_grab", "scrape_epg", "run", "main")
     epg_data = _run_scraper("iptv-org/epg", scrape_epg)
 
     # ── 7b. Amazon Prime Video ─────────────────────────────────────────
@@ -216,13 +216,23 @@ def run():
     # ── Merge supplemental data onto fixtures ─────────────────────────
     log.info("── Merging channel data onto fixtures ──")
 
-    # Build lookup dicts from supplemental scrapers
-    uk_ch_lookup    = {(d.get("home"), d.get("away")): d for d in uk_channels}
-    uk_time_lookup  = {(d.get("home"), d.get("away")): d for d in uk_times}
-    us_ch_lookup    = {(d.get("home"), d.get("away")): d for d in us_channels}
-    africa_lookup   = {(d.get("home"), d.get("away")): d for d in africa_data}
-    asia_lookup     = {(d.get("home"), d.get("away")): d for d in asia_data}
-    epg_lookup      = {(d.get("home"), d.get("away")): d for d in (epg_data or [])}
+    def safe_lookup(data_list):
+        """Build a (home, away) lookup dict, safely skipping non-dict items."""
+        result = {}
+        for d in (data_list or []):
+            if isinstance(d, dict):
+                home = d.get("home") or d.get("home_team")
+                away = d.get("away") or d.get("away_team")
+                if home and away:
+                    result[(home, away)] = d
+        return result
+
+    uk_ch_lookup   = safe_lookup(uk_channels)
+    uk_time_lookup = safe_lookup(uk_times)
+    us_ch_lookup   = safe_lookup(us_channels)
+    africa_lookup  = safe_lookup(africa_data)
+    asia_lookup    = safe_lookup(asia_data)
+    epg_lookup     = safe_lookup(epg_data)
 
     for f in all_fixtures:
         key = (f.get("home_team"), f.get("away_team"))
