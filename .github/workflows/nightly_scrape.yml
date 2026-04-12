@@ -88,7 +88,7 @@ jobs:
           git config user.email "bot@tvsport.live"
           git add output/fixtures.json
           # Only commit if there are changes
-          git diff --cached --quiet || git commit -m "🤖 Nightly update: $(date -u +'%Y-%m-%d %H:%M UTC') — $(python3 -c \"import json; d=json.load(open('output/fixtures.json')); fxs=d.get('fixtures',d) if isinstance(d,dict) else d; print(len(fxs))\" 2>/dev/null || echo '?') fixtures"
+          git diff --cached --quiet || git commit -m "🤖 Nightly update: $(date -u +'%Y-%m-%d %H:%M UTC')"
 
       - name: Push to GitHub
         uses: ad-m/github-push-action@master
