@@ -1,6 +1,23 @@
-requests>=2.31.0
-beautifulsoup4>=4.12.0
-lxml>=5.0.0
-pandas>=2.0.0
-openpyxl>=3.1.0
-python-dateutil>=2.8.0
+# TVsport scraper dependencies
+# Install: pip install -r requirements.txt
+
+# HTTP requests
+requests==2.31.0
+urllib3==2.1.0
+
+# HTML parsing (EFL, SPFL, European league fallback scrapers)
+beautifulsoup4==4.12.3
+lxml==5.1.0
+
+# Excel file reading (broadcast rights database)
+openpyxl==3.1.2
+pandas==2.2.0
+
+# XML parsing (EPG/XMLTV)
+xmltodict==0.13.0
+
+# Timezone handling
+pytz==2024.1
+
+# Retry logic for unstable sources
+tenacity==8.2.3

@@ -1,434 +1,1157 @@
 """
-rights_db.py
-============
-Loads the broadcast rights Excel file and provides lookup functions.
-This is the static "who has the rights" layer — updated once per season.
+rights_db.py — TVsport Broadcast Rights Database
+Generated: April 2026
+Source: Broadcast_rights_updated_100426.xlsx + liveonsat audit
 
-Source: Broadcast_rights_updated_08-04-26.xlsx
+Structure per territory:
+  { "channels": [...], "type": "epg|static", "badges": [...] }
+
+  type="epg"    → channel assignment comes from EPG/scraper at runtime
+  type="static" → channel list is fixed (no EPG feed available)
+
+Badges: live, tv, stream, free, highlights
 """
 
-import os
-import pandas as pd
-
-# ── Broadcaster metadata: type + icon ──────────────────────────────────────
-BROADCASTER_META = {
-    # UK & Ireland
-    "Sky Sports":           {"type": "tv",     "icon": "📺"},
-    "TNT Sports":           {"type": "tv",     "icon": "📺"},
-    "HBO Max":              {"type": "stream", "icon": "📱"},
-    "BBC Sport":            {"type": "free",   "icon": "📡"},
-    "RTÉ":                  {"type": "free",   "icon": "📡"},
-    "Virgin Media":         {"type": "free",   "icon": "📡"},
-    "Premier Sports":       {"type": "tv",     "icon": "📺"},
-    # Streaming services (channel = service name, never overridden)
-    "Amazon Prime Video":   {"type": "stream", "icon": "📱"},
-    "DAZN":                 {"type": "stream", "icon": "📱"},
-    "Paramount+":           {"type": "stream", "icon": "📱"},
-    "Peacock":              {"type": "stream", "icon": "📱"},
-    "Stan Sport":           {"type": "stream", "icon": "📱"},
-    "Fubo":                 {"type": "stream", "icon": "📱"},
-    "Viaplay":              {"type": "stream", "icon": "📱"},
-    "HBO Max BR":           {"type": "stream", "icon": "📱"},
-    "iQIYI":                {"type": "stream", "icon": "📱"},
-    "Coupang":              {"type": "stream", "icon": "📱"},
-    "U-Next":               {"type": "stream", "icon": "📱"},
-    "Migu":                 {"type": "stream", "icon": "📱"},
-    "FPT Play":             {"type": "stream", "icon": "📱"},
-    "JioStar":              {"type": "stream", "icon": "📱"},
-    "PCCW / Now TV":        {"type": "stream", "icon": "📱"},
-    "Megogo":               {"type": "stream", "icon": "📱"},
-    "Okko":                 {"type": "stream", "icon": "📱"},
-    # Pay TV
-    "beIN Sports":          {"type": "tv",     "icon": "📺"},
-    "SuperSport":           {"type": "tv",     "icon": "📺"},
-    "Canal+ Afrique":       {"type": "tv",     "icon": "📺"},
-    "Canal+":               {"type": "tv",     "icon": "📺"},
-    "Sky Italia":           {"type": "tv",     "icon": "📺"},
-    "Sky Deutschland":      {"type": "tv",     "icon": "📺"},
-    "Movistar Plus+":       {"type": "tv",     "icon": "📺"},
-    "Astro":                {"type": "tv",     "icon": "📺"},
-    "StarHub":              {"type": "tv",     "icon": "📺"},
-    "NBC Sports / Peacock": {"type": "tv",     "icon": "📺"},
-    "CBS Sports":           {"type": "tv",     "icon": "📺"},
-    "ESPN":                 {"type": "tv",     "icon": "📺"},
-    "WOWOW":                {"type": "tv",     "icon": "📺"},
-    "SPOTV":                {"type": "tv",     "icon": "📺"},
-    "Sony Sports / SonyLIV":{"type": "tv",     "icon": "📺"},
-    "Ziggo Sport":          {"type": "tv",     "icon": "📺"},
-    "TV2 Norway":           {"type": "tv",     "icon": "📺"},
-    "Cosmote TV":           {"type": "tv",     "icon": "📺"},
-    "Sport TV":             {"type": "tv",     "icon": "📺"},
-    "Arena Sport":          {"type": "tv",     "icon": "📺"},
-    "EMTEK":                {"type": "tv",     "icon": "📺"},
-    # Free-to-air
-    "ZDF":                  {"type": "free",   "icon": "📡"},
-    "M6":                   {"type": "free",   "icon": "📡"},
-    "SBT":                  {"type": "free",   "icon": "📡"},
-    "HRT":                  {"type": "free",   "icon": "📡"},
-    "TRT":                  {"type": "free",   "icon": "📡"},
-    "SRG SSR":              {"type": "free",   "icon": "📡"},
-    "RTS":                  {"type": "free",   "icon": "📡"},
-    "CBC Sport":            {"type": "free",   "icon": "📡"},
-    "TVP":                  {"type": "free",   "icon": "📡"},
-}
-
-# Streaming services: their channel IS their service name, never overridden
-STREAMING_SERVICES = {
-    "Amazon Prime Video", "DAZN", "Paramount+", "Peacock", "Stan Sport",
-    "Fubo", "Viaplay", "HBO Max", "HBO Max BR", "iQIYI", "Coupang", "U-Next",
-    "Migu", "FPT Play", "JioStar", "PCCW / Now TV", "Megogo", "Okko",
-    "discovery+", "NOW TV", "Sky Go",
-}
-
-def get_meta(broadcaster_name):
-    """Return type + icon for a broadcaster, with sensible defaults."""
-    for key, val in BROADCASTER_META.items():
-        if key.lower() in broadcaster_name.lower() or broadcaster_name.lower() in key.lower():
-            return val
-    return {"type": "tv", "icon": "📺"}
-
-def is_streaming_service(name):
-    return any(s.lower() in name.lower() for s in STREAMING_SERVICES)
-
-
-# ── UCL Rights (hardcoded from Excel + UEFA.com Jan 2026) ──────────────────
-# Format: country → list of broadcaster dicts
-UCL_RIGHTS = {
-    "United Kingdom": [
-        {"name": "TNT Sports",          "default_channels": "TNT Sports 1 / TNT Sports 2", "highlights_only": False},
-        {"name": "Amazon Prime Video",  "default_channels": "Amazon Prime Video",            "highlights_only": False},
-        {"name": "BBC Sport",           "default_channels": "BBC One / BBC iPlayer",         "highlights_only": True},
-    ],
-    "Republic of Ireland": [
-        {"name": "RTÉ",           "default_channels": "RTÉ Two / RTÉ Player",   "highlights_only": False},
-        {"name": "Premier Sports", "default_channels": "Premier Sports 1",       "highlights_only": False},
-        {"name": "Virgin Media",  "default_channels": "Virgin Media Two",        "highlights_only": True},
-    ],
-    "Albania":              [{"name": "Tring",            "default_channels": "Tring Sport"}],
-    "Armenia":              [{"name": "Fast Media",        "default_channels": "Fast TV"}],
-    "Austria":              [
-        {"name": "Sky Austria",  "default_channels": "Sky Sport Austria"},
-        {"name": "Canal+",       "default_channels": "Canal+ Sport Austria"},
-        {"name": "Servus TV",    "default_channels": "Servus TV",   "highlights_only": True},
-        {"name": "ORF",          "default_channels": "ORF 1",       "highlights_only": True},
-    ],
-    "Azerbaijan":           [
-        {"name": "CBC Sport",    "default_channels": "CBC Sport"},
-        {"name": "İçtimai TV",   "default_channels": "İTV"},
-    ],
-    "Belarus":              [{"name": "Okko",             "default_channels": "Okko Sport"}],
-    "Belgium":              [
-        {"name": "DPG Media",    "default_channels": "Vier / Vijf"},
-        {"name": "RTL Belgium",  "default_channels": "Club RTL"},
-        {"name": "Proximus",     "default_channels": "Pickx Sports"},
-        {"name": "Telenet",      "default_channels": "Play Sports"},
-    ],
-    "Bosnia & Herzegovina": [{"name": "Arena Sport",      "default_channels": "Arena Sport 1"}],
-    "Brazil":               [
-        {"name": "TNT Sports",   "default_channels": "TNT Sports BR"},
-        {"name": "SBT",          "default_channels": "SBT"},
-    ],
-    "Bulgaria":             [
-        {"name": "bTV",          "default_channels": "bTV Action"},
-        {"name": "A1 Bulgaria",  "default_channels": "A1 Xtra Sport"},
-    ],
-    "Cambodia":             [{"name": "beIN Sports",      "default_channels": "beIN Sports"}],
-    "Cameroon":             [
-        {"name": "CRTV",         "default_channels": "CRTV Sport"},
-        {"name": "SuperSport",   "default_channels": "SuperSport Football"},
-        {"name": "Canal+ Afrique","default_channels": "Canal+ Sport Afrique"},
-    ],
-    "Canada":               [{"name": "DAZN",             "default_channels": "DAZN Canada"}],
-    "Caribbean":            [{"name": "Flow Sports / SportsMax", "default_channels": "SportsMax"}],
-    "Central America":      [{"name": "ESPN",             "default_channels": "ESPN Latinoamérica"}],
-    "China":                [{"name": "iQIYI",            "default_channels": "iQIYI Sports"}],
-    "Croatia":              [
-        {"name": "HRT",          "default_channels": "HRT 2"},
-        {"name": "Arena Sport",  "default_channels": "Arena Sport 2"},
-    ],
-    "Cyprus":               [{"name": "CYTA",             "default_channels": "Cytavision Sports"}],
-    "Czechia":              [{"name": "TV Nova",           "default_channels": "Voyo"}],
-    "Denmark":              [{"name": "Viaplay",           "default_channels": "Viaplay Football"}],
-    "Dominican Republic":   [{"name": "ESPN",             "default_channels": "ESPN Caribe"}],
-    "Estonia":              [{"name": "TV3",               "default_channels": "Go3"}],
-    "Finland":              [{"name": "MTV Oy",            "default_channels": "MTV Sport"}],
-    "France":               [
-        {"name": "Canal+",       "default_channels": "Canal+ Sport"},
-        {"name": "M6",           "default_channels": "M6",          "highlights_only": True},
-    ],
-    "Georgia":              [
-        {"name": "Setanta Sports","default_channels": "Setanta Sports"},
-        {"name": "Silknet",      "default_channels": "Silk Sport"},
-    ],
-    "Germany":              [
-        {"name": "DAZN",          "default_channels": "DAZN 1 / DAZN 2"},
-        {"name": "Amazon Prime Video", "default_channels": "Amazon Prime Video"},
-        {"name": "ZDF",           "default_channels": "ZDF",        "highlights_only": True},
-    ],
-    "Greece":               [
-        {"name": "Cosmote TV",    "default_channels": "Cosmote Sport"},
-        {"name": "AlterEgo / MEGA","default_channels": "MEGA Channel"},
-    ],
-    "Hungary":              [
-        {"name": "RTL",           "default_channels": "RTL Klub"},
-        {"name": "Sport 1",       "default_channels": "Sport 1"},
-    ],
-    "Iceland":              [
-        {"name": "Syn",           "default_channels": "Stöð 2 Sport"},
-        {"name": "Viaplay",       "default_channels": "Viaplay"},
-    ],
-    "India / South Asia":   [{"name": "Sony Sports / SonyLIV", "default_channels": "Sony Ten 2 / SonyLIV"}],
-    "Indonesia":            [
-        {"name": "beIN Sports",   "default_channels": "beIN Sports Indonesia"},
-        {"name": "EMTEK",         "default_channels": "SCTV"},
-    ],
-    "Israel":               [{"name": "The Sports Channel", "default_channels": "Sport5"}],
-    "Italy":                [
-        {"name": "Sky Italia",    "default_channels": "Sky Sport Uno"},
-        {"name": "Amazon Prime Video", "default_channels": "Amazon Prime Video"},
-    ],
-    "Ivory Coast":          [
-        {"name": "NCI",           "default_channels": "NCI"},
-        {"name": "SuperSport",    "default_channels": "SuperSport Football"},
-        {"name": "Canal+ Afrique","default_channels": "Canal+ Sport Afrique"},
-    ],
-    "Japan":                [
-        {"name": "WOWOW",         "default_channels": "WOWOW Prime"},
-        {"name": "U-Next",        "default_channels": "U-Next Sport",  "highlights_only": True},
-    ],
-    "Kazakhstan":           [{"name": "Quest Media / Qazsport", "default_channels": "Qazsport"}],
-    "Kosovo":               [
-        {"name": "RTK",           "default_channels": "RTK 1"},
-        {"name": "Artmotion",     "default_channels": "Artmotion Sport"},
-    ],
-    "Latvia":               [{"name": "TV3",               "default_channels": "Go3"}],
-    "Lithuania":            [{"name": "TV3",               "default_channels": "Go3"}],
-    "Luxembourg":           [
-        {"name": "DPG Media",     "default_channels": "RTL Luxembourg"},
-        {"name": "DAZN",          "default_channels": "DAZN Luxembourg"},
-    ],
-    "Malaysia":             [{"name": "beIN Sports",       "default_channels": "beIN Sports Malaysia"}],
-    "Malta":                [
-        {"name": "PBS",           "default_channels": "TVM Sports"},
-        {"name": "Melita",        "default_channels": "Melita More Sports"},
-    ],
-    "Mauritius":            [
-        {"name": "MBC",           "default_channels": "MBC Sport"},
-        {"name": "SuperSport",    "default_channels": "SuperSport Football"},
-    ],
-    "Mexico":               [
-        {"name": "Max / HBO",     "default_channels": "Max (streaming)"},
-        {"name": "FOX",           "default_channels": "Fox Sports Mexico"},
-    ],
-    "Middle East & North Africa": [{"name": "beIN Sports", "default_channels": "beIN Sports HD 1"}],
-    "Moldova":              [
-        {"name": "Setanta Sports","default_channels": "Setanta Sports"},
-        {"name": "Jurnal TV",     "default_channels": "Jurnal TV"},
-    ],
-    "Mongolia":             [{"name": "Premier Sports / Look TV", "default_channels": "Look TV"}],
-    "Montenegro":           [{"name": "Arena Sport",      "default_channels": "Arena Sport"}],
-    "Myanmar":              [{"name": "Canal+",           "default_channels": "Canal+ Myanmar"}],
-    "Netherlands":          [{"name": "Ziggo Sport",      "default_channels": "Ziggo Sport Voetbal"}],
-    "New Zealand":          [{"name": "DAZN",             "default_channels": "DAZN NZ"}],
-    "North Macedonia":      [{"name": "Arena Sport",      "default_channels": "Arena Sport"}],
-    "Norway":               [{"name": "TV2 Norway",       "default_channels": "TV2 Sport Premium"}],
-    "Pacific Islands":      [{"name": "Digicel",          "default_channels": "Digicel Play"}],
-    "Pakistan":             [{"name": "Sony Sports / SonyLIV", "default_channels": "SonyLIV / Tapmad"}],
-    "Philippines":          [{"name": "beIN Sports",      "default_channels": "beIN Sports Philippines"}],
-    "Poland":               [{"name": "Canal+",           "default_channels": "Canal+ Sport PL"}],
-    "Portugal":             [
-        {"name": "Sport TV",      "default_channels": "Sport TV1"},
-        {"name": "DAZN",          "default_channels": "DAZN Portugal"},
-    ],
-    "Romania":              [
-        {"name": "DIGI",          "default_channels": "Digi Sport"},
-        {"name": "Clever Media",  "default_channels": "Prima Sport"},
-    ],
-    "Russia":               [{"name": "Okko",             "default_channels": "Okko Sport"}],
-    "Serbia":               [
-        {"name": "Arena Sport",   "default_channels": "Arena Sport 1"},
-        {"name": "RTS",           "default_channels": "RTS 1"},
-    ],
-    "Singapore":            [{"name": "beIN Sports",      "default_channels": "beIN Sports Singapore"}],
-    "Slovakia":             [{"name": "TV Nova",           "default_channels": "Voyo SK"}],
-    "Slovenia":             [
-        {"name": "Pro Plus",      "default_channels": "Voyo SI"},
-        {"name": "Sportklub",     "default_channels": "Sport Klub"},
-    ],
-    "South America":        [{"name": "ESPN",             "default_channels": "Star+ / ESPN"}],
-    "South Korea":          [{"name": "SPOTV",            "default_channels": "SPOTV"}],
-    "Spain":                [{"name": "Movistar Plus+",   "default_channels": "Movistar Liga de Campeones"}],
-    "Sub-Saharan Africa":   [
-        {"name": "SuperSport",    "default_channels": "SuperSport Football"},
-        {"name": "Canal+ Afrique","default_channels": "Canal+ Sport Afrique"},
-        {"name": "New World TV",  "default_channels": "New World TV Sport"},
-    ],
-    "Sweden":               [{"name": "Viaplay",           "default_channels": "Viaplay Football"}],
-    "Switzerland":          [
-        {"name": "Blue Sport",    "default_channels": "Blue Sport"},
-        {"name": "SRG SSR",       "default_channels": "SRF Zwei",    "highlights_only": True},
-    ],
-    "Taiwan":               [{"name": "ELTA",             "default_channels": "ELTA Sports"}],
-    "Thailand":             [{"name": "beIN Sports",      "default_channels": "beIN Sports Thailand"}],
-    "Turkey":               [{"name": "TRT",              "default_channels": "TRT Spor"}],
-    "Ukraine":              [{"name": "Megogo",           "default_channels": "Megogo Football"}],
-    "United States":        [
-        {"name": "CBS Sports",    "default_channels": "CBS Sports Network / Paramount+"},
-        {"name": "TUDN / TelevisaUnivision", "default_channels": "TUDN / Univision"},
-        {"name": "DAZN",          "default_channels": "DAZN USA (Spanish)"},
-    ],
-    "Uzbekistan":           [{"name": "Quest Media / Zo'r TV", "default_channels": "Zo'r TV"}],
-    "Vietnam":              [
-        {"name": "VTVcab",        "default_channels": "VTVcab ON"},
-        {"name": "Viettel",       "default_channels": "Mytv / Viettel"},
-    ],
-    "In-flight / Ships":    [{"name": "Sport24",          "default_channels": "Sport24"}],
-}
-
-
-# ── EPL Rights ─────────────────────────────────────────────────────────────
+# ─────────────────────────────────────────────────────────────────────
+# EPL RIGHTS  (2025/26–2027/28)
+# ─────────────────────────────────────────────────────────────────────
 EPL_RIGHTS = {
-    "United Kingdom": [
-        {"name": "Sky Sports",    "default_channels": "Sky Sports Main Event / Premier League"},
-        {"name": "TNT Sports",    "default_channels": "TNT Sports 1"},
-        {"name": "BBC Sport",     "default_channels": "BBC One / BBC iPlayer (MOTD)", "highlights_only": True},
-    ],
-    "Republic of Ireland": [
-        {"name": "Sky Sports",    "default_channels": "Sky Sports Main Event / PL"},
-        {"name": "TNT Sports",    "default_channels": "TNT Sports 1"},
-        {"name": "Premier Sports","default_channels": "Premier Sports 1"},
-    ],
-    "Albania":          [{"name": "Digitalb",             "default_channels": "Digitalb Sport"}],
-    "Andorra":          [{"name": "Canal+ / DAZN",        "default_channels": "CANAL+ / DAZN"}],
-    "Armenia":          [{"name": "Saran Media",          "default_channels": "Saran TV"}],
-    "Austria":          [{"name": "Sky Deutschland",      "default_channels": "Sky Sport Premier League HD"}],
-    "Belarus":          [{"name": "Saran Media",          "default_channels": "Saran TV"}],
-    "Belgium":          [{"name": "Telenet",              "default_channels": "Play Sports"}],
-    "Bulgaria":         [{"name": "IMG / Nova",           "default_channels": "Nova Sport"}],
-    "Croatia":          [{"name": "Arena Sport",          "default_channels": "Arena Sport"}],
-    "Cyprus":           [{"name": "Cytavision",           "default_channels": "Cytavision Sports"}],
-    "Czech Republic":   [{"name": "Canal+",               "default_channels": "Canal+ Sport CZ"}],
-    "Denmark":          [{"name": "Viaplay",              "default_channels": "Viaplay Football"}],
-    "Estonia":          [{"name": "TV3",                  "default_channels": "Go3"}],
-    "Finland":          [{"name": "Viaplay",              "default_channels": "Viaplay Football"}],
-    "France":           [{"name": "Canal+",               "default_channels": "Canal+ Sport"}],
-    "Georgia":          [{"name": "Saran Media",          "default_channels": "Saran TV"}],
-    "Germany":          [{"name": "Sky Deutschland",      "default_channels": "Sky Sport Premier League HD"}],
-    "Greece":           [{"name": "IMG / Nova",           "default_channels": "Nova Sports"}],
-    "Hungary":          [{"name": "TV2",                  "default_channels": "TV2 Sport"}],
-    "Iceland":          [{"name": "Syn",                  "default_channels": "Stöð 2"}],
-    "Israel":           [{"name": "Charlton",             "default_channels": "Sport5"}],
-    "Italy":            [{"name": "Sky Italia",           "default_channels": "Sky Sport Football"}],
-    "Kosovo":           [{"name": "Arena Sport",          "default_channels": "Arena Sport"}],
-    "Latvia":           [{"name": "TV3",                  "default_channels": "Go3"}],
-    "Lithuania":        [{"name": "TV3",                  "default_channels": "Go3"}],
-    "Luxembourg":       [{"name": "Canal+",               "default_channels": "Canal+ Luxembourg"}],
-    "Malta":            [{"name": "TSN",                  "default_channels": "TSN Malta"}],
-    "Moldova":          [{"name": "Saran Media",          "default_channels": "Saran TV"}],
-    "Montenegro":       [{"name": "Arena Sport",          "default_channels": "Arena Sport"}],
-    "Netherlands":      [{"name": "Viaplay",              "default_channels": "Viaplay Football"}],
-    "North Macedonia":  [{"name": "Arena Sport",          "default_channels": "Arena Sport"}],
-    "Norway":           [{"name": "Viaplay",              "default_channels": "Viaplay Football"}],
-    "Poland":           [{"name": "Canal+",               "default_channels": "Canal+ Sport PL"}],
-    "Portugal":         [{"name": "DAZN",                 "default_channels": "DAZN Portugal"}],
-    "Romania":          [{"name": "Saran Media",          "default_channels": "Saran TV"}],
-    "Serbia":           [{"name": "Arena Sport",          "default_channels": "Arena Sport"}],
-    "Slovakia":         [{"name": "Canal+",               "default_channels": "Canal+ SK"}],
-    "Slovenia":         [{"name": "Arena Sport",          "default_channels": "Arena Sport"}],
-    "Spain":            [{"name": "DAZN",                 "default_channels": "DAZN España"}],
-    "Sweden":           [{"name": "Viaplay",              "default_channels": "Viaplay Football"}],
-    "Switzerland":      [{"name": "Canal+ (FR) / Sky DE / Sky IT", "default_channels": "Sky Sport PL / Canal+ Sport"}],
-    "Turkey":           [{"name": "beIN Sports",          "default_channels": "beIN Sports TR 1"}],
-    "Ukraine":          [{"name": "Setanta",              "default_channels": "Setanta Sports Ukraine"}],
-    "Middle East & North Africa": [{"name": "beIN Sports","default_channels": "beIN Sports MENA"}],
-    "Sub-Saharan Africa": [
-        {"name": "SuperSport",    "default_channels": "SuperSport Premier League · DStv 203"},
-        {"name": "Canal+ Afrique","default_channels": "Canal+ Sport Afrique"},
-    ],
-    "Afghanistan":      [{"name": "Saran Media",          "default_channels": "Saran TV"}],
-    "Australia":        [{"name": "Stan Sport",           "default_channels": "Stan Sport"}],
-    "Cambodia":         [{"name": "Jasmine / Mono",       "default_channels": "Jasmine / Mono"}],
-    "China":            [{"name": "Migu",                 "default_channels": "Migu Video"}],
-    "Chinese Taipei":   [{"name": "ELTA",                 "default_channels": "ELTA Sports"}],
-    "Hong Kong":        [{"name": "PCCW / Now TV",        "default_channels": "Now Sports Prime"}],
-    "Indonesia":        [{"name": "EMTEK",                "default_channels": "RCTI+"}],
-    "Japan":            [{"name": "U-Next",               "default_channels": "U-Next Sport"}],
-    "Kazakhstan":       [{"name": "Saran Media",          "default_channels": "Saran TV"}],
-    "Laos":             [{"name": "Jasmine / Mono",       "default_channels": "Jasmine / Mono"}],
-    "Macau":            [{"name": "M Plus",               "default_channels": "M Plus Sport"}],
-    "Malaysia":         [{"name": "Astro",                "default_channels": "Astro SuperSport 3"}],
-    "Mongolia":         [{"name": "Unitel",               "default_channels": "Unitel Sport"}],
-    "Myanmar":          [{"name": "Canal+",               "default_channels": "Canal+ Myanmar"}],
-    "New Zealand":      [{"name": "Sky NZ",               "default_channels": "Sky Sport 7 beIN Sports"}],
-    "Pacific Islands":  [{"name": "Digicel",              "default_channels": "Digicel Play"}],
-    "Singapore":        [{"name": "StarHub",              "default_channels": "StarHub Sports Hub 1"}],
-    "South Asia":       [{"name": "JioStar / StarSports", "default_channels": "Star Sports Select HD1 / JioHotstar"}],
-    "South Korea":      [{"name": "Coupang",              "default_channels": "Coupang Play"}],
-    "Thailand":         [{"name": "Jasmine / Mono",       "default_channels": "True Visions / Mono Max"}],
-    "Vietnam":          [{"name": "FPT Play",             "default_channels": "FPT Play"}],
-    "Brazil":           [{"name": "ESPN",                 "default_channels": "ESPN Brasil"}],
-    "Canada":           [{"name": "Fubo",                 "default_channels": "Fubo Canada"}],
-    "Caribbean":        [{"name": "ESPN",                 "default_channels": "ESPN Caribbean"}],
-    "Central America":  [{"name": "Fox Sports / TNT Mexico", "default_channels": "Fox Sports CA / TNT Sports MX"}],
-    "Mexico":           [{"name": "Fox Sports / TNT Mexico", "default_channels": "Fox Sports MX / TNT Sports MX"}],
-    "South America":    [{"name": "ESPN",                 "default_channels": "Star+ / ESPN"}],
-    "United States":    [{"name": "NBC Sports / Peacock", "default_channels": "NBC / USA Network / Peacock"}],
+    # ── UK ────────────────────────────────────────────────────────────
+    "United Kingdom": {
+        "broadcaster": "Sky Sports / TNT Sports / BBC",
+        "channels": ["Sky Sports Main Event HD", "Sky Sports Premier League HD",
+                     "Sky Sports HD", "Sky Sports Action HD", "Sky Sports Main Event UHD",
+                     "Sky UK Ultra HD 1", "Sky Go UK [online]",
+                     "TNT Sports 1 HD", "TNT Sports Ultimate UHD", "TNT Sports Digital Exclusive",
+                     "HBO Max (uk/ire)", "BBC iPlayer (MOTD highlights)"],
+        "type": "epg",
+        "badges": ["live", "tv"],
+        "blackout_rule": True,   # 3pm Sat blackout applies
+    },
+    # ── Europe ────────────────────────────────────────────────────────
+    "Republic of Ireland": {
+        "broadcaster": "Sky Sports / TNT Sports / Premier Sports",
+        "channels": ["Sky Sports Main Event", "Sky Sports Premier League",
+                     "TNT Sports 1 HD", "Premier Sports 1 Ireland HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Albania": {
+        "broadcaster": "Digitalb",
+        "channels": ["Digitalb Sport", "SuperSport 2 Albania HD"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Andorra": {
+        "broadcaster": "Canal+ / DAZN",
+        "channels": ["Canal+ / DAZN"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Armenia": {
+        "broadcaster": "Saran Media",
+        "channels": ["Saran TV"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Austria": {
+        "broadcaster": "Sky Deutschland",
+        "channels": ["Sky Sport Premier League DE HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Belarus": {
+        "broadcaster": "Saran Media",
+        "channels": ["Saran TV"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Belgium": {
+        "broadcaster": "Telenet",
+        "channels": ["Play Sports"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Bosnia & Herzegovina": {
+        "broadcaster": "Arena Sport",
+        "channels": ["Arena Sport"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Bulgaria": {
+        "broadcaster": "IMG / Nova Broadcasting",
+        "channels": ["Nova Sports Premier League HD", "Nova Sports Prime Hellas HD",
+                     "Nova Sports Start Hellas HD", "Nova Sports 5 Hellas HD",
+                     "Diema Sport HD", "Diema Sport 2 HD", "Play Diema XTRA ($/geo/R)"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Croatia": {
+        "broadcaster": "Arena Sport",
+        "channels": ["Arena Sport 1 Hrvatska HD", "Arena Sport 5 Hrvatska HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Cyprus": {
+        "broadcaster": "Cytavision",
+        "channels": ["Cytavision Sports 3 HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Czech Republic": {
+        "broadcaster": "Canal+",
+        "channels": ["Canal+ Sport 1 Czech HD", "Canal+ Sport 4 Czech HD",
+                     "Canal+ Sport 7 Czech HD", "Canal+ Sport 8 Czech HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Denmark": {
+        "broadcaster": "Viaplay",
+        "channels": ["ViaPlay Danmark HD", "Prime Video Dansk [$]"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Estonia": {
+        "broadcaster": "Go3 / TV3",
+        "channels": ["Go3 Extra Sport Baltics ($/geo/R)"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Finland": {
+        "broadcaster": "Viaplay",
+        "channels": ["ViaPlay Suomi HD", "V Sport Premier League HD"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "France": {
+        "broadcaster": "Canal+",
+        "channels": ["Canal+ France HD", "Canal+ Foot HD", "Canal+ Premier League HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Georgia": {
+        "broadcaster": "Saran Media",
+        "channels": ["Saran TV"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Germany": {
+        "broadcaster": "Sky Deutschland",
+        "channels": ["Sky Sport Premier League DE HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Greece": {
+        "broadcaster": "IMG / Nova",
+        "channels": ["Nova Sports Premier League HD", "Nova Sports Prime Hellas HD",
+                     "Nova Sports Start Hellas HD", "Nova Sports 5 Hellas HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Hungary": {
+        "broadcaster": "TV2",
+        "channels": ["TV2 Sport"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Iceland": {
+        "broadcaster": "Syn",
+        "channels": ["Stöð 2"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Israel": {
+        "broadcaster": "Charlton",
+        "channels": ["Sport 1 Israel HD", "Sport 2 Israel HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Italy": {
+        "broadcaster": "Sky Italia",
+        "channels": ["Sky Sport Football IT"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Kosovo": {
+        "broadcaster": "Arena Sport",
+        "channels": ["Arena Sport"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Latvia": {
+        "broadcaster": "Go3 / TV3",
+        "channels": ["Go3 Extra Sport Baltics ($/geo/R)"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Lithuania": {
+        "broadcaster": "Go3 / TV3",
+        "channels": ["Go3 Extra Sport Baltics ($/geo/R)"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Luxembourg": {
+        "broadcaster": "Canal+",
+        "channels": ["Canal+ Luxembourg"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Malta": {
+        "broadcaster": "TSN",
+        "channels": ["TSN Malta"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Moldova": {
+        "broadcaster": "Saran Media",
+        "channels": ["Saran TV"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Montenegro": {
+        "broadcaster": "Arena Sport",
+        "channels": ["Arena Sport"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Netherlands": {
+        "broadcaster": "Viaplay",
+        "channels": ["ViaPlay Nederland HD"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "North Macedonia": {
+        "broadcaster": "Arena Sport",
+        "channels": ["Arena Sport"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Norway": {
+        "broadcaster": "Viaplay",
+        "channels": ["ViaPlay Norge HD", "V Sport Premier League HD"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Poland": {
+        "broadcaster": "Canal+",
+        "channels": ["Canal+ Extra 1 Polska HD", "Canal+ Extra 2 Polska HD",
+                     "Canal+ Premier League HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Portugal": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN 1 Portugal HD", "DAZN 2 Portugal HD",
+                     "DAZN 3 Portugal HD", "DAZN 4 Portugal HD",
+                     "DAZN Portugal ($/geo/R)"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Romania": {
+        "broadcaster": "VOYO / Pro TV",
+        "channels": ["VOYO Pro TV Romania [$]"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Serbia": {
+        "broadcaster": "Arena Sport",
+        "channels": ["Arena Premium 1 Srbija HD", "Arena Premium 2 Srbija HD",
+                     "Arena Premium 3 Srbija HD", "Arena Premium 5 Srbija HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Slovakia": {
+        "broadcaster": "Canal+",
+        "channels": ["Canal+ SK"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Slovenia": {
+        "broadcaster": "Arena Sport",
+        "channels": ["Arena Sport"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Spain": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN 1 Bar Espana", "DAZN 1 Espana HD",
+                     "DAZN 2 Bar Espana", "DAZN 2 Espana HD",
+                     "DAZN España ($/geo/R)"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Sweden": {
+        "broadcaster": "Viaplay",
+        "channels": ["ViaPlay Sverige HD", "V Sport Premier League HD",
+                     "Prime Video Sverige [$]"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Switzerland": {
+        "broadcaster": "Canal+ / Sky Deutschland / Sky Italia",
+        "channels": ["Sky Sport Premier League DE HD", "Canal+ CH"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Turkey": {
+        "broadcaster": "beIN Sports",
+        "channels": ["beIN Sports Türkiye 3 HD", "beIN Connect Türkiye"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Ukraine": {
+        "broadcaster": "Monomax",
+        "channels": ["Monomax Streaming ($/geo/R)"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    # ── Americas ──────────────────────────────────────────────────────
+    "United States": {
+        "broadcaster": "NBC Sports / Peacock / Telemundo",
+        "channels": ["NBC USA HD", "NBC Sports Network", "USA Network HD",
+                     "Peacock Premium USA ($/geo/R)", "NBC Universo USA", "Telemundo USA"],
+        "type": "scraper",   # us_nbcsports.py handles this
+        "badges": ["live", "stream"],
+    },
+    "Canada": {
+        "broadcaster": "FuboTV",
+        "channels": ["FuboTV Canada ($/geo/R)"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Brazil": {
+        "broadcaster": "ESPN",
+        "channels": ["ESPN Brasil"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Caribbean": {
+        "broadcaster": "ESPN",
+        "channels": ["ESPN Caribbean"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Mexico": {
+        "broadcaster": "Fox Sports / TNT Mexico",
+        "channels": ["Fox Sports MX / TNT Sports MX"],
+        "type": "static", "badges": ["live", "free"],
+    },
+    "Central America": {
+        "broadcaster": "Fox Sports / TNT Mexico",
+        "channels": ["Fox Sports CA / TNT Sports MX"],
+        "type": "static", "badges": ["live", "free"],
+    },
+    "South America": {
+        "broadcaster": "ESPN",
+        "channels": ["Star+ / ESPN"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    # ── Middle East & Africa ──────────────────────────────────────────
+    "Middle East & North Africa": {
+        "broadcaster": "beIN Sports",
+        "channels": ["beIN Sports MENA 1 HD", "beIN Sports MENA 2 HD",
+                     "beIN Sports MENA 3 HD", "beIN Sports MENA 4 HD",
+                     "beIN Sports MENA English 1 HD",
+                     "beIN Connect MENA", "beIN Connect MENA HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Sub-Saharan Africa": {
+        "broadcaster": "SuperSport",
+        "channels": ["SuperSport Premier League HD", "SuperSport Action HD",
+                     "SuperSport Variety 3 HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Botswana": {
+        "broadcaster": "YTV",
+        "channels": ["YTV Botswana"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Cameroon": {
+        "broadcaster": "CRTV Sports",
+        "channels": ["CRTV Sports Cameroon"],
+        "type": "static", "badges": ["live", "free"],
+    },
+    "Africa (online)": {
+        "broadcaster": "Fast Sports",
+        "channels": ["Fast Sports [online] ($/geo/R)"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Africa (mobile)": {
+        "broadcaster": "Sporty TV",
+        "channels": ["Sporty TV Africa"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    # ── Asia ──────────────────────────────────────────────────────────
+    "India / South Asia": {
+        "broadcaster": "JioStar / Star Sports",
+        "channels": ["Star Sports Select HD1", "JioCinema (stream)"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Malaysia": {
+        "broadcaster": "Astro",
+        "channels": ["Astro Premier League HD", "Astro Premier League 2 HD",
+                     "Astro Premier League 3 HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Hong Kong": {
+        "broadcaster": "PCCW / Now TV",
+        "channels": ["NOW Premier League HK 1", "NOW Premier League HK 2",
+                     "NOW Premier League HK 3",
+                     "Hub Premier 1 HD ($/geo/R)", "Hub Premier 2 HD ($/geo/R)",
+                     "Hub Premier 3 HD ($/geo/R)", "Hub Premier 4 HD ($/geo/R)",
+                     "Hub Premier 8 HD ($/geo/R)"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Singapore": {
+        "broadcaster": "StarHub",
+        "channels": ["Hub Premier 1 HD ($/geo/R)"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Japan": {
+        "broadcaster": "U-Next",
+        "channels": ["U-Next JP"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "South Korea": {
+        "broadcaster": "Coupang Play",
+        "channels": ["Coupang Play"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "China": {
+        "broadcaster": "Migu",
+        "channels": ["Migu"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Chinese Taipei": {
+        "broadcaster": "ELTA",
+        "channels": ["ELTA Sports"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Indonesia": {
+        "broadcaster": "EMTEK",
+        "channels": ["SCTV / Moji"],
+        "type": "static", "badges": ["live", "free"],
+    },
+    "Cambodia / Laos / Thailand": {
+        "broadcaster": "Jasmine International / Mono",
+        "channels": ["Mono", "True Sport"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Vietnam": {
+        "broadcaster": "FPT Play",
+        "channels": ["FPT Play", "K+ Sport"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Afghanistan / Central Asia": {
+        "broadcaster": "Saran Media",
+        "channels": ["Saran TV"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    # ── Oceania ───────────────────────────────────────────────────────
+    "Australia": {
+        "broadcaster": "Stan Sport",
+        "channels": ["Stan Sport Australia ($/geo/R)"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "New Zealand": {
+        "broadcaster": "Sky NZ",
+        "channels": ["Sky Sport NZ"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    # ── International (inflight/at-sea) ───────────────────────────────
+    "International (inflight/at-sea)": {
+        "broadcaster": "Sport 24",
+        "channels": ["Sport 24 At Sea HD", "Sport 24 In Flight HD", "Sport 24 Extra HD"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# UCL RIGHTS  (2024-27 cycle)
+# ─────────────────────────────────────────────────────────────────────
+UCL_RIGHTS = {
+    "United Kingdom": {
+        "broadcaster": "TNT Sports / Channel 5",
+        "channels": ["TNT Sports 1", "TNT Sports 2", "TNT Sports Ultimate", "Channel 5 (selected)"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Republic of Ireland": {
+        "broadcaster": "Virgin Media / TNT / RTE",
+        "channels": ["Virgin Media Sport", "TNT Sports IE", "RTE2 (selected)"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Germany": {
+        "broadcaster": "DAZN / ZDF",
+        "channels": ["DAZN DE", "ZDF (free, selected)"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "France": {
+        "broadcaster": "Canal+ / M6",
+        "channels": ["Canal+ Sport", "M6 (finals)"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Spain": {
+        "broadcaster": "Movistar+",
+        "channels": ["Movistar Champions League"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Italy": {
+        "broadcaster": "Sky Sport / Prime Video",
+        "channels": ["Sky Sport Uno", "Sky Sport 252", "Prime Video IT"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Netherlands": {
+        "broadcaster": "Ziggo Sport",
+        "channels": ["Ziggo Sport"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Portugal": {
+        "broadcaster": "DAZN / Sport TV",
+        "channels": ["Sport TV 2", "DAZN PT"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Austria": {
+        "broadcaster": "Sky Austria",
+        "channels": ["Sky Sport Austria"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Belgium": {
+        "broadcaster": "RTL / VTM / Proximus",
+        "channels": ["Play Sports", "RTL"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Denmark": {
+        "broadcaster": "Viaplay",
+        "channels": ["Viaplay DK"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Finland": {
+        "broadcaster": "MTV",
+        "channels": ["MTV Sport"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Norway": {
+        "broadcaster": "TV 2",
+        "channels": ["TV 2 Sport"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Sweden": {
+        "broadcaster": "Viaplay",
+        "channels": ["Viaplay SE"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Switzerland": {
+        "broadcaster": "Blue Sport / SRG SSR",
+        "channels": ["Blue Sport 1", "SRF (free, selected)"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Greece": {
+        "broadcaster": "MEGA / Cosmote Sport",
+        "channels": ["Cosmote Sport 1 HD"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Poland": {
+        "broadcaster": "TVP / Canal+",
+        "channels": ["Canal+ PL", "TVP Sport (free, selected)"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Turkey": {
+        "broadcaster": "TRT",
+        "channels": ["TRT Spor", "TRT 1"],
+        "type": "static", "badges": ["live", "free"],
+    },
+    "Ukraine": {
+        "broadcaster": "Megogo",
+        "channels": ["Megogo"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Russia": {
+        "broadcaster": "Okko",
+        "channels": ["Okko Sport"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "United States": {
+        "broadcaster": "CBS Sports / Paramount+",
+        "channels": ["CBS", "Paramount+", "UniMás"],
+        "type": "scraper",  # cbssports.py
+        "badges": ["live", "stream"],
+    },
+    "Canada": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN CA"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Brazil": {
+        "broadcaster": "TNT Sports / SBT",
+        "channels": ["TNT Sports BR", "HBO Max BR", "SBT"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Latin America": {
+        "broadcaster": "ESPN / Warner",
+        "channels": ["ESPN LA", "TNT Sports LA"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Mexico": {
+        "broadcaster": "Caliente TV / Warner",
+        "channels": ["Caliente TV", "HBO Max MX"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Middle East & North Africa": {
+        "broadcaster": "beIN Sports",
+        "channels": ["beIN Sports HD 1", "beIN Sports HD 2", "beIN Connect MENA"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Sub-Saharan Africa": {
+        "broadcaster": "SuperSport / Canal+ Afrique",
+        "channels": ["SuperSport Football (DStv #204)", "Canal+ Afrique"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "India / South Asia": {
+        "broadcaster": "Sony Sports Network",
+        "channels": ["Sony Sports Ten 2", "SonyLIV"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Malaysia": {
+        "broadcaster": "beIN Sports",
+        "channels": ["beIN Sports Malaysia"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Japan": {
+        "broadcaster": "WOWOW / DAZN",
+        "channels": ["WOWOW Live", "DAZN JP"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "South Korea": {
+        "broadcaster": "SPOTV",
+        "channels": ["SPOTV"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "China": {
+        "broadcaster": "iQIYI",
+        "channels": ["iQIYI Sport"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Australia": {
+        "broadcaster": "Stan Sport",
+        "channels": ["Stan Sport"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "New Zealand": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN NZ"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# EFL RIGHTS  (Championship / League One / League Two / National League)
+# ─────────────────────────────────────────────────────────────────────
+EFL_RIGHTS = {
+    "United Kingdom": {
+        "broadcaster": "Sky Sports / iFollow",
+        "channels": ["Sky Sports Football", "Sky Sports Main Event", "Sky Sports Mix", "iFollow (stream)"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Republic of Ireland": {
+        "broadcaster": "Sky Sports / Premier Sports",
+        "channels": ["Sky Sports Football", "Premier Sports"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "United States": {
+        "broadcaster": "ESPN+",
+        "channels": ["ESPN+"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Canada": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN CA"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Australia": {
+        "broadcaster": "Optus Sport",
+        "channels": ["Optus Sport"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "New Zealand": {
+        "broadcaster": "Sky NZ",
+        "channels": ["Sky Sport NZ"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Middle East & North Africa": {
+        "broadcaster": "beIN Sports",
+        "channels": ["beIN Sports MENA"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Sub-Saharan Africa": {
+        "broadcaster": "SuperSport",
+        "channels": ["SuperSport Football"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "India / South Asia": {
+        "broadcaster": "JioStar",
+        "channels": ["JioStar / StarSports"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Malaysia": {
+        "broadcaster": "Astro",
+        "channels": ["Astro SuperSport"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Hong Kong": {
+        "broadcaster": "PCCW / Now TV",
+        "channels": ["Now TV HK"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Japan": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN JP"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "International": {
+        "broadcaster": "Sky Sports International",
+        "channels": ["Sky Sports International"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# SCOTTISH RIGHTS  (Premiership / Championship / Cup)
+# ─────────────────────────────────────────────────────────────────────
+SCOTTISH_RIGHTS = {
+    "United Kingdom": {
+        "broadcaster": "Sky Sports / Premier Sports / BBC",
+        "channels": ["Sky Sports Football", "Sky Sports Main Event",
+                     "Premier Sports 1", "Premier Sports 2",
+                     "BBC Scotland", "BBC Alba (selected)", "BBC iPlayer"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Republic of Ireland": {
+        "broadcaster": "Sky Sports / Premier Sports",
+        "channels": ["Sky Sports Football", "Premier Sports"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "United States": {
+        "broadcaster": "Paramount+",
+        "channels": ["Paramount+ US"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Canada": {
+        "broadcaster": "Paramount+",
+        "channels": ["Paramount+ CA"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Australia": {
+        "broadcaster": "Optus Sport",
+        "channels": ["Optus Sport"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Middle East & North Africa": {
+        "broadcaster": "beIN Sports",
+        "channels": ["beIN Sports MENA"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Sub-Saharan Africa": {
+        "broadcaster": "SuperSport",
+        "channels": ["SuperSport Football"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "International": {
+        "broadcaster": "Premier Sports International",
+        "channels": ["Premier Sports International"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# LA LIGA  (2025/26)
+# ─────────────────────────────────────────────────────────────────────
+LALIGA_RIGHTS = {
+    "United Kingdom": {
+        "broadcaster": "Premier Sports / FreeSports",
+        "channels": ["Premier Sports 1", "Premier Sports 2", "FreeSports (selected)"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Republic of Ireland": {
+        "broadcaster": "Premier Sports",
+        "channels": ["Premier Sports 1"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Spain": {
+        "broadcaster": "DAZN / Movistar",
+        "channels": ["DAZN 1 Espana HD", "DAZN 2 Espana HD", "Movistar LaLiga",
+                     "DAZN España ($/geo/R)"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Germany": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN DE"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "France": {
+        "broadcaster": "beIN Sports",
+        "channels": ["beIN Sports FR 1"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Italy": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN IT"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Netherlands": {
+        "broadcaster": "Viaplay",
+        "channels": ["Viaplay NL"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Portugal": {
+        "broadcaster": "Eleven Sports",
+        "channels": ["Eleven Sports PT"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "United States": {
+        "broadcaster": "ESPN+",
+        "channels": ["ESPN+", "ESPN Deportes"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Canada": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN CA"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Brazil / South America": {
+        "broadcaster": "ESPN / Star+",
+        "channels": ["ESPN BR", "Star+"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Middle East & North Africa": {
+        "broadcaster": "beIN Sports",
+        "channels": ["beIN Sports HD 3"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Sub-Saharan Africa": {
+        "broadcaster": "SuperSport",
+        "channels": ["SuperSport Football"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "India / South Asia": {
+        "broadcaster": "JioStar / Sony",
+        "channels": ["Sony Sports TEN"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Australia": {
+        "broadcaster": "Optus Sport",
+        "channels": ["Optus Sport"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Japan": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN JP"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# BUNDESLIGA  (2025/26)
+# ─────────────────────────────────────────────────────────────────────
+BUNDESLIGA_RIGHTS = {
+    "United Kingdom": {
+        "broadcaster": "Sky Sports / TNT Sports",
+        "channels": ["Sky Sports Football", "Sky Sports Main Event", "TNT Sports (selected)"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Germany": {
+        "broadcaster": "Sky Deutschland / DAZN / Sat.1",
+        "channels": ["Sky Sport Bundesliga 1 HD", "Sky Sport Bundesliga 2 HD",
+                     "DAZN DE", "Sat.1 (free, selected)"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Austria": {
+        "broadcaster": "Sky Austria",
+        "channels": ["Sky Sport Bundesliga AT"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Switzerland": {
+        "broadcaster": "Blue Sport",
+        "channels": ["Blue Sport 1"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "France": {
+        "broadcaster": "beIN Sports",
+        "channels": ["beIN Sports FR"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Spain": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN ES"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Italy": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN IT"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "United States": {
+        "broadcaster": "ESPN+",
+        "channels": ["ESPN+"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Canada": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN CA"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Middle East & North Africa": {
+        "broadcaster": "beIN Sports",
+        "channels": ["beIN Sports MENA"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Sub-Saharan Africa": {
+        "broadcaster": "SuperSport",
+        "channels": ["SuperSport Football"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Japan": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN JP"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Australia": {
+        "broadcaster": "Optus Sport",
+        "channels": ["Optus Sport"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# SERIE A  (2025/26)
+# ─────────────────────────────────────────────────────────────────────
+SERIEA_RIGHTS = {
+    "United Kingdom": {
+        "broadcaster": "TNT Sports / Discovery+",
+        "channels": ["TNT Sports 4", "Discovery+"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Italy": {
+        "broadcaster": "DAZN / Sky Italia",
+        "channels": ["DAZN IT", "Sky Sport Calcio", "Sky Sport 251"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Germany": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN DE"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "France": {
+        "broadcaster": "Canal+ Sport",
+        "channels": ["Canal+ Sport FR"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Spain": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN ES"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Netherlands": {
+        "broadcaster": "Viaplay",
+        "channels": ["Viaplay NL"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "United States": {
+        "broadcaster": "Paramount+ / CBS Golazo",
+        "channels": ["Paramount+", "CBS Sports Golazo"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Canada": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN CA"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Brazil / South America": {
+        "broadcaster": "ESPN / Star+",
+        "channels": ["ESPN BR", "Star+"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Middle East & North Africa": {
+        "broadcaster": "beIN Sports",
+        "channels": ["beIN Sports MENA"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Sub-Saharan Africa": {
+        "broadcaster": "SuperSport",
+        "channels": ["SuperSport Football"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Japan": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN JP"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Australia": {
+        "broadcaster": "Paramount+",
+        "channels": ["Paramount+ AU"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# LIGUE 1  (2025/26)
+# ─────────────────────────────────────────────────────────────────────
+LIGUE1_RIGHTS = {
+    "United Kingdom": {
+        "broadcaster": "beIN Sports UK",
+        "channels": ["beIN Sports UK 1"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "France": {
+        "broadcaster": "Canal+ / Amazon Prime / beIN Sports",
+        "channels": ["Canal+", "Canal+ Sport", "Amazon Prime Video FR", "beIN Sports FR"],
+        "type": "epg", "badges": ["live", "stream"],
+    },
+    "Germany": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN DE"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "United States": {
+        "broadcaster": "beIN Sports USA / fuboTV",
+        "channels": ["beIN Sports USA", "fuboTV"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Canada": {
+        "broadcaster": "beIN Sports CA",
+        "channels": ["beIN Sports CA"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Middle East & North Africa": {
+        "broadcaster": "beIN Sports",
+        "channels": ["beIN Sports MENA"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Sub-Saharan Africa": {
+        "broadcaster": "Canal+ Afrique",
+        "channels": ["Canal+ Afrique"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "Japan": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN JP"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Australia": {
+        "broadcaster": "Optus Sport",
+        "channels": ["Optus Sport"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# EREDIVISIE  (2025/26)
+# ─────────────────────────────────────────────────────────────────────
+EREDIVISIE_RIGHTS = {
+    "United Kingdom": {
+        "broadcaster": "Viaplay UK",
+        "channels": ["Viaplay UK"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Netherlands": {
+        "broadcaster": "ESPN NL / NOS",
+        "channels": ["ESPN 1", "ESPN 2", "ESPN 3", "NOS (highlights)"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Belgium": {
+        "broadcaster": "Eleven Sports",
+        "channels": ["Eleven Sports BE"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Germany": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN DE"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "United States": {
+        "broadcaster": "ESPN+",
+        "channels": ["ESPN+"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Middle East & North Africa": {
+        "broadcaster": "beIN Sports",
+        "channels": ["beIN Sports MENA"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# PRIMEIRA LIGA  (2025/26)
+# ─────────────────────────────────────────────────────────────────────
+PRIMEIRA_RIGHTS = {
+    "United Kingdom": {
+        "broadcaster": "Premier Sports / Eleven Sports",
+        "channels": ["Premier Sports 1", "Eleven Sports UK"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Portugal": {
+        "broadcaster": "Sport TV",
+        "channels": ["Sport TV 1", "Sport TV 2"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Brazil / South America": {
+        "broadcaster": "ESPN / Star+",
+        "channels": ["ESPN BR", "Star+"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "United States": {
+        "broadcaster": "GolTV / Fubo",
+        "channels": ["GolTV", "fuboTV"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Middle East & North Africa": {
+        "broadcaster": "beIN Sports",
+        "channels": ["beIN Sports MENA"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "International": {
+        "broadcaster": "Eleven Sports",
+        "channels": ["Eleven Sports International"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# FA CUP
+# ─────────────────────────────────────────────────────────────────────
+FACUP_RIGHTS = {
+    "United Kingdom": {
+        "broadcaster": "BBC / ITV / Channel 4",
+        "channels": ["BBC One", "BBC Two", "BBC iPlayer",
+                     "ITV", "ITV4", "ITVX",
+                     "Channel 4", "Channel 4 Sport"],
+        "type": "epg", "badges": ["live", "free"],
+    },
+    "Republic of Ireland": {
+        "broadcaster": "ITV / RTE",
+        "channels": ["ITV", "RTE (selected)"],
+        "type": "static", "badges": ["live", "free"],
+    },
+    "United States": {
+        "broadcaster": "ESPN+",
+        "channels": ["ESPN+"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Canada": {
+        "broadcaster": "DAZN",
+        "channels": ["DAZN CA"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "Australia": {
+        "broadcaster": "Optus Sport",
+        "channels": ["Optus Sport"],
+        "type": "static", "badges": ["live", "stream"],
+    },
+    "International": {
+        "broadcaster": "BBC Studios International",
+        "channels": ["BBC Studios International"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# EFL CUP (Carabao Cup)
+# ─────────────────────────────────────────────────────────────────────
+EFLCUP_RIGHTS = {
+    "United Kingdom": {
+        "broadcaster": "Sky Sports",
+        "channels": ["Sky Sports Football", "Sky Sports Main Event"],
+        "type": "epg", "badges": ["live", "tv"],
+    },
+    "Republic of Ireland": {
+        "broadcaster": "Sky Sports",
+        "channels": ["Sky Sports Football"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+    "International": {
+        "broadcaster": "Sky Sports International",
+        "channels": ["Sky Sports International"],
+        "type": "static", "badges": ["live", "tv"],
+    },
+}
+
+# ─────────────────────────────────────────────────────────────────────
+# COMPETITION → RIGHTS MAP
+# ─────────────────────────────────────────────────────────────────────
+COMPETITION_RIGHTS = {
+    "EPL":        EPL_RIGHTS,
+    "UCL":        UCL_RIGHTS,
+    "EFL-CH":     EFL_RIGHTS,
+    "EFL-L1":     EFL_RIGHTS,
+    "EFL-L2":     EFL_RIGHTS,
+    "NAT":        EFL_RIGHTS,
+    "SPL":        SCOTTISH_RIGHTS,
+    "SCH":        SCOTTISH_RIGHTS,
+    "SCUP":       SCOTTISH_RIGHTS,
+    "LALIGA":     LALIGA_RIGHTS,
+    "BUNDESLIGA": BUNDESLIGA_RIGHTS,
+    "SERIEA":     SERIEA_RIGHTS,
+    "SERIEB":     SERIEA_RIGHTS,
+    "LIGUE1":     LIGUE1_RIGHTS,
+    "EREDIVISIE": EREDIVISIE_RIGHTS,
+    "PRIMEIRA":   PRIMEIRA_RIGHTS,
+    "FACUP":      FACUP_RIGHTS,
+    "EFLCUP":     EFLCUP_RIGHTS,
 }
 
 
-def get_rights(competition: str) -> dict:
-    """Return the rights dict for 'UCL' or 'EPL'."""
-    if competition.upper() == "UCL":
-        return UCL_RIGHTS
-    elif competition.upper() == "EPL":
-        return EPL_RIGHTS
-    raise ValueError(f"Unknown competition: {competition}")
-
-
-def build_broadcaster_list(competition: str, country: str,
-                            channel_overrides: dict = None) -> list:
-    """
-    Build the list of broadcaster dicts for a given competition + country.
-    channel_overrides: { broadcaster_name: {"channels": str, "coverageStart": str} }
-    Streaming services always show their own name as the channel.
-    """
-    rights = get_rights(competition)
-    entries = rights.get(country, [])
-    if not entries:
-        return []
-
-    result = []
-    for entry in entries:
-        name = entry["name"]
-        meta = get_meta(name)
-        hl_only = entry.get("highlights_only", False)
-
-        # Resolve channel
-        if is_streaming_service(name):
-            # Streaming: always use service name as channel
-            channels = name
-            coverage_start = None
-        else:
-            # TV/free: use match-specific override if available
-            override = (channel_overrides or {}).get(name, {})
-            channels = override.get("channels", entry.get("default_channels", name))
-            coverage_start = override.get("coverageStart", None)
-
-        result.append({
-            "broadcaster": name,
-            "channels": channels,
-            "type": meta["type"],
-            "icon": meta["icon"],
-            "coverageType": "HIGHLIGHTS" if hl_only else "LIVE",
-            "coverageStart": coverage_start,
-        })
-
-    return result
-
-
-if __name__ == "__main__":
-    # Quick test
-    print("UCL UK:", build_broadcaster_list("UCL", "United Kingdom",
-        {"TNT Sports": {"channels": "TNT Sports 1", "coverageStart": "18:00"}}))
-    print("\nEPL Australia:", build_broadcaster_list("EPL", "Australia"))
-    print("\nEPL MENA:", build_broadcaster_list("EPL", "Middle East & North Africa"))
+def get_rights(competition_code):
+    """Return the rights dict for a given competition code."""
+    return COMPETITION_RIGHTS.get(competition_code, {})
