@@ -234,6 +234,9 @@ def run():
     asia_lookup    = safe_lookup(asia_data)
     epg_lookup     = safe_lookup(epg_data)
 
+    # Filter out any non-dict items that scrapers may have returned
+    all_fixtures = [f for f in all_fixtures if isinstance(f, dict)]
+
     for f in all_fixtures:
         key = (f.get("home_team"), f.get("away_team"))
 

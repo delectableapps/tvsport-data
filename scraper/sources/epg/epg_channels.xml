@@ -27,9 +27,10 @@
 
   <!-- ================================================================
        1. UNITED KINGDOM
-       Verified site IDs from iptv-org/epg sky.com.channels.xml
-       Amazon Prime Video has NO traditional EPG feed — handled via
-       static rules in rights_db.py and match-time logic in merger.py
+       Only sky.com entries here — bbc.co.uk, itv.com, channel4.com,
+       channel5.com, freesports.tv, premiersports.com all require
+       config files not bundled with iptv-org/epg and cause EPG crashes.
+       UK free-to-air channels are handled via static rights_db entries.
        ================================================================ -->
   <!-- Sky Sports — via sky.com EPG -->
   <channel site="sky.com" site_id="401"  lang="en">Sky Sports Main Event HD</channel>
@@ -39,33 +40,12 @@
   <channel site="sky.com" site_id="405"  lang="en">Sky Sports Mix HD</channel>
   <channel site="sky.com" site_id="501"  lang="en">Sky Sports Main Event UHD</channel>
   <channel site="sky.com" site_id="502"  lang="en">Sky UK Ultra HD 1</channel>
-  <!-- TNT Sports — verified site IDs from iptv-org/epg -->
+  <!-- TNT Sports — verified site IDs from iptv-org/epg sky.com.channels.xml -->
   <channel site="sky.com" site_id="3661" lang="en">TNT Sports 1 HD</channel>
   <channel site="sky.com" site_id="3663" lang="en">TNT Sports 2 HD</channel>
   <channel site="sky.com" site_id="5032" lang="en">TNT Sports 3 HD</channel>
   <channel site="sky.com" site_id="3141" lang="en">TNT Sports 4 HD</channel>
   <channel site="sky.com" site_id="1099" lang="en">TNT Sports Ultimate UHD</channel>
-  <!-- Free-to-air UK -->
-  <channel site="bbc.co.uk"     site_id="bbc-one"                 lang="en">BBC One</channel>
-  <channel site="bbc.co.uk"     site_id="bbc-two"                 lang="en">BBC Two</channel>
-  <channel site="bbc.co.uk"     site_id="bbc-scotland"            lang="en">BBC Scotland</channel>
-  <channel site="bbc.co.uk"     site_id="bbc-alba"                lang="gd">BBC Alba</channel>
-  <channel site="itv.com"       site_id="itv"                     lang="en">ITV</channel>
-  <channel site="itv.com"       site_id="itv4"                    lang="en">ITV4</channel>
-  <channel site="channel4.com"  site_id="channel-4"               lang="en">Channel 4</channel>
-  <channel site="channel5.com"  site_id="channel-5"               lang="en">Channel 5</channel>
-  <channel site="freesports.tv" site_id="freesports"              lang="en">FreeSports</channel>
-  <channel site="premiersports.com" site_id="premier-sports-1"    lang="en">Premier Sports 1</channel>
-  <channel site="premiersports.com" site_id="premier-sports-2"    lang="en">Premier Sports 2</channel>
-  <!--
-    AMAZON PRIME VIDEO — NO EPG FEED AVAILABLE
-    Amazon Prime Video does not publish an XMLTV/EPG feed.
-    UCL rights (top Tuesday pick, renewed to 2030/31) and EFL rights
-    are handled via static rules in rights_db.py.
-    The EPL deal ended after 2024/25 — Amazon has NO EPL rights from 2025/26.
-    To scrape Amazon's schedule: add scraper/sources/amazon_prime.py
-    which reads livefootballontv.com/live-football-on-amazon.html
-  -->
 
   <!-- ================================================================
        2. REPUBLIC OF IRELAND
