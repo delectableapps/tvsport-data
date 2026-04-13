@@ -94,6 +94,11 @@ def _parse_fixture(match: dict, comp_info: dict) -> dict | None:
             ts = match.get("starting_at_timestamp")
             if ts:
                 starting_at = datetime.fromtimestamp(ts, tz=timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        else:
+            # Sportmonks returns "YYYY-MM-DD HH:MM:SS" without timezone — treat as UTC
+            starting_at = starting_at.replace(" ", "T")
+            if not starting_at.endswith("Z") and "+" not in starting_at:
+                starting_at += "Z"
 
         date_slug = starting_at[:10] if starting_at else "unknown"
         fixture_id = f"{comp_info['code'].lower()}_{home[:3].upper()}_{away[:3].upper()}_{date_slug}"
