@@ -223,11 +223,51 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
                 "coverage":    coverage,
                 "confidence":  "high",
             })
+    elif comp_code == "PL":
+        # No livefootballontv data — derive UK broadcaster from kickoff slot rules:
+        # TNT Sports:  Saturday 12:30 (11:30 UTC summer / 12:30 UTC winter)
+        # Sky Sports:  all other live slots
+        # BBC:         highlights only, always added alongside live broadcaster
+        from datetime import datetime, timezone
+        try:
+            dt = datetime.fromisoformat(kickoff.replace("Z", "+00:00"))
+            day  = dt.weekday()   # 0=Mon … 5=Sat … 6=Sun
+            hour = dt.hour
+            minute = dt.minute
+            # Saturday 12:30 BST = 11:30 UTC (BST season Apr–Oct)
+            is_tnt = (day == 5 and hour == 11 and minute == 30)
+        except Exception:
+            is_tnt = False
+
+        live_broadcaster = "TNT Sports" if is_tnt else "Sky Sports"
+        live_meta = BROADCASTER_META.get(live_broadcaster, {})
+        broadcasters.append({
+            "territory":   "United Kingdom",
+            "region":      "UK",
+            "broadcaster": live_broadcaster,
+            "channels":    live_meta.get("channels", [live_broadcaster]),
+            "type":        live_meta.get("type", "pay_tv"),
+            "coverage":    "live",
+            "confidence":  "medium",
+        })
+        # BBC always added as highlights only
+        bbc_meta = BROADCASTER_META.get("BBC", {})
+        broadcasters.append({
+            "territory":   "United Kingdom",
+            "region":      "UK",
+            "broadcaster": "BBC",
+            "channels":    ["BBC iPlayer", "BBC One"],
+            "type":        "free_tv",
+            "coverage":    "highlights",
+            "confidence":  "high",
+        })
     elif "United Kingdom" in rights_map:
-        # Fallback: use rights DB for UK
+        # Non-EPL fallback: use rights DB for UK as-is
         entry = rights_map["United Kingdom"]
         for bcast_name in entry["broadcaster"].split(";"):
             bcast_name = bcast_name.strip()
+            if not bcast_name:
+                continue
             meta = BROADCASTER_META.get(bcast_name, {})
             coverage = "highlights" if bcast_name == "BBC" else "live"
             broadcasters.append({
