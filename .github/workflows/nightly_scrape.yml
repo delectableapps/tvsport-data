@@ -1,38 +1,28 @@
 name: TVsport Nightly Data Scrape
 
 on:
-  # ── Scheduled run ────────────────────────────────────────────────
-  # Runs every day at 02:00 UTC.
-  # NOTE: GitHub Actions cron runs on UTC. Times are approximate (±30 min).
-  # GitHub's free tier does not guarantee exact timing but runs within ~1 hour.
   schedule:
     - cron: "0 2 * * *"
-
-  # ── Manual trigger (run any time from GitHub Actions tab) ─────────
+    - cron: "0 3 * * *"
   workflow_dispatch:
-    inputs:
-      debug:
-        description: "Enable debug logging"
-        required: false
-        default: "false"
 
 jobs:
   scrape:
-    name: Scrape & Update fixtures.json
+    name: Scrape and Update fixtures.json
     runs-on: ubuntu-latest
     timeout-minutes: 20
-
+    concurrency:
+      group: nightly-scrape
+      cancel-in-progress: true
     permissions:
-      contents: write   # Required to commit fixtures.json back to repo
+      contents: write
 
     steps:
-      # ── 1. Checkout repo ───────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
-      # ── 2. Set up Python ───────────────────────────────────────────
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
@@ -40,79 +30,66 @@ jobs:
           cache: "pip"
           cache-dependency-path: scraper/requirements.txt
 
-      # ── 3. Set up Node.js (for iptv-org/epg tool) ─────────────────
       - name: Set up Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      # ── 4. Install Python dependencies ────────────────────────────
       - name: Install Python dependencies
-        run: |
-          pip install -r scraper/requirements.txt
+        run: pip install -r scraper/requirements.txt
 
-      # ── 5. Run scraper ─────────────────────────────────────────────
       - name: Run TVsport scraper
         env:
           FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
-          DEBUG: ${{ github.event.inputs.debug }}
+          SPORTMONKS_API_KEY: ${{ secrets.SPORTMONKS_API_KEY }}
         run: |
           cd scraper
           python merger.py
 
-      # ── 6. Validate output ─────────────────────────────────────────
       - name: Validate fixtures.json
         run: |
-          python3 -c "
+          python3 - <<'PYEOF'
           import json, sys
           with open('output/fixtures.json') as f:
               data = json.load(f)
           count = data.get('fixture_count', 0)
           print(f'Fixture count: {count}')
           if count == 0:
-              print('ERROR: fixtures.json is empty — aborting commit')
+              print('ERROR: fixtures.json is empty')
               sys.exit(1)
           print('Validation passed')
-          "
+          PYEOF
 
-      # ── 7. Commit and push ─────────────────────────────────────────
       - name: Commit updated fixtures.json
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add output/fixtures.json
-          # Only commit if there are actual changes
           if git diff --staged --quiet; then
-            echo "No changes to fixtures.json — skipping commit"
+            echo "No changes — skipping commit"
           else
-            FIXTURE_COUNT=$(python3 -c "import json; d=json.load(open('output/fixtures.json')); print(d['fixture_count'])")
-            git commit -m "Update fixtures.json — ${FIXTURE_COUNT} fixtures [skip ci]"
+            COUNT=$(python3 -c "import json; print(json.load(open('output/fixtures.json'))['fixture_count'])")
+            git commit -m "Update fixtures.json — ${COUNT} fixtures [skip ci]"
             git push
-            echo "fixtures.json committed and pushed successfully"
           fi
 
-      # ── 8. Summary ────────────────────────────────────────────────
       - name: Job summary
         if: always()
         run: |
-          python3 -c "
+          python3 - >> $GITHUB_STEP_SUMMARY <<'PYEOF'
           import json
           try:
-              with open('output/fixtures.json') as f:
-                  data = json.load(f)
+              data = json.load(open('output/fixtures.json'))
               fixtures = data.get('fixtures', [])
               from collections import Counter
               comps = Counter(f['competition'] for f in fixtures)
               print('## TVsport Scrape Summary')
-              print(f'Generated at: {data.get(\"generated_at\", \"unknown\")}')
-              print(f'Total fixtures: {data.get(\"fixture_count\", 0)}')
+              print(f"Generated at: {data.get('generated_at','unknown')}")
+              print(f"Total fixtures: {data.get('fixture_count',0)}")
               print()
               print('### By competition:')
               for comp, count in sorted(comps.items()):
                   print(f'- {comp}: {count}')
-              blackouts = sum(1 for f in fixtures if f.get('is_blackout'))
-              if blackouts:
-                  print(f'- (UK blackouts: {blackouts})')
           except Exception as e:
               print(f'Could not generate summary: {e}')
-          " >> $GITHUB_STEP_SUMMARY
+          PYEOF
