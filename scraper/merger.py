@@ -66,12 +66,16 @@ def _safe_import(module_name: str, *func_names):
 
 
 def _run_scraper(label: str, fn, *args) -> list:
-    """Run a scraper function and return results, logging any errors."""
+    """Run a scraper function and return results as a list of dicts."""
     if fn is None:
         log.warning(f"  {label}: scraper not available, skipping")
         return []
     try:
         results = fn(*args) or []
+        # EPL scraper returns a dict keyed by fixture_key — convert to list
+        if isinstance(results, dict):
+            results = list(results.values())
+        results = [r for r in results if isinstance(r, dict)]
         log.info(f"  {label}: {len(results)} items")
         return results
     except Exception as e:
@@ -132,27 +136,27 @@ def normalise_fixture(f: dict) -> dict:
             "?"
         )
 
-    # Team names
+    # Team names — EPL scraper uses 'home'/'away', UCL uses 'home_team'/'away_team'
     if "home_team" not in f or not f["home_team"]:
         f["home_team"] = f.get("home") or f.get("home_team_name") or ""
     if "away_team" not in f or not f["away_team"]:
         f["away_team"] = f.get("away") or f.get("away_team_name") or ""
 
-    # Kickoff
+    # Kickoff — EPL scraper uses 'kickoff_utc', UCL uses 'kickoff'
     if "kickoff" not in f or not f["kickoff"]:
-        f["kickoff"] = f.get("date") or f.get("datetime") or f.get("kick_off") or ""
+        f["kickoff"] = (f.get("kickoff_utc") or f.get("kickoff_local") or
+                        f.get("date") or f.get("datetime") or f.get("kick_off") or "")
 
-    # Blackout flag
+    # Blackout — EPL scraper uses 'uk_blackout'
     if "blackout" not in f:
-        f["blackout"] = False
+        f["blackout"] = f.get("uk_blackout", False)
 
     return f
 
 
-
-    def dedup_fixtures(fixtures: list) -> list:
-        """Remove duplicate fixtures by (competition, home, away, date)."""
-        seen = set()
+def dedup_fixtures(fixtures: list) -> list:
+    """Remove duplicate fixtures by (competition, home, away, date)."""
+    seen = set()
     out = []
     for f in fixtures:
         ko = f.get("kickoff", "")[:10]  # date only
@@ -304,7 +308,14 @@ def run():
             f["epg_channels"] = epg_lookup[key].get("channels", {})
 
     # ── Normalise all fixtures to consistent schema ───────────────────
-    all_fixtures = [normalise_fixture(f) for f in all_fixtures if isinstance(f, dict)]
+    # Debug: log the keys from the first EPL fixture to diagnose field names
+    raw_all = [f for f in all_fixtures if isinstance(f, dict)]
+    if raw_all:
+        sample = raw_all[0]
+        log.info(f"  Sample fixture keys: {list(sample.keys())}")
+        log.info(f"  Sample fixture: comp={sample.get('competition')} home={sample.get('home_team')} away={sample.get('away_team')} kickoff={sample.get('kickoff')}")
+
+    all_fixtures = [normalise_fixture(f) for f in raw_all]
     all_fixtures = [f for f in all_fixtures if f.get("competition") and f.get("home_team")]
 
     # Log what we have before dedup
