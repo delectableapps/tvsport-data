@@ -1,15 +1,7 @@
 """
 epg_runner.py
 Clones iptv-org/epg and grabs XMLTV data site by site.
-Correct usage: npm run grab -- --site=sky.com --output=guide.xml --days=3
-
-Sites we grab from:
-  sky.com          — UK: TNT Sports 1-4, Sky Sports Main Event/PL/Football/Action
-  canalplus.com    — France/MENA: beIN Sports 1-2, Max 1-10, Canal+ Sport/Foot
-  sky.de           — Germany: Sky Sport Bundesliga, DAZN 1-2
-  airtelxstream.in — India: Star Sports 1-3, Sony Ten 1-4, Sports18
-  astro.com.my     — Malaysia: Astro SuperSport 2-4
-  dstv.com         — Africa: SuperSport Premier League/Football/Variety
+Uses npx tsx directly to avoid npm arg-passing issues.
 """
 
 import logging
@@ -24,8 +16,6 @@ EPG_TOOL_DIR = os.path.abspath(
 )
 EPG_REPO_URL = "https://github.com/iptv-org/epg.git"
 
-# Sites to grab in priority order. Each produces its own guide XML
-# which we then merge into a single guide.xml
 SITES = [
     "sky.com",
     "canalplus.com",
@@ -34,15 +24,12 @@ SITES = [
 ]
 
 
-def _run(cmd: list, cwd: str = None, timeout: int = 300) -> tuple[bool, str]:
-    """Run a command. Returns (success, stderr)."""
+def _run(cmd: list, cwd: str = None, timeout: int = 300) -> tuple:
     try:
         result = subprocess.run(
             cmd, cwd=cwd, capture_output=True, text=True, timeout=timeout
         )
-        if result.returncode != 0:
-            return False, result.stderr[:1000]
-        return True, ""
+        return result.returncode == 0, result.stderr[:1000]
     except subprocess.TimeoutExpired:
         return False, "Timed out"
     except Exception as e:
@@ -50,19 +37,15 @@ def _run(cmd: list, cwd: str = None, timeout: int = 300) -> tuple[bool, str]:
 
 
 def _ensure_epg_tool() -> bool:
-    """Clone and install iptv-org/epg if not already present."""
     node_modules = os.path.join(EPG_TOOL_DIR, "node_modules")
     if os.path.isdir(node_modules):
         logger.info("[epg_runner] EPG tool already installed")
         return True
 
-    logger.info(f"[epg_runner] Cloning iptv-org/epg to {EPG_TOOL_DIR}...")
+    logger.info(f"[epg_runner] Cloning iptv-org/epg...")
     os.makedirs(os.path.dirname(EPG_TOOL_DIR), exist_ok=True)
 
-    ok, err = _run(
-        ["git", "clone", "--depth=1", EPG_REPO_URL, EPG_TOOL_DIR],
-        timeout=180
-    )
+    ok, err = _run(["git", "clone", "--depth=1", EPG_REPO_URL, EPG_TOOL_DIR], timeout=180)
     if not ok:
         logger.error(f"[epg_runner] Clone failed: {err}")
         return False
@@ -77,12 +60,23 @@ def _ensure_epg_tool() -> bool:
     return True
 
 
+def _get_grab_script() -> str | None:
+    """Find the grab script path within the cloned repo."""
+    candidates = [
+        os.path.join(EPG_TOOL_DIR, "scripts", "commands", "epg", "grab.ts"),
+        os.path.join(EPG_TOOL_DIR, "scripts", "grab.ts"),
+        os.path.join(EPG_TOOL_DIR, "scripts", "grab.js"),
+    ]
+    for path in candidates:
+        if os.path.isfile(path):
+            return path
+    return None
+
+
 def _merge_guides(guide_files: list, output_xml: str):
-    """Merge multiple guide XML files into one."""
     root = ET.Element("tv")
     channel_ids = set()
     prog_count = 0
-
     for gf in guide_files:
         if not os.path.isfile(gf):
             continue
@@ -98,22 +92,29 @@ def _merge_guides(guide_files: list, output_xml: str):
                 prog_count += 1
         except Exception as e:
             logger.warning(f"[epg_runner] Could not parse {gf}: {e}")
-
     tree = ET.ElementTree(root)
     ET.indent(tree, space="  ")
     tree.write(output_xml, encoding="utf-8", xml_declaration=True)
-    logger.info(f"[epg_runner] Merged guide: {len(channel_ids)} channels, {prog_count} programmes → {output_xml}")
+    logger.info(f"[epg_runner] Merged: {len(channel_ids)} channels, {prog_count} programmes → {output_xml}")
 
 
 def run_epg_grab(channels_xml: str, output_xml: str) -> bool:
-    """
-    Run iptv-org/epg grab for all target sites.
-    Merges results into output_xml.
-    Returns True if at least one site succeeded.
-    """
     if not _ensure_epg_tool():
         return False
 
+    # Find the grab script
+    grab_script = _get_grab_script()
+    if not grab_script:
+        logger.error(f"[epg_runner] Could not find grab script in {EPG_TOOL_DIR}")
+        # Log what's actually in the scripts directory
+        scripts_dir = os.path.join(EPG_TOOL_DIR, "scripts")
+        if os.path.isdir(scripts_dir):
+            for root, dirs, files in os.walk(scripts_dir):
+                for f in files:
+                    logger.info(f"[epg_runner] Found script: {os.path.join(root, f)}")
+        return False
+
+    logger.info(f"[epg_runner] Using grab script: {grab_script}")
     guide_files = []
     successes = 0
 
@@ -121,16 +122,17 @@ def run_epg_grab(channels_xml: str, output_xml: str) -> bool:
         site_output = os.path.join(EPG_TOOL_DIR, f"guide_{site.replace('.', '_')}.xml")
         logger.info(f"[epg_runner] Grabbing {site}...")
 
-        ok, err = _run(
-            ["npm", "run", "grab", "--",
-             f"--site={site}",
-             f"--output={site_output}",
-             "--days=3",
-             "--timeout=20000",
-             "--maxConnections=1"],
-            cwd=EPG_TOOL_DIR,
-            timeout=300
-        )
+        # Call npx tsx directly, bypassing npm run
+        cmd = [
+            "npx", "tsx", grab_script,
+            f"--site={site}",
+            f"--output={site_output}",
+            "--days=3",
+            "--timeout=20000",
+            "--maxConnections=1",
+        ]
+
+        ok, err = _run(cmd, cwd=EPG_TOOL_DIR, timeout=300)
 
         if ok and os.path.isfile(site_output):
             size = os.path.getsize(site_output)
@@ -138,12 +140,12 @@ def run_epg_grab(channels_xml: str, output_xml: str) -> bool:
             guide_files.append(site_output)
             successes += 1
         else:
-            logger.warning(f"[epg_runner] {site}: failed — {err[:200]}")
+            logger.warning(f"[epg_runner] {site}: failed — {err[:300]}")
 
     if not guide_files:
         logger.error("[epg_runner] All sites failed — no EPG data")
         return False
 
     _merge_guides(guide_files, output_xml)
-    logger.info(f"[epg_runner] Grab complete: {successes}/{len(SITES)} sites succeeded")
+    logger.info(f"[epg_runner] Complete: {successes}/{len(SITES)} sites succeeded")
     return True
