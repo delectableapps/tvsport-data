@@ -114,7 +114,42 @@ def attach_rights(fixture: dict) -> dict:
     return fixture
 
 
-def dedup_fixtures(fixtures: list) -> list:
+def normalise_fixture(f: dict) -> dict:
+    """
+    Normalise fixture dict to a consistent schema.
+    Different scrapers use different field names — this maps them all
+    to the standard keys the rest of merger.py expects.
+    """
+    if not isinstance(f, dict):
+        return {}
+
+    # Competition key
+    if "competition" not in f or not f["competition"]:
+        f["competition"] = (
+            f.get("competition_code") or
+            f.get("league") or
+            f.get("comp") or
+            "?"
+        )
+
+    # Team names
+    if "home_team" not in f or not f["home_team"]:
+        f["home_team"] = f.get("home") or f.get("home_team_name") or ""
+    if "away_team" not in f or not f["away_team"]:
+        f["away_team"] = f.get("away") or f.get("away_team_name") or ""
+
+    # Kickoff
+    if "kickoff" not in f or not f["kickoff"]:
+        f["kickoff"] = f.get("date") or f.get("datetime") or f.get("kick_off") or ""
+
+    # Blackout flag
+    if "blackout" not in f:
+        f["blackout"] = False
+
+    return f
+
+
+
     """Remove duplicate fixtures by (competition, home, away, date)."""
     seen = set()
     out = []
@@ -266,6 +301,18 @@ def run():
         # EPG data — most accurate, overrides static rights where available
         if key in epg_lookup:
             f["epg_channels"] = epg_lookup[key].get("channels", {})
+
+    # ── Normalise all fixtures to consistent schema ───────────────────
+    all_fixtures = [normalise_fixture(f) for f in all_fixtures if isinstance(f, dict)]
+    all_fixtures = [f for f in all_fixtures if f.get("competition") and f.get("home_team")]
+
+    # Log what we have before dedup
+    raw_by_comp = {}
+    for f in all_fixtures:
+        raw_by_comp[f["competition"]] = raw_by_comp.get(f["competition"], 0) + 1
+    log.info("── Raw fixture counts before dedup ──")
+    for comp, n in sorted(raw_by_comp.items()):
+        log.info(f"  {comp:<14} {n}")
 
     # ── Dedup, attach rights, sort ────────────────────────────────────
     all_fixtures = dedup_fixtures(all_fixtures)

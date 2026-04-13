@@ -50,7 +50,7 @@
   <!-- ================================================================
        2. REPUBLIC OF IRELAND
        ================================================================ -->
-  <channel site="premiersports.com" site_id="premier-sports-1-ie" lang="en">Premier Sports 1 Ireland HD</channel>
+  <!-- Premier Sports Ireland handled via static rights_db entries -->
   <channel site="rte.ie"        site_id="rte2"                    lang="en">RTE2</channel>
   <channel site="virginmediatv.ie" site_id="vm-sport"             lang="en">Virgin Media Sport</channel>
 
