@@ -1,7 +1,7 @@
 """
 epg_runner.py
 Clones iptv-org/epg and grabs XMLTV data site by site.
-Correct usage: npm run grab --- --site=sky.com --output=guide.xml --days=3
+Correct usage: npm run grab -- --site=sky.com --output=guide.xml --days=3
 
 Sites we grab from:
   sky.com          — UK: TNT Sports 1-4, Sky Sports Main Event/PL/Football/Action
@@ -122,7 +122,7 @@ def run_epg_grab(channels_xml: str, output_xml: str) -> bool:
         logger.info(f"[epg_runner] Grabbing {site}...")
 
         ok, err = _run(
-            ["npm", "run", "grab", "---",
+            ["npm", "run", "grab", "--",
              f"--site={site}",
              f"--output={site_output}",
              "--days=3",
