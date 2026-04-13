@@ -151,18 +151,22 @@ def enrich_uk_channels(fixtures: list) -> dict:
 def enrich_epg(fixtures: list) -> dict:
     """
     Run iptv-org/epg grab and parse guide.xml.
-    Returns { fixture_id: { territory: channel_name, ... } }
+    Returns { fixture_id: { broadcaster: channel_name } }
     """
     try:
         from sources.epg.epg_runner import run_epg_grab
         from sources.epg.epg_xmltv_parser import parse_guide
 
         channels_xml = os.path.join(os.path.dirname(__file__), "sources", "epg", "epg_channels.xml")
-        guide_xml = os.path.join(os.path.dirname(__file__), "..", "guide.xml")
+        guide_xml    = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "guide.xml"))
 
-        run_epg_grab(channels_xml, guide_xml)
-        epg_data = parse_guide(guide_xml, days_ahead=14)
-        logger.info(f"[pipeline] EPG: {len(epg_data)} programme entries parsed")
+        success = run_epg_grab(channels_xml, guide_xml)
+        if not success:
+            logger.warning("[pipeline] EPG grab failed — skipping EPG enrichment")
+            return {}
+
+        epg_data = parse_guide(guide_xml, fixtures=fixtures, days_ahead=3)
+        logger.info(f"[pipeline] EPG: matched {len(epg_data)} fixtures with channel data")
         return epg_data
     except Exception as e:
         logger.warning(f"[pipeline] EPG enrichment failed: {e}")
@@ -197,7 +201,7 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
         rights_map = dict(EFL_RIGHTS)
     elif comp_code in ("SP1", "SC1"):
         rights_map = dict(SCOTTISH_RIGHTS)
-    elif rights_key in ("la_liga", "bundesliga", "serie_a", "ligue_1"):
+    elif rights_key in ("la_liga", "bundesliga", "serie_a", "ligue_1", "eredivisie"):
         rights_map = {}
         for territory, row in EUROPEAN_LEAGUES_RIGHTS.items():
             broadcaster = row.get(rights_key, "")
@@ -333,6 +337,47 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
                 "confidence":  "medium",
             })
             continue
+
+        # United States — EPL slot logic
+        # NBC: Saturday 12:30 BST (11:30 UTC) and Sunday early slots
+        # Peacock: Most matches not on NBC/USA Network
+        # USA Network: Selected weekday evening matches
+        if comp_code == "PL" and territory == "United States":
+            from datetime import datetime
+            try:
+                dt = datetime.fromisoformat(kickoff.replace("Z", "+00:00"))
+                day  = dt.weekday()   # 0=Mon … 5=Sat … 6=Sun
+                hour = dt.hour
+
+                # Saturday 11:30 UTC (12:30 BST) → NBC broadcast
+                if day == 5 and hour == 11:
+                    channel = "NBC"
+                    broadcaster = "NBC Sports / Peacock"
+                # Saturday 17:30 BST (16:30 UTC) → USA Network
+                elif day == 5 and hour == 16:
+                    channel = "USA Network"
+                    broadcaster = "NBC Sports / Peacock"
+                # Sunday early (13:00–15:00 UTC) → NBC
+                elif day == 6 and hour <= 15:
+                    channel = "NBC"
+                    broadcaster = "NBC Sports / Peacock"
+                # All other slots → Peacock streaming
+                else:
+                    channel = "Peacock Premium"
+                    broadcaster = "NBC Sports / Peacock"
+
+                broadcasters.append({
+                    "territory":   "United States",
+                    "region":      "Americas",
+                    "broadcaster": broadcaster,
+                    "channels":    [channel, "Peacock Premium"],
+                    "type":        "pay_tv",
+                    "coverage":    "live",
+                    "confidence":  "medium",
+                })
+                continue
+            except Exception:
+                pass  # Fall through to default handling
 
         broadcaster_names = entry.get("broadcaster", "")
         region = entry.get("region", "")
