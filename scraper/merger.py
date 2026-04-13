@@ -289,7 +289,19 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
         # TNT: Saturday 12:30 only. Sky: all other slots. Premier Sports: always.
         if comp_code == "PL" and territory == "Republic of Ireland":
             if is_blackout:
-                continue  # no ROI broadcasters during blackout either
+                # 3pm Saturday — Ireland is NOT blacked out
+                # Premier Sports shows selected 3pm matches in Ireland
+                ps_meta = BROADCASTER_META.get("Premier Sports", {})
+                broadcasters.append({
+                    "territory":   "Republic of Ireland",
+                    "region":      "Europe",
+                    "broadcaster": "Premier Sports",
+                    "channels":    ["Premier Sports 1 Ireland HD"],
+                    "type":        "pay_tv",
+                    "coverage":    "live",
+                    "confidence":  "medium",
+                })
+                continue
             from datetime import datetime
             try:
                 dt = datetime.fromisoformat(kickoff.replace("Z", "+00:00"))
@@ -305,17 +317,6 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
                 "broadcaster": live_broadcaster,
                 "channels":    live_meta.get("channels", [live_broadcaster]),
                 "type":        live_meta.get("type", "pay_tv"),
-                "coverage":    "live",
-                "confidence":  "medium",
-            })
-            # Premier Sports always shown for ROI
-            ps_meta = BROADCASTER_META.get("Premier Sports", {})
-            broadcasters.append({
-                "territory":   "Republic of Ireland",
-                "region":      "Europe",
-                "broadcaster": "Premier Sports",
-                "channels":    ps_meta.get("channels", ["Premier Sports 1", "Premier Sports 2"]),
-                "type":        "pay_tv",
                 "coverage":    "live",
                 "confidence":  "medium",
             })
