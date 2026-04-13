@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-13T13:46:57.054618+00:00",
+  "generated_at": "2026-04-13T14:12:08.823102+00:00",
   "fixture_count": 160,
   "fixtures": [
     {
@@ -284,18 +284,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -1173,7 +1161,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_BRE_FUL_2026-04-18",
@@ -1457,18 +1445,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -2346,7 +2322,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_NEW_AFC_2026-04-18",
@@ -2630,18 +2606,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -3519,7 +3483,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_LEE_WOL_2026-04-18",
@@ -3803,18 +3767,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -4692,7 +4644,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_TOT_BRI_2026-04-18",
@@ -4976,18 +4928,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -5865,7 +5805,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_CHE_MAN_2026-04-18",
@@ -6149,18 +6089,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -7038,7 +6966,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_NOT_BUR_2026-04-19",
@@ -7322,18 +7250,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -8211,7 +8127,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_AST_SUN_2026-04-19",
@@ -8495,18 +8411,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -9384,7 +9288,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_EVE_LIV_2026-04-19",
@@ -9668,18 +9572,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -10557,7 +10449,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_MAN_ARS_2026-04-19",
@@ -10841,18 +10733,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -11730,7 +11610,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_CRY_WES_2026-04-20",
@@ -12014,18 +11894,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -12903,7 +12771,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_BRI_CHE_2026-04-21",
@@ -13187,18 +13055,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -14076,7 +13932,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_AFC_LEE_2026-04-22",
@@ -14360,18 +14216,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -15249,7 +15093,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_BUR_MAN_2026-04-22",
@@ -15533,18 +15377,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -16422,7 +16254,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_SUN_NOT_2026-04-24",
@@ -16706,18 +16538,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -17595,7 +17415,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_FUL_AST_2026-04-25",
@@ -17879,18 +17699,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -18768,7 +18576,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_LIV_CRY_2026-04-25",
@@ -19052,18 +18860,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -19941,7 +19737,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_WES_EVE_2026-04-25",
@@ -20225,18 +20021,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -21114,7 +20898,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_WOL_TOT_2026-04-25",
@@ -21398,18 +21182,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -22287,7 +22059,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_ARS_NEW_2026-04-25",
@@ -22571,18 +22343,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -23460,7 +23220,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_MAN_BRE_2026-04-27",
@@ -23744,18 +23504,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -24633,7 +24381,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_LEE_BUR_2026-05-01",
@@ -24917,18 +24665,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -25806,7 +25542,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_AST_TOT_2026-05-02",
@@ -26090,18 +25826,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -26979,7 +26703,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_AFC_CRY_2026-05-02",
@@ -27263,18 +26987,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -28152,7 +27864,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_BRE_WES_2026-05-02",
@@ -28436,18 +28148,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -29325,7 +29025,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_NEW_BRI_2026-05-02",
@@ -29609,18 +29309,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -30498,7 +30186,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_WOL_SUN_2026-05-02",
@@ -30782,18 +30470,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -31671,7 +31347,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_ARS_FUL_2026-05-02",
@@ -31955,18 +31631,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -32844,7 +32508,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_MAN_LIV_2026-05-03",
@@ -33128,18 +32792,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -34017,7 +33669,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_CHE_NOT_2026-05-04",
@@ -34301,18 +33953,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -35190,7 +34830,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_EVE_MAN_2026-05-04",
@@ -35474,18 +35114,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -36363,7 +35991,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_LIV_CHE_2026-05-09",
@@ -36647,18 +36275,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -37536,7 +37152,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_SUN_MAN_2026-05-09",
@@ -37820,18 +37436,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -38709,7 +38313,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_BRI_WOL_2026-05-09",
@@ -38993,18 +38597,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -39882,7 +39474,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_CRY_EVE_2026-05-09",
@@ -40166,18 +39758,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -41055,7 +40635,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_BUR_AST_2026-05-09",
@@ -41339,18 +40919,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -42228,7 +41796,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_FUL_AFC_2026-05-09",
@@ -42512,18 +42080,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -43401,7 +42957,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_MAN_BRE_2026-05-09",
@@ -43685,18 +43241,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -44574,7 +44118,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_NOT_NEW_2026-05-10",
@@ -44858,18 +44402,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -45747,7 +45279,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_WES_ARS_2026-05-10",
@@ -46031,18 +45563,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -46920,7 +46440,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "pl_TOT_LEE_2026-05-11",
@@ -47204,18 +46724,6 @@
           "confidence": "medium"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -48093,7 +47601,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 100
+      "broadcaster_count": 99
     },
     {
       "id": "cl_LIV_PAR_2026-04-14",
