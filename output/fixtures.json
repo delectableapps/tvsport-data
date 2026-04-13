@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-13T13:00:33.468089+00:00",
+  "generated_at": "2026-04-13T13:32:30.223001+00:00",
   "fixture_count": 160,
   "fixtures": [
     {
@@ -31,16 +31,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -1206,20 +1204,6 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
           "broadcaster": "TNT Sports",
           "channels": [
             "TNT Sports 1",
@@ -1230,6 +1214,18 @@
           "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC",
+          "channels": [
+            "BBC iPlayer",
+            "BBC One"
+          ],
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -2409,16 +2405,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -3598,16 +3592,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -4787,16 +4779,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -5976,16 +5966,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -7165,16 +7153,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -8354,16 +8340,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -9543,16 +9527,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -10732,16 +10714,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -11921,16 +11901,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -13110,16 +13088,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -14299,16 +14275,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -15488,16 +15462,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -16677,16 +16649,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -17852,20 +17822,6 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
           "broadcaster": "TNT Sports",
           "channels": [
             "TNT Sports 1",
@@ -17876,6 +17832,18 @@
           "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC",
+          "channels": [
+            "BBC iPlayer",
+            "BBC One"
+          ],
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -19055,16 +19023,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -20244,16 +20210,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -21433,16 +21397,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -22622,16 +22584,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -23811,16 +23771,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -25000,16 +24958,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -26175,20 +26131,6 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
           "broadcaster": "TNT Sports",
           "channels": [
             "TNT Sports 1",
@@ -26199,6 +26141,18 @@
           "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC",
+          "channels": [
+            "BBC iPlayer",
+            "BBC One"
+          ],
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -27378,16 +27332,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -28567,16 +28519,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -29756,16 +29706,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -30945,16 +30893,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -32134,16 +32080,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -33323,16 +33267,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -34512,16 +34454,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -35701,16 +35641,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -36876,20 +36814,6 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
           "broadcaster": "TNT Sports",
           "channels": [
             "TNT Sports 1",
@@ -36900,6 +36824,18 @@
           "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC",
+          "channels": [
+            "BBC iPlayer",
+            "BBC One"
+          ],
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -38079,16 +38015,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -39268,16 +39202,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -40457,16 +40389,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -41646,16 +41576,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -42835,16 +42763,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -44024,16 +43950,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -45213,16 +45137,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -46402,16 +46324,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
@@ -47591,16 +47511,14 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "TNT Sports",
+          "broadcaster": "BBC",
           "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
+            "BBC iPlayer",
+            "BBC One"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high"
         },
         {
           "territory": "Albania",
