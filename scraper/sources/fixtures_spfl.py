@@ -1,97 +1,95 @@
 """
 fixtures_spfl.py
-Scrapes spfl.co.uk for Scottish Premiership, Championship, League One, League Two.
-Primary source for Scottish football (not covered by football-data.org free tier).
+Scrapes Scottish Premiership and Championship fixtures.
+Uses multiple selector patterns to handle SPFL site structure.
 """
 
 import logging
 import requests
+import re
 from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
 
-SPFL_COMPETITIONS = {
-    "premiership": {
-        "name": "Scottish Premiership",
-        "code": "SP1",
-        "url": "https://spfl.co.uk/league/premier-league/fixtures",
-    },
-    "championship": {
-        "name": "Scottish Championship",
-        "code": "SC1",
-        "url": "https://spfl.co.uk/league/championship/fixtures",
-    },
-}
-
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; TVsport/1.0; +https://tvsport.live)"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,*/*",
+}
+
+COMPETITIONS = {
+    "SP1": {"name": "Scottish Premiership",  "code": "SP1", "url": "https://spfl.co.uk/league/premier-league/fixtures"},
+    "SC1": {"name": "Scottish Championship", "code": "SC1", "url": "https://spfl.co.uk/league/championship/fixtures"},
 }
 
 
-def _parse_spfl_page(html: str, comp_info: dict) -> list:
-    """Parse SPFL fixtures HTML."""
+def _make_fixture(home, away, date_str, comp_info):
+    date_slug = date_str[:10] if len(date_str) >= 10 else "unknown"
+    return {
+        "id":          f"{comp_info['code'].lower()}_{home[:3].upper()}_{away[:3].upper()}_{date_slug}",
+        "competition": comp_info["name"],
+        "comp_code":   comp_info["code"],
+        "home_team":   home,
+        "away_team":   away,
+        "kickoff":     date_str,
+        "matchday":    None,
+        "stage":       "REGULAR_SEASON",
+        "group":       None,
+        "source":      "spfl.co.uk",
+    }
+
+
+def _parse(html, comp_info):
     fixtures = []
     soup = BeautifulSoup(html, "html.parser")
 
-    # SPFL site structure — common patterns
-    blocks = soup.select(".fixture, .match-row, .fixture-row, li.fixture")
+    # Try structured selectors first
+    for selector in [".fixture", ".match", "[class*='fixture']", "[class*='match']", "tr", "li"]:
+        blocks = soup.select(selector)
+        for block in blocks:
+            text = block.get_text(" ", strip=True)
+            m = re.search(r'([A-Z][a-zA-Z\s&]{2,25})\s+(?:v|vs\.?)\s+([A-Z][a-zA-Z\s&]{2,25})', text)
+            if m:
+                home, away = m.group(1).strip(), m.group(2).strip()
+                date_m = re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}|\d{1,2}[/-]\d{1,2}[/-]\d{2,4}', text)
+                date_str = date_m.group(0) if date_m else ""
+                if len(home) > 2 and len(away) > 2:
+                    fixtures.append(_make_fixture(home, away, date_str, comp_info))
+        if fixtures:
+            return _dedup(fixtures)
 
-    if not blocks:
-        blocks = soup.select("tr.fixture, div.fixture-card, .game-card")
+    # Fallback: scan all lines
+    for line in soup.get_text("\n").split("\n"):
+        line = line.strip()
+        m = re.search(r'^([A-Z][a-zA-Z\s&]{2,25})\s+(?:v|vs\.?)\s+([A-Z][a-zA-Z\s&]{2,25})$', line)
+        if m:
+            home, away = m.group(1).strip(), m.group(2).strip()
+            skip = ["fixture", "result", "match", "round", "league", "cup", "table"]
+            if not any(s in home.lower() for s in skip):
+                fixtures.append(_make_fixture(home, away, "", comp_info))
 
-    for block in blocks:
-        try:
-            home_el = block.select_one(".home, .home-team, [data-home]")
-            away_el = block.select_one(".away, .away-team, [data-away]")
-            date_el = block.select_one("time, .date, .kickoff-time, [datetime]")
-
-            if not home_el or not away_el:
-                continue
-
-            home = home_el.get_text(strip=True)
-            away = away_el.get_text(strip=True)
-            date_str = ""
-            if date_el:
-                date_str = date_el.get("datetime") or date_el.get_text(strip=True)
-
-            if not home or not away:
-                continue
-
-            date_slug = date_str[:10] if len(date_str) >= 10 else "unknown"
-            fixture_id = f"{comp_info['code'].lower()}_{home[:3].upper()}_{away[:3].upper()}_{date_slug}"
-
-            fixtures.append({
-                "id":          fixture_id,
-                "competition": comp_info["name"],
-                "comp_code":   comp_info["code"],
-                "home_team":   home,
-                "away_team":   away,
-                "kickoff":     date_str,
-                "matchday":    None,
-                "stage":       "REGULAR_SEASON",
-                "group":       None,
-                "source":      "spfl.co.uk",
-            })
-        except Exception as e:
-            logger.debug(f"[spfl] Could not parse fixture: {e}")
-            continue
-
-    return fixtures
+    return _dedup(fixtures)
 
 
-def scrape_fixtures() -> list:
-    """Scrape SPFL fixture pages. Returns list of fixture dicts."""
+def _dedup(fixtures):
+    seen, out = set(), []
+    for f in fixtures:
+        k = (f["home_team"].lower(), f["away_team"].lower())
+        if k not in seen:
+            seen.add(k)
+            out.append(f)
+    return out
+
+
+def scrape_fixtures():
     all_fixtures = []
-
-    for key, comp_info in SPFL_COMPETITIONS.items():
+    for key, comp_info in COMPETITIONS.items():
         try:
             logger.info(f"[spfl] Fetching {comp_info['name']}...")
-            resp = requests.get(comp_info["url"], headers=HEADERS, timeout=15)
+            resp = requests.get(comp_info["url"], headers=HEADERS, timeout=20)
             resp.raise_for_status()
-            fixtures = _parse_spfl_page(resp.text, comp_info)
-            logger.info(f"[spfl] {comp_info['name']}: {len(fixtures)} fixtures parsed")
+            fixtures = _parse(resp.text, comp_info)
+            logger.info(f"[spfl] {comp_info['name']}: {len(fixtures)} fixtures")
             all_fixtures.extend(fixtures)
         except Exception as e:
-            logger.error(f"[spfl] Failed to fetch {comp_info['name']}: {e}")
-
+            logger.error(f"[spfl] Failed {comp_info['name']}: {e}")
     return all_fixtures
