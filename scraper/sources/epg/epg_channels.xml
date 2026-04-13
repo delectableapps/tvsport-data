@@ -1,278 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  epg_channels.xml — TVsport EPG Channel List
-  Used by: iptv-org/epg tool (Node.js)
-  Updated: April 2026
+  TVsport EPG Channel List
+  Used by iptv-org/epg Node.js tool to pull XMLTV schedule data.
 
-  Format:
-    <channel site="epg-source-domain" site_id="channel-id-from-that-source" lang="xx">Display Name</channel>
+  To grab data locally:
+    npx epg-grabber --config epg_channels.xml --output guide.xml --timeout 60000
 
-  type attribute notes:
-    epg    = pulled live from iptv-org/epg XMLTV feeds (most accurate)
-    static = no EPG feed; channel assignment is fixed in rights_db.py
-
-  Sections:
-    1. UK channels
-    2. Ireland
-    3. Europe — West
-    4. Europe — East / Balkans
-    5. Nordics
-    6. MENA (beIN Sports)
-    7. Africa (SuperSport)
-    8. USA
-    9. Asia-Pacific
-   10. New in v4 — previously missing channels now added
+  Sites confirmed working as of April 2026.
+  NOTE: rte.ie removed — ERR_MODULE_NOT_FOUND error.
+  NOTE: Viaplay not yet in iptv-org/epg (open issue #2366) — use direct scrape.
 -->
 <channels>
 
-  <!-- ================================================================
-       1. UNITED KINGDOM
-       Only sky.com entries here — bbc.co.uk, itv.com, channel4.com,
-       channel5.com, freesports.tv, premiersports.com all require
-       config files not bundled with iptv-org/epg and cause EPG crashes.
-       UK free-to-air channels are handled via static rights_db entries.
-       ================================================================ -->
-  <!-- Sky Sports — via sky.com EPG -->
-  <channel site="sky.com" site_id="401"  lang="en">Sky Sports Main Event HD</channel>
-  <channel site="sky.com" site_id="402"  lang="en">Sky Sports Premier League HD</channel>
-  <channel site="sky.com" site_id="403"  lang="en">Sky Sports Football HD</channel>
-  <channel site="sky.com" site_id="404"  lang="en">Sky Sports Action HD</channel>
-  <channel site="sky.com" site_id="405"  lang="en">Sky Sports Mix HD</channel>
-  <channel site="sky.com" site_id="501"  lang="en">Sky Sports Main Event UHD</channel>
-  <channel site="sky.com" site_id="502"  lang="en">Sky UK Ultra HD 1</channel>
-  <!-- TNT Sports — verified site IDs from iptv-org/epg sky.com.channels.xml -->
-  <channel site="sky.com" site_id="3661" lang="en">TNT Sports 1 HD</channel>
-  <channel site="sky.com" site_id="3663" lang="en">TNT Sports 2 HD</channel>
-  <channel site="sky.com" site_id="5032" lang="en">TNT Sports 3 HD</channel>
-  <channel site="sky.com" site_id="3141" lang="en">TNT Sports 4 HD</channel>
-  <channel site="sky.com" site_id="1099" lang="en">TNT Sports Ultimate UHD</channel>
+  <!-- ═══════════════════════════════════════════════════════════════
+       UK  (via sky.com)
+       Source: https://github.com/iptv-org/epg/blob/master/sites/sky.com
+  ════════════════════════════════════════════════════════════════ -->
+  <channel site="sky.com" site_id="1103" lang="en" xmltv_id="SkySportsMainEvent.uk@HD">Sky Sports Main Event</channel>
+  <channel site="sky.com" site_id="1104" lang="en" xmltv_id="SkySportsPremierLeague.uk@HD">Sky Sports Premier League</channel>
+  <channel site="sky.com" site_id="1105" lang="en" xmltv_id="SkySportsFootball.uk@HD">Sky Sports Football</channel>
+  <channel site="sky.com" site_id="1106" lang="en" xmltv_id="SkySportsAction.uk@HD">Sky Sports Action</channel>
+  <channel site="sky.com" site_id="1107" lang="en" xmltv_id="SkySportsArena.uk@HD">Sky Sports Arena</channel>
+  <channel site="sky.com" site_id="1120" lang="en" xmltv_id="TNTSports1.uk@HD">TNT Sports 1</channel>
+  <channel site="sky.com" site_id="1121" lang="en" xmltv_id="TNTSports2.uk@HD">TNT Sports 2</channel>
+  <channel site="sky.com" site_id="1122" lang="en" xmltv_id="TNTSports3.uk@HD">TNT Sports 3</channel>
+  <channel site="sky.com" site_id="1123" lang="en" xmltv_id="TNTSports4.uk@HD">TNT Sports 4</channel>
 
-  <!-- ================================================================
-       2. REPUBLIC OF IRELAND
-       ================================================================ -->
-  <!-- Premier Sports Ireland handled via static rights_db entries -->
-  <channel site="rte.ie"        site_id="rte2"                    lang="en">RTE2</channel>
-  <channel site="virginmediatv.ie" site_id="vm-sport"             lang="en">Virgin Media Sport</channel>
+  <!-- ═══════════════════════════════════════════════════════════════
+       FRANCE + MENA  (via canalplus.com)
+       Source: https://github.com/iptv-org/epg/blob/master/sites/canalplus.com
+       Includes beIN Sports 1, 2, Max 1-10 + Canal+ Sport/Foot
+  ════════════════════════════════════════════════════════════════ -->
+  <channel site="canalplus.com" site_id="#381" lang="fr" xmltv_id="beINSports1.qa@France">beIN Sports 1</channel>
+  <channel site="canalplus.com" site_id="#384" lang="fr" xmltv_id="beINSports2.qa@France">beIN Sports 2</channel>
+  <channel site="canalplus.com" site_id="#387" lang="fr" xmltv_id="beINSportsMax1.qa@France">beIN Sports Max 1</channel>
+  <channel site="canalplus.com" site_id="#388" lang="fr" xmltv_id="beINSportsMax2.qa@France">beIN Sports Max 2</channel>
+  <channel site="canalplus.com" site_id="#389" lang="fr" xmltv_id="beINSportsMax3.qa@France">beIN Sports Max 3</channel>
+  <channel site="canalplus.com" site_id="#390" lang="fr" xmltv_id="beINSportsMax4.qa@France">beIN Sports Max 4</channel>
+  <channel site="canalplus.com" site_id="#391" lang="fr" xmltv_id="beINSportsMax5.qa@France">beIN Sports Max 5</channel>
+  <channel site="canalplus.com" site_id="#600" lang="fr" xmltv_id="beINSportsMax6.qa@France">beIN Sports Max 6</channel>
+  <channel site="canalplus.com" site_id="#601" lang="fr" xmltv_id="beINSportsMax7.qa@France">beIN Sports Max 7</channel>
+  <channel site="canalplus.com" site_id="#602" lang="fr" xmltv_id="beINSportsMax8.qa@France">beIN Sports Max 8</channel>
+  <channel site="canalplus.com" site_id="#603" lang="fr" xmltv_id="beINSportsMax9.qa@France">beIN Sports Max 9</channel>
+  <channel site="canalplus.com" site_id="#605" lang="fr" xmltv_id="beINSportsMax10.qa@France">beIN Sports Max 10</channel>
+  <channel site="canalplus.com" site_id="#112" lang="fr" xmltv_id="CanalPlusSport.fr@SD">Canal+ Sport</channel>
+  <channel site="canalplus.com" site_id="#115" lang="fr" xmltv_id="CanalPlusFoot.fr@SD">Canal+ Foot</channel>
+  <channel site="canalplus.com" site_id="#436" lang="fr" xmltv_id="Eurosport2.fr@France">Eurosport 2</channel>
+  <channel site="canalplus.com" site_id="#1077" lang="fr" xmltv_id="">DAZN 1 (France)</channel>
 
-  <!-- ================================================================
-       3. EUROPE — WEST
-       ================================================================ -->
-  <!-- Germany -->
-  <channel site="sky.de"        site_id="sky-sport-bundesliga-1"  lang="de">Sky Sport Bundesliga 1 HD</channel>
-  <channel site="sky.de"        site_id="sky-sport-bundesliga-2"  lang="de">Sky Sport Bundesliga 2 HD</channel>
-  <channel site="sky.de"        site_id="sky-sport-pl-de"         lang="de">Sky Sport Premier League DE HD</channel>
-  <channel site="sky.de"        site_id="sky-sport-news-de"       lang="de">Sky Sport News DE</channel>
-  <channel site="dazn.com"      site_id="dazn-de-1"               lang="de">DAZN 1 Deutschland</channel>
-  <channel site="dazn.com"      site_id="dazn-de-2"               lang="de">DAZN 2 Deutschland</channel>
-  <channel site="sat1.de"       site_id="sat1"                    lang="de">Sat.1</channel>
-  <channel site="zdf.de"        site_id="zdf"                     lang="de">ZDF</channel>
+  <!-- ═══════════════════════════════════════════════════════════════
+       GERMANY / AUSTRIA / SWITZERLAND  (via sky.de)
+  ════════════════════════════════════════════════════════════════ -->
+  <channel site="sky.de" site_id="SkySport1" lang="de" xmltv_id="SkySport1.de@HD">Sky Sport 1 (DE)</channel>
+  <channel site="sky.de" site_id="SkySport2" lang="de" xmltv_id="SkySport2.de@HD">Sky Sport 2 (DE)</channel>
+  <channel site="sky.de" site_id="SkySportBundesliga1" lang="de" xmltv_id="SkySportBundesliga1.de@HD">Sky Sport Bundesliga 1</channel>
+  <channel site="sky.de" site_id="SkySportBundesliga2" lang="de" xmltv_id="SkySportBundesliga2.de@HD">Sky Sport Bundesliga 2</channel>
+  <channel site="sky.de" site_id="DAZN1" lang="de" xmltv_id="DAZN1.de@HD">DAZN 1 (DE)</channel>
+  <channel site="sky.de" site_id="DAZN2" lang="de" xmltv_id="DAZN2.de@HD">DAZN 2 (DE)</channel>
 
-  <!-- France -->
-  <channel site="canalplus.com" site_id="canal-plus-sport"        lang="fr">Canal+ Sport</channel>
-  <channel site="canalplus.com" site_id="canal-plus-foot"         lang="fr">Canal+ Foot HD</channel>
-  <channel site="canalplus.com" site_id="canal-plus-france"       lang="fr">Canal+ France HD</channel>
-  <channel site="canalplus.com" site_id="canal-plus-premier"      lang="fr">Canal+ Premier League HD</channel>
-  <channel site="beinsports.com" site_id="bein-sports-fr-1"       lang="fr">beIN Sports FR 1</channel>
-  <channel site="primevideo.com" site_id="prime-video-sport-fr"   lang="fr">Amazon Prime Video Sport FR</channel>
+  <!-- ═══════════════════════════════════════════════════════════════
+       INDIA / SOUTH ASIA  (via airtelxstream.in)
+       967 channels, 668 with XMLTV IDs — includes Star Sports + Sony Ten
+  ════════════════════════════════════════════════════════════════ -->
+  <channel site="airtelxstream.in" site_id="StarSports1HD" lang="en" xmltv_id="StarSports1.in@HD">Star Sports 1 HD</channel>
+  <channel site="airtelxstream.in" site_id="StarSports2HD" lang="en" xmltv_id="StarSports2.in@HD">Star Sports 2 HD</channel>
+  <channel site="airtelxstream.in" site_id="StarSports3" lang="en" xmltv_id="StarSports3.in@SD">Star Sports 3</channel>
+  <channel site="airtelxstream.in" site_id="SonyTen1HD" lang="en" xmltv_id="SonyTen1.in@HD">Sony Ten 1 HD</channel>
+  <channel site="airtelxstream.in" site_id="SonyTen2HD" lang="en" xmltv_id="SonyTen2.in@HD">Sony Ten 2 HD</channel>
+  <channel site="airtelxstream.in" site_id="SonyTen3HD" lang="en" xmltv_id="SonyTen3.in@HD">Sony Ten 3 HD</channel>
+  <channel site="airtelxstream.in" site_id="SonyTen4" lang="en" xmltv_id="SonyTen4.in@SD">Sony Ten 4</channel>
+  <channel site="airtelxstream.in" site_id="Sports18HD" lang="en" xmltv_id="Sports18.in@HD">Sports 18 HD</channel>
 
-  <!-- Spain -->
-  <channel site="dazn.com"      site_id="dazn-es-1"               lang="es">DAZN 1 Espana HD</channel>
-  <channel site="dazn.com"      site_id="dazn-es-2"               lang="es">DAZN 2 Espana HD</channel>
-  <channel site="dazn.com"      site_id="dazn-es-bar"             lang="es">DAZN 1 Bar Espana</channel>
-  <channel site="movistarplus.es" site_id="movistar-champions"    lang="es">Movistar Champions League</channel>
-  <channel site="movistarplus.es" site_id="movistar-laliga"        lang="es">Movistar LaLiga</channel>
+  <!-- ═══════════════════════════════════════════════════════════════
+       MALAYSIA / SE ASIA  (via astro.com.my)
+  ════════════════════════════════════════════════════════════════ -->
+  <channel site="astro.com.my" site_id="AstroSupersport2" lang="en" xmltv_id="AstroSupersport2.my@HD">Astro SuperSport 2</channel>
+  <channel site="astro.com.my" site_id="AstroSupersport3" lang="en" xmltv_id="AstroSupersport3.my@HD">Astro SuperSport 3</channel>
+  <channel site="astro.com.my" site_id="AstroSupersport4" lang="en" xmltv_id="AstroSupersport4.my@HD">Astro SuperSport 4</channel>
+  <channel site="astro.com.my" site_id="AstroArena" lang="en" xmltv_id="AstroArena.my@HD">Astro Arena</channel>
 
-  <!-- Portugal -->
-  <channel site="dazn.com"      site_id="dazn-pt-1"               lang="pt">DAZN 1 Portugal HD</channel>
-  <channel site="dazn.com"      site_id="dazn-pt-2"               lang="pt">DAZN 2 Portugal HD</channel>
-  <channel site="dazn.com"      site_id="dazn-pt-3"               lang="pt">DAZN 3 Portugal HD</channel>
-  <channel site="dazn.com"      site_id="dazn-pt-4"               lang="pt">DAZN 4 Portugal HD</channel>
-  <channel site="sporttv.pt"    site_id="sport-tv-1"               lang="pt">Sport TV 1</channel>
-  <channel site="sporttv.pt"    site_id="sport-tv-2"               lang="pt">Sport TV 2</channel>
-  <channel site="elevenSports.com" site_id="eleven-sports-pt"     lang="pt">Eleven Sports PT</channel>
+  <!-- ═══════════════════════════════════════════════════════════════
+       AFRICA — SuperSport  (via dstv.com)
+       DStv EPG accessed via WebGrab+Plus dstv.com approach.
+       Site ID format: UUID##channel_number
+  ════════════════════════════════════════════════════════════════ -->
+  <channel site="dstv.com" site_id="SuperSportPremierLeague" lang="en" xmltv_id="SuperSportPremierLeague.za@HD">SuperSport Premier League</channel>
+  <channel site="dstv.com" site_id="SuperSportFootball" lang="en" xmltv_id="SuperSportFootball.za@HD">SuperSport Football</channel>
+  <channel site="dstv.com" site_id="SuperSportVariety1" lang="en" xmltv_id="SuperSportVariety1.za@HD">SuperSport Variety 1</channel>
+  <channel site="dstv.com" site_id="SuperSportVariety2" lang="en" xmltv_id="SuperSportVariety2.za@HD">SuperSport Variety 2</channel>
+  <channel site="dstv.com" site_id="SuperSportVariety3" lang="en" xmltv_id="SuperSportVariety3.za@HD">SuperSport Variety 3</channel>
+  <channel site="dstv.com" site_id="SuperSportVariety4" lang="en" xmltv_id="SuperSportVariety4.za@HD">SuperSport Variety 4</channel>
 
-  <!-- Italy -->
-  <channel site="sky.it"        site_id="sky-sport-uno"           lang="it">Sky Sport Uno IT</channel>
-  <channel site="sky.it"        site_id="sky-sport-calcio"        lang="it">Sky Sport Calcio</channel>
-  <channel site="sky.it"        site_id="sky-sport-football-it"   lang="it">Sky Sport Football IT</channel>
-  <channel site="dazn.com"      site_id="dazn-it-1"               lang="it">DAZN 1 Italia</channel>
-  <channel site="dazn.com"      site_id="dazn-it-2"               lang="it">DAZN 2 Italia</channel>
-  <channel site="primevideo.com" site_id="prime-video-sport-it"   lang="it">Prime Video Sport IT</channel>
-
-  <!-- Netherlands -->
-  <channel site="ziggo.nl"      site_id="ziggo-sport"             lang="nl">Ziggo Sport</channel>
-  <channel site="espn.nl"       site_id="espn-nl-1"               lang="nl">ESPN 1 NL</channel>
-  <channel site="espn.nl"       site_id="espn-nl-2"               lang="nl">ESPN 2 NL</channel>
-  <channel site="espn.nl"       site_id="espn-nl-3"               lang="nl">ESPN 3 NL</channel>
-
-  <!-- Belgium -->
-  <channel site="telenet.be"    site_id="play-sports-1"           lang="nl">Play Sports 1</channel>
-  <channel site="telenet.be"    site_id="play-sports-2"           lang="nl">Play Sports 2</channel>
-  <channel site="elevenSports.com" site_id="eleven-sports-be"     lang="nl">Eleven Sports BE</channel>
-
-  <!-- Switzerland -->
-  <channel site="blue.ch"       site_id="blue-sport-1"            lang="de">Blue Sport 1</channel>
-  <channel site="srf.ch"        site_id="srf-sport"               lang="de">SRF Sport</channel>
-
-  <!-- Austria -->
-  <channel site="sky.at"        site_id="sky-sport-bundesliga-at" lang="de">Sky Sport Bundesliga AT</channel>
-
-  <!-- ================================================================
-       4. EUROPE — EAST / BALKANS
-       Previously partially covered — now fully added
-       ================================================================ -->
-  <!-- Poland — Canal+ (NEW channels added) -->
-  <channel site="canalplus.com" site_id="canal-plus-extra-1-pl"   lang="pl">Canal+ Extra 1 Polska HD</channel>
-  <channel site="canalplus.com" site_id="canal-plus-extra-2-pl"   lang="pl">Canal+ Extra 2 Polska HD</channel>
-  <channel site="canalplus.com" site_id="canal-plus-sport-pl"     lang="pl">Canal+ Sport PL</channel>
-
-  <!-- Czech Republic — Canal+ (NEW additional channels) -->
-  <channel site="canalplus.com" site_id="canal-plus-sport-1-cz"   lang="cs">Canal+ Sport 1 Czech HD</channel>
-  <channel site="canalplus.com" site_id="canal-plus-sport-4-cz"   lang="cs">Canal+ Sport 4 Czech HD</channel>
-  <channel site="canalplus.com" site_id="canal-plus-sport-7-cz"   lang="cs">Canal+ Sport 7 Czech HD</channel>
-  <channel site="canalplus.com" site_id="canal-plus-sport-8-cz"   lang="cs">Canal+ Sport 8 Czech HD</channel>
-
-  <!-- Serbia / Croatia — Arena Sport -->
-  <channel site="arenakanali.com" site_id="arena-premium-1-srb"   lang="sr">Arena Premium 1 Srbija HD</channel>
-  <channel site="arenakanali.com" site_id="arena-premium-2-srb"   lang="sr">Arena Premium 2 Srbija HD</channel>
-  <channel site="arenakanali.com" site_id="arena-premium-3-srb"   lang="sr">Arena Premium 3 Srbija HD</channel>
-  <channel site="arenakanali.com" site_id="arena-premium-5-srb"   lang="sr">Arena Premium 5 Srbija HD</channel>
-  <channel site="arenakanali.com" site_id="arena-sport-1-hrv"     lang="hr">Arena Sport 1 Hrvatska HD</channel>
-  <channel site="arenakanali.com" site_id="arena-sport-5-hrv"     lang="hr">Arena Sport 5 Hrvatska HD</channel>
-
-  <!-- Bulgaria — Nova Sports / Diema (NEW — previously missing) -->
-  <channel site="novasports.bg"  site_id="nova-sports-pl-bg"      lang="bg">Nova Sports Premier League HD</channel>
-  <channel site="novasports.bg"  site_id="nova-sports-prime-bg"   lang="bg">Nova Sports Prime Hellas HD</channel>
-  <channel site="novasports.bg"  site_id="nova-sports-start-bg"   lang="bg">Nova Sports Start Hellas HD</channel>
-  <channel site="novasports.bg"  site_id="nova-sports-5-bg"       lang="bg">Nova Sports 5 Hellas HD</channel>
-  <channel site="diema.bg"       site_id="diema-sport-bg"         lang="bg">Diema Sport HD</channel>
-  <channel site="diema.bg"       site_id="diema-sport-2-bg"       lang="bg">Diema Sport 2 HD</channel>
-
-  <!-- Greece — Nova Sports -->
-  <channel site="novasports.gr" site_id="nova-sports-pl-gr"       lang="el">Nova Sports Premier League HD</channel>
-  <channel site="novasports.gr" site_id="nova-sports-prime-gr"    lang="el">Nova Sports Prime Hellas HD</channel>
-  <channel site="novasports.gr" site_id="nova-sports-start-gr"    lang="el">Nova Sports Start Hellas HD</channel>
-  <channel site="novasports.gr" site_id="nova-sports-5-gr"        lang="el">Nova Sports 5 Hellas HD</channel>
-
-  <!-- Israel (NEW) -->
-  <channel site="sport1.co.il"  site_id="sport-1-il"              lang="he">Sport 1 Israel HD</channel>
-  <channel site="sport1.co.il"  site_id="sport-2-il"              lang="he">Sport 2 Israel HD</channel>
-
-  <!-- Cyprus -->
-  <channel site="cytavision.com" site_id="cytavision-sports-3"    lang="el">Cytavision Sports 3 HD</channel>
-
-  <!-- Romania (NEW) -->
-  <channel site="voyo.ro"       site_id="pro-tv-ro"               lang="ro">VOYO Pro TV Romania</channel>
-  <channel site="digisport.ro"  site_id="digi-sport-1-ro"         lang="ro">Digi Sport 1 RO</channel>
-
-  <!-- Hungary -->
-  <channel site="tv2.hu"        site_id="tv2-sport-hu"            lang="hu">TV2 Sport HU</channel>
-
-  <!-- ================================================================
-       5. NORDICS
-       ================================================================ -->
-  <channel site="viaplay.com"   site_id="viaplay-dk"              lang="da">ViaPlay Danmark HD</channel>
-  <channel site="viaplay.com"   site_id="viaplay-no"              lang="no">ViaPlay Norge HD</channel>
-  <channel site="viaplay.com"   site_id="viaplay-se"              lang="sv">ViaPlay Sverige HD</channel>
-  <channel site="viaplay.com"   site_id="viaplay-fi"              lang="fi">ViaPlay Suomi HD</channel>
-  <channel site="viaplay.com"   site_id="viaplay-nl"              lang="nl">ViaPlay Nederland HD</channel>
-  <channel site="viaplay.com"   site_id="viaplay-uk"              lang="en">Viaplay UK</channel>
-  <!-- V Sport (NEW — Norway/Finland specific channels) -->
-  <channel site="viaplay.com"   site_id="v-sport-pl-no"           lang="no">V Sport Premier League HD</channel>
-  <channel site="viaplay.com"   site_id="v-sport-pl-1"            lang="no">V Sport Premier League 1 HD</channel>
-  <!-- Prime Video Nordics (NEW) -->
-  <channel site="primevideo.com" site_id="prime-video-sport-dk"   lang="da">Prime Video Dansk</channel>
-  <channel site="primevideo.com" site_id="prime-video-sport-se"   lang="sv">Prime Video Sverige</channel>
-
-  <!-- ================================================================
-       6. BALTIC STATES (NEW — Go3 / TV3)
-       ================================================================ -->
-  <channel site="go3.tv"        site_id="go3-sport-baltics"       lang="et">Go3 Extra Sport Baltics</channel>
-  <channel site="go3.tv"        site_id="go3-sport-ee"            lang="et">Go3 Sport EE</channel>
-  <channel site="go3.tv"        site_id="go3-sport-lv"            lang="lv">Go3 Sport LV</channel>
-  <channel site="go3.tv"        site_id="go3-sport-lt"            lang="lt">Go3 Sport LT</channel>
-
-  <!-- ================================================================
-       7. MIDDLE EAST & NORTH AFRICA — beIN Sports
-       ================================================================ -->
-  <channel site="beinsports.com" site_id="bein-mena-1"            lang="ar">beIN Sports MENA 1 HD</channel>
-  <channel site="beinsports.com" site_id="bein-mena-2"            lang="ar">beIN Sports MENA 2 HD</channel>
-  <channel site="beinsports.com" site_id="bein-mena-3"            lang="ar">beIN Sports MENA 3 HD</channel>
-  <channel site="beinsports.com" site_id="bein-mena-4"            lang="ar">beIN Sports MENA 4 HD</channel>
-  <channel site="beinsports.com" site_id="bein-mena-5"            lang="ar">beIN Sports MENA 5 HD</channel>
-  <channel site="beinsports.com" site_id="bein-mena-english-1"    lang="en">beIN Sports MENA English 1 HD</channel>
-  <channel site="beinsports.com" site_id="bein-connect-mena"      lang="ar">beIN Connect MENA</channel>
-  <channel site="beinsports.com" site_id="bein-turkiye-3"         lang="tr">beIN Sports Türkiye 3 HD</channel>
-  <channel site="beinsports.com" site_id="bein-uk-1"              lang="en">beIN Sports UK 1</channel>
-  <channel site="beinsports.com" site_id="bein-usa-1"             lang="en">beIN Sports USA 1</channel>
-  <channel site="beinsports.com" site_id="bein-hd-1"              lang="ar">beIN Sports HD 1</channel>
-  <channel site="beinsports.com" site_id="bein-hd-2"              lang="ar">beIN Sports HD 2</channel>
-  <channel site="beinsports.com" site_id="bein-hd-3"              lang="ar">beIN Sports HD 3</channel>
-
-  <!-- ================================================================
-       8. AFRICA — SuperSport
-       ================================================================ -->
-  <channel site="dstv.com"      site_id="supersport-pl-203"       lang="en">SuperSport Premier League HD (DStv #203)</channel>
-  <channel site="dstv.com"      site_id="supersport-football-204" lang="en">SuperSport Football HD (DStv #204)</channel>
-  <channel site="dstv.com"      site_id="supersport-action-hd"    lang="en">SuperSport Action HD</channel>
-  <channel site="dstv.com"      site_id="supersport-variety-3"    lang="en">SuperSport Variety 3 HD</channel>
-  <channel site="dstv.com"      site_id="supersport-2-alb"        lang="sq">SuperSport 2 Albania HD</channel>
-  <!-- Stan Sport Australia (NEW — EPG feed available) -->
-  <channel site="stan.com.au"   site_id="stan-sport"              lang="en">Stan Sport Australia</channel>
-  <!-- Canal+ Afrique -->
-  <channel site="canalplus.com" site_id="canal-plus-afrique"      lang="fr">Canal+ Afrique</channel>
-
-  <!-- ================================================================
-       9. USA
-       ================================================================ -->
-  <channel site="nbcsports.com" site_id="nbc-sports-usa"          lang="en">NBC Sports USA</channel>
-  <channel site="nbcsports.com" site_id="usa-network"             lang="en">USA Network HD</channel>
-  <channel site="peacocktv.com" site_id="peacock-premium"         lang="en">Peacock Premium USA</channel>
-  <channel site="telemundo.com" site_id="telemundo-usa"           lang="es">Telemundo USA</channel>
-  <channel site="telemundo.com" site_id="nbc-universo"            lang="es">NBC Universo USA</channel>
-  <channel site="cbssports.com" site_id="cbs-sports-ucl"          lang="en">CBS Sports UCL</channel>
-  <channel site="paramountplus.com" site_id="paramount-plus-us"   lang="en">Paramount+</channel>
-  <channel site="espn.com"      site_id="espn-plus-us"            lang="en">ESPN+</channel>
-
-  <!-- ================================================================
-       10. ASIA-PACIFIC
-       ================================================================ -->
-  <!-- Malaysia — Astro -->
-  <channel site="astro.com.my"  site_id="astro-pl"                lang="ms">Astro Premier League HD</channel>
-  <channel site="astro.com.my"  site_id="astro-pl-2"              lang="ms">Astro Premier League 2 HD</channel>
-  <channel site="astro.com.my"  site_id="astro-pl-3"              lang="ms">Astro Premier League 3 HD</channel>
-  <channel site="astro.com.my"  site_id="astro-supersport-3"      lang="ms">Astro SuperSport 3</channel>
-
-  <!-- Hong Kong — NOW TV / Hub Premier (NEW — multiple channels added) -->
-  <channel site="nowtv.now.com" site_id="now-pl-hk-1"             lang="zh">NOW Premier League HK 1</channel>
-  <channel site="nowtv.now.com" site_id="now-pl-hk-2"             lang="zh">NOW Premier League HK 2</channel>
-  <channel site="nowtv.now.com" site_id="now-pl-hk-3"             lang="zh">NOW Premier League HK 3</channel>
-  <channel site="pccwmedia.com" site_id="hub-premier-1"           lang="zh">Hub Premier 1 HD</channel>
-  <channel site="pccwmedia.com" site_id="hub-premier-2"           lang="zh">Hub Premier 2 HD</channel>
-  <channel site="pccwmedia.com" site_id="hub-premier-3"           lang="zh">Hub Premier 3 HD</channel>
-  <channel site="pccwmedia.com" site_id="hub-premier-4"           lang="zh">Hub Premier 4 HD</channel>
-  <channel site="pccwmedia.com" site_id="hub-premier-8"           lang="zh">Hub Premier 8 HD</channel>
-
-  <!-- India -->
-  <channel site="jiocinema.com" site_id="star-sports-select-1"    lang="en">Star Sports Select HD1</channel>
-  <channel site="jiocinema.com" site_id="star-sports-select-2"    lang="en">Star Sports Select HD2</channel>
-  <channel site="sonyliv.com"   site_id="sony-sports-ten-2"       lang="en">Sony Sports Ten 2</channel>
-
-  <!-- Japan -->
-  <channel site="dazn.com"      site_id="dazn-jp"                 lang="ja">DAZN JP</channel>
-  <channel site="wowow.co.jp"   site_id="wowow-live"              lang="ja">WOWOW Live</channel>
-
-  <!-- South Korea -->
-  <channel site="spotv.net"     site_id="spotv-kr"                lang="ko">SPOTV</channel>
-  <channel site="coupangplay.com" site_id="coupang-play"          lang="ko">Coupang Play</channel>
-
-  <!-- Australia — Stan Sport (moved to EPG, NEW) -->
-  <channel site="stan.com.au"   site_id="stan-sport-au"           lang="en">Stan Sport</channel>
-
-  <!-- New Zealand -->
-  <channel site="skysport.co.nz" site_id="sky-sport-nz"           lang="en">Sky Sport NZ</channel>
-
-  <!-- China -->
-  <channel site="migu.cn"       site_id="migu-sport"              lang="zh">Migu</channel>
+  <!-- ═══════════════════════════════════════════════════════════════
+       AUSTRALIA  (via abc.net.au / i.mjh.nz)
+  ════════════════════════════════════════════════════════════════ -->
+  <channel site="abc.net.au" site_id="StanSport" lang="en" xmltv_id="StanSport.au@SD">Stan Sport</channel>
+  <channel site="abc.net.au" site_id="OptusSport" lang="en" xmltv_id="OptusSport.au@SD">Optus Sport</channel>
 
 </channels>

@@ -1,349 +1,366 @@
 """
-merger.py — TVsport Nightly Fixture Pipeline
-Main entry point. Runs all scrapers, merges rights data, outputs fixtures.json
+merger.py — TVsport scraper pipeline
+Run this to generate output/fixtures.json
 
-Competitions covered:
-  EPL, UCL, EFL (CH/L1/L2/NAT), Scottish (SPL/SCH/SCUP),
-  La Liga, Bundesliga, Serie A, Serie B, Ligue 1, Eredivisie, Primeira Liga,
-  FA Cup, EFL Cup
+Usage:
+    cd scraper && python merger.py
 
-Run:
-  cd scraper && python merger.py
+Sources (in priority order):
+    1. football-data.org API  — primary fixtures (EPL, UCL, EFL, European leagues)
+    2. efl.com scraper        — fallback/validator for EFL
+    3. spfl.co.uk scraper     — Scottish leagues
+    4. livefootballontv.com   — UK channel assignments per fixture
+    5. iptv-org/epg (XMLTV)   — international channel assignments
+    6. rights_db.py           — broadcast rights layer (who has rights per territory)
 """
+
 import json
 import logging
 import os
 import sys
 from datetime import datetime, timezone
-from pathlib import Path
 
-# ── Logging ──────────────────────────────────────────────────────────
+# Add scraper directory to path
+sys.path.insert(0, os.path.dirname(__file__))
+
+from rights_db import (
+    EPL_RIGHTS, UCL_RIGHTS, EFL_RIGHTS, SCOTTISH_RIGHTS,
+    EUROPEAN_LEAGUES_RIGHTS, BROADCASTER_META,
+    get_all_rights_for_competition, is_epl_blackout,
+    COMP_CODE_TO_RIGHTS_KEY,
+)
+
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(levelname)s %(message)s",
     datefmt="%H:%M:%S",
 )
-log = logging.getLogger("merger")
+logger = logging.getLogger(__name__)
 
-# ── Path setup ────────────────────────────────────────────────────────
-SCRAPER_DIR = Path(__file__).parent
-OUTPUT_DIR  = SCRAPER_DIR.parent / "output"
-OUTPUT_DIR.mkdir(exist_ok=True)
-OUTPUT_FILE = OUTPUT_DIR / "fixtures.json"
+OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "output", "fixtures.json")
 
-sys.path.insert(0, str(SCRAPER_DIR))
+# ─────────────────────────────────────────────────────────────────────────────
+# STEP 1 — FETCH FIXTURES
+# ─────────────────────────────────────────────────────────────────────────────
 
-# ── Rights DB ─────────────────────────────────────────────────────────
-from rights_db import COMPETITION_RIGHTS
+def fetch_fixtures() -> list:
+    """Pull fixtures from all sources and merge."""
+    all_fixtures = []
+    seen_ids = set()
 
-
-# ─────────────────────────────────────────────────────────────────────
-# IMPORT SCRAPERS (each returns list of fixture dicts)
-# ─────────────────────────────────────────────────────────────────────
-
-def _safe_import(module_name: str, *func_names):
-    """
-    Import a scraper function safely, trying multiple possible function names.
-    Returns the first one found, or None if none exist.
-    This handles cases where existing scrapers use different naming conventions.
-    """
+    # Primary: football-data.org
     try:
-        mod = __import__(f"sources.{module_name}", fromlist=list(func_names))
-    except ImportError as e:
-        log.warning(f"Could not import module {module_name}: {e}")
-        return None
-
-    for func_name in func_names:
-        fn = getattr(mod, func_name, None)
-        if fn is not None:
-            log.debug(f"  {module_name}: using function '{func_name}'")
-            return fn
-
-    # None of the expected names found — list what IS available
-    available = [x for x in dir(mod) if not x.startswith('_')]
-    log.warning(f"  {module_name}: none of {func_names} found. Available: {available}")
-    return None
-
-
-def _run_scraper(label: str, fn, *args) -> list:
-    """Run a scraper function and return results as a list of dicts."""
-    if fn is None:
-        log.warning(f"  {label}: scraper not available, skipping")
-        return []
-    try:
-        results = fn(*args) or []
-        # EPL scraper returns a dict keyed by fixture_key — convert to list
-        if isinstance(results, dict):
-            results = list(results.values())
-        results = [r for r in results if isinstance(r, dict)]
-        log.info(f"  {label}: {len(results)} items")
-        return results
+        from sources.fixtures_footballdata import scrape_fixtures as fd_scrape
+        fd_fixtures = fd_scrape()
+        logger.info(f"[pipeline] football-data.org: {len(fd_fixtures)} fixtures")
+        for f in fd_fixtures:
+            if f["id"] not in seen_ids:
+                seen_ids.add(f["id"])
+                all_fixtures.append(f)
     except Exception as e:
-        log.error(f"  {label}: FAILED — {e}")
-        return []
+        logger.error(f"[pipeline] football-data.org failed: {e}")
+
+    # Fallback: EFL official site (catches anything football-data.org missed)
+    try:
+        from sources.fixtures_efl import scrape_fixtures as efl_scrape
+        efl_fixtures = efl_scrape()
+        added = 0
+        for f in efl_fixtures:
+            if f["id"] not in seen_ids:
+                seen_ids.add(f["id"])
+                all_fixtures.append(f)
+                added += 1
+        logger.info(f"[pipeline] efl.com: {added} new fixtures added")
+    except Exception as e:
+        logger.warning(f"[pipeline] efl.com scraper failed: {e}")
+
+    # Scottish leagues
+    try:
+        from sources.fixtures_spfl import scrape_fixtures as spfl_scrape
+        spfl_fixtures = spfl_scrape()
+        added = 0
+        for f in spfl_fixtures:
+            if f["id"] not in seen_ids:
+                seen_ids.add(f["id"])
+                all_fixtures.append(f)
+                added += 1
+        logger.info(f"[pipeline] spfl.co.uk: {added} new fixtures added")
+    except Exception as e:
+        logger.warning(f"[pipeline] spfl.co.uk scraper failed: {e}")
+
+    logger.info(f"[pipeline] Total fixtures before dedup: {len(all_fixtures)}")
+    return all_fixtures
 
 
-# ─────────────────────────────────────────────────────────────────────
-# FIXTURE ASSEMBLY
-# ─────────────────────────────────────────────────────────────────────
-
-def attach_rights(fixture: dict) -> dict:
-    """
-    Attach broadcast rights to a fixture.
-    EPG-type rights: channels resolved at runtime by EPG pipeline.
-    Static-type rights: channels embedded directly.
-    """
-    comp = fixture.get("competition", "")
-    rights = COMPETITION_RIGHTS.get(comp, {})
-
-    broadcaster_regions = []
-    for territory, data in rights.items():
-        entry = {
-            "territory": territory,
-            "broadcaster": data.get("broadcaster", ""),
-            "channels": data.get("channels", []),
-            "type": data.get("type", "static"),
-            "badges": data.get("badges", ["live", "tv"]),
-        }
-        # Handle UK blackout
-        if (data.get("blackout_rule") and
-                fixture.get("blackout") and
-                territory == "United Kingdom"):
-            entry["blackout"] = True
-            entry["channels"] = []
-
-        broadcaster_regions.append(entry)
-
-    fixture["broadcasters"] = broadcaster_regions
-    return fixture
-
-
-def normalise_fixture(f: dict) -> dict:
-    """
-    Normalise fixture dict to a consistent schema.
-    Different scrapers use different field names — this maps them all
-    to the standard keys the rest of merger.py expects.
-    """
-    if not isinstance(f, dict):
-        return {}
-
-    # Competition key
-    if "competition" not in f or not f["competition"]:
-        f["competition"] = (
-            f.get("competition_code") or
-            f.get("league") or
-            f.get("comp") or
-            "?"
-        )
-
-    # Team names — EPL scraper uses 'home'/'away', UCL uses 'home_team'/'away_team'
-    if "home_team" not in f or not f["home_team"]:
-        f["home_team"] = f.get("home") or f.get("home_team_name") or ""
-    if "away_team" not in f or not f["away_team"]:
-        f["away_team"] = f.get("away") or f.get("away_team_name") or ""
-
-    # Kickoff — EPL scraper uses 'kickoff_utc', UCL uses 'kickoff'
-    if "kickoff" not in f or not f["kickoff"]:
-        f["kickoff"] = (f.get("kickoff_utc") or f.get("kickoff_local") or
-                        f.get("date") or f.get("datetime") or f.get("kick_off") or "")
-
-    # Blackout — EPL scraper uses 'uk_blackout'
-    if "blackout" not in f:
-        f["blackout"] = f.get("uk_blackout", False)
-
-    return f
-
+# ─────────────────────────────────────────────────────────────────────────────
+# STEP 2 — DEDUPLICATION
+# ─────────────────────────────────────────────────────────────────────────────
 
 def dedup_fixtures(fixtures: list) -> list:
-    """Remove duplicate fixtures by (competition, home, away, date)."""
+    """Remove duplicate fixtures keyed by (competition, home, away, date)."""
     seen = set()
     out = []
     for f in fixtures:
-        ko = f.get("kickoff", "")[:10]  # date only
-        key = (f.get("competition"), f.get("home_team"), f.get("away_team"), ko)
+        ko = f.get("kickoff", "")[:10]
+        key = (
+            f.get("competition", "").lower(),
+            f.get("home_team", "").lower(),
+            f.get("away_team", "").lower(),
+            ko,
+        )
         if key not in seen:
             seen.add(key)
             out.append(f)
+    logger.info(f"[pipeline] After dedup: {len(out)} fixtures")
     return out
 
 
-def run():
-    log.info("=" * 60)
-    log.info("TVsport nightly scrape starting")
-    log.info(f"UTC: {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')}")
-    log.info("=" * 60)
+# ─────────────────────────────────────────────────────────────────────────────
+# STEP 3 — UK CHANNEL LOOKUP
+# ─────────────────────────────────────────────────────────────────────────────
 
-    all_fixtures = []
+def enrich_uk_channels(fixtures: list) -> dict:
+    """
+    Fetch livefootballontv.com and return per-fixture UK channel data.
+    Returns { fixture_id: { channels: [...], kickoff_display: "..." } }
+    """
+    try:
+        from sources.uk_channels import get_uk_channels
+        return get_uk_channels(fixtures)
+    except Exception as e:
+        logger.warning(f"[pipeline] UK channel enrichment failed: {e}")
+        return {}
 
-    # ── 1. EPL ────────────────────────────────────────────────────────
-    log.info("── EPL ──")
-    scrape_epl = _safe_import("fixtures_premierleague",
-                               "get_all_fixtures", "scrape_epl_fixtures",
-                               "get_epl_fixtures", "scrape_fixtures", "get_fixtures")
-    all_fixtures += _run_scraper("EPL fixtures", scrape_epl)
 
-    # ── 2. UK channels (EPL + UCL) ────────────────────────────────────
-    log.info("── UK channels ──")
-    scrape_uk_fotv = _safe_import("uk_live_footballontv",
-                                   "scrape_uk_channels", "get_uk_channels",
-                                   "scrape", "get_channels", "scrape_footballontv")
-    scrape_uk_tvg  = _safe_import("uk_tvguide",
-                                   "scrape_uk_times", "get_uk_times",
-                                   "scrape", "scrape_tvguide", "get_times")
-    uk_channels = _run_scraper("UK live-footballontv", scrape_uk_fotv)
-    uk_times    = _run_scraper("UK tvguide.co.uk",     scrape_uk_tvg)
+# ─────────────────────────────────────────────────────────────────────────────
+# STEP 4 — EPG CHANNEL LOOKUP
+# ─────────────────────────────────────────────────────────────────────────────
 
-    # ── 3. UCL ────────────────────────────────────────────────────────
-    log.info("── UCL ──")
-    scrape_ucl = _safe_import("fixtures_uefa",
-                               "scrape_ucl_fixtures", "get_ucl_fixtures",
-                               "get_all_fixtures", "scrape_fixtures", "get_fixtures")
-    all_fixtures += _run_scraper("UCL fixtures", scrape_ucl)
+def enrich_epg(fixtures: list) -> dict:
+    """
+    Run iptv-org/epg grab and parse guide.xml.
+    Returns { fixture_id: { territory: channel_name, ... } }
+    """
+    try:
+        from sources.epg.epg_runner import run_epg_grab
+        from sources.epg.epg_xmltv_parser import parse_guide
 
-    # ── 4. US channels ────────────────────────────────────────────────
-    log.info("── US channels ──")
-    scrape_us = _safe_import("us_nbcsports",
-                              "scrape_all", "scrape_epl", "scrape_ucl",
-                              "scrape_us_channels", "get_us_channels", "get_channels")
-    us_channels = _run_scraper("US NBC/CBS", scrape_us)
+        channels_xml = os.path.join(os.path.dirname(__file__), "sources", "epg", "epg_channels.xml")
+        guide_xml = os.path.join(os.path.dirname(__file__), "..", "guide.xml")
 
-    # ── 5. Africa channels ────────────────────────────────────────────
-    log.info("── Africa ──")
-    scrape_africa = _safe_import("africa_supersport",
-                                  "scrape_all", "scrape_channel",
-                                  "scrape_supersport", "get_supersport", "get_channels")
-    africa_data = _run_scraper("SuperSport Africa", scrape_africa)
+        run_epg_grab(channels_xml, guide_xml)
+        epg_data = parse_guide(guide_xml, days_ahead=14)
+        logger.info(f"[pipeline] EPG: {len(epg_data)} programme entries parsed")
+        return epg_data
+    except Exception as e:
+        logger.warning(f"[pipeline] EPG enrichment failed: {e}")
+        return {}
 
-    # ── 6. Asia channels ──────────────────────────────────────────────
-    log.info("── Asia ──")
-    scrape_asia = _safe_import("asia_scrapers",
-                                "scrape_asia", "get_asia_channels",
-                                "scrape", "scrape_astro", "get_channels")
-    asia_data = _run_scraper("Asia (Astro/Star)", scrape_asia)
 
-    # ── 7. EPG (beIN, Sky, TNT, Canal+, Viaplay, etc.) ───────────────
-    log.info("── EPG ──")
-    scrape_epg = _safe_import("epg.epg_runner",
-                               "get_epg_fixtures", "grab_epg",
-                               "run_epg_grab", "scrape_epg", "run", "main")
-    epg_data = _run_scraper("iptv-org/epg", scrape_epg)
+# ─────────────────────────────────────────────────────────────────────────────
+# STEP 5 — BUILD BROADCASTER LIST PER FIXTURE
+# ─────────────────────────────────────────────────────────────────────────────
 
-    # ── 7b. Amazon Prime Video ─────────────────────────────────────────
-    # Amazon holds: UCL top-pick Tuesday (to 2030/31) + EFL selected matches
-    # Amazon has NO EPL rights from 2025/26 onwards
-    # No EPG feed available — scraped from live-footballontv.com
-    log.info("── Amazon Prime Video ──")
-    scrape_amazon = _safe_import("amazon_prime", "scrape_amazon_fixtures")
-    amazon_raw = _run_scraper("Amazon Prime", scrape_amazon)
-    # amazon_prime returns a dict, not a list — handle that
-    amazon_lookup = amazon_raw if isinstance(amazon_raw, dict) else {}
+def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> list:
+    """
+    Build the full worldwide broadcaster list for a single fixture.
+    Returns list of broadcaster dicts:
+        { territory, region, broadcaster, channels: [...], type, coverage }
+    """
+    comp_code    = fixture.get("comp_code", "")
+    fixture_id   = fixture.get("id", "")
+    kickoff      = fixture.get("kickoff", "")
+    is_blackout  = (comp_code == "PL" and is_epl_blackout(kickoff))
+    rights_key   = COMP_CODE_TO_RIGHTS_KEY.get(comp_code, "")
 
-    # ── 8. EFL (NEW) ──────────────────────────────────────────────────
-    log.info("── EFL (Championship / League One / League Two / National) ──")
-    scrape_efl = _safe_import("fixtures_efl", "scrape_efl_fixtures")
-    all_fixtures += _run_scraper("EFL", scrape_efl)
+    broadcasters = []
 
-    # ── 9. Scottish (NEW) ─────────────────────────────────────────────
-    log.info("── Scottish (SPL / Championship / Cup) ──")
-    scrape_spfl = _safe_import("fixtures_spfl", "scrape_spfl_fixtures")
-    all_fixtures += _run_scraper("SPFL", scrape_spfl)
+    # Get the appropriate rights dictionary for this competition
+    if comp_code == "PL":
+        rights_map = dict(EPL_RIGHTS)
+        rights_map["United Kingdom"] = {"broadcaster": "Sky Sports; TNT Sports", "region": "UK"}
+    elif comp_code in ("CL", "EL", "ECL"):
+        rights_map = dict(UCL_RIGHTS)
+    elif comp_code in ("ELC", "EL1", "EL2", "FAC"):
+        rights_map = dict(EFL_RIGHTS)
+    elif comp_code in ("SP1", "SC1"):
+        rights_map = dict(SCOTTISH_RIGHTS)
+    elif rights_key in ("la_liga", "bundesliga", "serie_a", "ligue_1"):
+        rights_map = {}
+        for territory, row in EUROPEAN_LEAGUES_RIGHTS.items():
+            broadcaster = row.get(rights_key, "")
+            if broadcaster:
+                rights_map[territory] = {"broadcaster": broadcaster, "region": territory}
+    else:
+        rights_map = {}
 
-    # ── 10. European leagues (NEW) ────────────────────────────────────
-    log.info("── European Leagues (La Liga / Bundesliga / Serie A / Ligue 1 / Eredivisie / Primeira) ──")
-    scrape_eur = _safe_import("fixtures_european", "scrape_european_fixtures")
-    all_fixtures += _run_scraper("European leagues", scrape_eur)
+    # UK — special handling with blackout logic
+    uk_data = uk_channels.get(fixture_id)
 
-    # ── Normalise all fixtures to consistent schema FIRST ────────────────
-    all_fixtures = [normalise_fixture(f) for f in all_fixtures if isinstance(f, dict)]
-    all_fixtures = [f for f in all_fixtures if f.get("competition") and f.get("home_team")]
+    if comp_code == "PL" and is_blackout:
+        # 3pm Saturday: suppress all UK broadcasters
+        pass
+    elif comp_code == "PL" and uk_data:
+        # We have specific UK channel data from livefootballontv
+        channels = uk_data.get("channels", [])
+        # Group channels by broadcaster
+        bcast_channels: dict = {}
+        for ch in channels:
+            from sources.uk_channels import CHANNEL_TO_BROADCASTER
+            bcast = CHANNEL_TO_BROADCASTER.get(ch, ch)
+            bcast_channels.setdefault(bcast, []).append(ch)
 
-    # ── Merge supplemental data onto fixtures ─────────────────────────
-    log.info("── Merging channel data onto fixtures ──")
+        for bcast, chans in bcast_channels.items():
+            meta = BROADCASTER_META.get(bcast, {})
+            # BBC is highlights only for EPL
+            coverage = "highlights" if bcast == "BBC" else "live"
+            broadcasters.append({
+                "territory":   "United Kingdom",
+                "region":      "UK",
+                "broadcaster": bcast,
+                "channels":    chans,
+                "type":        meta.get("type", "pay_tv"),
+                "coverage":    coverage,
+                "confidence":  "high",
+            })
+    elif "United Kingdom" in rights_map:
+        # Fallback: use rights DB for UK
+        entry = rights_map["United Kingdom"]
+        for bcast_name in entry["broadcaster"].split(";"):
+            bcast_name = bcast_name.strip()
+            meta = BROADCASTER_META.get(bcast_name, {})
+            coverage = "highlights" if bcast_name == "BBC" else "live"
+            broadcasters.append({
+                "territory":   "United Kingdom",
+                "region":      "UK",
+                "broadcaster": bcast_name,
+                "channels":    meta.get("channels", [bcast_name]),
+                "type":        meta.get("type", "pay_tv"),
+                "coverage":    coverage,
+                "confidence":  "medium",
+            })
 
-    def safe_lookup(data_list):
-        """Build a (home, away) lookup dict, safely skipping non-dict items."""
-        result = {}
-        for d in (data_list or []):
-            if isinstance(d, dict):
-                home = d.get("home") or d.get("home_team")
-                away = d.get("away") or d.get("away_team")
-                if home and away:
-                    result[(home, away)] = d
-        return result
+    # All other territories from rights map
+    for territory, entry in rights_map.items():
+        if territory == "United Kingdom":
+            continue  # handled above
 
-    uk_ch_lookup   = safe_lookup(uk_channels)
-    uk_time_lookup = safe_lookup(uk_times)
-    us_ch_lookup   = safe_lookup(us_channels)
-    africa_lookup  = safe_lookup(africa_data)
-    asia_lookup    = safe_lookup(asia_data)
-    epg_lookup     = safe_lookup(epg_data)
+        broadcaster_names = entry.get("broadcaster", "")
+        region = entry.get("region", "")
 
-    # Filter out any non-dict items that scrapers may have returned
-    all_fixtures = [f for f in all_fixtures if isinstance(f, dict)]
+        for bcast_name in broadcaster_names.split(";"):
+            bcast_name = bcast_name.strip()
+            if not bcast_name:
+                continue
 
-    for f in all_fixtures:
-        key = (f.get("home_team"), f.get("away_team"))
+            meta = BROADCASTER_META.get(bcast_name, {})
 
-        # Override UK channel assignments from live-footballontv
-        if key in uk_ch_lookup:
-            f["uk_channels"] = uk_ch_lookup[key].get("channels", [])
-        if key in uk_time_lookup:
-            f["uk_coverage_start"] = uk_time_lookup[key].get("coverage_start")
+            # Try to find specific channel from EPG
+            epg_channel = None
+            if epg_data:
+                # EPG data is keyed by (home_team, away_team) or fixture_id
+                epg_entry = epg_data.get(fixture_id) or epg_data.get(
+                    f"{fixture.get('home_team', '')} v {fixture.get('away_team', '')}"
+                )
+                if epg_entry:
+                    # Match by broadcaster name
+                    epg_channel = epg_entry.get(bcast_name)
 
-        # Amazon Prime override — marks fixture as Amazon if scraped
-        if key in amazon_lookup:
-            f["amazon_prime"] = True
-            f["amazon_channel"] = amazon_lookup[key]
+            channels = [epg_channel] if epg_channel else meta.get("channels", [bcast_name])
+            confidence = "high" if epg_channel else "medium"
 
-        # US channel assignments
-        if key in us_ch_lookup:
-            f["us_channels"] = us_ch_lookup[key].get("channels", [])
+            broadcasters.append({
+                "territory":   territory,
+                "region":      region,
+                "broadcaster": bcast_name,
+                "channels":    channels,
+                "type":        meta.get("type", "pay_tv"),
+                "coverage":    "live",
+                "confidence":  confidence,
+            })
 
-        # Africa channel override
-        if key in africa_lookup:
-            f["africa_channels"] = africa_lookup[key].get("channels", [])
+    return broadcasters
 
-        # Asia
-        if key in asia_lookup:
-            f["asia_channels"] = asia_lookup[key].get("channels", [])
 
-        # EPG data — most accurate, overrides static rights where available
-        if key in epg_lookup:
-            f["epg_channels"] = epg_lookup[key].get("channels", {})
+# ─────────────────────────────────────────────────────────────────────────────
+# STEP 6 — ASSEMBLE OUTPUT
+# ─────────────────────────────────────────────────────────────────────────────
 
-    # ── Dedup, attach rights, sort ────────────────────────────────────
-    all_fixtures = dedup_fixtures(all_fixtures)
-    all_fixtures = [attach_rights(f) for f in all_fixtures]
-    all_fixtures.sort(key=lambda f: f.get("kickoff", ""))
+def assemble_output(fixtures: list, uk_channels: dict, epg_data: dict) -> list:
+    """Build the final fixtures list with full broadcaster data."""
+    output = []
+    for fixture in fixtures:
+        broadcasters = build_broadcaster_list(fixture, uk_channels, epg_data)
 
-    # ── Summary ───────────────────────────────────────────────────────
-    by_comp = {}
-    for f in all_fixtures:
-        by_comp.setdefault(f.get("competition", "?"), 0)
-        by_comp[f["competition"]] += 1
+        output.append({
+            "id":           fixture["id"],
+            "competition":  fixture["competition"],
+            "comp_code":    fixture["comp_code"],
+            "home_team":    fixture["home_team"],
+            "away_team":    fixture["away_team"],
+            "kickoff":      fixture["kickoff"],
+            "matchday":     fixture.get("matchday"),
+            "stage":        fixture.get("stage", ""),
+            "group":        fixture.get("group", ""),
+            "is_blackout":  fixture.get("comp_code") == "PL" and is_epl_blackout(fixture.get("kickoff", "")),
+            "broadcasters": broadcasters,
+            "broadcaster_count": len(broadcasters),
+        })
 
-    log.info("")
-    log.info("── Fixture summary ──")
-    for comp, count in sorted(by_comp.items()):
-        log.info(f"  {comp:<14} {count} fixtures")
-    log.info(f"  {'TOTAL':<14} {len(all_fixtures)} fixtures")
+    return output
 
-    # ── Output ────────────────────────────────────────────────────────
-    output = {
-        "generated": datetime.now(timezone.utc).isoformat(),
-        "fixture_count": len(all_fixtures),
-        "competitions": list(by_comp.keys()),
-        "fixtures": all_fixtures,
-    }
 
-    with open(OUTPUT_FILE, "w", encoding="utf-8") as fh:
-        json.dump(output, fh, ensure_ascii=False, indent=2)
+# ─────────────────────────────────────────────────────────────────────────────
+# MAIN
+# ─────────────────────────────────────────────────────────────────────────────
 
-    log.info("")
-    log.info(f"✅ Written {len(all_fixtures)} fixtures to {OUTPUT_FILE}")
-    return len(all_fixtures)
+def main():
+    logger.info("=" * 60)
+    logger.info("TVsport scraper pipeline starting")
+    logger.info("=" * 60)
+
+    # Step 1: Fetch fixtures
+    raw_fixtures = fetch_fixtures()
+
+    if not raw_fixtures:
+        logger.error("[pipeline] No fixtures fetched — aborting. Check FOOTBALL_DATA_API_KEY.")
+        sys.exit(1)
+
+    # Step 2: Deduplicate
+    fixtures = dedup_fixtures(raw_fixtures)
+
+    # Step 3: UK channel enrichment
+    uk_channels = enrich_uk_channels(fixtures)
+
+    # Step 4: EPG channel enrichment (best-effort — failure is non-fatal)
+    epg_data = enrich_epg(fixtures)
+
+    # Step 5+6: Build output
+    output = assemble_output(fixtures, uk_channels, epg_data)
+
+    # Write JSON
+    os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
+    with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+        json.dump({
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "fixture_count": len(output),
+            "fixtures": output,
+        }, f, ensure_ascii=False, indent=2)
+
+    logger.info("=" * 60)
+    logger.info(f"SUCCESS: Written {len(output)} fixtures to {OUTPUT_PATH}")
+
+    # Summary by competition
+    from collections import Counter
+    comp_counts = Counter(f["competition"] for f in output)
+    for comp, count in sorted(comp_counts.items()):
+        logger.info(f"  {comp}: {count} fixtures")
+
+    blackouts = sum(1 for f in output if f.get("is_blackout"))
+    if blackouts:
+        logger.info(f"  (of which {blackouts} EPL fixtures are UK 3pm blackouts)")
+    logger.info("=" * 60)
 
 
 if __name__ == "__main__":
-    count = run()
-    sys.exit(0 if count > 0 else 1)
+    main()

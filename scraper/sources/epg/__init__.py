@@ -1,1 +1,0 @@
-# TVsport EPG sources

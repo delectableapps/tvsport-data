@@ -1,97 +1,118 @@
-name: Nightly TVsport Data Scrape
+name: TVsport Nightly Data Scrape
 
 on:
+  # ── Scheduled run ────────────────────────────────────────────────
+  # Runs every day at 02:00 UTC.
+  # NOTE: GitHub Actions cron runs on UTC. Times are approximate (±30 min).
+  # GitHub's free tier does not guarantee exact timing but runs within ~1 hour.
   schedule:
-    # Run at 2:00am UTC every night
-    - cron: '0 2 * * *'
-  # Allow manual trigger from GitHub Actions tab
+    - cron: "0 2 * * *"
+
+  # ── Manual trigger (run any time from GitHub Actions tab) ─────────
   workflow_dispatch:
+    inputs:
+      debug:
+        description: "Enable debug logging"
+        required: false
+        default: "false"
 
 jobs:
   scrape:
+    name: Scrape & Update fixtures.json
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
+
+    permissions:
+      contents: write   # Required to commit fixtures.json back to repo
 
     steps:
-      # ── Checkout ────────────────────────────────────────────────────
+      # ── 1. Checkout repo ───────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 1
 
-      # ── Python setup ────────────────────────────────────────────────
+      # ── 2. Set up Python ───────────────────────────────────────────
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: scraper/requirements.txt
 
-      - name: Cache pip dependencies
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('scraper/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Install Python dependencies
-        run: pip install -r scraper/requirements.txt
-
-      # ── Node.js setup (for iptv-org/epg EPG tool) ───────────────────
+      # ── 3. Set up Node.js (for iptv-org/epg tool) ─────────────────
       - name: Set up Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
-      - name: Cache iptv-org/epg clone
-        uses: actions/cache@v4
-        with:
-          path: scraper/sources/epg/iptv-org-epg
-          key: iptv-org-epg-${{ hashFiles('scraper/sources/epg/epg_channels.xml') }}
-          restore-keys: |
-            iptv-org-epg-
+      # ── 4. Install Python dependencies ────────────────────────────
+      - name: Install Python dependencies
+        run: |
+          pip install -r scraper/requirements.txt
 
-      # ── Run all scrapers ─────────────────────────────────────────────
-      - name: Run TVsport scraper pipeline
+      # ── 5. Run scraper ─────────────────────────────────────────────
+      - name: Run TVsport scraper
+        env:
+          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+          DEBUG: ${{ github.event.inputs.debug }}
         run: |
           cd scraper
           python merger.py
-        env:
-          PYTHONUNBUFFERED: "1"
 
-      # ── Validate output ──────────────────────────────────────────────
+      # ── 6. Validate output ─────────────────────────────────────────
       - name: Validate fixtures.json
         run: |
           python3 -c "
           import json, sys
           with open('output/fixtures.json') as f:
               data = json.load(f)
-          fixtures = data.get('fixtures', data) if isinstance(data, dict) else data
-          count = len(fixtures)
-          print(f'✅ fixtures.json valid — {count} fixtures')
+          count = data.get('fixture_count', 0)
+          print(f'Fixture count: {count}')
           if count == 0:
-              print('❌ ERROR: No fixtures found')
+              print('ERROR: fixtures.json is empty — aborting commit')
               sys.exit(1)
-
-          # Print summary by competition
-          by_comp = {}
-          for fx in fixtures:
-              c = fx.get('competition', '?')
-              by_comp[c] = by_comp.get(c, 0) + 1
-          for comp, n in sorted(by_comp.items()):
-              print(f'   {comp:<16} {n}')
+          print('Validation passed')
           "
 
-      # ── Commit and push ──────────────────────────────────────────────
-      - name: Commit fixtures.json
+      # ── 7. Commit and push ─────────────────────────────────────────
+      - name: Commit updated fixtures.json
         run: |
-          git config user.name  "TVsport Bot"
-          git config user.email "bot@tvsport.live"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
           git add output/fixtures.json
-          # Only commit if there are changes
-          git diff --cached --quiet || git commit -m "🤖 Nightly update: $(date -u +'%Y-%m-%d %H:%M UTC')"
+          # Only commit if there are actual changes
+          if git diff --staged --quiet; then
+            echo "No changes to fixtures.json — skipping commit"
+          else
+            FIXTURE_COUNT=$(python3 -c "import json; d=json.load(open('output/fixtures.json')); print(d['fixture_count'])")
+            git commit -m "Update fixtures.json — ${FIXTURE_COUNT} fixtures [skip ci]"
+            git push
+            echo "fixtures.json committed and pushed successfully"
+          fi
 
-      - name: Push to GitHub
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
+      # ── 8. Summary ────────────────────────────────────────────────
+      - name: Job summary
+        if: always()
+        run: |
+          python3 -c "
+          import json
+          try:
+              with open('output/fixtures.json') as f:
+                  data = json.load(f)
+              fixtures = data.get('fixtures', [])
+              from collections import Counter
+              comps = Counter(f['competition'] for f in fixtures)
+              print('## TVsport Scrape Summary')
+              print(f'Generated at: {data.get(\"generated_at\", \"unknown\")}')
+              print(f'Total fixtures: {data.get(\"fixture_count\", 0)}')
+              print()
+              print('### By competition:')
+              for comp, count in sorted(comps.items()):
+                  print(f'- {comp}: {count}')
+              blackouts = sum(1 for f in fixtures if f.get('is_blackout'))
+              if blackouts:
+                  print(f'- (UK blackouts: {blackouts})')
+          except Exception as e:
+              print(f'Could not generate summary: {e}')
+          " >> $GITHUB_STEP_SUMMARY
