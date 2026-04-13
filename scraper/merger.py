@@ -253,6 +253,10 @@ def run():
     scrape_eur = _safe_import("fixtures_european", "scrape_european_fixtures")
     all_fixtures += _run_scraper("European leagues", scrape_eur)
 
+    # ── Normalise all fixtures to consistent schema FIRST ────────────────
+    all_fixtures = [normalise_fixture(f) for f in all_fixtures if isinstance(f, dict)]
+    all_fixtures = [f for f in all_fixtures if f.get("competition") and f.get("home_team")]
+
     # ── Merge supplemental data onto fixtures ─────────────────────────
     log.info("── Merging channel data onto fixtures ──")
 
@@ -306,25 +310,6 @@ def run():
         # EPG data — most accurate, overrides static rights where available
         if key in epg_lookup:
             f["epg_channels"] = epg_lookup[key].get("channels", {})
-
-    # ── Normalise all fixtures to consistent schema ───────────────────
-    # Debug: log the keys from the first EPL fixture to diagnose field names
-    raw_all = [f for f in all_fixtures if isinstance(f, dict)]
-    if raw_all:
-        sample = raw_all[0]
-        log.info(f"  Sample fixture keys: {list(sample.keys())}")
-        log.info(f"  Sample fixture: comp={sample.get('competition')} home={sample.get('home_team')} away={sample.get('away_team')} kickoff={sample.get('kickoff')}")
-
-    all_fixtures = [normalise_fixture(f) for f in raw_all]
-    all_fixtures = [f for f in all_fixtures if f.get("competition") and f.get("home_team")]
-
-    # Log what we have before dedup
-    raw_by_comp = {}
-    for f in all_fixtures:
-        raw_by_comp[f["competition"]] = raw_by_comp.get(f["competition"], 0) + 1
-    log.info("── Raw fixture counts before dedup ──")
-    for comp, n in sorted(raw_by_comp.items()):
-        log.info(f"  {comp:<14} {n}")
 
     # ── Dedup, attach rights, sort ────────────────────────────────────
     all_fixtures = dedup_fixtures(all_fixtures)
