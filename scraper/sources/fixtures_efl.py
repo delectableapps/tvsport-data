@@ -1,96 +1,99 @@
 """
 fixtures_efl.py
-Fallback / validator: scrapes efl.com for Championship, League One, League Two fixtures.
-Used when football-data.org does not return data for EFL competitions.
+Scrapes EFL Championship, League One, League Two fixtures.
+Uses multiple selector patterns to handle EFL site structure.
 """
 
 import logging
 import requests
-from datetime import datetime, timezone, timedelta
+import re
 from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
 
-EFL_COMPETITIONS = {
-    "championship": {"name": "Championship",  "code": "ELC", "url": "https://www.efl.com/fixtures-results/?division=championship"},
-    "league-one":   {"name": "League One",    "code": "EL1", "url": "https://www.efl.com/fixtures-results/?division=league-one"},
-    "league-two":   {"name": "League Two",    "code": "EL2", "url": "https://www.efl.com/fixtures-results/?division=league-two"},
-}
-
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (compatible; TVsport/1.0; +https://tvsport.live)"
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,*/*",
+}
+
+COMPETITIONS = {
+    "ELC": {"name": "Championship", "code": "ELC", "url": "https://www.efl.com/fixtures-results/?division=championship"},
+    "EL1": {"name": "League One",   "code": "EL1", "url": "https://www.efl.com/fixtures-results/?division=league-one"},
+    "EL2": {"name": "League Two",   "code": "EL2", "url": "https://www.efl.com/fixtures-results/?division=league-two"},
 }
 
 
-def _parse_efl_page(html: str, comp_info: dict) -> list:
-    """Parse EFL fixtures page HTML into fixture dicts."""
+def _make_fixture(home, away, date_str, comp_info):
+    date_slug = date_str[:10] if len(date_str) >= 10 else "unknown"
+    return {
+        "id":          f"{comp_info['code'].lower()}_{home[:3].upper()}_{away[:3].upper()}_{date_slug}",
+        "competition": comp_info["name"],
+        "comp_code":   comp_info["code"],
+        "home_team":   home,
+        "away_team":   away,
+        "kickoff":     date_str,
+        "matchday":    None,
+        "stage":       "REGULAR_SEASON",
+        "group":       None,
+        "source":      "efl.com",
+    }
+
+
+def _parse(html, comp_info):
     fixtures = []
     soup = BeautifulSoup(html, "html.parser")
 
-    # EFL site uses match cards — find fixture blocks
-    # Structure varies but common selector: .fixture, .match-fixture, data-fixture
-    fixture_blocks = soup.select(".match, .fixture-item, [data-home], .matchlist-item")
+    # Try structured selectors
+    for selector in [
+        ".fixture", ".match", "[class*='fixture']", "[class*='match']",
+        ".o-match-preview", ".match-fixture", "tr", "li",
+    ]:
+        blocks = soup.select(selector)
+        for block in blocks:
+            text = block.get_text(" ", strip=True)
+            m = re.search(r'([A-Z][a-zA-Z\s&.\']{2,30})\s+(?:v|vs\.?)\s+([A-Z][a-zA-Z\s&.\']{2,30})', text)
+            if m:
+                home, away = m.group(1).strip(), m.group(2).strip()
+                date_m = re.search(r'\d{4}-\d{2}-\d{2}T\d{2}:\d{2}|\d{1,2}[/-]\d{1,2}[/-]\d{2,4}', text)
+                date_str = date_m.group(0) if date_m else ""
+                if len(home) > 2 and len(away) > 2:
+                    fixtures.append(_make_fixture(home, away, date_str, comp_info))
+        if fixtures:
+            return _dedup(fixtures)
 
-    if not fixture_blocks:
-        # Try broader selector
-        fixture_blocks = soup.select("li.match, div.match, tr.match")
+    # Fallback: line scan
+    for line in soup.get_text("\n").split("\n"):
+        line = line.strip()
+        m = re.search(r'^([A-Z][a-zA-Z\s&.\']{2,30})\s+(?:v|vs\.?)\s+([A-Z][a-zA-Z\s&.\']{2,30})$', line)
+        if m:
+            home, away = m.group(1).strip(), m.group(2).strip()
+            skip = ["fixture", "result", "match", "round", "league", "cup", "table", "division"]
+            if not any(s in home.lower() for s in skip):
+                fixtures.append(_make_fixture(home, away, "", comp_info))
 
-    for block in fixture_blocks:
-        try:
-            home_el = block.select_one("[data-home], .home-team, .team-home, .match-home")
-            away_el = block.select_one("[data-away], .away-team, .team-away, .match-away")
-            date_el = block.select_one("[data-date], .match-date, time, .date")
-
-            if not home_el or not away_el:
-                continue
-
-            home = home_el.get_text(strip=True)
-            away = away_el.get_text(strip=True)
-
-            # Try to get date from data attribute or text
-            date_str = ""
-            if date_el:
-                date_str = date_el.get("datetime") or date_el.get("data-date") or date_el.get_text(strip=True)
-
-            if not home or not away:
-                continue
-
-            # Build a simple ID
-            date_slug = date_str[:10] if date_str else "unknown"
-            fixture_id = f"{comp_info['code'].lower()}_{home[:3].upper()}_{away[:3].upper()}_{date_slug}"
-
-            fixtures.append({
-                "id":          fixture_id,
-                "competition": comp_info["name"],
-                "comp_code":   comp_info["code"],
-                "home_team":   home,
-                "away_team":   away,
-                "kickoff":     date_str,
-                "matchday":    None,
-                "stage":       "REGULAR_SEASON",
-                "group":       None,
-                "source":      "efl.com",
-            })
-        except Exception as e:
-            logger.debug(f"[efl] Could not parse fixture block: {e}")
-            continue
-
-    return fixtures
+    return _dedup(fixtures)
 
 
-def scrape_fixtures() -> list:
-    """Scrape EFL fixture pages. Returns list of fixture dicts."""
+def _dedup(fixtures):
+    seen, out = set(), []
+    for f in fixtures:
+        k = (f["home_team"].lower(), f["away_team"].lower())
+        if k not in seen:
+            seen.add(k)
+            out.append(f)
+    return out
+
+
+def scrape_fixtures():
     all_fixtures = []
-
-    for key, comp_info in EFL_COMPETITIONS.items():
+    for key, comp_info in COMPETITIONS.items():
         try:
             logger.info(f"[efl] Fetching {comp_info['name']}...")
-            resp = requests.get(comp_info["url"], headers=HEADERS, timeout=15)
+            resp = requests.get(comp_info["url"], headers=HEADERS, timeout=20)
             resp.raise_for_status()
-            fixtures = _parse_efl_page(resp.text, comp_info)
-            logger.info(f"[efl] {comp_info['name']}: {len(fixtures)} fixtures parsed")
+            fixtures = _parse(resp.text, comp_info)
+            logger.info(f"[efl] {comp_info['name']}: {len(fixtures)} fixtures")
             all_fixtures.extend(fixtures)
         except Exception as e:
-            logger.error(f"[efl] Failed to fetch {comp_info['name']}: {e}")
-
+            logger.error(f"[efl] Failed {comp_info['name']}: {e}")
     return all_fixtures
