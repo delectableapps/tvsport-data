@@ -1,16 +1,9 @@
 """
 sources/fixtures_premierleague.py
 ===================================
-Scrapes the Premier League's official fixture changes announcement page
-to get the confirmed 30-day EPL schedule including:
-  - All fixture dates + kick-off times
-  - Which matches are TV-selected (Sky/TNT)
-  - Which matches are 3pm Saturday blackouts (not selected = blackout)
-  - Venue info
-
-Source: https://www.premierleague.com/en/news/fixture-changes-announced-for-...
-Also: https://www.live-footballontv.com/live-premier-league-football-on-tv.html
-      (backup for fixture list)
+Scrapes EPL fixtures using live-footballontv.com as primary source
+(correct match dates), supplemented by the PL fixture changes page
+for blackout flags and broadcaster info.
 """
 
 import re
@@ -31,15 +24,13 @@ HEADERS = {
     "Accept-Language": "en-GB,en;q=0.9",
 }
 
-# Primary: PL fixture changes page
+# Primary: live-footballontv.com (has correct match dates)
+LFTV_URL = "https://www.live-footballontv.com/live-premier-league-football-on-tv.html"
+
+# Supplement: PL fixture changes page (has blackout + broadcaster info)
 PL_FIXTURE_CHANGES_URL = (
     "https://www.premierleague.com/en/news/4606462/"
     "premier-league-fixture-changes-announced-for-april-2026"
-)
-
-# Backup full schedule page
-PL_FULL_SCHEDULE_URL = (
-    "https://www.live-footballontv.com/live-premier-league-football-on-tv.html"
 )
 
 # All 20 EPL teams this season
@@ -51,7 +42,6 @@ EPL_TEAMS_2526 = [
     "Tottenham Hotspur", "West Ham United", "Wolverhampton Wanderers",
 ]
 
-# Team name aliases for fuzzy matching
 TEAM_ALIASES = {
     "wolves": "Wolverhampton Wanderers",
     "wolverhampton": "Wolverhampton Wanderers",
@@ -81,12 +71,10 @@ def _normalise(name: str) -> str:
 
 
 def _canonical_team(name: str) -> str:
-    """Return canonical team name."""
     n = _normalise(name)
     for team in EPL_TEAMS_2526:
         if _normalise(team) == n:
             return team
-    # Fuzzy: check if n is contained in canonical
     for team in EPL_TEAMS_2526:
         if n in _normalise(team) or _normalise(team) in n:
             return team
@@ -110,7 +98,6 @@ def _bst_to_utc(date_str: str, time_bst: str) -> str:
 
 
 def _is_saturday_3pm_blackout(date_str: str, time_bst: str) -> bool:
-    """Return True if this is a 3pm Saturday (UK blackout)."""
     try:
         dt = datetime.strptime(f"{date_str} {time_bst}", "%Y-%m-%d %H:%M")
         return dt.weekday() == 5 and time_bst == "15:00"
@@ -118,11 +105,141 @@ def _is_saturday_3pm_blackout(date_str: str, time_bst: str) -> bool:
         return False
 
 
+def _parse_sky_channels(text: str) -> list:
+    channels = []
+    channel_names = [
+        "Sky Sports Main Event",
+        "Sky Sports Premier League",
+        "Sky Sports Football",
+        "Sky Sports Action",
+        "Sky Sports Ultra HDR",
+        "Sky Sports+",
+    ]
+    for ch in channel_names:
+        if ch.lower() in text.lower():
+            channels.append(ch)
+    if not channels and "Sky Sports" in text:
+        channels = ["Sky Sports Main Event", "Sky Sports Premier League"]
+    return channels
+
+
+def scrape_lftv() -> dict:
+    """
+    Scrape live-footballontv.com for EPL fixtures.
+    Returns { fixture_key: fixture_dict } with correct match dates.
+    """
+    try:
+        r = requests.get(LFTV_URL, headers=HEADERS, timeout=20)
+        r.raise_for_status()
+        html = r.text
+    except Exception as e:
+        logger.error(f"Failed to fetch live-footballontv.com: {e}")
+        return {}
+
+    soup = BeautifulSoup(html, "lxml")
+    results = {}
+
+    MONTH_MAP = {
+        "january": 1, "february": 2, "march": 3, "april": 4,
+        "may": 5, "june": 6, "july": 7, "august": 8,
+        "september": 9, "october": 10, "november": 11, "december": 12,
+        "jan": 1, "feb": 2, "mar": 3, "apr": 4,
+        "jun": 6, "jul": 7, "aug": 8,
+        "sep": 9, "oct": 10, "nov": 11, "dec": 12,
+    }
+
+    current_date = None
+    current_day = None
+    year = date.today().year
+
+    # live-footballontv uses h2 tags for dates and table rows for fixtures
+    for elem in soup.find_all(["h2", "h3", "tr", "li", "div"]):
+        text = elem.get_text(separator=" ", strip=True)
+
+        # Match date headers like "Saturday 18th April" or "Sunday 19 April 2026"
+        date_m = re.match(
+            r"(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+"
+            r"(\d{1,2})(?:st|nd|rd|th)?\s+(\w+)(?:\s+(\d{4}))?",
+            text, re.IGNORECASE
+        )
+        if date_m:
+            current_day = date_m.group(1).lower()
+            day_num = int(date_m.group(2))
+            month_name = date_m.group(3).lower()
+            month_num = MONTH_MAP.get(month_name, 0)
+            yr = int(date_m.group(4)) if date_m.group(4) else year
+            if month_num:
+                try:
+                    current_date = date(yr, month_num, day_num).strftime("%Y-%m-%d")
+                except ValueError:
+                    pass
+            continue
+
+        if not current_date:
+            continue
+
+        # Match fixture lines like "12:30 Brentford v Fulham TNT Sports 1"
+        fix_m = re.search(
+            r"(\d{2}:\d{2})\s+([A-Z][^vV]+?)\s+v\s+([A-Z][^\d]+?)(?:\s+(Sky Sports|TNT Sports|BBC|ITV|Amazon).*)?$",
+            text
+        )
+        if fix_m:
+            kickoff_time = fix_m.group(1)
+            home_raw = fix_m.group(2).strip()
+            away_raw = fix_m.group(3).strip()
+            broadcaster_raw = fix_m.group(4) or ""
+
+            # Only include EPL teams
+            home = _canonical_team(home_raw)
+            away = _canonical_team(away_raw)
+
+            # Skip if teams don't look like EPL teams
+            if home == home_raw.title() and home not in EPL_TEAMS_2526:
+                continue
+            if away == away_raw.title() and away not in EPL_TEAMS_2526:
+                continue
+
+            key = _make_key(home, away)
+            uk_blackout = _is_saturday_3pm_blackout(current_date, kickoff_time)
+            kickoff_utc = _bst_to_utc(current_date, kickoff_time)
+
+            uk_broadcaster = None
+            uk_channels = []
+            if "Sky Sports" in broadcaster_raw:
+                uk_broadcaster = "Sky Sports"
+                uk_channels = _parse_sky_channels(broadcaster_raw)
+            elif "TNT" in broadcaster_raw:
+                uk_broadcaster = "TNT Sports"
+                uk_channels = ["TNT Sports 1", "TNT Sports Ultimate", "HBO Max"]
+            elif "BBC" in broadcaster_raw:
+                uk_broadcaster = "BBC"
+                uk_channels = ["BBC One", "BBC iPlayer"]
+            elif uk_blackout:
+                uk_broadcaster = None
+                uk_channels = []
+
+            results[key] = {
+                "home": home,
+                "away": away,
+                "date": current_date,
+                "kickoff_utc": kickoff_utc,
+                "kickoff_local": kickoff_time,
+                "uk_blackout": uk_blackout,
+                "uk_broadcaster": uk_broadcaster,
+                "uk_channels": uk_channels,
+                "matchday": None,
+                "competition": "EPL",
+                "fixture_key": key,
+            }
+
+    logger.info(f"Scraped {len(results)} EPL fixtures from live-footballontv.com")
+    return results
+
+
 def scrape_fixture_changes() -> dict:
     """
-    Scrape the PL fixture changes page.
-    Returns { fixture_key: { home, away, date, kickoff_utc, uk_blackout,
-                              broadcaster, matchday } }
+    Scrape the PL fixture changes page for blackout flags + broadcaster info.
+    Returns { fixture_key: fixture_dict }
     """
     try:
         r = requests.get(PL_FIXTURE_CHANGES_URL, headers=HEADERS, timeout=20)
@@ -147,19 +264,12 @@ def scrape_fixture_changes() -> dict:
         "sep": 9, "oct": 10, "nov": 11, "dec": 12,
     }
 
-    # Parse patterns from PL fixture changes page:
-    # "MW32" or "MW33" → matchday marker
-    # "Friday 10 April" → date
-    # "20:00 West Ham v Wolves (Sky Sports)" → fixture
-
     matchday_pattern = re.compile(r"^MW(\d+)$")
     date_pattern = re.compile(
         r"^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+"
         r"(\d{1,2})\s+(\w+)(?:\s+\d{4})?$",
         re.IGNORECASE
     )
-    # Fixture: "20:00 West Ham v Wolves (Sky Sports)"
-    # or just: "Brentford v Everton" (no time = 15:00 Saturday default)
     fixture_with_time = re.compile(
         r"^(\d{2}:\d{2})\s+(.+?)\s+v\s+(.+?)(?:\s+\((.+?)\))?$"
     )
@@ -170,17 +280,14 @@ def scrape_fixture_changes() -> dict:
     current_date = None
     current_matchday = None
     current_day_of_week = None
-
     year = date.today().year
 
     for line in lines:
-        # Check matchday
         m = matchday_pattern.match(line)
         if m:
             current_matchday = int(m.group(1))
             continue
 
-        # Check date
         m = date_pattern.match(line)
         if m:
             current_day_of_week = m.group(1).lower()
@@ -200,7 +307,6 @@ def scrape_fixture_changes() -> dict:
         if not current_date:
             continue
 
-        # Check fixture with time
         m = fixture_with_time.match(line)
         if m:
             kickoff_time = m.group(1)
@@ -215,7 +321,6 @@ def scrape_fixture_changes() -> dict:
             uk_blackout = _is_saturday_3pm_blackout(current_date, kickoff_time)
             kickoff_utc = _bst_to_utc(current_date, kickoff_time)
 
-            # Parse broadcaster from brackets
             uk_broadcaster = None
             uk_channels = []
             if "Sky Sports" in broadcaster_raw:
@@ -240,13 +345,11 @@ def scrape_fixture_changes() -> dict:
             }
             continue
 
-        # Check fixture without time (likely 15:00 Saturday blackout)
         m = fixture_no_time.match(line)
         if m and current_day_of_week == "saturday":
             home_raw = m.group(1).strip()
             away_raw = m.group(2).strip()
 
-            # Skip if looks like a header or navigation element
             if len(home_raw) < 3 or len(away_raw) < 3:
                 continue
             if any(c.isdigit() for c in home_raw + away_raw):
@@ -265,7 +368,7 @@ def scrape_fixture_changes() -> dict:
                 "date": current_date,
                 "kickoff_utc": kickoff_utc,
                 "kickoff_local": kickoff_time,
-                "uk_blackout": True,  # Saturday 15:00 = always blackout
+                "uk_blackout": True,
                 "uk_broadcaster": None,
                 "uk_channels": [],
                 "matchday": current_matchday,
@@ -277,46 +380,37 @@ def scrape_fixture_changes() -> dict:
     return results
 
 
-def _parse_sky_channels(text: str) -> list:
-    """Extract specific Sky Sports channels from text."""
-    channels = []
-    channel_names = [
-        "Sky Sports Main Event",
-        "Sky Sports Premier League",
-        "Sky Sports Football",
-        "Sky Sports Action",
-        "Sky Sports Ultra HDR",
-        "Sky Sports+",
-    ]
-    for ch in channel_names:
-        if ch.lower() in text.lower():
-            channels.append(ch)
-    if not channels and "Sky Sports" in text:
-        channels = ["Sky Sports Main Event", "Sky Sports Premier League"]
-    return channels
-
-
 def get_all_fixtures(days_ahead: int = 30) -> dict:
     """
     Get all EPL fixtures for the next days_ahead days.
-    Uses PL fixture changes page as primary, falls back to live-footballontv.com.
+    Primary: live-footballontv.com (correct match dates)
+    Supplement: PL fixture changes page (blackout flags + matchday numbers)
     """
-    fixtures = scrape_fixture_changes()
+    # Step 1: Get fixtures with correct dates from live-footballontv.com
+    fixtures = scrape_lftv()
 
-    if len(fixtures) < 5:
-        logger.warning("PL fixture changes returned few results, trying backup source")
-        # Import backup scraper
-        import sys
-        import os
-        sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
-        from sources.uk_live_footballontv import scrape as scrape_lftv
-        backup = scrape_lftv("EPL")
-        for key, data in backup.items():
-            if key not in fixtures:
+    # Step 2: Supplement with PL fixture changes for blackout + matchday info
+    try:
+        pl_fixtures = scrape_fixture_changes()
+        logger.info(f"Scraped {len(pl_fixtures)} fixtures from PL fixture changes page")
+        for key, data in pl_fixtures.items():
+            if key in fixtures:
+                # Update blackout flag, broadcaster, matchday from PL page
+                # but KEEP the date from live-footballontv.com
+                fixtures[key]["uk_blackout"] = data.get("uk_blackout", False)
+                if data.get("uk_broadcaster"):
+                    fixtures[key]["uk_broadcaster"] = data["uk_broadcaster"]
+                if data.get("uk_channels"):
+                    fixtures[key]["uk_channels"] = data["uk_channels"]
+                if data.get("matchday"):
+                    fixtures[key]["matchday"] = data["matchday"]
+            else:
+                # New fixture only on PL page — add it
                 fixtures[key] = data
-        logger.info(f"After backup: {len(fixtures)} total EPL fixtures")
+    except Exception as e:
+        logger.warning(f"PL fixture changes supplement failed: {e}")
 
-    # Filter to date window
+    # Step 3: Filter to date window
     today = date.today()
     cutoff = today + timedelta(days=days_ahead)
     filtered = {}
@@ -326,7 +420,7 @@ def get_all_fixtures(days_ahead: int = 30) -> dict:
             if today <= fx_date <= cutoff:
                 filtered[key] = fx
         except Exception:
-            filtered[key] = fx  # Include if date can't be parsed
+            filtered[key] = fx
 
     logger.info(f"Filtered to {len(filtered)} EPL fixtures in next {days_ahead} days")
     return filtered
