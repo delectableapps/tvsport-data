@@ -22,8 +22,9 @@ API_KEY  = os.environ.get("FOOTBALL_DATA_API_KEY", "")
 COMPETITIONS = {
     "PL":  {"name": "Premier League",            "code": "PL",  "days": 30},
     "CL":  {"name": "UEFA Champions League",     "code": "CL",  "days": 30},
-    "EL":  {"name": "UEFA Europa League",        "code": "EL",  "days": 30},
-    "ECL": {"name": "UEFA Conference League",    "code": "ECL", "days": 30},
+    # Note: UEL and UECL are not available on football-data.org free tier
+    # "EL":  {"name": "UEFA Europa League",       "code": "EL",  "days": 30},
+    # "ECL": {"name": "UEFA Conference League",   "code": "ECL", "days": 30},
     "ELC": {"name": "Championship",              "code": "ELC", "days": 14},
     "FL1": {"name": "Ligue 1",                   "code": "FL1", "days": 14},
     "BL1": {"name": "Bundesliga",               "code": "BL1", "days": 14},
