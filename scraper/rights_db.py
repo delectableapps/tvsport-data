@@ -353,27 +353,27 @@ SCOTTISH_RIGHTS = {
 # ─────────────────────────────────────────────────────────────────────────────
 
 EUROPEAN_LEAGUES_RIGHTS = {
-    # Format: territory -> { "la_liga": ..., "bundesliga": ..., "serie_a": ..., "ligue_1": ... }
-    "United Kingdom":         {"la_liga": "Premier Sports; FreeSports", "bundesliga": "Sky Sports; TNT Sports", "serie_a": "TNT Sports; Discovery+", "ligue_1": "beIN Sports UK"},
-    "Republic of Ireland":    {"la_liga": "Premier Sports",             "bundesliga": "Sky Sports",             "serie_a": "TNT Sports",             "ligue_1": "beIN Sports"},
-    "United States":          {"la_liga": "ESPN+; ESPN Deportes",        "bundesliga": "ESPN+",                  "serie_a": "Paramount+; CBS Golazo",  "ligue_1": "beIN Sports USA; fuboTV"},
-    "Canada":                 {"la_liga": "DAZN",                        "bundesliga": "DAZN",                   "serie_a": "DAZN",                    "ligue_1": "beIN Sports CA"},
-    "Germany":                {"la_liga": "DAZN",                        "bundesliga": "Sky Deutschland; DAZN",  "serie_a": "DAZN",                    "ligue_1": "DAZN"},
-    "France":                 {"la_liga": "beIN Sports FR",              "bundesliga": "beIN Sports FR",         "serie_a": "Canal+ Sport FR",         "ligue_1": "Canal+; Amazon Prime"},
-    "Spain":                  {"la_liga": "DAZN; Movistar LaLiga",       "bundesliga": "DAZN",                   "serie_a": "DAZN",                    "ligue_1": "DAZN"},
-    "Italy":                  {"la_liga": "DAZN",                        "bundesliga": "DAZN",                   "serie_a": "DAZN IT; Sky Sport",      "ligue_1": "DAZN"},
-    "Netherlands":            {"la_liga": "Viaplay NL",                  "bundesliga": "Viaplay NL",             "serie_a": "Viaplay NL",              "ligue_1": "Viaplay NL"},
-    "Portugal":               {"la_liga": "Eleven Sports PT",            "bundesliga": "Eleven Sports PT",       "serie_a": "Eleven Sports PT",        "ligue_1": "Eleven Sports PT"},
-    "Nordics":                {"la_liga": "Viaplay",                     "bundesliga": "Viaplay",                "serie_a": "Viaplay",                 "ligue_1": "Viaplay"},
-    "Poland":                 {"la_liga": "Eleven Sports PL",            "bundesliga": "Eleven Sports PL",       "serie_a": "Eleven Sports PL",        "ligue_1": "Eleven Sports PL"},
-    "Middle East & N. Africa":{"la_liga": "beIN Sports",                 "bundesliga": "beIN Sports",            "serie_a": "beIN Sports",             "ligue_1": "beIN Sports"},
-    "Sub-Saharan Africa":     {"la_liga": "SuperSport",                  "bundesliga": "SuperSport",             "serie_a": "SuperSport",              "ligue_1": "Canal+ Afrique"},
-    "India / South Asia":     {"la_liga": "JioStar / Sony",              "bundesliga": "JioStar / Sony",         "serie_a": "JioStar / Sony",          "ligue_1": "JioStar / Sony"},
-    "Australia":              {"la_liga": "Optus Sport",                 "bundesliga": "Optus Sport",            "serie_a": "Paramount+",             "ligue_1": "Optus Sport"},
-    "Japan":                  {"la_liga": "DAZN JP",                     "bundesliga": "DAZN JP",                "serie_a": "DAZN JP",                 "ligue_1": "DAZN JP"},
-    "South Korea":            {"la_liga": "Coupang Play",                "bundesliga": "Coupang Play",           "serie_a": "Coupang Play",            "ligue_1": "Coupang Play"},
-    "Malaysia":               {"la_liga": "Astro",                       "bundesliga": "Astro",                  "serie_a": "Astro",                   "ligue_1": "Astro"},
-    "Brazil / S. America":    {"la_liga": "ESPN BR; Star+",              "bundesliga": "ESPN BR",                "serie_a": "ESPN BR; Star+",          "ligue_1": "ESPN BR"},
+    # Format: territory -> { "la_liga": ..., "bundesliga": ..., "serie_a": ..., "ligue_1": ..., "eredivisie": ..., "primeira_liga": ... }
+    "United Kingdom":         {"la_liga": "Premier Sports; FreeSports", "bundesliga": "Sky Sports; TNT Sports", "serie_a": "TNT Sports; Discovery+", "ligue_1": "beIN Sports UK",        "eredivisie": "Premier Sports",        "primeira_liga": "Premier Sports"},
+    "Republic of Ireland":    {"la_liga": "Premier Sports",             "bundesliga": "Sky Sports",             "serie_a": "TNT Sports",             "ligue_1": "beIN Sports",           "eredivisie": "Premier Sports",        "primeira_liga": "Premier Sports"},
+    "United States":          {"la_liga": "ESPN+; ESPN Deportes",        "bundesliga": "ESPN+",                  "serie_a": "Paramount+; CBS Golazo",  "ligue_1": "beIN Sports USA; fuboTV","eredivisie": "ESPN+",                 "primeira_liga": "ESPN+; GolTV"},
+    "Canada":                 {"la_liga": "DAZN",                        "bundesliga": "DAZN",                   "serie_a": "DAZN",                    "ligue_1": "beIN Sports CA",        "eredivisie": "DAZN",                  "primeira_liga": "DAZN"},
+    "Germany":                {"la_liga": "DAZN",                        "bundesliga": "Sky Deutschland; DAZN",  "serie_a": "DAZN",                    "ligue_1": "DAZN",                  "eredivisie": "DAZN",                  "primeira_liga": "DAZN"},
+    "France":                 {"la_liga": "beIN Sports FR",              "bundesliga": "beIN Sports FR",         "serie_a": "Canal+ Sport FR",         "ligue_1": "Canal+; Amazon Prime",  "eredivisie": "Canal+ Sport FR",       "primeira_liga": "Canal+ Sport FR"},
+    "Spain":                  {"la_liga": "DAZN; Movistar LaLiga",       "bundesliga": "DAZN",                   "serie_a": "DAZN",                    "ligue_1": "DAZN",                  "eredivisie": "DAZN",                  "primeira_liga": "DAZN"},
+    "Italy":                  {"la_liga": "DAZN",                        "bundesliga": "DAZN",                   "serie_a": "DAZN IT; Sky Sport",      "ligue_1": "DAZN",                  "eredivisie": "DAZN",                  "primeira_liga": "DAZN"},
+    "Netherlands":            {"la_liga": "Viaplay NL",                  "bundesliga": "Viaplay NL",             "serie_a": "Viaplay NL",              "ligue_1": "Viaplay NL",            "eredivisie": "Ziggo Sport",            "primeira_liga": "Viaplay NL"},
+    "Portugal":               {"la_liga": "Eleven Sports PT",            "bundesliga": "Eleven Sports PT",       "serie_a": "Eleven Sports PT",        "ligue_1": "Eleven Sports PT",      "eredivisie": "Eleven Sports PT",      "primeira_liga": "Sport TV; DAZN PT"},
+    "Nordics":                {"la_liga": "Viaplay",                     "bundesliga": "Viaplay",                "serie_a": "Viaplay",                 "ligue_1": "Viaplay",               "eredivisie": "Viaplay",               "primeira_liga": "Viaplay"},
+    "Poland":                 {"la_liga": "Eleven Sports PL",            "bundesliga": "Eleven Sports PL",       "serie_a": "Eleven Sports PL",        "ligue_1": "Eleven Sports PL",      "eredivisie": "Eleven Sports PL",      "primeira_liga": "Eleven Sports PL"},
+    "Middle East & N. Africa":{"la_liga": "beIN Sports",                 "bundesliga": "beIN Sports",            "serie_a": "beIN Sports",             "ligue_1": "beIN Sports",           "eredivisie": "beIN Sports",           "primeira_liga": "beIN Sports"},
+    "Sub-Saharan Africa":     {"la_liga": "SuperSport",                  "bundesliga": "SuperSport",             "serie_a": "SuperSport",              "ligue_1": "Canal+ Afrique",        "eredivisie": "SuperSport",            "primeira_liga": "SuperSport"},
+    "India / South Asia":     {"la_liga": "JioStar / Sony",              "bundesliga": "JioStar / Sony",         "serie_a": "JioStar / Sony",          "ligue_1": "JioStar / Sony",        "eredivisie": "JioStar / Sony",        "primeira_liga": "JioStar / Sony"},
+    "Australia":              {"la_liga": "Optus Sport",                 "bundesliga": "Optus Sport",            "serie_a": "Paramount+",              "ligue_1": "Optus Sport",           "eredivisie": "Optus Sport",           "primeira_liga": "Optus Sport"},
+    "Japan":                  {"la_liga": "DAZN JP",                     "bundesliga": "DAZN JP",                "serie_a": "DAZN JP",                 "ligue_1": "DAZN JP",               "eredivisie": "DAZN JP",               "primeira_liga": "DAZN JP"},
+    "South Korea":            {"la_liga": "Coupang Play",                "bundesliga": "Coupang Play",           "serie_a": "Coupang Play",            "ligue_1": "Coupang Play",          "eredivisie": "Coupang Play",          "primeira_liga": "Coupang Play"},
+    "Malaysia":               {"la_liga": "Astro",                       "bundesliga": "Astro",                  "serie_a": "Astro",                   "ligue_1": "Astro",                 "eredivisie": "Astro",                 "primeira_liga": "Astro"},
+    "Brazil / S. America":    {"la_liga": "ESPN BR; Star+",              "bundesliga": "ESPN BR",                "serie_a": "ESPN BR; Star+",          "ligue_1": "ESPN BR",               "eredivisie": "ESPN BR",               "primeira_liga": "ESPN BR"},
 }
 
 # Map football-data.org competition codes to rights lookup key
@@ -390,6 +390,8 @@ COMP_CODE_TO_RIGHTS_KEY = {
     "BL1": "bundesliga", # Bundesliga
     "SA":  "serie_a",    # Serie A
     "PD":  "la_liga",    # La Liga
+    "DED": "eredivisie", # Eredivisie
+    "PPL": "la_liga",    # Primeira Liga — use La Liga rights as proxy (similar European territory coverage)
 }
 
 
