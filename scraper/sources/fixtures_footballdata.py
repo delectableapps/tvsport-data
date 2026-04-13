@@ -27,14 +27,16 @@ COMPETITIONS = {
     # "ECL": {"name": "UEFA Conference League",   "code": "ECL", "days": 30},
     "ELC": {"name": "Championship",              "code": "ELC", "days": 14},
     "FL1": {"name": "Ligue 1",                   "code": "FL1", "days": 14},
-    "BL1": {"name": "Bundesliga",               "code": "BL1", "days": 14},
+    "BL1": {"name": "Bundesliga",                "code": "BL1", "days": 14},
     "SA":  {"name": "Serie A",                   "code": "SA",  "days": 14},
     "PD":  {"name": "La Liga",                   "code": "PD",  "days": 14},
+    "DED": {"name": "Eredivisie",                "code": "DED", "days": 14},
+    "PPL": {"name": "Primeira Liga",             "code": "PPL", "days": 14},
     "FAC": {"name": "FA Cup",                    "code": "FAC", "days": 30},
 }
 
 # Competitions to show in UK even during blackout (overseas comps never blacked out)
-NON_EPL_COMPS = {"CL", "EL", "ECL", "FL1", "BL1", "SA", "PD"}
+NON_EPL_COMPS = {"CL", "EL", "ECL", "FL1", "BL1", "SA", "PD", "DED", "PPL"}
 
 
 def _headers() -> dict:
