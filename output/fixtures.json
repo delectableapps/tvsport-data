@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-13T10:09:57.622388+00:00",
+  "generated": "2026-04-13T10:17:52.356203+00:00",
   "fixture_count": 22,
   "competitions": [
     "EPL",
@@ -14,11 +14,7 @@
       "kickoff_local": "12:30",
       "uk_blackout": false,
       "uk_broadcaster": "TNT Sports",
-      "uk_channels": [
-        "TNT Sports 1",
-        "TNT Sports Ultimate",
-        "HBO Max"
-      ],
+      "uk_channels": [],
       "matchday": null,
       "competition": "EPL",
       "fixture_key": "brentford v fulham",
@@ -26,6 +22,7 @@
       "away_team": "Fulham",
       "kickoff": "2026-04-13T11:30:00Z",
       "blackout": false,
+      "us_channels": [],
       "broadcasters": [
         {
           "territory": "United Kingdom",
@@ -5728,10 +5725,7 @@
       "kickoff_local": "14:00",
       "uk_blackout": false,
       "uk_broadcaster": "Sky Sports",
-      "uk_channels": [
-        "Sky Sports Main Event",
-        "Sky Sports Premier League"
-      ],
+      "uk_channels": [],
       "matchday": null,
       "competition": "EPL",
       "fixture_key": "everton v liverpool",
@@ -5739,6 +5733,7 @@
       "away_team": "Liverpool",
       "kickoff": "2026-04-19T13:00:00Z",
       "blackout": false,
+      "us_channels": [],
       "broadcasters": [
         {
           "territory": "United Kingdom",
@@ -6704,10 +6699,7 @@
       "kickoff_local": "16:30",
       "uk_blackout": false,
       "uk_broadcaster": "Sky Sports",
-      "uk_channels": [
-        "Sky Sports Main Event",
-        "Sky Sports Premier League"
-      ],
+      "uk_channels": [],
       "matchday": null,
       "competition": "EPL",
       "fixture_key": "manchester city v arsenal",
@@ -9632,11 +9624,7 @@
       "kickoff_local": "12:30",
       "uk_blackout": false,
       "uk_broadcaster": "TNT Sports",
-      "uk_channels": [
-        "TNT Sports 1",
-        "TNT Sports Ultimate",
-        "HBO Max"
-      ],
+      "uk_channels": [],
       "matchday": null,
       "competition": "EPL",
       "fixture_key": "fulham v aston villa",
