@@ -150,6 +150,7 @@ def normalise_fixture(f: dict) -> dict:
 
 
 
+    def dedup_fixtures(fixtures: list) -> list:
     """Remove duplicate fixtures by (competition, home, away, date)."""
     seen = set()
     out = []
