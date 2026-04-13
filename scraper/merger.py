@@ -285,6 +285,42 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
         if territory == "United Kingdom":
             continue  # handled above
 
+        # Republic of Ireland — EPL slot logic mirrors UK
+        # TNT: Saturday 12:30 only. Sky: all other slots. Premier Sports: always.
+        if comp_code == "PL" and territory == "Republic of Ireland":
+            if is_blackout:
+                continue  # no ROI broadcasters during blackout either
+            from datetime import datetime
+            try:
+                dt = datetime.fromisoformat(kickoff.replace("Z", "+00:00"))
+                is_tnt = (dt.weekday() == 5 and dt.hour == 11 and dt.minute == 30)
+            except Exception:
+                is_tnt = False
+
+            live_broadcaster = "TNT Sports" if is_tnt else "Sky Sports"
+            live_meta = BROADCASTER_META.get(live_broadcaster, {})
+            broadcasters.append({
+                "territory":   "Republic of Ireland",
+                "region":      "Europe",
+                "broadcaster": live_broadcaster,
+                "channels":    live_meta.get("channels", [live_broadcaster]),
+                "type":        live_meta.get("type", "pay_tv"),
+                "coverage":    "live",
+                "confidence":  "medium",
+            })
+            # Premier Sports always shown for ROI
+            ps_meta = BROADCASTER_META.get("Premier Sports", {})
+            broadcasters.append({
+                "territory":   "Republic of Ireland",
+                "region":      "Europe",
+                "broadcaster": "Premier Sports",
+                "channels":    ps_meta.get("channels", ["Premier Sports 1", "Premier Sports 2"]),
+                "type":        "pay_tv",
+                "coverage":    "live",
+                "confidence":  "medium",
+            })
+            continue
+
         broadcaster_names = entry.get("broadcaster", "")
         region = entry.get("region", "")
 
