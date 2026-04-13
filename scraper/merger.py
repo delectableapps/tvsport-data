@@ -74,19 +74,31 @@ def fetch_fixtures() -> list:
     except Exception as e:
         logger.warning(f"[pipeline] efl.com scraper failed: {e}")
 
-    # Scottish leagues
+    # Scottish leagues — primary: Sportmonks API, fallback: spfl.co.uk
     try:
-        from sources.fixtures_spfl import scrape_fixtures as spfl_scrape
-        spfl_fixtures = spfl_scrape()
+        from sources.fixtures_sportmonks import scrape_fixtures as sportmonks_scrape
+        sportmonks_fixtures = sportmonks_scrape()
         added = 0
-        for f in spfl_fixtures:
+        for f in sportmonks_fixtures:
             if f["id"] not in seen_ids:
                 seen_ids.add(f["id"])
                 all_fixtures.append(f)
                 added += 1
-        logger.info(f"[pipeline] spfl.co.uk: {added} new fixtures added")
+        logger.info(f"[pipeline] sportmonks: {added} Scottish fixtures added")
     except Exception as e:
-        logger.warning(f"[pipeline] spfl.co.uk scraper failed: {e}")
+        logger.warning(f"[pipeline] Sportmonks failed: {e}")
+        try:
+            from sources.fixtures_spfl import scrape_fixtures as spfl_scrape
+            spfl_fixtures = spfl_scrape()
+            added = 0
+            for f in spfl_fixtures:
+                if f["id"] not in seen_ids:
+                    seen_ids.add(f["id"])
+                    all_fixtures.append(f)
+                    added += 1
+            logger.info(f"[pipeline] spfl.co.uk fallback: {added} fixtures added")
+        except Exception as e2:
+            logger.warning(f"[pipeline] spfl.co.uk fallback also failed: {e2}")
 
     logger.info(f"[pipeline] Total fixtures before dedup: {len(all_fixtures)}")
     return all_fixtures
