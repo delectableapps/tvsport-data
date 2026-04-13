@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-13T13:37:43.582018+00:00",
+  "generated_at": "2026-04-13T13:46:57.054618+00:00",
   "fixture_count": 160,
   "fixtures": [
     {
@@ -286,20 +286,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -1187,7 +1173,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_BRE_FUL_2026-04-18",
@@ -1459,20 +1445,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "TNT Sports",
           "channels": [
             "TNT Sports 1",
@@ -2374,7 +2346,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_NEW_AFC_2026-04-18",
@@ -2660,20 +2632,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -3561,7 +3519,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_LEE_WOL_2026-04-18",
@@ -3847,20 +3805,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -4748,7 +4692,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_TOT_BRI_2026-04-18",
@@ -5034,20 +4978,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -5935,7 +5865,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_CHE_MAN_2026-04-18",
@@ -6221,20 +6151,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -7122,7 +7038,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_NOT_BUR_2026-04-19",
@@ -7408,20 +7324,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -8309,7 +8211,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_AST_SUN_2026-04-19",
@@ -8595,20 +8497,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -9496,7 +9384,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_EVE_LIV_2026-04-19",
@@ -9782,20 +9670,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -10683,7 +10557,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_MAN_ARS_2026-04-19",
@@ -10969,20 +10843,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -11870,7 +11730,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_CRY_WES_2026-04-20",
@@ -12156,20 +12016,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -13057,7 +12903,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_BRI_CHE_2026-04-21",
@@ -13343,20 +13189,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -14244,7 +14076,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_AFC_LEE_2026-04-22",
@@ -14530,20 +14362,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -15431,7 +15249,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_BUR_MAN_2026-04-22",
@@ -15717,20 +15535,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -16618,7 +16422,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_SUN_NOT_2026-04-24",
@@ -16904,20 +16708,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -17805,7 +17595,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_FUL_AST_2026-04-25",
@@ -18077,20 +17867,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "TNT Sports",
           "channels": [
             "TNT Sports 1",
@@ -18992,7 +18768,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_LIV_CRY_2026-04-25",
@@ -19278,20 +19054,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -20179,7 +19941,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_WES_EVE_2026-04-25",
@@ -20465,20 +20227,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -21366,7 +21114,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_WOL_TOT_2026-04-25",
@@ -21652,20 +21400,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -22553,7 +22287,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_ARS_NEW_2026-04-25",
@@ -22839,20 +22573,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -23740,7 +23460,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_MAN_BRE_2026-04-27",
@@ -24026,20 +23746,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -24927,7 +24633,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_LEE_BUR_2026-05-01",
@@ -25213,20 +24919,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -26114,7 +25806,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_AST_TOT_2026-05-02",
@@ -26386,20 +26078,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "TNT Sports",
           "channels": [
             "TNT Sports 1",
@@ -27301,7 +26979,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_AFC_CRY_2026-05-02",
@@ -27587,20 +27265,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -28488,7 +28152,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_BRE_WES_2026-05-02",
@@ -28774,20 +28438,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -29675,7 +29325,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_NEW_BRI_2026-05-02",
@@ -29961,20 +29611,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -30862,7 +30498,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_WOL_SUN_2026-05-02",
@@ -31148,20 +30784,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -32049,7 +31671,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_ARS_FUL_2026-05-02",
@@ -32335,20 +31957,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -33236,7 +32844,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_MAN_LIV_2026-05-03",
@@ -33522,20 +33130,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -34423,7 +34017,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_CHE_NOT_2026-05-04",
@@ -34709,20 +34303,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -35610,7 +35190,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_EVE_MAN_2026-05-04",
@@ -35896,20 +35476,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -36797,7 +36363,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_LIV_CHE_2026-05-09",
@@ -37069,20 +36635,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "TNT Sports",
           "channels": [
             "TNT Sports 1",
@@ -37984,7 +37536,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_SUN_MAN_2026-05-09",
@@ -38270,20 +37822,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -39171,7 +38709,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_BRI_WOL_2026-05-09",
@@ -39457,20 +38995,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -40358,7 +39882,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_CRY_EVE_2026-05-09",
@@ -40644,20 +40168,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -41545,7 +41055,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_BUR_AST_2026-05-09",
@@ -41831,20 +41341,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -42732,7 +42228,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_FUL_AFC_2026-05-09",
@@ -43018,20 +42514,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -43919,7 +43401,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_MAN_BRE_2026-05-09",
@@ -44205,20 +43687,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -45106,7 +44574,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_NOT_NEW_2026-05-10",
@@ -45392,20 +44860,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -46293,7 +45747,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_WES_ARS_2026-05-10",
@@ -46579,20 +46033,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -47480,7 +46920,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "pl_TOT_LEE_2026-05-11",
@@ -47766,20 +47206,6 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -48667,7 +48093,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 101
+      "broadcaster_count": 100
     },
     {
       "id": "cl_LIV_PAR_2026-04-14",
