@@ -185,14 +185,24 @@ def parse_guide(guide_xml: str, fixtures: list = None, days_ahead: int = 3) -> d
 
     # Map channel IDs
     channel_map = {}
+    all_channel_ids = []
     for ch in root.findall("channel"):
         ch_id = ch.get("id", "")
+        all_channel_ids.append(ch_id)
         match = _match_channel_id(ch_id)
         if match:
             channel_map[ch_id] = {
                 "broadcaster": match[0],
                 "channel_name": match[1],
             }
+
+    # Log all channel IDs containing "sky" or "tnt" or "sports" for debugging
+    sports_channels = [c for c in all_channel_ids if any(
+        kw in c.lower() for kw in ["sky", "tnt", "sport", "bein", "canal", "dazn"]
+    )]
+    logger.info(f"[epg_parser] Sports-related channel IDs in guide ({len(sports_channels)}):")
+    for cid in sorted(sports_channels)[:50]:
+        logger.info(f"  {cid}")
 
     logger.info(f"[epg_parser] Mapped {len(channel_map)} channels from guide.xml")
 
