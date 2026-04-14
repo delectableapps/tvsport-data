@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-14T13:17:47.383273+00:00",
+  "generated_at": "2026-04-14T13:50:38.685355+00:00",
   "fixture_count": 210,
   "fixtures": [
     {
@@ -99776,7 +99776,7 @@
       "comp_code": "PPL",
       "home_team": "Casa Pia AC",
       "away_team": "Sporting Clube de Braga",
-      "kickoff": "2026-04-23T00:00:00Z",
+      "kickoff": "2026-04-23T19:15:00Z",
       "matchday": 26,
       "stage": "REGULAR_SEASON",
       "group": null,
