@@ -11,32 +11,44 @@ from xml.etree import ElementTree as ET
 
 logger = logging.getLogger(__name__)
 
-# Map XMLTV channel IDs → broadcaster name + specific channel name
+# Map XMLTV channel IDs → (broadcaster, specific channel name)
+# Based on actual IDs returned by iptv-org/epg guide.xml
 CHANNEL_ID_TO_BROADCASTER = {
-    # UK — sky.com
-    "SkySportsMainEvent.uk":     ("Sky Sports", "Sky Sports Main Event"),
-    "SkySportsPremierLeague.uk": ("Sky Sports", "Sky Sports Premier League"),
-    "SkySportsFootball.uk":      ("Sky Sports", "Sky Sports Football"),
-    "SkySportsAction.uk":        ("Sky Sports", "Sky Sports Action"),
-    "SkySportsArena.uk":         ("Sky Sports", "Sky Sports Arena"),
-    "TNTSports1.uk":             ("TNT Sports", "TNT Sports 1"),
-    "TNTSports2.uk":             ("TNT Sports", "TNT Sports 2"),
-    "TNTSports3.uk":             ("TNT Sports", "TNT Sports 3"),
-    "TNTSports4.uk":             ("TNT Sports", "TNT Sports 4"),
-    # France/MENA — canalplus.com
-    "beINSports1.qa":            ("beIN Sports", "beIN Sports 1"),
-    "beINSports2.qa":            ("beIN Sports", "beIN Sports 2"),
-    "beINSportsMax1.qa":         ("beIN Sports", "beIN Sports Max 1"),
-    "beINSportsMax2.qa":         ("beIN Sports", "beIN Sports Max 2"),
-    "beINSportsMax3.qa":         ("beIN Sports", "beIN Sports Max 3"),
-    "CanalPlusSport.fr":         ("CANAL+", "Canal+ Sport"),
-    "CanalPlusFoot.fr":          ("CANAL+", "Canal+ Foot"),
-    # Germany — sky.de
-    "SkySport1.de":              ("Sky Deutschland", "Sky Sport 1"),
-    "SkySport2.de":              ("Sky Deutschland", "Sky Sport 2"),
-    "SkySportBundesliga1.de":    ("Sky Deutschland", "Sky Sport Bundesliga 1"),
-    "DAZN1.de":                  ("DAZN", "DAZN 1"),
-    "DAZN2.de":                  ("DAZN", "DAZN 2"),
+    # UK — sky.com (with @HD/@SD suffixes)
+    "SkySportsMainEvent.uk@HD":      ("Sky Sports", "Sky Sports Main Event"),
+    "SkySportsMainEvent.uk@SD":      ("Sky Sports", "Sky Sports Main Event"),
+    "SkySportsPremierLeague.uk@HD":  ("Sky Sports", "Sky Sports Premier League"),
+    "SkySportsPremierLeague.uk@SD":  ("Sky Sports", "Sky Sports Premier League"),
+    "SkySportsFootball.uk@HD":       ("Sky Sports", "Sky Sports Football"),
+    "SkySportsFootball.uk@SD":       ("Sky Sports", "Sky Sports Football"),
+    "SkySportsAction.uk@HD":         ("Sky Sports", "Sky Sports Action"),
+    "SkySportsAction.uk@SD":         ("Sky Sports", "Sky Sports Action"),
+    "SkySportsArena.uk@HD":          ("Sky Sports", "Sky Sports Arena"),
+    "SkySportsArena.uk@SD":          ("Sky Sports", "Sky Sports Arena"),
+    "TNTSports1.uk@HD":              ("TNT Sports", "TNT Sports 1"),
+    "TNTSports1.uk@SD":              ("TNT Sports", "TNT Sports 1"),
+    "TNTSports2.uk@HD":              ("TNT Sports", "TNT Sports 2"),
+    "TNTSports3.uk@HD":              ("TNT Sports", "TNT Sports 3"),
+    "TNTSports4.uk@HD":              ("TNT Sports", "TNT Sports 4"),
+    # Republic of Ireland — confirmed in guide
+    "PremierSports1.ie@HD":          ("Premier Sports", "Premier Sports 1"),
+    "PremierSports2.ie@HD":          ("Premier Sports", "Premier Sports 2"),
+    # France/MENA — canalplus.com (confirmed present in guide)
+    "CanalPlusSport.fr@SD":          ("CANAL+", "Canal+ Sport"),
+    "CanalPlusFoot.fr@SD":           ("CANAL+", "Canal+ Foot"),
+    "CanalPlusPremierLeague.fr@SD":  ("CANAL+", "Canal+ Premier League"),
+    "beINSports1.qa@France":         ("beIN Sports", "beIN Sports 1"),
+    "beINSports2.qa@France":         ("beIN Sports", "beIN Sports 2"),
+    "beINSportsMax1.qa@France":      ("beIN Sports", "beIN Sports Max 1"),
+    "beINSportsMax2.qa@France":      ("beIN Sports", "beIN Sports Max 2"),
+    "beINSportsMax3.qa@France":      ("beIN Sports", "beIN Sports Max 3"),
+    # DAZN — confirmed present
+    "DAZN1.uk@GermanyHD":            ("DAZN", "DAZN 1"),
+    "DAZN2.uk@GermanyHD":            ("DAZN", "DAZN 2"),
+    # MultiSports Canal+ Africa — confirmed present
+    "MultiSports1.fr@SD":            ("Canal+ Afrique", "MultiSports 1"),
+    "MultiSports2.fr@SD":            ("Canal+ Afrique", "MultiSports 2"),
+    "MultiSports3.fr@SD":            ("Canal+ Afrique", "MultiSports 3"),
 }
 
 FOOTBALL_KEYWORDS = [
