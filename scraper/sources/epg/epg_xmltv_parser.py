@@ -208,12 +208,10 @@ def parse_guide(guide_xml: str, fixtures: list = None, days_ahead: int = 3) -> d
                 "channel_name": match[1],
             }
 
-    # Log all channel IDs containing "sky" or "tnt" or "sports" for debugging
-    sports_channels = [c for c in all_channel_ids if any(
-        kw in c.lower() for kw in ["sky", "tnt", "sport", "bein", "canal", "dazn"]
-    )]
-    logger.info(f"[epg_parser] Sports-related channel IDs in guide ({len(sports_channels)}):")
-    for cid in sorted(sports_channels)[:50]:
+    # Log ALL unique channel ID prefixes (first 30 chars) to find sky.com format
+    # sky.com produces 24MB so likely hundreds of channels — log first 100 to find pattern
+    logger.info(f"[epg_parser] All channel IDs in guide ({len(all_channel_ids)} total) — first 100:")
+    for cid in sorted(all_channel_ids)[:100]:
         logger.info(f"  {cid}")
 
     logger.info(f"[epg_parser] Mapped {len(channel_map)} channels from guide.xml")
