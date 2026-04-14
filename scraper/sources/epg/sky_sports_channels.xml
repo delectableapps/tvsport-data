@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<channels site="sky.com">
+  <channel xmltv_id="SkySportsMainEvent.uk" site_id="1" lang="en">Sky Sports Main Event</channel>
+  <channel xmltv_id="SkySportsPremierLeague.uk" site_id="2" lang="en">Sky Sports Premier League</channel>
+  <channel xmltv_id="SkySportsFootball.uk" site_id="3" lang="en">Sky Sports Football</channel>
+  <channel xmltv_id="SkySportsAction.uk" site_id="4" lang="en">Sky Sports Action</channel>
+  <channel xmltv_id="TNTSports1.uk" site_id="5" lang="en">TNT Sports 1</channel>
+  <channel xmltv_id="TNTSports2.uk" site_id="6" lang="en">TNT Sports 2</channel>
+  <channel xmltv_id="TNTSports3.uk" site_id="7" lang="en">TNT Sports 3</channel>
+  <channel xmltv_id="TNTSports4.uk" site_id="8" lang="en">TNT Sports 4</channel>
+</channels>
