@@ -133,15 +133,27 @@ def dedup_fixtures(fixtures: list) -> list:
 
 def enrich_uk_channels(fixtures: list) -> dict:
     """
-    Fetch livefootballontv.com and return per-fixture UK channel data.
+    Fetch UK channel data from skysports.com (primary) and livefootballontv.com (fallback).
     Returns { fixture_id: { channels: [...], kickoff_display: "..." } }
     """
+    result = {}
+    try:
+        from sources.uk_skysports import get_uk_channels as sky_channels
+        sky_data = sky_channels(fixtures)
+        for fixture_id, data in sky_data.items():
+            result[fixture_id] = {"channels": [data["channel"]], "kickoff_display": data.get("kickoff_display", "")}
+        logger.info(f"[pipeline] skysports.com: {len(sky_data)} fixtures matched")
+    except Exception as e:
+        logger.warning(f"[pipeline] skysports.com failed: {e}")
     try:
         from sources.uk_channels import get_uk_channels
-        return get_uk_channels(fixtures)
+        lf_data = get_uk_channels(fixtures)
+        added = sum(1 for fid in lf_data if fid not in result)
+        result.update({fid: d for fid, d in lf_data.items() if fid not in result})
+        logger.info(f"[pipeline] livefootballontv: {added} additional fixtures matched")
     except Exception as e:
-        logger.warning(f"[pipeline] UK channel enrichment failed: {e}")
-        return {}
+        logger.warning(f"[pipeline] livefootballontv failed: {e}")
+    return result
 
 
 # ─────────────────────────────────────────────────────────────────────────────
