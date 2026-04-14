@@ -162,23 +162,28 @@ def enrich_uk_channels(fixtures: list) -> dict:
 
 def enrich_epg(fixtures: list) -> dict:
     """
-    Run iptv-org/epg grab and parse guide.xml.
+    EPG grab disabled for now — too many site compatibility issues.
+    If guide.xml already exists from a previous successful run, still parse it.
     Returns { fixture_id: { broadcaster: channel_name } }
     """
     try:
-        from sources.epg.epg_runner import run_epg_grab
         from sources.epg.epg_xmltv_parser import parse_guide
 
-        channels_xml = os.path.join(os.path.dirname(__file__), "sources", "epg", "epg_channels.xml")
-        guide_xml    = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "guide.xml"))
+        guide_xml = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "guide.xml"))
 
-        success = run_epg_grab(channels_xml, guide_xml)
-        if not success:
-            logger.warning("[pipeline] EPG grab failed — skipping EPG enrichment")
+        if not os.path.isfile(guide_xml):
+            logger.info("[pipeline] EPG: no guide.xml found — skipping (EPG grab disabled)")
+            return {}
+
+        # Use existing guide.xml if available
+        import time
+        age_hours = (time.time() - os.path.getmtime(guide_xml)) / 3600
+        if age_hours > 48:
+            logger.info(f"[pipeline] EPG: guide.xml is {age_hours:.0f}h old — skipping")
             return {}
 
         epg_data = parse_guide(guide_xml, fixtures=fixtures, days_ahead=3)
-        logger.info(f"[pipeline] EPG: matched {len(epg_data)} fixtures with channel data")
+        logger.info(f"[pipeline] EPG: matched {len(epg_data)} fixtures from existing guide.xml")
         return epg_data
     except Exception as e:
         logger.warning(f"[pipeline] EPG enrichment failed: {e}")
