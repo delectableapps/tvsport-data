@@ -32,7 +32,7 @@ COMPETITIONS = {
     "PD":  {"name": "La Liga",                   "code": "PD",  "days": 14},
     "DED": {"name": "Eredivisie",                "code": "DED", "days": 14},
     "PPL": {"name": "Primeira Liga",             "code": "PPL", "days": 14},
-    "FAC": {"name": "FA Cup",                    "code": "FAC", "days": 30},
+    #"FAC": {"name": "FA Cup",                    "code": "FAC", "days": 30},
 }
 
 # Competitions to show in UK even during blackout (overseas comps never blacked out)
