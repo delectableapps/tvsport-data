@@ -195,12 +195,13 @@ def parse_guide(guide_xml: str, fixtures: list = None, days_ahead: int = 3) -> d
         logger.error(f"[epg_parser] Failed to parse guide.xml: {e}")
         return {}
 
-    # Map channel IDs
+    # Map channel IDs — also collect display names for debugging
     channel_map = {}
-    all_channel_ids = []
+    all_channel_info = []  # (id, display_name)
     for ch in root.findall("channel"):
         ch_id = ch.get("id", "")
-        all_channel_ids.append(ch_id)
+        display = ch.findtext("display-name", ch_id)
+        all_channel_info.append((ch_id, display))
         match = _match_channel_id(ch_id)
         if match:
             channel_map[ch_id] = {
@@ -208,11 +209,10 @@ def parse_guide(guide_xml: str, fixtures: list = None, days_ahead: int = 3) -> d
                 "channel_name": match[1],
             }
 
-    # Log ALL unique channel ID prefixes (first 30 chars) to find sky.com format
-    # sky.com produces 24MB so likely hundreds of channels — log first 100 to find pattern
-    logger.info(f"[epg_parser] All channel IDs in guide ({len(all_channel_ids)} total) — first 100:")
-    for cid in sorted(all_channel_ids)[:100]:
-        logger.info(f"  {cid}")
+    # Log channel IDs + display names to find sky.com format
+    logger.info(f"[epg_parser] All channels in guide ({len(all_channel_info)} total) — first 100:")
+    for cid, dname in sorted(all_channel_info)[:100]:
+        logger.info(f"  {cid!r:50s} {dname}")
 
     logger.info(f"[epg_parser] Mapped {len(channel_map)} channels from guide.xml")
 
