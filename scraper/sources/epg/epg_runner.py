@@ -1,10 +1,8 @@
 """
 epg_runner.py
-Clones iptv-org/epg and grabs XMLTV data using --channels flag
-pointing to the bundled site channel XML files inside the repo.
-
-Correct usage:
-  npm run grab --- --channels=sites/sky.com/sky.com.channels.xml --output=guide.xml --days=3
+Uses iptv-org/epg with our custom epg_channels.xml.
+Our channels file has only the specific channels we need (~40 channels total)
+so grabs complete in reasonable time.
 """
 
 import logging
@@ -18,15 +16,6 @@ EPG_TOOL_DIR = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "..", "..", "epg_tool")
 )
 EPG_REPO_URL = "https://github.com/iptv-org/epg.git"
-
-# Channel XML files bundled inside the iptv-org/epg repo
-# These contain the full channel lists for each site
-SITE_CHANNELS = [
-    "sites/sky.com/sky.com.channels.xml",
-    "sites/canalplus.com/canalplus.com_fr.channels.xml",
-    "sites/sky.de/sky.de.channels.xml",
-    "sites/airtelxstream.in/airtelxstream.in.channels.xml",
-]
 
 
 def _run(cmd, cwd=None, timeout=300):
@@ -65,72 +54,40 @@ def _ensure_epg_tool():
     return True
 
 
-def _merge_guides(guide_files, output_xml):
-    root = ET.Element("tv")
-    channel_ids = set()
-    prog_count = 0
-    for gf in guide_files:
-        if not os.path.isfile(gf):
-            continue
-        try:
-            tree = ET.parse(gf)
-            for ch in tree.getroot().findall("channel"):
-                ch_id = ch.get("id", "")
-                if ch_id and ch_id not in channel_ids:
-                    channel_ids.add(ch_id)
-                    root.append(ch)
-            for prog in tree.getroot().findall("programme"):
-                root.append(prog)
-                prog_count += 1
-        except Exception as e:
-            logger.warning(f"[epg_runner] Could not parse {gf}: {e}")
-    tree = ET.ElementTree(root)
-    ET.indent(tree, space="  ")
-    tree.write(output_xml, encoding="utf-8", xml_declaration=True)
-    logger.info(f"[epg_runner] Merged: {len(channel_ids)} channels, {prog_count} programmes")
+def run_epg_grab(channels_xml: str, output_xml: str) -> bool:
+    """
+    Run iptv-org/epg grab using our custom channels_xml file.
+    This file contains only the ~40 channels we care about, so it completes quickly.
+    """
+    if not os.path.isfile(channels_xml):
+        logger.error(f"[epg_runner] channels_xml not found: {channels_xml}")
+        return False
 
-
-def run_epg_grab(channels_xml, output_xml):
     if not _ensure_epg_tool():
         return False
 
-    guide_files = []
-    successes = 0
+    logger.info(f"[epg_runner] Grabbing EPG using {os.path.basename(channels_xml)}...")
 
-    for channels_file in SITE_CHANNELS:
-        full_path = os.path.join(EPG_TOOL_DIR, channels_file)
-        if not os.path.isfile(full_path):
-            logger.warning(f"[epg_runner] Channels file not found: {full_path}")
-            continue
-
-        site_name = channels_file.split("/")[1]
-        site_output = os.path.join(EPG_TOOL_DIR, f"guide_{site_name.replace('.', '_')}.xml")
-        logger.info(f"[epg_runner] Grabbing {site_name}...")
-
-        # Use npm run grab --- with --channels flag (confirmed correct syntax)
-        cmd = [
+    # Use our epg_channels.xml directly — this is the key fix.
+    # Previously was trying to use the bundled sky.com full channels list (1000+ channels).
+    # Our file has only ~40 channels so completes in 2-3 minutes.
+    ok, err = _run(
+        [
             "npm", "run", "grab", "---",
-            f"--channels={channels_file}",
-            f"--output={site_output}",
+            f"--channels={channels_xml}",
+            f"--output={output_xml}",
             "--days=3",
             "--timeout=20000",
             "--maxConnections=1",
-        ]
+        ],
+        cwd=EPG_TOOL_DIR,
+        timeout=600  # 10 minutes max
+    )
 
-        ok, err = _run(cmd, cwd=EPG_TOOL_DIR, timeout=300)
-
-        if ok and os.path.isfile(site_output):
-            size = os.path.getsize(site_output)
-            logger.info(f"[epg_runner] {site_name}: OK ({size:,} bytes)")
-            guide_files.append(site_output)
-            successes += 1
-        else:
-            logger.warning(f"[epg_runner] {site_name}: failed — {err[:300]}")
-
-    if not guide_files:
-        logger.error("[epg_runner] All sites failed — no EPG data")
+    if ok and os.path.isfile(output_xml):
+        size = os.path.getsize(output_xml)
+        logger.info(f"[epg_runner] guide.xml written ({size:,} bytes)")
+        return True
+    else:
+        logger.warning(f"[epg_runner] Grab failed: {err[:300]}")
         return False
-
-    _merge_guides(guide_files, output_xml)
-    logger.info(f"[epg_runner] Complete: {successes}/{len(SITE_CHANNELS)} sites succeeded")
-    return True
