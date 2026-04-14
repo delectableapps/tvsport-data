@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  TVsport EPG Channel List
-  Used by iptv-org/epg Node.js tool to pull XMLTV schedule data.
-
-  To grab data locally:
-    npx epg-grabber --config epg_channels.xml --output guide.xml --timeout 60000
-
-  Sites confirmed working as of April 2026.
-  NOTE: rte.ie removed — ERR_MODULE_NOT_FOUND error.
-  NOTE: Viaplay not yet in iptv-org/epg (open issue #2366) — use direct scrape.
--->
 <channels>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       UK  (via sky.com)
-       Source: https://github.com/iptv-org/epg/blob/master/sites/sky.com
-  ════════════════════════════════════════════════════════════════ -->
+  <!-- UK via sky.com -->
   <channel site="sky.com" site_id="1103" lang="en" xmltv_id="SkySportsMainEvent.uk@HD">Sky Sports Main Event</channel>
   <channel site="sky.com" site_id="1104" lang="en" xmltv_id="SkySportsPremierLeague.uk@HD">Sky Sports Premier League</channel>
   <channel site="sky.com" site_id="1105" lang="en" xmltv_id="SkySportsFootball.uk@HD">Sky Sports Football</channel>
@@ -26,11 +12,7 @@
   <channel site="sky.com" site_id="1122" lang="en" xmltv_id="TNTSports3.uk@HD">TNT Sports 3</channel>
   <channel site="sky.com" site_id="1123" lang="en" xmltv_id="TNTSports4.uk@HD">TNT Sports 4</channel>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       FRANCE + MENA  (via canalplus.com)
-       Source: https://github.com/iptv-org/epg/blob/master/sites/canalplus.com
-       Includes beIN Sports 1, 2, Max 1-10 + Canal+ Sport/Foot
-  ════════════════════════════════════════════════════════════════ -->
+  <!-- France and MENA via canalplus.com -->
   <channel site="canalplus.com" site_id="#381" lang="fr" xmltv_id="beINSports1.qa@France">beIN Sports 1</channel>
   <channel site="canalplus.com" site_id="#384" lang="fr" xmltv_id="beINSports2.qa@France">beIN Sports 2</channel>
   <channel site="canalplus.com" site_id="#387" lang="fr" xmltv_id="beINSportsMax1.qa@France">beIN Sports Max 1</channel>
@@ -46,22 +28,17 @@
   <channel site="canalplus.com" site_id="#112" lang="fr" xmltv_id="CanalPlusSport.fr@SD">Canal+ Sport</channel>
   <channel site="canalplus.com" site_id="#115" lang="fr" xmltv_id="CanalPlusFoot.fr@SD">Canal+ Foot</channel>
   <channel site="canalplus.com" site_id="#436" lang="fr" xmltv_id="Eurosport2.fr@France">Eurosport 2</channel>
-  <channel site="canalplus.com" site_id="#1077" lang="fr" xmltv_id="">DAZN 1 (France)</channel>
+  <channel site="canalplus.com" site_id="#1077" lang="fr" xmltv_id="">DAZN 1 France</channel>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       GERMANY / AUSTRIA / SWITZERLAND  (via sky.de)
-  ════════════════════════════════════════════════════════════════ -->
-  <channel site="sky.de" site_id="SkySport1" lang="de" xmltv_id="SkySport1.de@HD">Sky Sport 1 (DE)</channel>
-  <channel site="sky.de" site_id="SkySport2" lang="de" xmltv_id="SkySport2.de@HD">Sky Sport 2 (DE)</channel>
+  <!-- Germany, Austria, Switzerland via sky.de -->
+  <channel site="sky.de" site_id="SkySport1" lang="de" xmltv_id="SkySport1.de@HD">Sky Sport 1 DE</channel>
+  <channel site="sky.de" site_id="SkySport2" lang="de" xmltv_id="SkySport2.de@HD">Sky Sport 2 DE</channel>
   <channel site="sky.de" site_id="SkySportBundesliga1" lang="de" xmltv_id="SkySportBundesliga1.de@HD">Sky Sport Bundesliga 1</channel>
   <channel site="sky.de" site_id="SkySportBundesliga2" lang="de" xmltv_id="SkySportBundesliga2.de@HD">Sky Sport Bundesliga 2</channel>
-  <channel site="sky.de" site_id="DAZN1" lang="de" xmltv_id="DAZN1.de@HD">DAZN 1 (DE)</channel>
-  <channel site="sky.de" site_id="DAZN2" lang="de" xmltv_id="DAZN2.de@HD">DAZN 2 (DE)</channel>
+  <channel site="sky.de" site_id="DAZN1" lang="de" xmltv_id="DAZN1.de@HD">DAZN 1 DE</channel>
+  <channel site="sky.de" site_id="DAZN2" lang="de" xmltv_id="DAZN2.de@HD">DAZN 2 DE</channel>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       INDIA / SOUTH ASIA  (via airtelxstream.in)
-       967 channels, 668 with XMLTV IDs — includes Star Sports + Sony Ten
-  ════════════════════════════════════════════════════════════════ -->
+  <!-- India and South Asia via airtelxstream.in -->
   <channel site="airtelxstream.in" site_id="StarSports1HD" lang="en" xmltv_id="StarSports1.in@HD">Star Sports 1 HD</channel>
   <channel site="airtelxstream.in" site_id="StarSports2HD" lang="en" xmltv_id="StarSports2.in@HD">Star Sports 2 HD</channel>
   <channel site="airtelxstream.in" site_id="StarSports3" lang="en" xmltv_id="StarSports3.in@SD">Star Sports 3</channel>
@@ -71,19 +48,13 @@
   <channel site="airtelxstream.in" site_id="SonyTen4" lang="en" xmltv_id="SonyTen4.in@SD">Sony Ten 4</channel>
   <channel site="airtelxstream.in" site_id="Sports18HD" lang="en" xmltv_id="Sports18.in@HD">Sports 18 HD</channel>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       MALAYSIA / SE ASIA  (via astro.com.my)
-  ════════════════════════════════════════════════════════════════ -->
+  <!-- Malaysia and SE Asia via astro.com.my -->
   <channel site="astro.com.my" site_id="AstroSupersport2" lang="en" xmltv_id="AstroSupersport2.my@HD">Astro SuperSport 2</channel>
   <channel site="astro.com.my" site_id="AstroSupersport3" lang="en" xmltv_id="AstroSupersport3.my@HD">Astro SuperSport 3</channel>
   <channel site="astro.com.my" site_id="AstroSupersport4" lang="en" xmltv_id="AstroSupersport4.my@HD">Astro SuperSport 4</channel>
   <channel site="astro.com.my" site_id="AstroArena" lang="en" xmltv_id="AstroArena.my@HD">Astro Arena</channel>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       AFRICA — SuperSport  (via dstv.com)
-       DStv EPG accessed via WebGrab+Plus dstv.com approach.
-       Site ID format: UUID##channel_number
-  ════════════════════════════════════════════════════════════════ -->
+  <!-- Africa via dstv.com -->
   <channel site="dstv.com" site_id="SuperSportPremierLeague" lang="en" xmltv_id="SuperSportPremierLeague.za@HD">SuperSport Premier League</channel>
   <channel site="dstv.com" site_id="SuperSportFootball" lang="en" xmltv_id="SuperSportFootball.za@HD">SuperSport Football</channel>
   <channel site="dstv.com" site_id="SuperSportVariety1" lang="en" xmltv_id="SuperSportVariety1.za@HD">SuperSport Variety 1</channel>
@@ -91,9 +62,7 @@
   <channel site="dstv.com" site_id="SuperSportVariety3" lang="en" xmltv_id="SuperSportVariety3.za@HD">SuperSport Variety 3</channel>
   <channel site="dstv.com" site_id="SuperSportVariety4" lang="en" xmltv_id="SuperSportVariety4.za@HD">SuperSport Variety 4</channel>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       AUSTRALIA  (via abc.net.au / i.mjh.nz)
-  ════════════════════════════════════════════════════════════════ -->
+  <!-- Australia via abc.net.au -->
   <channel site="abc.net.au" site_id="StanSport" lang="en" xmltv_id="StanSport.au@SD">Stan Sport</channel>
   <channel site="abc.net.au" site_id="OptusSport" lang="en" xmltv_id="OptusSport.au@SD">Optus Sport</channel>
 
