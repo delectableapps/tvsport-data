@@ -29,6 +29,7 @@ from rights_db import (
     get_all_rights_for_competition, is_epl_blackout,
     COMP_CODE_TO_RIGHTS_KEY,
 )
+from channel_normaliser import normalise_channel_list
 
 logging.basicConfig(
     level=logging.INFO,
@@ -430,6 +431,11 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
                 "confidence":  confidence,
             })
 
+    # Normalise all channel names to canonical forms
+    for b in broadcasters:
+        if b.get("channels"):
+            b["channels"] = normalise_channel_list(b["channels"])
+
     return broadcasters
 
 
@@ -492,8 +498,10 @@ def main():
     # Write JSON
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
+        now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         json.dump({
-            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "generated_at": now_iso,
+            "lastUpdated":  now_iso,
             "fixture_count": len(output),
             "fixtures": output,
         }, f, ensure_ascii=False, indent=2)
