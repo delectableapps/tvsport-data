@@ -443,14 +443,14 @@ def get_all_rights_for_competition(competition_code: str) -> dict:
 def is_epl_blackout(kickoff_iso: str) -> bool:
     """
     Return True if this EPL kickoff falls in the UK 3pm Saturday blackout window.
-    kickoff_iso: ISO datetime string e.g. '2026-04-19T15:00:00Z'
+    3pm BST = 14:00 UTC (summer), 3pm GMT = 15:00 UTC (winter).
     """
     from datetime import datetime, timezone
     try:
         dt = datetime.fromisoformat(kickoff_iso.replace("Z", "+00:00"))
-        # Saturday = 5 in Python's weekday()
-        if dt.weekday() == 5 and dt.hour == 15 and dt.minute == 0:
-            return True
+        if dt.weekday() == 5:  # Saturday
+            if (dt.hour == 14 and dt.minute == 0) or (dt.hour == 15 and dt.minute == 0):
+                return True
     except Exception:
         pass
     return False
