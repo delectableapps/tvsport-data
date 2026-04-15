@@ -1,0 +1,267 @@
+{
+  "_comment": "Canonical channel name mapping for TVsport. Add variants on the left, canonical name on the right.",
+  "_version": "1.0",
+
+  "sky_sports": {
+    "Sky Sports Main Event": "Sky Sports Main Event",
+    "Sky Sports Main Event HD": "Sky Sports Main Event",
+    "Sky Sports ME": "Sky Sports Main Event",
+    "Sky Sports 1": "Sky Sports Main Event",
+    "Sky Sports 1 HD": "Sky Sports Main Event",
+    "Sky Sports Action": "Sky Sports Action",
+    "Sky Sports Action HD": "Sky Sports Action",
+    "Sky Sports Premier League": "Sky Sports Premier League",
+    "Sky Sports Premier League HD": "Sky Sports Premier League",
+    "Sky Sports PL": "Sky Sports Premier League",
+    "Sky Sports Football": "Sky Sports Football",
+    "Sky Sports Football HD": "Sky Sports Football",
+    "Sky Sports Mix": "Sky Sports Mix",
+    "Sky Sports Mix HD": "Sky Sports Mix",
+    "Sky Sports Arena": "Sky Sports Arena",
+    "Sky Sports Arena HD": "Sky Sports Arena",
+    "Sky Sports News": "Sky Sports News",
+    "Sky Sports 2": "Sky Sports Action",
+    "Sky Sports 3": "Sky Sports Football",
+    "Sky Sports 4": "Sky Sports Arena",
+    "Sky Sports 5": "Sky Sports Mix"
+  },
+
+  "tnt_sports": {
+    "TNT Sports 1": "TNT Sports 1",
+    "TNT Sports 1 HD": "TNT Sports 1",
+    "BT Sport 1": "TNT Sports 1",
+    "BT Sport 1 HD": "TNT Sports 1",
+    "TNT Sports 2": "TNT Sports 2",
+    "TNT Sports 2 HD": "TNT Sports 2",
+    "BT Sport 2": "TNT Sports 2",
+    "BT Sport 2 HD": "TNT Sports 2",
+    "TNT Sports 3": "TNT Sports 3",
+    "TNT Sports 3 HD": "TNT Sports 3",
+    "BT Sport 3": "TNT Sports 3",
+    "BT Sport 3 HD": "TNT Sports 3",
+    "TNT Sports 4": "TNT Sports 4",
+    "TNT Sports 4 HD": "TNT Sports 4",
+    "BT Sport 4": "TNT Sports 4",
+    "BT Sport 4 HD": "TNT Sports 4",
+    "TNT Sports": "TNT Sports 1",
+    "BT Sport": "TNT Sports 1"
+  },
+
+  "amazon": {
+    "Amazon Prime Video": "Amazon Prime Video",
+    "Amazon Prime": "Amazon Prime Video",
+    "Prime Video": "Amazon Prime Video",
+    "Amazon": "Amazon Prime Video"
+  },
+
+  "bein": {
+    "beIN Sports 1": "beIN Sports HD 1",
+    "beIN Sports HD 1": "beIN Sports HD 1",
+    "beIN Sports 2": "beIN Sports HD 2",
+    "beIN Sports HD 2": "beIN Sports HD 2",
+    "beIN Sports 3": "beIN Sports HD 3",
+    "beIN Sports HD 3": "beIN Sports HD 3",
+    "beIN Sports 4": "beIN Sports HD 4",
+    "beIN Sports HD 4": "beIN Sports HD 4",
+    "beIN Sports 5": "beIN Sports HD 5",
+    "beIN Sports HD 5": "beIN Sports HD 5",
+    "beIN SPORTS 1": "beIN Sports HD 1",
+    "beIN SPORTS 2": "beIN Sports HD 2",
+    "beIN SPORTS 3": "beIN Sports HD 3",
+    "beIN SPORTS HD 1": "beIN Sports HD 1",
+    "beIN SPORTS HD 2": "beIN Sports HD 2",
+    "beIN SPORTS HD 3": "beIN Sports HD 3",
+    "beIN Sports": "beIN Sports HD 1",
+    "beIN": "beIN Sports HD 1"
+  },
+
+  "supersport": {
+    "SuperSport Premier League": "SuperSport Premier League",
+    "SuperSport PL": "SuperSport Premier League",
+    "SuperSport 5": "SuperSport Premier League",
+    "SuperSport Football": "SuperSport Football",
+    "SuperSport 4": "SuperSport Football",
+    "SuperSport Variety 1": "SuperSport Variety 1",
+    "SuperSport Variety 2": "SuperSport Variety 2",
+    "SuperSport Variety 3": "SuperSport Variety 3",
+    "SuperSport 203": "SuperSport Premier League",
+    "SuperSport 205": "SuperSport Football",
+    "SuperSport": "SuperSport Premier League"
+  },
+
+  "dazn": {
+    "DAZN": "DAZN",
+    "DAZN 1": "DAZN 1",
+    "DAZN 2": "DAZN 2",
+    "DAZN 3": "DAZN 3",
+    "DAZN 4": "DAZN 4",
+    "DAZN 1 HD": "DAZN 1",
+    "DAZN 2 HD": "DAZN 2"
+  },
+
+  "canal_plus": {
+    "Canal+": "Canal+",
+    "Canal+ Sport": "Canal+ Sport",
+    "Canal+ Sports": "Canal+ Sport",
+    "Canal+Sport": "Canal+ Sport",
+    "Canal Plus": "Canal+",
+    "Canal Plus Sport": "Canal+ Sport"
+  },
+
+  "viaplay": {
+    "Viaplay": "Viaplay",
+    "Viaplay Sports 1": "Viaplay Sports 1",
+    "Viaplay Sports 2": "Viaplay Sports 2",
+    "Viaplay Sport": "Viaplay Sports 1"
+  },
+
+  "sport_tv": {
+    "Sport TV": "Sport TV",
+    "Sport TV 1": "Sport TV 1",
+    "Sport TV 2": "Sport TV 2",
+    "SportTV": "Sport TV",
+    "SportTV1": "Sport TV 1",
+    "SportTV2": "Sport TV 2"
+  },
+
+  "movistar": {
+    "Movistar+": "Movistar+",
+    "Movistar Liga de Campeones": "Movistar Liga de Campeones",
+    "Movistar Liga de Campeones 1": "Movistar Liga de Campeones 1",
+    "Movistar Liga de Campeones 2": "Movistar Liga de Campeones 2",
+    "Movistar LaLiga": "Movistar LaLiga",
+    "Movistar LaLiga HD": "Movistar LaLiga"
+  },
+
+  "sky_germany": {
+    "Sky Sport 1": "Sky Sport 1",
+    "Sky Sport 1 HD": "Sky Sport 1",
+    "Sky Sport 2": "Sky Sport 2",
+    "Sky Sport 2 HD": "Sky Sport 2",
+    "Sky Sport Premier League": "Sky Sport Premier League",
+    "Sky Sport PL": "Sky Sport Premier League"
+  },
+
+  "sky_italy": {
+    "Sky Sport Uno": "Sky Sport Uno",
+    "Sky Sport 1": "Sky Sport Uno",
+    "Sky Sport Football": "Sky Sport Football",
+    "Sky Sport Calcio": "Sky Sport Calcio"
+  },
+
+  "astro": {
+    "Astro SuperSport": "Astro SuperSport",
+    "Astro SuperSport 2": "Astro SuperSport 2",
+    "Astro SuperSport 3": "Astro SuperSport 3",
+    "Astro SuperSport 4": "Astro SuperSport 4",
+    "Astro Arena": "Astro Arena"
+  },
+
+  "sony": {
+    "Sony Ten 2": "Sony Ten 2",
+    "Sony Ten 2 HD": "Sony Ten 2",
+    "Sony Ten 3": "Sony Ten 3",
+    "Sony Ten 3 HD": "Sony Ten 3",
+    "Sony LIV": "Sony LIV",
+    "SonyLIV": "Sony LIV"
+  },
+
+  "star_sports": {
+    "Star Sports 1": "Star Sports 1",
+    "Star Sports 1 HD": "Star Sports 1",
+    "Star Sports 2": "Star Sports 2",
+    "Star Sports Select 1": "Star Sports Select 1",
+    "Star Sports Select 1 HD": "Star Sports Select 1",
+    "Star Sports Select 2": "Star Sports Select 2",
+    "Hotstar": "Disney+ Hotstar",
+    "Disney+ Hotstar": "Disney+ Hotstar",
+    "JioHotstar": "Disney+ Hotstar"
+  },
+
+  "premier_sports": {
+    "Premier Sports 1": "Premier Sports 1",
+    "Premier Sports 2": "Premier Sports 2",
+    "Premier Sports": "Premier Sports 1"
+  },
+
+  "s_sport": {
+    "S Sport": "S Sport",
+    "S Sport+": "S Sport+",
+    "S Sport 2": "S Sport 2",
+    "S Sport Plus": "S Sport+"
+  },
+
+  "cosmote": {
+    "Cosmote Sport 1": "Cosmote Sport 1",
+    "Cosmote Sport 2": "Cosmote Sport 2",
+    "Cosmote Sport": "Cosmote Sport 1"
+  },
+
+  "trt": {
+    "TRT Spor": "TRT Spor",
+    "TRT Spor Yıldız": "TRT Spor Yıldız",
+    "TRT Sport": "TRT Spor"
+  },
+
+  "fox_sports": {
+    "FOX Sports": "FOX Sports",
+    "Fox Sports 1": "FOX Sports 1",
+    "Fox Sports 2": "FOX Sports 2",
+    "FOX Soccer Plus": "FOX Soccer Plus",
+    "FS1": "FOX Sports 1",
+    "FS2": "FOX Sports 2"
+  },
+
+  "nbc": {
+    "NBC": "NBC",
+    "USA Network": "USA Network",
+    "Peacock": "Peacock",
+    "Peacock Premium": "Peacock",
+    "NBC Sports": "NBC Sports"
+  },
+
+  "cbs": {
+    "CBS": "CBS",
+    "CBS Sports Network": "CBS Sports Network",
+    "Paramount+": "Paramount+",
+    "Paramount Plus": "Paramount+",
+    "CBS Sports": "CBS Sports"
+  },
+
+  "eleven_sports": {
+    "Eleven Sports": "Eleven Sports",
+    "Eleven Sports 1": "Eleven Sports 1",
+    "Eleven Sports 2": "Eleven Sports 2",
+    "Eleven 1": "Eleven Sports 1",
+    "Eleven 2": "Eleven Sports 2"
+  },
+
+  "ziggo": {
+    "Ziggo Sport": "Ziggo Sport",
+    "Ziggo Sport Select": "Ziggo Sport Select",
+    "Ziggo Sport Totaal": "Ziggo Sport Select"
+  },
+
+  "rtbf": {
+    "RTBF": "RTBF",
+    "Tipik": "Tipik",
+    "La Une": "La Une"
+  },
+
+  "free_to_air": {
+    "ITV": "ITV",
+    "ITV1": "ITV",
+    "ITV 1": "ITV",
+    "ITV4": "ITV4",
+    "ITV 4": "ITV4",
+    "Channel 4": "Channel 4",
+    "C4": "Channel 4",
+    "BBC One": "BBC One",
+    "BBC Two": "BBC Two",
+    "BBC Three": "BBC Three",
+    "BBC Sport": "BBC iPlayer",
+    "BBC iPlayer": "BBC iPlayer",
+    "Free Sports": "FreeSports",
+    "FreeSports": "FreeSports"
+  }
+}
