@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-15T08:19:26.743154+00:00",
+  "generated_at": "2026-04-15T12:35:41.861348+00:00",
   "fixture_count": 206,
   "fixtures": [
     {
@@ -1172,34 +1172,8 @@
       "matchday": 33,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "is_blackout": false,
+      "is_blackout": true,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC One"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "high"
-        },
         {
           "territory": "Albania",
           "region": "Europe",
@@ -1432,12 +1406,9 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Premier Sports 1 Ireland HD"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -2320,7 +2291,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 99
+      "broadcaster_count": 97
     },
     {
       "id": "pl_LEE_WOL_2026-04-18",
@@ -2332,34 +2303,8 @@
       "matchday": 33,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "is_blackout": false,
+      "is_blackout": true,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC One"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "high"
-        },
         {
           "territory": "Albania",
           "region": "Europe",
@@ -2592,12 +2537,9 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Premier Sports 1 Ireland HD"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -3480,7 +3422,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 99
+      "broadcaster_count": 97
     },
     {
       "id": "pl_TOT_BRI_2026-04-18",
@@ -17412,34 +17354,8 @@
       "matchday": 34,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "is_blackout": false,
+      "is_blackout": true,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC One"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "high"
-        },
         {
           "territory": "Albania",
           "region": "Europe",
@@ -17672,12 +17588,9 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Premier Sports 1 Ireland HD"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -18560,7 +18473,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 99
+      "broadcaster_count": 97
     },
     {
       "id": "pl_WES_EVE_2026-04-25",
@@ -18572,34 +18485,8 @@
       "matchday": 34,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "is_blackout": false,
+      "is_blackout": true,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC One"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "high"
-        },
         {
           "territory": "Albania",
           "region": "Europe",
@@ -18832,12 +18719,9 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Premier Sports 1 Ireland HD"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -19720,7 +19604,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 99
+      "broadcaster_count": 97
     },
     {
       "id": "pl_WOL_TOT_2026-04-25",
@@ -19732,34 +19616,8 @@
       "matchday": 34,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "is_blackout": false,
+      "is_blackout": true,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC One"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "high"
-        },
         {
           "territory": "Albania",
           "region": "Europe",
@@ -19992,12 +19850,9 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Premier Sports 1 Ireland HD"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -20880,7 +20735,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 99
+      "broadcaster_count": 97
     },
     {
       "id": "pl_ARS_NEW_2026-04-25",
@@ -25532,34 +25387,8 @@
       "matchday": 35,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "is_blackout": false,
+      "is_blackout": true,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC One"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "high"
-        },
         {
           "territory": "Albania",
           "region": "Europe",
@@ -25792,12 +25621,9 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Premier Sports 1 Ireland HD"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -26680,7 +26506,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 99
+      "broadcaster_count": 97
     },
     {
       "id": "pl_BRE_WES_2026-05-02",
@@ -26692,34 +26518,8 @@
       "matchday": 35,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "is_blackout": false,
+      "is_blackout": true,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC One"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "high"
-        },
         {
           "territory": "Albania",
           "region": "Europe",
@@ -26952,12 +26752,9 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Premier Sports 1 Ireland HD"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -27840,7 +27637,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 99
+      "broadcaster_count": 97
     },
     {
       "id": "pl_NEW_BRI_2026-05-02",
@@ -27852,34 +27649,8 @@
       "matchday": 35,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "is_blackout": false,
+      "is_blackout": true,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC One"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "high"
-        },
         {
           "territory": "Albania",
           "region": "Europe",
@@ -28112,12 +27883,9 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Premier Sports 1 Ireland HD"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -29000,7 +28768,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 99
+      "broadcaster_count": 97
     },
     {
       "id": "pl_WOL_SUN_2026-05-02",
@@ -29012,34 +28780,8 @@
       "matchday": 35,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "is_blackout": false,
+      "is_blackout": true,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC One"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "high"
-        },
         {
           "territory": "Albania",
           "region": "Europe",
@@ -29272,12 +29014,9 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Premier Sports 1 Ireland HD"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -30160,7 +29899,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 99
+      "broadcaster_count": 97
     },
     {
       "id": "pl_ARS_FUL_2026-05-02",
@@ -35972,34 +35711,8 @@
       "matchday": 36,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "is_blackout": false,
+      "is_blackout": true,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC One"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "high"
-        },
         {
           "territory": "Albania",
           "region": "Europe",
@@ -36232,12 +35945,9 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Premier Sports 1 Ireland HD"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -37120,7 +36830,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 99
+      "broadcaster_count": 97
     },
     {
       "id": "pl_BRI_WOL_2026-05-09",
@@ -37132,34 +36842,8 @@
       "matchday": 36,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "is_blackout": false,
+      "is_blackout": true,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC One"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "high"
-        },
         {
           "territory": "Albania",
           "region": "Europe",
@@ -37392,12 +37076,9 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Premier Sports 1 Ireland HD"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -38280,7 +37961,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 99
+      "broadcaster_count": 97
     },
     {
       "id": "pl_CRY_EVE_2026-05-09",
@@ -38292,34 +37973,8 @@
       "matchday": 36,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "is_blackout": false,
+      "is_blackout": true,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC One"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "high"
-        },
         {
           "territory": "Albania",
           "region": "Europe",
@@ -38552,12 +38207,9 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Premier Sports 1 Ireland HD"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -39440,7 +39092,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 99
+      "broadcaster_count": 97
     },
     {
       "id": "pl_BUR_AST_2026-05-09",
@@ -39452,34 +39104,8 @@
       "matchday": 36,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "is_blackout": false,
+      "is_blackout": true,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC One"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "high"
-        },
         {
           "territory": "Albania",
           "region": "Europe",
@@ -39712,12 +39338,9 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Premier Sports 1 Ireland HD"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -40600,7 +40223,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 99
+      "broadcaster_count": 97
     },
     {
       "id": "pl_FUL_AFC_2026-05-09",
@@ -40612,34 +40235,8 @@
       "matchday": 36,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "is_blackout": false,
+      "is_blackout": true,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC One"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "high"
-        },
         {
           "territory": "Albania",
           "region": "Europe",
@@ -40872,12 +40469,9 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Sky Sports",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Premier Sports 1 Ireland HD"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -41760,7 +41354,7 @@
           "confidence": "medium"
         }
       ],
-      "broadcaster_count": 99
+      "broadcaster_count": 97
     },
     {
       "id": "pl_MAN_BRE_2026-05-09",
