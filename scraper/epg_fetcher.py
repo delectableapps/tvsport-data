@@ -120,6 +120,9 @@ CHANNEL_ID_TO_BROADCASTER = {
     "Astro":                      "Astro",
     # Singapore
     "StarHub":                    "StarHub",
+    "Hub.Premier":                "Hub (Singapore)",
+    "Hub.Sports":                 "Hub (Singapore)",
+    "Hub":                        "Hub (Singapore)",
     "beIN.Sports":                "beIN Sports",
     # Netherlands
     "Ziggo.Sport":                "Ziggo Sport",
@@ -209,15 +212,125 @@ def _is_live_programme(title: str) -> bool:
 
 
 def _channel_id_to_display(channel_id: str) -> str:
-    """Convert EPG channel ID to human-readable display name."""
-    # Remove territory suffix (.ie, .uk, .bein, .za etc.)
-    name = re.sub(r"\.(ie|uk|bein|za|us|au|de|it|fr|in|my|sg|nl|pt|tr|no|se|dk|ca|nz|gr|pl|be|hu|ro|hr|hk|kr|jp|br)(@.*)?$", "", channel_id, flags=re.IGNORECASE)
-    # Remove HD/SD suffix
-    name = re.sub(r"\.(HD|SD|hd|sd)$", "", name)
-    # Replace dots with spaces
-    name = name.replace(".", " ").strip()
-    # Title case
-    return name
+    """
+    Convert EPG channel ID to human-readable display name.
+    Preserves meaningful territory context (Ireland, UK etc.)
+
+    Examples:
+        Premier.Sports.1.HD.ie  → Premier Sports 1 HD Ireland
+        Premier.Sports.2.ie     → Premier Sports 2 Ireland
+        Sky.Sports.PL.HD.uk     → Sky Sports PL HD
+        SkySp.PL.HD.uk          → Sky Sports Premier League HD
+        TNT.Sports.1.HD.ie      → TNT Sports 1 HD Ireland
+        beIN_SPORTS1.bein       → beIN Sports 1
+        SS.Premier.League.za    → SuperSport Premier League
+    """
+    # Territory suffix → display label
+    TERRITORY_LABELS = {
+        ".ie": " Ireland",
+        ".uk": "",           # UK channels don't need suffix
+        ".bein": "",
+        ".za": "",
+        ".us": "",
+        ".au": "",
+        ".de": "",
+        ".it": "",
+        ".fr": "",
+        ".in": "",
+        ".my": "",
+        ".sg": "",
+        ".nl": "",
+        ".pt": "",
+        ".tr": "",
+        ".no": "",
+        ".se": "",
+        ".dk": "",
+        ".ca": " Canada",
+        ".nz": "",
+        ".gr": "",
+        ".pl": "",
+        ".be": "",
+        ".hu": "",
+        ".ro": "",
+        ".hr": "",
+        ".hk": "",
+        ".kr": "",
+        ".jp": "",
+        ".br": "",
+    }
+
+    territory_label = ""
+    working = channel_id
+
+    # Check for territory suffix and extract label
+    for suffix, label in TERRITORY_LABELS.items():
+        # Handle both .ie and .HD.ie patterns
+        if working.lower().endswith(suffix) or f"{suffix}@" in working.lower():
+            territory_label = label
+            # Remove the suffix (and anything after @)
+            working = re.sub(re.escape(suffix) + r'(@.*)?$', '', working, flags=re.IGNORECASE)
+            break
+
+    # Known channel ID → clean name mappings
+    KNOWN_IDS = {
+        "premier.sports.1.hd":    "Premier Sports 1 HD",
+        "premier.sports.1":       "Premier Sports 1",
+        "premier.sports.2.hd":    "Premier Sports 2 HD",
+        "premier.sports.2":       "Premier Sports 2",
+        "sky.sports.premier.league.hd": "Sky Sports Premier League HD",
+        "sky.sports.premier.league":    "Sky Sports Premier League",
+        "sky.sports.main.event.hd":     "Sky Sports Main Event HD",
+        "sky.sports.main.event":        "Sky Sports Main Event",
+        "sky.sports.football.hd":       "Sky Sports Football HD",
+        "sky.sports.football":          "Sky Sports Football",
+        "sky.sports.action.hd":         "Sky Sports Action HD",
+        "sky.sports.action":            "Sky Sports Action",
+        "skysp.pl.hd":                  "Sky Sports Premier League HD",
+        "skysp.pl":                     "Sky Sports Premier League",
+        "skyspmainev hd":               "Sky Sports Main Event HD",
+        "skyspmainevhd":                "Sky Sports Main Event HD",
+        "skysp.fball.hd":               "Sky Sports Football HD",
+        "skysp.fball":                  "Sky Sports Football",
+        "skysp.actionhd":               "Sky Sports Action HD",
+        "skysp.action":                 "Sky Sports Action",
+        "tnt.sports.1.hd":              "TNT Sports 1 HD",
+        "tnt.sports.1":                 "TNT Sports 1",
+        "tnt.sports.2.hd":              "TNT Sports 2 HD",
+        "tnt.sports.2":                 "TNT Sports 2",
+        "tnt.sports.3.hd":              "TNT Sports 3 HD",
+        "tnt.sports.3":                 "TNT Sports 3",
+        "tnt.sports.4.hd":              "TNT Sports 4 HD",
+        "tnt.sports.4":                 "TNT Sports 4",
+        "ss.premier.league":            "SuperSport Premier League",
+        "supersport.premier.league":    "SuperSport Premier League",
+        "hub.premier.1":                "Hub Premier 1",
+        "hub.premier.2":                "Hub Premier 2",
+        "hub.premier.3":                "Hub Premier 3",
+        "hub.premier.4":                "Hub Premier 4",
+        "hub.sports.1":                 "Hub Sports 1",
+        "hub.sports.2":                 "Hub Sports 2",
+        "bein_sports1":                 "beIN Sports 1",
+        "bein_sports2":                 "beIN Sports 2",
+        "bein_sports3":                 "beIN Sports 3",
+        "bein_sports4":                 "beIN Sports 4",
+        "bein_sports5":                 "beIN Sports 5",
+    }
+
+    lower = working.lower()
+    if lower in KNOWN_IDS:
+        return KNOWN_IDS[lower] + territory_label
+
+    # Generic fallback: replace dots/underscores with spaces, title case
+    name = re.sub(r"[._]", " ", working).strip()
+    name = re.sub(r"\s+", " ", name)
+    # Title case but preserve known acronyms
+    words = []
+    for w in name.split():
+        if w.upper() in ("HD", "SD", "TV", "FC", "BBC", "ITV", "ESPN", "NBC", "NFL", "NBA", "NHL"):
+            words.append(w.upper())
+        else:
+            words.append(w.title())
+    return " ".join(words) + territory_label
 
 
 def _get_broadcaster_from_channel_id(channel_id: str) -> str:
