@@ -339,18 +339,14 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
                 })
                 continue
 
-            # Tier 2: slot-based inference
+            # Tier 2: slot-based inference for ROI blackout
             if is_blackout:
-                broadcasters.append({
-                    "territory":   "Republic of Ireland",
-                    "region":      "Europe",
-                    "broadcaster": "Premier Sports",
-                    "channels":    ["Premier Sports 1 Ireland HD"],
-                    "type":        "pay_tv",
-                    "coverage":    "live",
-                    "confidence":  "medium",
-                    "source":      "rights",
-                })
+                # 3pm Saturday — Ireland NOT blacked out, but Premier Sports
+                # only picks selected matches. Without EPG confirmation we
+                # cannot know which specific match they chose.
+                # Only show Premier Sports if EPG confirmed it (Tier 1 above).
+                # For unconfirmed blackout slots, skip ROI entirely — better
+                # to show nothing than show wrong broadcaster.
                 continue
             from datetime import datetime
             try:
