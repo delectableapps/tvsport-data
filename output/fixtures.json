@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-24T15:25:25Z",
-  "lastUpdated": "2026-04-24T15:25:25Z",
+  "generated_at": "2026-04-24T15:39:46Z",
+  "lastUpdated": "2026-04-24T15:39:46Z",
   "fixture_count": 218,
   "fixtures": [
     {
@@ -4047,18 +4047,6 @@
           "source": "rights_db_generic"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1 Ireland HD"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -5024,7 +5012,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 98
+      "broadcaster_count": 97
     },
     {
       "id": "pl_WOL_TOT_2026-04-25",
@@ -5288,18 +5276,6 @@
           "source": "rights_db_generic"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1 Ireland HD"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -6265,7 +6241,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 98
+      "broadcaster_count": 97
     },
     {
       "id": "pl_ARS_NEW_2026-04-25",
@@ -10339,18 +10315,6 @@
           "source": "rights_db_generic"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1 Ireland HD"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -11316,7 +11280,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 98
+      "broadcaster_count": 97
     },
     {
       "id": "pl_NEW_BRI_2026-05-02",
@@ -11580,18 +11544,6 @@
           "source": "rights_db_generic"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1 Ireland HD"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -12557,7 +12509,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 98
+      "broadcaster_count": 97
     },
     {
       "id": "pl_WOL_SUN_2026-05-02",
@@ -12821,18 +12773,6 @@
           "source": "rights_db_generic"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1 Ireland HD"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -13798,7 +13738,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 98
+      "broadcaster_count": 97
     },
     {
       "id": "pl_ARS_FUL_2026-05-02",
@@ -22958,18 +22898,6 @@
           "source": "rights_db_generic"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1 Ireland HD"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -23935,7 +23863,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 98
+      "broadcaster_count": 97
     },
     {
       "id": "pl_BRI_WOL_2026-05-09",
@@ -24199,18 +24127,6 @@
           "source": "rights_db_generic"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1 Ireland HD"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -25176,7 +25092,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 98
+      "broadcaster_count": 97
     },
     {
       "id": "pl_FUL_AFC_2026-05-09",
@@ -25440,18 +25356,6 @@
           "source": "rights_db_generic"
         },
         {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1 Ireland HD"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -26417,7 +26321,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 98
+      "broadcaster_count": 97
     },
     {
       "id": "pl_MAN_BRE_2026-05-09",
