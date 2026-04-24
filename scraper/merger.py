@@ -101,6 +101,20 @@ def fetch_fixtures() -> list:
         except Exception as e2:
             logger.warning(f"[pipeline] spfl.co.uk fallback also failed: {e2}")
 
+    # TheSportsDB — League One, League Two, National League, FA Cup, EFL Cup, Scottish Championship/Cup
+    try:
+        from sources.fixtures_thesportsdb import scrape_fixtures as tsdb_scrape
+        tsdb_fixtures = tsdb_scrape()
+        added = 0
+        for f in tsdb_fixtures:
+            if f["id"] not in seen_ids:
+                seen_ids.add(f["id"])
+                all_fixtures.append(f)
+                added += 1
+        logger.info(f"[pipeline] thesportsdb: {added} new fixtures added")
+    except Exception as e:
+        logger.warning(f"[pipeline] thesportsdb failed: {e}")
+
     logger.info(f"[pipeline] Total fixtures before dedup: {len(all_fixtures)}")
     return all_fixtures
 
@@ -216,9 +230,9 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
         rights_map["United Kingdom"] = {"broadcaster": "Sky Sports; TNT Sports", "region": "UK"}
     elif comp_code in ("CL", "EL", "ECL"):
         rights_map = dict(UCL_RIGHTS)
-    elif comp_code in ("ELC", "EL1", "EL2", "FAC"):
+    elif comp_code in ("ELC", "EL1", "EL2", "NAT", "FACUP", "EFLCUP"):
         rights_map = dict(EFL_RIGHTS)
-    elif comp_code in ("SP1", "SC1"):
+    elif comp_code in ("SP1", "SC1", "SCH", "SCUP", "SLCUP"):
         rights_map = dict(SCOTTISH_RIGHTS)
     elif rights_key in ("la_liga", "bundesliga", "serie_a", "ligue_1", "eredivisie"):
         rights_map = {}
