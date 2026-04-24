@@ -391,29 +391,50 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
                 continue
 
             # Tier 2: slot-based inference
+            # All times UTC (EDT = UTC-4, EST = UTC-5)
+            # EPL US schedule pattern (NBC/Peacock):
+            #   07:30 ET (11:30 UTC) = USA Network (early Sat)
+            #   10:00 ET (14:00 UTC) = Peacock (most matches) or USA Network (selected)
+            #   12:30 ET (16:30 UTC) = USA Network (Sat lunchtime)
+            #   Weekday evening       = USA Network
+            # Note: EPG (US2) will override this with Tier 1 for confirmed matches
             from datetime import datetime
             try:
                 dt = datetime.fromisoformat(kickoff.replace("Z", "+00:00"))
-                day  = dt.weekday()
+                day  = dt.weekday()   # 0=Mon … 5=Sat … 6=Sun
                 hour = dt.hour
-                if day == 5 and hour == 11:
-                    channel = "NBC"
+                minute = dt.minute
+
+                # Saturday 11:30 UTC (07:30 ET) → USA Network early kick
+                if day == 5 and hour == 11 and minute == 30:
+                    channels    = ["USA Network", "Peacock"]
                     broadcaster = "NBC Sports / Peacock"
-                elif day == 5 and hour == 16:
-                    channel = "USA Network"
+                # Saturday 14:00 UTC (10:00 ET) → Peacock (primary) + USA Network (selected)
+                elif day == 5 and hour == 14:
+                    channels    = ["Peacock", "USA Network"]
                     broadcaster = "NBC Sports / Peacock"
-                elif day == 6 and hour <= 15:
-                    channel = "NBC"
+                # Saturday 16:30 UTC (12:30 ET) → USA Network
+                elif day == 5 and hour == 16 and minute == 30:
+                    channels    = ["USA Network", "Peacock"]
                     broadcaster = "NBC Sports / Peacock"
+                # Sunday early (13:00–15:00 UTC / 09:00–11:00 ET) → USA Network / Peacock
+                elif day == 6 and 13 <= hour <= 15:
+                    channels    = ["USA Network", "Peacock"]
+                    broadcaster = "NBC Sports / Peacock"
+                # Weekday matches → USA Network
+                elif day in (0, 1, 2, 3, 4):
+                    channels    = ["USA Network", "Peacock"]
+                    broadcaster = "NBC Sports / Peacock"
+                # All other slots → Peacock
                 else:
-                    channel = "Peacock Premium"
+                    channels    = ["Peacock"]
                     broadcaster = "NBC Sports / Peacock"
 
                 broadcasters.append({
                     "territory":   "United States",
                     "region":      "Americas",
                     "broadcaster": broadcaster,
-                    "channels":    [channel, "Peacock Premium"],
+                    "channels":    channels,
                     "type":        "pay_tv",
                     "coverage":    "live",
                     "confidence":  "medium",
