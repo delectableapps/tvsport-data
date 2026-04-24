@@ -163,29 +163,30 @@ def enrich_uk_channels(fixtures: list) -> dict:
 
 def enrich_epg(fixtures: list) -> dict:
     """
-    EPG grab disabled for now — too many site compatibility issues.
-    If guide.xml already exists from a previous successful run, still parse it.
-    Returns { fixture_id: { broadcaster: channel_name } }
+    Download and parse EPGshare01 feeds to get match-level broadcaster data.
+    Returns { fixture_id: { territory: broadcaster_data_dict } }
+
+    Tier 1 (high confidence): exact match confirmed from EPG schedule.
+    Falls back gracefully — failure here is non-fatal, rights_db fills the gap.
     """
     try:
-        from sources.epg.epg_xmltv_parser import parse_guide
+        from epg_fetcher import EPGFetcher
+        fetcher = EPGFetcher()
+        fetcher.fetch_all()
 
-        guide_xml = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "guide.xml"))
-
-        if not os.path.isfile(guide_xml):
-            logger.info("[pipeline] EPG: no guide.xml found — skipping (EPG grab disabled)")
+        loaded = fetcher.get_loaded_feeds()
+        if not loaded:
+            logger.warning("[pipeline] EPG: no feeds loaded — falling back to rights_db only")
             return {}
 
-        # Use existing guide.xml if available
-        import time
-        age_hours = (time.time() - os.path.getmtime(guide_xml)) / 3600
-        if age_hours > 48:
-            logger.info(f"[pipeline] EPG: guide.xml is {age_hours:.0f}h old — skipping")
-            return {}
+        stats = fetcher.get_stats()
+        total_progs = sum(s["programmes"] for s in stats.values())
+        logger.info(f"[pipeline] EPG: {len(loaded)} feeds loaded, {total_progs:,} football programmes indexed")
 
-        epg_data = parse_guide(guide_xml, fixtures=fixtures, days_ahead=3)
-        logger.info(f"[pipeline] EPG: matched {len(epg_data)} fixtures from existing guide.xml")
+        epg_data = fetcher.lookup_all_fixtures(fixtures)
+        logger.info(f"[pipeline] EPG: matched {len(epg_data)}/{len(fixtures)} fixtures")
         return epg_data
+
     except Exception as e:
         logger.warning(f"[pipeline] EPG enrichment failed: {e}")
         return {}
@@ -294,6 +295,7 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
             "type":        "free_tv",
             "coverage":    "highlights",
             "confidence":  "high",
+            "source":      "rights",
         })
     elif "United Kingdom" in rights_map:
         # Non-EPL fallback: use rights DB for UK as-is
@@ -322,10 +324,23 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
         # Republic of Ireland — EPL slot logic mirrors UK
         # TNT: Saturday 12:30 only. Sky: all other slots. Premier Sports: always.
         if comp_code == "PL" and territory == "Republic of Ireland":
+            # Check EPG first (Tier 1)
+            epg_territory = (epg_data.get(fixture_id) or {}).get("Republic of Ireland")
+            if epg_territory:
+                broadcasters.append({
+                    "territory":   "Republic of Ireland",
+                    "region":      "Europe",
+                    "broadcaster": epg_territory["broadcaster"],
+                    "channels":    epg_territory["channels"],
+                    "type":        "pay_tv",
+                    "coverage":    "live" if epg_territory.get("is_live") else "live",
+                    "confidence":  "high",
+                    "source":      "epg",
+                })
+                continue
+
+            # Tier 2: slot-based inference
             if is_blackout:
-                # 3pm Saturday — Ireland is NOT blacked out
-                # Premier Sports shows selected 3pm matches in Ireland
-                ps_meta = BROADCASTER_META.get("Premier Sports", {})
                 broadcasters.append({
                     "territory":   "Republic of Ireland",
                     "region":      "Europe",
@@ -334,6 +349,7 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
                     "type":        "pay_tv",
                     "coverage":    "live",
                     "confidence":  "medium",
+                    "source":      "rights",
                 })
                 continue
             from datetime import datetime
@@ -353,33 +369,42 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
                 "type":        live_meta.get("type", "pay_tv"),
                 "coverage":    "live",
                 "confidence":  "medium",
+                "source":      "rights",
             })
             continue
 
         # United States — EPL slot logic
-        # NBC: Saturday 12:30 BST (11:30 UTC) and Sunday early slots
-        # Peacock: Most matches not on NBC/USA Network
-        # USA Network: Selected weekday evening matches
         if comp_code == "PL" and territory == "United States":
+            # Check EPG first (Tier 1)
+            epg_territory = (epg_data.get(fixture_id) or {}).get("United States")
+            if epg_territory:
+                broadcasters.append({
+                    "territory":   "United States",
+                    "region":      "Americas",
+                    "broadcaster": epg_territory["broadcaster"],
+                    "channels":    epg_territory["channels"],
+                    "type":        "pay_tv",
+                    "coverage":    "live" if epg_territory.get("is_live") else "live",
+                    "confidence":  "high",
+                    "source":      "epg",
+                })
+                continue
+
+            # Tier 2: slot-based inference
             from datetime import datetime
             try:
                 dt = datetime.fromisoformat(kickoff.replace("Z", "+00:00"))
-                day  = dt.weekday()   # 0=Mon … 5=Sat … 6=Sun
+                day  = dt.weekday()
                 hour = dt.hour
-
-                # Saturday 11:30 UTC (12:30 BST) → NBC broadcast
                 if day == 5 and hour == 11:
                     channel = "NBC"
                     broadcaster = "NBC Sports / Peacock"
-                # Saturday 17:30 BST (16:30 UTC) → USA Network
                 elif day == 5 and hour == 16:
                     channel = "USA Network"
                     broadcaster = "NBC Sports / Peacock"
-                # Sunday early (13:00–15:00 UTC) → NBC
                 elif day == 6 and hour <= 15:
                     channel = "NBC"
                     broadcaster = "NBC Sports / Peacock"
-                # All other slots → Peacock streaming
                 else:
                     channel = "Peacock Premium"
                     broadcaster = "NBC Sports / Peacock"
@@ -392,10 +417,11 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
                     "type":        "pay_tv",
                     "coverage":    "live",
                     "confidence":  "medium",
+                    "source":      "rights",
                 })
                 continue
             except Exception:
-                pass  # Fall through to default handling
+                pass
 
         broadcaster_names = entry.get("broadcaster", "")
         region = entry.get("region", "")
@@ -407,28 +433,49 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
 
             meta = BROADCASTER_META.get(bcast_name, {})
 
-            # Try to find specific channel from EPG
-            epg_channel = None
-            if epg_data:
-                # EPG data is keyed by (home_team, away_team) or fixture_id
-                epg_entry = epg_data.get(fixture_id) or epg_data.get(
-                    f"{fixture.get('home_team', '')} v {fixture.get('away_team', '')}"
-                )
-                if epg_entry:
-                    # Match by broadcaster name
-                    epg_channel = epg_entry.get(bcast_name)
+            # ── Tier 1: EPG confirmed ─────────────────────────────────────
+            epg_fixture = epg_data.get(fixture_id) or {}
+            epg_territory = epg_fixture.get(territory)
 
-            channels = [epg_channel] if epg_channel else meta.get("channels", [bcast_name])
-            confidence = "high" if epg_channel else "medium"
+            if epg_territory and epg_territory.get("broadcaster", "").lower() in bcast_name.lower() or \
+               epg_territory and bcast_name.lower() in epg_territory.get("broadcaster", "").lower():
+                broadcasters.append({
+                    "territory":   territory,
+                    "region":      region,
+                    "broadcaster": epg_territory["broadcaster"],
+                    "channels":    epg_territory["channels"],
+                    "type":        meta.get("type", "pay_tv"),
+                    "coverage":    "live" if epg_territory.get("is_live") else "live",
+                    "confidence":  "high",
+                    "source":      "epg",
+                })
+                continue
 
+            # ── Tier 2: Rights-db with channel list ───────────────────────
+            channels = meta.get("channels")
+            if channels:
+                broadcasters.append({
+                    "territory":   territory,
+                    "region":      region,
+                    "broadcaster": bcast_name,
+                    "channels":    channels,
+                    "type":        meta.get("type", "pay_tv"),
+                    "coverage":    "live",
+                    "confidence":  "medium",
+                    "source":      "rights",
+                })
+                continue
+
+            # ── Tier 3: Broadcaster name only ─────────────────────────────
             broadcasters.append({
                 "territory":   territory,
                 "region":      region,
                 "broadcaster": bcast_name,
-                "channels":    channels,
+                "channels":    [bcast_name],
                 "type":        meta.get("type", "pay_tv"),
                 "coverage":    "live",
-                "confidence":  confidence,
+                "confidence":  "low",
+                "source":      "rights_db_generic",
             })
 
     # Normalise all channel names to canonical forms
