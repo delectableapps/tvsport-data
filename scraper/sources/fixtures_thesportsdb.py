@@ -36,15 +36,15 @@ API_KEY  = os.environ.get("THESPORTSDB_API_KEY", "123")  # 123 = free key, works
 # Only competitions NOT already covered by football-data.org free tier
 TSDB_COMPETITIONS = {
     # English EFL — verified IDs from thesportsdb.com URLs
-    "4396":  {"name": "EFL League One",       "code": "EL1",    "display": "League One",        "days": 21},
-    "4397":  {"name": "EFL League Two",       "code": "EL2",    "display": "League Two",        "days": 21},
-    "4479":  {"name": "National League",      "code": "NAT",    "display": "National League",   "days": 21},
-    "4570":  {"name": "EFL Cup",              "code": "EFLCUP", "display": "EFL Cup",           "days": 30},
-    "4344":  {"name": "FA Cup",               "code": "FACUP",  "display": "FA Cup",            "days": 30},
+    "4396":  {"name": "EFL League One",       "code": "EL1",    "display": "League One",        "days": 42},
+    "4397":  {"name": "EFL League Two",       "code": "EL2",    "display": "League Two",        "days": 42},
+    "4590":  {"name": "National League",      "code": "NAT",    "display": "National League",   "days": 42},
+    "4570":  {"name": "EFL Cup",              "code": "EFLCUP", "display": "EFL Cup",           "days": 60},
+    "4344":  {"name": "FA Cup",               "code": "FACUP",  "display": "FA Cup",            "days": 60},
     # Scottish — supplement to Sportmonks (which only covers Premiership)
-    "4338":  {"name": "Scottish Championship","code": "SCH",    "display": "Scottish Championship","days": 21},
-    "4337":  {"name": "Scottish Cup",         "code": "SCUP",   "display": "Scottish Cup",      "days": 30},
-    "4341":  {"name": "Scottish League Cup",  "code": "SLCUP",  "display": "Scottish League Cup","days": 30},
+    "4338":  {"name": "Scottish Championship","code": "SCH",    "display": "Scottish Championship","days": 42},
+    "4337":  {"name": "Scottish Cup",         "code": "SCUP",   "display": "Scottish Cup",      "days": 60},
+    "4341":  {"name": "Scottish League Cup",  "code": "SLCUP",  "display": "Scottish League Cup","days": 60},
 }
 
 # TVsport comp_code → display name mapping (for normalisation)
@@ -67,23 +67,38 @@ def _headers() -> dict:
 def _fetch_next_events(league_id: str, days: int) -> list:
     """
     Fetch upcoming events for a league using TheSportsDB v1 API.
-    Uses eventsnextleague.php which returns the next 25 events.
+    Uses eventsseason.php to get the full season schedule, then filters
+    to upcoming fixtures within the days window.
+    Falls back to eventsnextleague.php if season endpoint fails.
     """
-    url = f"{API_BASE}/{API_KEY}/eventsnextleague.php"
-    params = {"id": league_id}
+    # Try season endpoint first — returns all fixtures for current season
+    season = "2025-2026"
+    url = f"{API_BASE}/{API_KEY}/eventsseason.php"
+    params = {"id": league_id, "s": season}
 
     try:
-        resp = requests.get(url, headers=_headers(), params=params, timeout=15)
+        resp = requests.get(url, headers=_headers(), params=params, timeout=20)
         if resp.status_code == 429:
             logger.warning(f"[thesportsdb] Rate limited for league {league_id} — waiting 10s")
             time.sleep(10)
-            resp = requests.get(url, headers=_headers(), params=params, timeout=15)
-        if resp.status_code != 200:
-            logger.warning(f"[thesportsdb] HTTP {resp.status_code} for league {league_id}")
+            resp = requests.get(url, headers=_headers(), params=params, timeout=20)
+        if resp.status_code == 200:
+            data = resp.json()
+            events = data.get("events") or []
+            if events:
+                logger.debug(f"[thesportsdb] {league_id}: got {len(events)} events from season endpoint")
+                return events
+
+        # Fallback to next events endpoint
+        url2 = f"{API_BASE}/{API_KEY}/eventsnextleague.php"
+        params2 = {"id": league_id}
+        resp2 = requests.get(url2, headers=_headers(), params=params2, timeout=15)
+        if resp2.status_code != 200:
+            logger.warning(f"[thesportsdb] HTTP {resp2.status_code} for league {league_id}")
             return []
-        data = resp.json()
-        events = data.get("events") or []
-        return events
+        data2 = resp2.json()
+        return data2.get("events") or []
+
     except requests.RequestException as e:
         logger.error(f"[thesportsdb] Failed to fetch league {league_id}: {e}")
         return []
