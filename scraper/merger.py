@@ -6,17 +6,22 @@ Usage:
     cd scraper && python merger.py
 
 Sources (in priority order):
-    1. football-data.org API  — primary fixtures (EPL, UCL, EFL, European leagues)
-    2. efl.com scraper        — fallback/validator for EFL
-    3. spfl.co.uk scraper     — Scottish leagues
-    4. livefootballontv.com   — UK channel assignments per fixture
-    5. iptv-org/epg (XMLTV)   — international channel assignments
-    6. rights_db.py           — broadcast rights layer (who has rights per territory)
+    1. football-data.org API     — primary fixtures (EPL, UCL, EFL, European leagues)
+    2. efl.com scraper           — fallback/validator for EFL
+    3. Sportmonks / spfl.co.uk   — Scottish leagues
+    4. thesportsdb               — lower English/Scottish + cups
+    5. openfootball              — broad league baseline (EFL, Scottish, top-5 Euro)  [NEW]
+    6. cup_fetcher (BBC+Sky+Wiki)— FA/EFL/Scottish/Scottish League cups, merged       [NEW]
+    7. livefootballontv.com      — UK channel assignments per fixture
+    8. iptv-org/epg (XMLTV)      — international channel assignments
+    9. rights_db.py              — broadcast rights layer (who has rights per territory)
 """
 
+import hashlib
 import json
 import logging
 import os
+import re
 import sys
 from datetime import datetime, timezone
 
@@ -39,6 +44,100 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "output", "fixtures.json")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# NEW: ADAPTER FOR openfootball + cup_fetcher
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# The two new fetchers return a list of `Match` dataclass objects that share
+# a different field shape from the rest of the pipeline:
+#
+#   Match: home, away, date, time_local, competition_code, kickoff_utc, ...
+#   Pipeline dict: home_team, away_team, kickoff, comp_code, ...
+#
+# This adapter:
+#   • translates the new fetchers' competition codes to the existing
+#     codes used by rights_db.py / build_broadcaster_list()
+#   • synthesises a stable fixture ID from (date, home, away, comp)
+#   • produces a fixture dict in the format the rest of merger.py expects
+#
+# Codes the new fetchers emit on the LEFT, existing pipeline codes on the
+# RIGHT. Anything not in this map is dropped — those competitions don't yet
+# have rights coverage in rights_db.py and would just emit broadcast-empty
+# rows. Once rights are added we can extend this map.
+
+OPENFOOTBALL_CODE_MAP = {
+    # English leagues
+    "EPL":   "PL",       # English Premier League
+    "CHAMP": "ELC",      # EFL Championship
+    "L1":    "EL1",      # EFL League One
+    "L2":    "EL2",      # EFL League Two
+    "NAT":   "NAT",      # National League
+    # Scottish leagues
+    "SPFL":  "SP1",      # Scottish Premiership
+    # Top-5 European leagues
+    "BUND":  "BL1",      # Bundesliga (matches football-data.org code)
+    "LL":    "PD",       # La Liga (matches football-data.org code)
+    "SA":    "SA",       # Serie A
+    "L1F":   "FL1",      # Ligue 1 (matches football-data.org code)
+    "ERE":   "DED",      # Eredivisie (matches football-data.org code)
+    "PPL":   "PPL",      # Primeira Liga
+    # NOTE: BUND2/DE3/LL2/SB/L2F/BRA omitted — no rights coverage yet
+}
+
+CUP_FETCHER_CODE_MAP = {
+    "FAC":   "FACUP",    # FA Cup
+    "EFLC":  "EFLCUP",   # EFL Cup (Carabao)
+    "SFAC":  "SCUP",     # Scottish Cup
+    "SLFC":  "SLCUP",    # Scottish League Cup
+}
+
+
+def _synthesise_fixture_id(comp_code: str, home: str, away: str, date: str) -> str:
+    """Generate a stable ID from match identifiers. Same inputs always
+    produce the same ID, which lets dedup_fixtures() collapse duplicates
+    when the same match comes from football-data.org AND openfootball."""
+    raw = f"{comp_code}|{home}|{away}|{date}".lower()
+    digest = hashlib.md5(raw.encode("utf-8")).hexdigest()[:12]
+    return f"of-{digest}"
+
+
+def _match_to_fixture(match, code_map: dict) -> dict | None:
+    """Convert a Match dataclass to the fixture dict shape used by the
+    rest of the pipeline. Returns None for matches whose competition
+    isn't in the code map (no rights coverage yet)."""
+    pipeline_code = code_map.get(match.competition_code)
+    if not pipeline_code:
+        return None
+
+    # Build an ISO kickoff. The fetchers' time_local is local-to-competition
+    # but we don't know the timezone reliably — pass it through as a naive
+    # ISO string, matching how openfootball publishes it. The downstream
+    # EPG enrichment provides true UTC for any fixture it matches.
+    if match.kickoff_utc:
+        # kickoff_utc from the fetchers is already "YYYY-MM-DDTHH:MM:SS"
+        kickoff = match.kickoff_utc
+        if not kickoff.endswith("Z") and "+" not in kickoff:
+            kickoff = kickoff + "Z"
+    else:
+        # Date-only fixture (TV pick not yet announced). Use noon UTC as a
+        # placeholder so the front-end can still order it on the right day.
+        kickoff = f"{match.date}T12:00:00Z"
+
+    return {
+        "id":         _synthesise_fixture_id(
+                          pipeline_code, match.home, match.away, match.date),
+        "competition": match.competition_name,
+        "comp_code":   pipeline_code,
+        "home_team":   match.home,
+        "away_team":   match.away,
+        "kickoff":     kickoff,
+        "matchday":    None,
+        "stage":       match.round_label or "",
+        "group":       "",
+    }
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # STEP 1 — FETCH FIXTURES
@@ -114,6 +213,49 @@ def fetch_fixtures() -> list:
         logger.info(f"[pipeline] thesportsdb: {added} new fixtures added")
     except Exception as e:
         logger.warning(f"[pipeline] thesportsdb failed: {e}")
+
+    # ── NEW: openfootball — leagues (EFL, Scottish, top-5 Euro) ──
+    try:
+        from sources.openfootball_fetcher import fetch_all as of_fetch
+        of_matches = of_fetch()
+        of_added = 0
+        of_skipped_no_code = 0
+        for m in of_matches:
+            fx = _match_to_fixture(m, OPENFOOTBALL_CODE_MAP)
+            if fx is None:
+                of_skipped_no_code += 1
+                continue
+            if fx["id"] not in seen_ids:
+                seen_ids.add(fx["id"])
+                all_fixtures.append(fx)
+                of_added += 1
+        logger.info(
+            f"[pipeline] openfootball: {of_added} new fixtures added "
+            f"(received {len(of_matches)}, skipped {of_skipped_no_code} with no code mapping)"
+        )
+    except Exception as e:
+        logger.warning(f"[pipeline] openfootball failed: {e}")
+
+    # ── NEW: cup_fetcher — FA/EFL/Scottish/Scottish League cups ──
+    # Runs BBC + Sky + Wikipedia in parallel and returns a merged stream.
+    try:
+        from sources.cups.cup_fetcher import fetch_all_cups as cup_fetch
+        cup_matches = cup_fetch()
+        cup_added = 0
+        for m in cup_matches:
+            fx = _match_to_fixture(m, CUP_FETCHER_CODE_MAP)
+            if fx is None:
+                continue
+            if fx["id"] not in seen_ids:
+                seen_ids.add(fx["id"])
+                all_fixtures.append(fx)
+                cup_added += 1
+        logger.info(
+            f"[pipeline] cup_fetcher (BBC+Sky+Wiki): {cup_added} new cup fixtures added "
+            f"(received {len(cup_matches)})"
+        )
+    except Exception as e:
+        logger.warning(f"[pipeline] cup_fetcher failed: {e}")
 
     logger.info(f"[pipeline] Total fixtures before dedup: {len(all_fixtures)}")
     return all_fixtures
