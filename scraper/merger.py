@@ -10,8 +10,8 @@ Sources (in priority order):
     2. efl.com scraper           — fallback/validator for EFL
     3. Sportmonks / spfl.co.uk   — Scottish leagues
     4. thesportsdb               — lower English/Scottish + cups
-    5. openfootball              — broad league baseline (EFL, Scottish, top-5 Euro)  [NEW]
-    6. cup_fetcher (BBC+Sky+Wiki)— FA/EFL/Scottish/Scottish League cups, merged       [NEW]
+    5. openfootball              — broad league baseline (EFL, Scottish, top-5 Euro)
+    6. cup_fetcher (BBC+Wiki)    — FA/EFL/Scottish/Scottish League cups, merged
     7. livefootballontv.com      — UK channel assignments per fixture
     8. iptv-org/epg (XMLTV)      — international channel assignments
     9. rights_db.py              — broadcast rights layer (who has rights per territory)
@@ -58,13 +58,11 @@ OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "output", "fixtures.
 # This adapter:
 #   • translates the new fetchers' competition codes to the existing
 #     codes used by rights_db.py / build_broadcaster_list()
+#   • translates the new fetchers' competition NAMES to match what
+#     football-data.org returns, so the dedup step (which keys on
+#     competition name) collapses duplicates correctly
 #   • synthesises a stable fixture ID from (date, home, away, comp)
 #   • produces a fixture dict in the format the rest of merger.py expects
-#
-# Codes the new fetchers emit on the LEFT, existing pipeline codes on the
-# RIGHT. Anything not in this map is dropped — those competitions don't yet
-# have rights coverage in rights_db.py and would just emit broadcast-empty
-# rows. Once rights are added we can extend this map.
 
 OPENFOOTBALL_CODE_MAP = {
     # English leagues
@@ -90,6 +88,42 @@ CUP_FETCHER_CODE_MAP = {
     "EFLC":  "EFLCUP",   # EFL Cup (Carabao)
     "SFAC":  "SCUP",     # Scottish Cup
     "SLFC":  "SLCUP",    # Scottish League Cup
+}
+
+# ── NEW: Canonical competition names ──
+#
+# football-data.org returns names like "Premier League" and "Championship".
+# openfootball returns "English Premier League" and "EFL Championship".
+# Both refer to the same competition, but our dedup step keys on the
+# competition NAME, so duplicates slip through if the names don't match.
+#
+# This map normalises every fetcher's name back to a single canonical
+# form. Add to this map whenever a new fetcher introduces a new naming
+# convention. Match on the comp_code that's already been translated by
+# the code maps above.
+CANONICAL_COMP_NAMES = {
+    "PL":     "Premier League",
+    "ELC":    "Championship",
+    "EL1":    "League One",
+    "EL2":    "League Two",
+    "NAT":    "National League",
+    "SP1":    "Scottish Premiership",
+    "SCH":    "Scottish Championship",
+    "SC1":    "Scottish League One",
+    "BL1":    "Bundesliga",
+    "PD":     "La Liga",
+    "SA":     "Serie A",
+    "FL1":    "Ligue 1",
+    "DED":    "Eredivisie",
+    "PPL":    "Primeira Liga",
+    "CL":     "UEFA Champions League",
+    "EL":     "UEFA Europa League",
+    "ECL":    "UEFA Conference League",
+    "FACUP":  "FA Cup",
+    "FAC":    "FA Cup",
+    "EFLCUP": "EFL Cup",
+    "SCUP":   "Scottish Cup",
+    "SLCUP":  "Scottish League Cup",
 }
 
 
@@ -124,10 +158,16 @@ def _match_to_fixture(match, code_map: dict) -> dict | None:
         # placeholder so the front-end can still order it on the right day.
         kickoff = f"{match.date}T12:00:00Z"
 
+    # Use the canonical name if we have one, else fall back to whatever
+    # the fetcher reported. This is what makes "English Premier League"
+    # and "Premier League" merge into one bucket during dedup.
+    competition_name = CANONICAL_COMP_NAMES.get(
+        pipeline_code, match.competition_name)
+
     return {
         "id":         _synthesise_fixture_id(
                           pipeline_code, match.home, match.away, match.date),
-        "competition": match.competition_name,
+        "competition": competition_name,
         "comp_code":   pipeline_code,
         "home_team":   match.home,
         "away_team":   match.away,
@@ -136,6 +176,19 @@ def _match_to_fixture(match, code_map: dict) -> dict | None:
         "stage":       match.round_label or "",
         "group":       "",
     }
+
+
+def _normalise_existing_fixture(fixture: dict) -> dict:
+    """Apply the CANONICAL_COMP_NAMES map to a fixture dict that came
+    from one of the legacy fetchers (football-data.org, efl.com,
+    sportmonks, thesportsdb). This ensures all fixtures share consistent
+    competition names regardless of source, so dedup can collapse them.
+    Returns the same dict (mutated in place) for chaining."""
+    code = fixture.get("comp_code", "")
+    canonical = CANONICAL_COMP_NAMES.get(code)
+    if canonical:
+        fixture["competition"] = canonical
+    return fixture
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -153,6 +206,7 @@ def fetch_fixtures() -> list:
         fd_fixtures = fd_scrape()
         logger.info(f"[pipeline] football-data.org: {len(fd_fixtures)} fixtures")
         for f in fd_fixtures:
+            _normalise_existing_fixture(f)
             if f["id"] not in seen_ids:
                 seen_ids.add(f["id"])
                 all_fixtures.append(f)
@@ -165,6 +219,7 @@ def fetch_fixtures() -> list:
         efl_fixtures = efl_scrape()
         added = 0
         for f in efl_fixtures:
+            _normalise_existing_fixture(f)
             if f["id"] not in seen_ids:
                 seen_ids.add(f["id"])
                 all_fixtures.append(f)
@@ -179,6 +234,7 @@ def fetch_fixtures() -> list:
         sportmonks_fixtures = sportmonks_scrape()
         added = 0
         for f in sportmonks_fixtures:
+            _normalise_existing_fixture(f)
             if f["id"] not in seen_ids:
                 seen_ids.add(f["id"])
                 all_fixtures.append(f)
@@ -191,6 +247,7 @@ def fetch_fixtures() -> list:
             spfl_fixtures = spfl_scrape()
             added = 0
             for f in spfl_fixtures:
+                _normalise_existing_fixture(f)
                 if f["id"] not in seen_ids:
                     seen_ids.add(f["id"])
                     all_fixtures.append(f)
@@ -205,6 +262,7 @@ def fetch_fixtures() -> list:
         tsdb_fixtures = tsdb_scrape()
         added = 0
         for f in tsdb_fixtures:
+            _normalise_existing_fixture(f)
             if f["id"] not in seen_ids:
                 seen_ids.add(f["id"])
                 all_fixtures.append(f)
@@ -213,7 +271,7 @@ def fetch_fixtures() -> list:
     except Exception as e:
         logger.warning(f"[pipeline] thesportsdb failed: {e}")
 
-    # ── NEW: openfootball — leagues (EFL, Scottish, top-5 Euro) ──
+    # ── openfootball — leagues (EFL, Scottish, top-5 Euro) ──
     try:
         from sources.openfootball_fetcher import fetch_all as of_fetch
         of_matches = of_fetch()
@@ -235,7 +293,7 @@ def fetch_fixtures() -> list:
     except Exception as e:
         logger.warning(f"[pipeline] openfootball failed: {e}")
 
-    # ── NEW: cup_fetcher — FA/EFL/Scottish/Scottish League cups ──
+    # ── cup_fetcher — FA/EFL/Scottish/Scottish League cups ──
     # Runs BBC + Sky + Wikipedia in parallel and returns a merged stream.
     try:
         from sources.cups.cup_fetcher import fetch_all_cups as cup_fetch
