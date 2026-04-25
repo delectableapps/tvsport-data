@@ -1,69 +1,95 @@
 """
 bbc_cups.py
 -----------
-Scrapes cup fixtures from BBC Sport's date-indexed football pages.
+Scrapes cup fixtures from BBC Sport's per-competition fixture pages.
 
-URL pattern
------------
-
-Two parallel pages serve UK football fixtures on BBC Sport:
-
-    https://www.bbc.co.uk/sport/football/scores-fixtures/YYYY-MM-DD
-    https://www.bbc.co.uk/sport/football/scottish/scores-fixtures/YYYY-MM-DD
-
-Each page lists every competition with a fixture on that date, grouped
-by competition heading ("FA Cup", "Carabao Cup", "Scottish Cup", etc.).
-
-We fetch each date in a rolling 30-day window, parse both the English
-and Scottish feeds, and filter each page's content down to the four
-cups we care about. Because the BBC already groups fixtures by
-competition heading, our filter is a straightforward "does this group's
-heading match one of our cup aliases?".
-
-Why per-day rather than per-competition
+URL pattern (verified live, April 2026)
 ---------------------------------------
 
-BBC does have per-competition landing pages (e.g. /sport/football/fa-cup)
-but they're JS-hydrated and require a headless browser. The per-day
-pages are fully server-rendered HTML that loads cleanly with requests.
+BBC publishes fixtures at:
 
-Parsing strategy
-----------------
+    https://www.bbc.co.uk/sport/football/{slug}/scores-fixtures
+    https://www.bbc.co.uk/sport/football/{slug}/scores-fixtures/YYYY-MM
 
-BBC Sport renders each day's fixtures in a structure like:
+Where {slug} is the competition slug. The bare URL shows the current
+month; appending YYYY-MM lets us walk forwards through future months.
+We hit one URL per (cup, month) pair across a 3-month rolling window.
 
-    <h3>FA Cup</h3>
-    <ul class="gs-u-list-unstyled">
-      <li>
-        <div class="sp-c-fixture__...">
-          <span class="sp-c-fixture__team-name">Manchester City</span>
-          <span class="sp-c-fixture__number--home">3</span>
-          <span class="sp-c-fixture__team-name">Exeter City</span>
-          <span class="sp-c-fixture__number--away">1</span>
-          ...
-          <span class="sp-c-fixture__status">Full time</span>
-          OR
-          <span class="sp-c-fixture__block-time sp-c-fixture__time">15:00</span>
+Per-competition URLs are the right choice over per-day URLs in the
+current BBC layout: the per-day pattern only exists for "all sports
+on this date" pages and routes through a different rendering path
+that doesn't carry per-competition fixture context.
+
+HTML structure (current as of 2026)
+-----------------------------------
+
+BBC has migrated to styled-components, so class names look like::
+
+    ssrcss-1pj9vd3-StyledTeam-HomeTeam eirdlos1
+                  ↑                    ↑
+                  semantic suffix      hash (changes per release)
+
+The hash prefix is volatile across deploys, so all selectors in this
+file use **substring matching on the semantic suffix**, never the full
+class name. This is the only reliable strategy.
+
+Page structure for one fixture::
+
+    <h2 class="ssrcss-...-GroupHeader">Sunday 26th April</h2>
+    <h3 class="ssrcss-...-SecondaryHeading">Semi-finals</h3>
+    <ul>
+      <li class="ssrcss-...-HeadToHeadWrapper">
+        <div class="ssrcss-...-StyledHeadToHead">
+          <div class="ssrcss-...-WithInlineFallback-TeamHome">
+            <div class="ssrcss-...-StyledTeam-HomeTeam">
+              <div class="ssrcss-...-TeamNameWrapper">
+                <span class="...-MobileValue">Chelsea</span>      ← shown on mobile
+                <span class="...-DesktopValue">Chelsea</span>     ← shown on desktop
+                <span class="visually-hidden">Chelsea</span>      ← canonical, screen-reader
+              </div>
+              <div data-testid="badge-container-chelsea">...</div> ← team slug
+            </div>
+          </div>
+
+          <div class="ssrcss-...-WithInlineFallback-Scores">
+            <time class="ssrcss-...-StyledTime">15:00</time>      ← upcoming match
+            OR
+            <span ...>3 - 1</span>                                ← played match
+          </div>
+
+          <div class="ssrcss-...-WithInlineFallback-TeamAway">
+            ...same nesting as home...
+          </div>
         </div>
       </li>
-      ...
+      ... more <li> wrappers if more fixtures on this date ...
     </ul>
 
-The exact class names have changed over time; BBC has used
-`sp-c-fixture`, `gs-c-fixture`, and plainer `qa-...` data-test
-selectors in different eras. We scan for several candidate selectors
-and pick the first that yields parseable rows.
+Team-name extraction
+--------------------
 
-Dependencies
+The TeamNameWrapper holds three repeats of the name (mobile abbrev,
+desktop full, visually-hidden full). The visually-hidden span carries
+the canonical full name in every case, so we always read from that.
+If it's missing for any reason, we fall back to the data-testid badge
+slug (e.g. ``badge-container-leeds-united`` → "Leeds United").
+
+Score / time
 ------------
 
-requests + beautifulsoup4 + lxml. No Playwright needed for BBC.
+A scheduled fixture has a `<time>` element inside the Scores wrapper.
+A played fixture replaces the time with score numbers. We parse both
+shapes and let the orchestrator decide which view wins per source.
+
+Dependencies: requests + beautifulsoup4 + lxml. No Playwright needed —
+BBC serves fully rendered HTML.
 """
 
 from __future__ import annotations
 
 import logging
-from dataclasses import dataclass
+import re
+from datetime import datetime, timezone
 from typing import Iterable
 
 import requests
@@ -71,15 +97,19 @@ from bs4 import BeautifulSoup, Tag
 
 from ._common import (
     CUPS, CupMeta, Match,
-    date_window, find_cup_by_name,
+    find_cup_by_name,
     make_kickoff_utc, parse_date, parse_score, parse_time,
 )
 
 log = logging.getLogger(__name__)
 
 
-BBC_ENGLAND_URL = "https://www.bbc.co.uk/sport/football/scores-fixtures/{date}"
-BBC_SCOTLAND_URL = "https://www.bbc.co.uk/sport/football/scottish/scores-fixtures/{date}"
+BBC_BASE_URL  = "https://www.bbc.co.uk/sport/football/{slug}/scores-fixtures"
+BBC_MONTH_URL = "https://www.bbc.co.uk/sport/football/{slug}/scores-fixtures/{year:04d}-{month:02d}"
+
+# How many months ahead to scan (including the current one). 3 covers a
+# typical FA Cup round-to-round gap and the EFL Cup's compressed schedule.
+MONTHS_AHEAD = 3
 
 
 def _session() -> requests.Session:
@@ -108,166 +138,258 @@ def _fetch_html(session: requests.Session, url: str, timeout: float = 20.0) -> s
 
 
 # ---------------------------------------------------------------------------
-# HTML parsing
+# Month iteration
 # ---------------------------------------------------------------------------
 
-# Selector candidates, tried in order. Each must return "fixture group"
-# elements — a heading with its associated fixture list. The parser then
-# extracts fixtures from within each group.
-#
-# These are deliberately generous: we match on substrings of class names
-# rather than exact equality, because BBC mangles class names across
-# redesigns but keeps the semantic roots ("fixture", "block", "team-name").
-GROUP_HEADING_SELECTORS = (
-    # Modern (2022+): each competition section has its own <h3>
-    "h3",
-    # Older BBC structure
-    "h2.gs-c-promo-heading__title",
-    # Fallback
-    "header",
+def _months_to_scan(today: datetime | None = None,
+                    count: int = MONTHS_AHEAD) -> list[tuple[int, int]]:
+    """Return a list of (year, month) pairs covering today's month and
+    the next `count - 1` months."""
+    today = today or datetime.now(timezone.utc)
+    out: list[tuple[int, int]] = []
+    y, m = today.year, today.month
+    for _ in range(count):
+        out.append((y, m))
+        m += 1
+        if m > 12:
+            m = 1
+            y += 1
+    return out
+
+
+# ---------------------------------------------------------------------------
+# HTML parsing — uses substring matching on ssrcss-* class semantic suffixes
+# ---------------------------------------------------------------------------
+
+def _has_class_substr(substr: str):
+    """Build a BeautifulSoup class-matcher that looks for `substr` anywhere
+    in any of the element's class names. Robust against BBC's volatile
+    ssrcss-* hash prefixes."""
+    def matcher(cls):
+        if not cls:
+            return False
+        if isinstance(cls, list):
+            return any(substr in c for c in cls)
+        return substr in cls
+    return matcher
+
+
+_PLACEHOLDER_PATTERNS = (
+    re.compile(r"\bteam\s+to\s+be\s+confirmed\b", re.I),
+    re.compile(r"\bto\s+be\s+confirmed\b", re.I),
+    re.compile(r"^\s*(tbc|tbd)\s*$", re.I),
+    # "Winner of match X vs Y" — bracket placeholder
+    re.compile(r"\bwinner\s+of\b", re.I),
+    re.compile(r"\bloser\s+of\b", re.I),
 )
 
 
-def _find_competition_groups(soup: BeautifulSoup) -> list[tuple[str, Tag]]:
-    """Yield (competition_name, container) for each competition section
-    on a BBC day page. The container is the element immediately following
-    the heading that holds the fixture list.
-
-    BBC's layout: heading immediately precedes a <ul> or <div> of fixtures.
-    We walk siblings until we find the next heading or run out."""
-    groups: list[tuple[str, Tag]] = []
-
-    # Prefer explicit fixture-list containers when present
-    for heading in soup.find_all(["h3", "h2"]):
-        name = heading.get_text(" ", strip=True)
-        if not name:
-            continue
-        # The heading should sit above fixture rows — find them by walking
-        # forward through siblings until the next heading or a non-fixture
-        # container. We collect everything in between into a pseudo-group.
-        container = heading.find_next_sibling()
-        if container is None:
-            continue
-        # If the next sibling is itself a fixture list, use it; otherwise
-        # wrap the run of siblings up to the next heading in a SoupStrainer-
-        # style wrapper.
-        groups.append((name, container))
-
-    return groups
+def _looks_like_placeholder(name: str) -> bool:
+    """Return True if a team name is a bracket placeholder rather than a
+    real club. BBC populates these for fixtures whose teams haven't been
+    determined yet — keeping them would clutter output and break dedupe."""
+    if not name:
+        return True
+    for pat in _PLACEHOLDER_PATTERNS:
+        if pat.search(name):
+            return True
+    return False
 
 
-def _text(element: Tag | None) -> str:
-    if element is None:
-        return ""
-    return element.get_text(" ", strip=True)
+def _clean_team_name(team_div: Tag) -> str | None:
+    """Pull the canonical team name from a HomeTeam / AwayTeam div.
 
-
-def _parse_fixture_element(fix: Tag, date: str, cup: CupMeta,
-                           round_label: str | None) -> Match | None:
-    """Parse a single BBC fixture element (li or article-level block)."""
-    # Home / away team names — BBC uses a class that contains "team-name"
-    team_name_tags = fix.select("[class*='team-name']")
-    if len(team_name_tags) < 2:
-        # Fallback: BBC sometimes uses data-test attrs
-        team_name_tags = fix.find_all(attrs={"data-testid": lambda v: v and "team" in v.lower()})
-    if len(team_name_tags) < 2:
+    Strategy:
+      1. Read the `visually-hidden` span — always carries the full name
+      2. If absent, fall back to the badge-container data-testid slug
+      3. If neither works, return None
+    """
+    if team_div is None:
         return None
 
-    home = _text(team_name_tags[0])
-    away = _text(team_name_tags[1])
-    if not home or not away:
+    # Primary: the visually-hidden screen-reader span has the full name
+    vh = team_div.find('span', class_=_has_class_substr('VisuallyHidden'))
+    if vh is None:
+        # Some pages use the literal class "visually-hidden" (no prefix)
+        vh = team_div.find('span', class_=lambda c: c and 'visually-hidden' in (c if isinstance(c, str) else ' '.join(c)))
+    if vh:
+        text = vh.get_text(' ', strip=True)
+        if text:
+            return text
+
+    # Fallback: the badge container data-testid encodes a slug like
+    # "badge-container-leeds-united" — convert "leeds-united" -> "Leeds United".
+    badge = team_div.find(attrs={'data-testid': lambda v: v and isinstance(v, str) and v.startswith('badge-container-')})
+    if badge:
+        slug = badge['data-testid'].replace('badge-container-', '')
+        return slug.replace('-', ' ').title()
+
+    return None
+
+
+def _extract_score_or_time(scores_wrapper: Tag) -> tuple[str | None, list[int] | None, str]:
+    """Inspect the Scores wrapper and return (time_local, score_ft, status).
+
+    For a scheduled match: score_ft=None, time_local="HH:MM", status="scheduled"
+    For a played match:    score_ft=[h, a], time_local=None, status="finished"
+    For postponed/other:   all None, status reflecting what we could detect
+    """
+    if scores_wrapper is None:
+        return (None, None, "scheduled")
+
+    # Time first — a <time> element is the cleanest signal of an upcoming match.
+    time_el = scores_wrapper.find('time')
+    if time_el:
+        # The <time> may have a datetime attribute too — prefer parsed text
+        # since BBC's datetime attr is often the full ISO including timezone.
+        time_text = time_el.get_text(' ', strip=True)
+        time_local = parse_time(time_text)
+        if time_local:
+            return (time_local, None, "scheduled")
+
+    # No <time>: look for a score pattern in the wrapper text. BBC renders
+    # scores in their own spans; any "N-N" / "N - N" we find is a final score.
+    full_text = scores_wrapper.get_text(' ', strip=True)
+    if re.search(r'\bpostpon', full_text, re.I):
+        return (None, None, "postponed")
+    if re.search(r'\bcancel', full_text, re.I):
+        return (None, None, "postponed")
+    score = parse_score(full_text)
+    if score:
+        score_ft, status = score
+        return (None, score_ft, status)
+    # Fallback: looser score regex inside the noise
+    score_m = re.search(r'\b(\d{1,2})\s*[\u2013\u2014\-]\s*(\d{1,2})\b', full_text)
+    if score_m:
+        return (None, [int(score_m.group(1)), int(score_m.group(2))], "finished")
+
+    return (None, None, "scheduled")
+
+
+def _nearest_date_for(node: Tag) -> str | None:
+    """Walk backwards from a fixture <li> to find the nearest preceding
+    GroupHeader heading whose text is a date like 'Sunday 26th April'."""
+    cur = node
+    for _ in range(60):
+        cur = cur.find_previous(['h2', 'h3'])
+        if cur is None:
+            return None
+        # Only trust GroupHeader-style date headings to avoid scraping a
+        # date out of unrelated promo text.
+        cls = cur.get('class') or []
+        if any('GroupHeader' in c for c in cls):
+            text = cur.get_text(' ', strip=True)
+            date = parse_date(text)
+            if date:
+                return date
+            # GroupHeader without a year — common on per-month pages where
+            # the year is implicit. Append the current page's year/month
+            # if we can find one in the URL pattern.
+            return _augment_undated_heading(text)
+    return None
+
+
+def _nearest_round_for(node: Tag) -> str | None:
+    """Walk backwards to find the nearest SecondaryHeading (e.g. 'Semi-finals')."""
+    cur = node
+    for _ in range(60):
+        cur = cur.find_previous(['h2', 'h3', 'h4'])
+        if cur is None:
+            return None
+        cls = cur.get('class') or []
+        if any('SecondaryHeading' in c for c in cls):
+            return cur.get_text(' ', strip=True)
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Year-augmentation helper for headings like "Sunday 26th April" (no year)
+# ---------------------------------------------------------------------------
+
+# This is set per-page-fetch via _parse_page so the date parser knows which
+# year to attribute year-less headings to.
+_PAGE_CONTEXT_YEAR: int | None = None
+_PAGE_CONTEXT_MONTH: int | None = None
+
+
+def _augment_undated_heading(text: str) -> str | None:
+    """Try to parse a date from a heading that lacks a year.
+    Uses the year/month context set by the current fetch."""
+    if _PAGE_CONTEXT_YEAR is None:
         return None
-
-    # Score — cells with "number" in the class. Two of them if the match
-    # has been played, zero if upcoming.
-    score_tags = fix.select("[class*='number']")
-    score_ft: list[int] | None = None
-    status = "scheduled"
-    if len(score_tags) >= 2:
-        try:
-            home_goals = int(_text(score_tags[0]))
-            away_goals = int(_text(score_tags[1]))
-            score_ft = [home_goals, away_goals]
-            status = "finished"
-        except (ValueError, IndexError):
-            pass
-
-    # Time — a cell containing text like "15:00" or "Full time" / "Postponed"
-    time_local = None
-    status_text = ""
-    # Prefer explicit status / time class substrings
-    time_tag = fix.select_one("[class*='block-time'], [class*='fixture__time'], time")
-    if time_tag:
-        t = _text(time_tag)
-        parsed = parse_time(t)
-        if parsed:
-            time_local = parsed
-
-    status_tag = fix.select_one("[class*='status'], [class*='fixture__status']")
-    if status_tag:
-        status_text = _text(status_tag).lower()
-        if "postponed" in status_text or "cancelled" in status_text:
-            status = "postponed"
-        elif "full time" in status_text or "ft" in status_text.split():
-            # Already set via score, but confirm
-            if score_ft is not None:
-                status = "finished"
-
-    # Final kickoff string
-    kickoff_utc = make_kickoff_utc(date, time_local) if status == "scheduled" else None
-
-    return Match(
-        competition_code=cup.code,
-        competition_name=cup.name,
-        country=cup.country,
-        round_label=round_label,
-        kickoff_utc=kickoff_utc,
-        date=date,
-        time_local=time_local,
-        home=home,
-        away=away,
-        status=status,
-        score_ft=score_ft,
-        source="bbc",
-        raw={"html_snippet": str(fix)[:400]},
-    )
+    # Strip ordinals and try with the page's year appended.
+    augmented = f"{text} {_PAGE_CONTEXT_YEAR}"
+    return parse_date(augmented)
 
 
-def _parse_day_page(html: str, date: str) -> list[Match]:
-    soup = BeautifulSoup(html, "lxml")
+# ---------------------------------------------------------------------------
+# Page parser
+# ---------------------------------------------------------------------------
+
+def _parse_page(html: str, cup: CupMeta,
+                page_year: int | None = None,
+                page_month: int | None = None) -> list[Match]:
+    """Parse one BBC competition+month page into Match objects."""
+    global _PAGE_CONTEXT_YEAR, _PAGE_CONTEXT_MONTH
+    _PAGE_CONTEXT_YEAR  = page_year
+    _PAGE_CONTEXT_MONTH = page_month
+
+    soup = BeautifulSoup(html, 'lxml')
+
+    fixture_lis = soup.find_all('li', class_=_has_class_substr('HeadToHeadWrapper'))
+    if not fixture_lis:
+        log.debug("bbc_cups: no fixture wrappers found for %s", cup.code)
+        return []
+
     matches: list[Match] = []
+    for li in fixture_lis:
+        # Date and round from preceding headings
+        date = _nearest_date_for(li)
+        if not date:
+            log.debug("bbc_cups: skipping fixture with no date — %s",
+                      li.get_text(' ', strip=True)[:60])
+            continue
+        round_label = _nearest_round_for(li)
 
-    for comp_name, container in _find_competition_groups(soup):
-        cup = find_cup_by_name(comp_name)
-        if not cup:
+        # Team divs
+        home_div = li.find('div', class_=_has_class_substr('Team-HomeTeam'))
+        away_div = li.find('div', class_=_has_class_substr('Team-AwayTeam'))
+        home = _clean_team_name(home_div)
+        away = _clean_team_name(away_div)
+        if not home or not away:
+            log.debug("bbc_cups: skipping fixture with missing teams (%s vs %s)",
+                      home, away)
             continue
 
-        # Round label sometimes appears as a sub-heading inside the
-        # container (e.g. "Third round proper"). Grab it if present.
-        round_label = None
-        sub = container.find(["h4", "h5"])
-        if sub:
-            round_label = _text(sub)
+        # Skip placeholder fixtures where the teams aren't confirmed yet
+        # (e.g. "Team to be confirmed" / "TBC" appears in unfilled brackets).
+        # These aren't real fixtures and would create noise in dedupe.
+        if _looks_like_placeholder(home) or _looks_like_placeholder(away):
+            log.debug("bbc_cups: skipping placeholder fixture (%s vs %s)",
+                      home, away)
+            continue
 
-        # Fixture rows: BBC uses <li> items most commonly, but we also
-        # look for article-level fixture blocks.
-        fixture_elements: list[Tag] = []
-        fixture_elements.extend(container.select("li"))
-        fixture_elements.extend(container.select("[class*='fixture'][class*='block']"))
-        # Deduplicate (order-preserving) — an <li> that also matches the
-        # block-class selector would otherwise be parsed twice.
-        seen_ids: set[int] = set()
-        unique_elements: list[Tag] = []
-        for el in fixture_elements:
-            if id(el) in seen_ids:
-                continue
-            seen_ids.add(id(el))
-            unique_elements.append(el)
+        # Time / score
+        scores_wrapper = li.find('div', class_=_has_class_substr('WithInlineFallback-Scores'))
+        time_local, score_ft, status = _extract_score_or_time(scores_wrapper)
 
-        for fix in unique_elements:
-            m = _parse_fixture_element(fix, date, cup, round_label)
-            if m:
-                matches.append(m)
+        kickoff_utc = make_kickoff_utc(date, time_local) if status == "scheduled" else None
+
+        matches.append(Match(
+            competition_code=cup.code,
+            competition_name=cup.name,
+            country=cup.country,
+            round_label=round_label,
+            kickoff_utc=kickoff_utc,
+            date=date,
+            time_local=time_local,
+            home=home,
+            away=away,
+            status=status,
+            score_ft=score_ft,
+            source="bbc",
+            raw={"li_html": str(li)[:400]},
+        ))
 
     return matches
 
@@ -276,41 +398,48 @@ def _parse_day_page(html: str, date: str) -> list[Match]:
 # Public API
 # ---------------------------------------------------------------------------
 
-def fetch_day(
-    date: str,
-    session: requests.Session | None = None,
-) -> list[Match]:
-    """Fetch both the English and Scottish BBC feeds for one date."""
+def fetch_cup(cup: CupMeta, session: requests.Session | None = None,
+              months: list[tuple[int, int]] | None = None) -> list[Match]:
+    """Fetch every per-month page for one cup and merge results.
+    Deduplicates by (date, home, away) — same fixture can show up on
+    multiple per-month pages near a month boundary."""
+    if not cup.bbc_slug:
+        return []
     s = session or _session()
-    out: list[Match] = []
-    for tmpl in (BBC_ENGLAND_URL, BBC_SCOTLAND_URL):
-        url = tmpl.format(date=date)
-        html = _fetch_html(s, url)
-        if html:
-            found = _parse_day_page(html, date)
-            log.debug("bbc_cups: %s -> %d cup matches from %s",
-                      date, len(found), url)
-            out.extend(found)
-    return out
+    months = months or _months_to_scan()
 
-
-def fetch_all(
-    days_ahead: int = 30,
-    session: requests.Session | None = None,
-) -> list[Match]:
-    """Scan a rolling date window and collect every cup fixture found."""
-    s = session or _session()
-    dates = date_window(days_ahead=days_ahead)
+    seen: set[tuple[str, str, str]] = set()
     all_matches: list[Match] = []
-    for date in dates:
-        all_matches.extend(fetch_day(date, session=s))
-    log.info("bbc_cups: %d cup matches across %d dates",
-             len(all_matches), len(dates))
+    for year, month in months:
+        url = BBC_MONTH_URL.format(slug=cup.bbc_slug, year=year, month=month)
+        log.info("bbc_cups: fetching %s %04d-%02d (%s)", cup.code, year, month, url)
+        html = _fetch_html(s, url)
+        if not html:
+            continue
+        for m in _parse_page(html, cup, page_year=year, page_month=month):
+            key = (m.date, m.home.lower(), m.away.lower())
+            if key in seen:
+                continue
+            seen.add(key)
+            all_matches.append(m)
+    log.info("bbc_cups: %s -> %d matches across %d months",
+             cup.code, len(all_matches), len(months))
     return all_matches
 
 
+def fetch_all(cups: Iterable[CupMeta] | None = None,
+              months: list[tuple[int, int]] | None = None) -> list[Match]:
+    cups = tuple(cups) if cups is not None else CUPS
+    s = _session()
+    out: list[Match] = []
+    for cup in cups:
+        out.extend(fetch_cup(cup, session=s, months=months))
+    log.info("bbc_cups: total %d matches across %d cups", len(out), len(cups))
+    return out
+
+
 # ---------------------------------------------------------------------------
-# CLI / offline test mode
+# CLI / offline test
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
@@ -322,23 +451,39 @@ if __name__ == "__main__":
     import json as _json
 
     ap = argparse.ArgumentParser(description="Scrape BBC Sport for cup fixtures")
-    ap.add_argument("--date", help="Single date YYYY-MM-DD (default: today onwards)")
-    ap.add_argument("--days", type=int, default=30,
-                    help="Days ahead to scan (default: 30)")
-    ap.add_argument("--html-file",
-                    help="Parse a locally saved BBC page for offline testing")
-    ap.add_argument("--out", help="Write matches as JSON to this path")
+    ap.add_argument("--cup", help="Cup code (FAC/EFLC/SFAC/SLFC)")
+    ap.add_argument("--month", help="Single month YYYY-MM (default: 3 months ahead)")
+    ap.add_argument("--html-file", help="Parse a local saved page for offline testing")
+    ap.add_argument("--year", type=int, default=None,
+                    help="Year context for --html-file (for headings missing year)")
+    ap.add_argument("--month-num", type=int, default=None,
+                    help="Month context for --html-file")
+    ap.add_argument("--out", help="Write matches as JSON")
     args = ap.parse_args()
 
     if args.html_file:
-        date = args.date or "2026-01-10"
+        cup_code = args.cup or "FAC"
+        chosen = next((c for c in CUPS if c.code == cup_code), None)
+        if not chosen:
+            raise SystemExit(f"Unknown --cup code: {cup_code}")
         with open(args.html_file, "r", encoding="utf-8") as fh:
             html = fh.read()
-        matches = _parse_day_page(html, date)
-    elif args.date:
-        matches = fetch_day(args.date)
+        matches = _parse_page(html, chosen,
+                              page_year=args.year, page_month=args.month_num)
+    elif args.month:
+        cup_code = args.cup or "FAC"
+        chosen = next((c for c in CUPS if c.code == cup_code), None)
+        if not chosen:
+            raise SystemExit(f"Unknown --cup code: {cup_code}")
+        y, m = args.month.split("-")
+        matches = fetch_cup(chosen, months=[(int(y), int(m))])
     else:
-        matches = fetch_all(days_ahead=args.days)
+        cups = CUPS
+        if args.cup:
+            cups = tuple(c for c in CUPS if c.code == args.cup)
+            if not cups:
+                raise SystemExit(f"Unknown cup code {args.cup!r}")
+        matches = fetch_all(cups=cups)
 
     if args.out:
         with open(args.out, "w", encoding="utf-8") as fh:
@@ -347,6 +492,7 @@ if __name__ == "__main__":
     else:
         for m in matches[:40]:
             print(f"{m.date} {m.time_local or 'TBC':5s}  {m.competition_code:5s}  "
+                  f"{(m.round_label or '?')[:18]:18s}  "
                   f"{m.home} vs {m.away}  [{m.status}]")
         if len(matches) > 40:
             print(f"... and {len(matches) - 40} more")
