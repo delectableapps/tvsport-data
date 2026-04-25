@@ -21,7 +21,6 @@ import hashlib
 import json
 import logging
 import os
-import re
 import sys
 from datetime import datetime, timezone
 
@@ -47,7 +46,7 @@ OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "output", "fixtures.
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# NEW: ADAPTER FOR openfootball + cup_fetcher
+# ADAPTER FOR openfootball + cup_fetcher
 # ─────────────────────────────────────────────────────────────────────────────
 #
 # The two new fetchers return a list of `Match` dataclass objects that share
@@ -73,16 +72,16 @@ OPENFOOTBALL_CODE_MAP = {
     "CHAMP": "ELC",      # EFL Championship
     "L1":    "EL1",      # EFL League One
     "L2":    "EL2",      # EFL League Two
-    "NAT":   "NAT",      # National League
+    "NAT":   "NAT",      # National League — handled in build_broadcaster_list
     # Scottish leagues
-    "SPFL":  "SP1",      # Scottish Premiership
-    # Top-5 European leagues
-    "BUND":  "BL1",      # Bundesliga (matches football-data.org code)
-    "LL":    "PD",       # La Liga (matches football-data.org code)
+    "SPFL":  "SP1",      # Scottish Premiership — handled in build_broadcaster_list
+    # Top-5 European leagues — codes verified against COMP_CODE_TO_RIGHTS_KEY
+    "BUND":  "BL1",      # Bundesliga
+    "LL":    "PD",       # La Liga
     "SA":    "SA",       # Serie A
-    "L1F":   "FL1",      # Ligue 1 (matches football-data.org code)
-    "ERE":   "DED",      # Eredivisie (matches football-data.org code)
-    "PPL":   "PPL",      # Primeira Liga
+    "L1F":   "FL1",      # Ligue 1
+    "ERE":   "DED",      # Eredivisie
+    "PPL":   "PPL",      # Primeira Liga (uses La Liga rights as proxy)
     # NOTE: BUND2/DE3/LL2/SB/L2F/BRA omitted — no rights coverage yet
 }
 
