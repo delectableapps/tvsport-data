@@ -1,32 +1,31 @@
 """
 cup_fetcher.py
 --------------
-Orchestrates the three cup scrapers (BBC, Sky, Wikipedia), runs all
-three in parallel, and merges their outputs into a single deduplicated
-list of cup fixtures.
+Orchestrates cup scrapers (BBC + Wikipedia), runs them in parallel, and
+merges their outputs into a single deduplicated list of cup fixtures.
 
-Why run all three?
+Why these two sources?
 
-Each source has different strengths and blind spots:
+  BBC        Most reliable for current-round kickoff times (once the
+             broadcasters have picked fixtures). Clean per-day HTML.
+             Only tends to show fixtures in a near-term window.
 
-    BBC        Most reliable for current-round kickoff times (once the
-               broadcasters have picked fixtures). Clean per-day HTML.
-               Only tends to show fixtures in a near-term window.
+  Wikipedia  Covers every round of every cup, including qualifying
+             rounds that BBC doesn't bother with. Updated quickly
+             after draws but kickoff times often lag because they're
+             tied to TV picks that happen later.
 
-    Sky        Similar coverage to BBC but sometimes picks up fixtures
-               earlier, and occasionally carries extra-time / penalty
-               context BBC strips. Partially JS-hydrated, which is why
-               we keep a Playwright fallback armed.
+Sky Sports has been disabled in production: their per-competition
+fixture pages are JS-hydrated and the static HTML returned to a plain
+requests.get() contains no fixture data. The Sky scraper is still
+shipped in the codebase and can be re-enabled by adding sky_cups back
+to the SOURCES tuple — but only after Playwright is added to the CI
+environment to render the page first.
 
-    Wikipedia  Covers every round of every cup, including qualifying
-               rounds that BBC/Sky don't bother with. Updated quickly
-               after draws but kickoff times often lag because they're
-               tied to TV picks that happen later.
-
-Combining them gives us:
+Combining the two active sources gives:
 
   - Broad coverage (every round) from Wikipedia
-  - Fresh kickoff times (from BBC, falling back to Sky)
+  - Fresh kickoff times (from BBC, once announced)
   - Status/score updates for played matches (from BBC first)
 
 Merge strategy
@@ -45,27 +44,26 @@ report the same fixture:
        round label), take the later value
      - If both are populated, trust the source order
 
-The source preference order is **BBC > Sky > Wikipedia**, because
-that's the quality-for-kickoff-times order. Wikipedia is the fallback
-for fixtures the others missed.
+The source preference order is **BBC > Wikipedia**, because BBC's
+kickoff times are more reliable. Wikipedia is the fallback for
+fixtures BBC missed.
 
 Date disagreements
 ------------------
 
-A subtle case: BBC and Sky sometimes disagree with Wikipedia on the
-date of a fixture that was moved for TV. Example: semi-final originally
-scheduled Saturday, moved to Sunday 14:00 on Sky's request. Wikipedia
-may still show the original Saturday date if nobody's updated the
-article yet.
+A subtle case: BBC and Wikipedia sometimes disagree on the date of a
+fixture that was moved for TV. Example: semi-final originally
+scheduled Saturday, moved to Sunday 14:00 by Sky. Wikipedia may still
+show the original Saturday date if nobody's updated the article yet.
 
 The dedupe key includes the date, so a "same two teams, different
 date" case would be treated as TWO separate fixtures, not one. We
 detect this by running a second pass over the merged list that looks
 for `(home, away)` pairs appearing within a small date window (±7
-days) and collapses them — keeping the BBC/Sky version when present.
+days) and collapses them — keeping the BBC version when present.
 
 This is deliberately conservative: only collapse if one of the two
-candidates comes from BBC or Sky. Wikipedia-only dates are left alone
+candidates comes from BBC. Wikipedia-only dates are left alone
 because they may correspond to real replays or two-leg ties.
 
 Parallel execution
@@ -73,10 +71,10 @@ Parallel execution
 
 Each scraper is a blocking I/O workload (requests + HTML parsing).
 ThreadPoolExecutor is plenty — we're not CPU-bound and the GIL isn't
-a problem for network waits. Three threads, one per scraper.
+a problem for network waits.
 
 If one scraper raises, we log the traceback and carry on with the
-others. A single scraper's failure should never bring down the cup
+other. A single scraper's failure should never bring down the cup
 feed entirely.
 """
 
@@ -95,7 +93,8 @@ log = logging.getLogger(__name__)
 
 
 # ---------------------------------------------------------------------------
-# Source registry — preference order is BBC > Sky > Wikipedia.
+# Source registry — preference order is BBC > Wikipedia.
+# Sky is disabled in production (see module docstring).
 # ---------------------------------------------------------------------------
 
 # Each entry: (source_name, callable_returning_list_of_Match, timeout_seconds)
@@ -103,8 +102,8 @@ log = logging.getLogger(__name__)
 # default settings — defaults are sensible for the nightly GitHub Action.
 SOURCES: tuple[tuple[str, Callable[[], list[Match]], float], ...] = (
     ("bbc",       bbc_cups.fetch_all,            60.0),
-    ("sky",       sky_cups.fetch_all,            90.0),  # bit longer for JS fallback
     ("wikipedia", wikipedia_cups.fetch_all_cups, 60.0),
+    # ("sky",     sky_cups.fetch_all,            90.0),  # disabled — needs Playwright
 )
 
 
@@ -114,7 +113,7 @@ SOURCES: tuple[tuple[str, Callable[[], list[Match]], float], ...] = (
 
 def _fetch_one(name: str, fn: Callable[[], list[Match]]) -> tuple[str, list[Match]]:
     """Wrapper used by each thread. Catches exceptions so one scraper's
-    failure doesn't poison the other two."""
+    failure doesn't poison the others."""
     try:
         result = fn()
         log.info("cup_fetcher: %s returned %d matches", name, len(result))
@@ -125,10 +124,10 @@ def _fetch_one(name: str, fn: Callable[[], list[Match]]) -> tuple[str, list[Matc
 
 
 def fetch_parallel() -> dict[str, list[Match]]:
-    """Run all three scrapers concurrently. Returns {source_name: matches}."""
+    """Run all configured scrapers concurrently. Returns {source_name: matches}."""
     results: dict[str, list[Match]] = {name: [] for name, _, _ in SOURCES}
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=len(SOURCES)) as pool:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max(2, len(SOURCES))) as pool:
         future_to_name = {
             pool.submit(_fetch_one, name, fn): (name, timeout)
             for name, fn, timeout in SOURCES
@@ -204,10 +203,6 @@ def _merge_two(keep: Match, extra: Match, source_priority: dict[str, int]) -> Ma
         if _is_empty(kv) and not _is_empty(ev):
             updates[field] = ev
 
-    # score_ft only makes sense for finished matches — don't take one
-    # from a 'scheduled' extra into a keep that also says scheduled.
-    # (Already handled by _is_empty returning True for None score_ft.)
-
     # For the source field, keep the higher-priority source name so
     # downstream consumers can see which one we trusted.
     keep_pri = source_priority.get(keep.source, 999)
@@ -261,7 +256,7 @@ def _parse_iso(date_str: str) -> _date_cls | None:
 
 def _reconcile_date_slips(matches: list[Match]) -> list[Match]:
     """Detect (home, away) pairs that appear on different dates across
-    sources and collapse them to the BBC/Sky date when one exists.
+    sources and collapse them to the BBC date when one exists.
 
     We DO NOT touch pairs where both dates came from Wikipedia alone —
     those are more likely to be legitimate two-legged ties or replays
@@ -296,7 +291,8 @@ def _reconcile_date_slips(matches: list[Match]) -> list[Match]:
             continue
 
         # Prefer a BBC/Sky version if present — those reflect the
-        # broadcaster's actual schedule.
+        # broadcaster's actual schedule. (Sky disabled but kept in this
+        # filter for forward compatibility.)
         authoritative = [m for m in group if m.source in ("bbc", "sky")]
         if authoritative:
             # Sort by source priority (BBC before Sky), then by having a
@@ -324,7 +320,7 @@ def _reconcile_date_slips(matches: list[Match]) -> list[Match]:
 # ---------------------------------------------------------------------------
 
 def fetch_all_cups() -> list[Match]:
-    """Run BBC, Sky, Wikipedia in parallel and return a merged, deduped,
+    """Run BBC and Wikipedia in parallel and return a merged, deduped,
     reconciled list of cup fixtures."""
     by_source = fetch_parallel()
     for name, _, _ in SOURCES:
@@ -355,7 +351,7 @@ if __name__ == "__main__":
     import json as _json
 
     ap = argparse.ArgumentParser(
-        description="Fetch cup fixtures from BBC + Sky + Wikipedia with merge"
+        description="Fetch cup fixtures from BBC + Wikipedia with merge"
     )
     ap.add_argument("--out", help="Write matches as JSON to this path")
     ap.add_argument("--no-parallel", action="store_true",
