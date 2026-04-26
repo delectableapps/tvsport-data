@@ -13,12 +13,23 @@ Covers: EPL (overseas + UK), UCL, EFL, Scottish, La Liga, Bundesliga, Serie A, L
 BROADCASTER_META = {
     # UK
     "Sky Sports":        {"channels": ["Sky Sports Main Event", "Sky Sports Premier League", "Sky Sports Football", "Sky Sports Action"], "type": "pay_tv"},
+    # Sky Sports+ is the overflow / red-button service that carries the
+    # bulk of midweek and Saturday-afternoon EFL Championship/L1/L2 fixtures
+    # not picked for the main channels. Available via the Sky Sports app
+    # and the red button on Sky Sports Football.
+    "Sky Sports+":       {"channels": ["Sky Sports+ (app)", "Sky Sports+ (red button)"], "type": "pay_tv"},
     "TNT Sports":        {"channels": ["TNT Sports 1", "TNT Sports 2", "TNT Sports 3", "TNT Sports 4"], "type": "pay_tv"},
     "BBC":               {"channels": ["BBC One", "BBC Two", "BBC iPlayer"], "type": "free_tv"},
     "ITV":               {"channels": ["ITV1", "ITVX"], "type": "free_tv"},
     "Prime Video":       {"channels": ["Amazon Prime Video"], "type": "streaming"},
     "Premier Sports":    {"channels": ["Premier Sports 1", "Premier Sports 2"], "type": "pay_tv"},
     "FreeSports":        {"channels": ["FreeSports"], "type": "free_tv"},
+    # DAZN UK is the National League rights holder from 2024/25 onwards.
+    # Distinct from "DAZN" (used for European leagues in non-UK territories)
+    # and "DAZN CA" (Canada) — kept separate so the front-end can render
+    # the right service URL.
+    "DAZN UK":           {"channels": ["DAZN Great Britain"], "type": "streaming"},
+    "DAZN Ireland":      {"channels": ["DAZN Ireland"], "type": "streaming"},
     # Europe
     "CANAL+":            {"channels": ["Canal+ Sport", "Canal+ Foot"], "type": "pay_tv"},
     "beIN Sports":       {"channels": ["beIN Sports 1", "beIN Sports 2", "beIN Sports 3"], "type": "pay_tv"},
@@ -286,6 +297,18 @@ UCL_RIGHTS = {
 # ─────────────────────────────────────────────────────────────────────────────
 # EFL BROADCAST RIGHTS  (2025/26)
 # ─────────────────────────────────────────────────────────────────────────────
+#
+# IMPORTANT: This dict is the BASE rights map applied to all EFL-tier
+# competitions (Championship, L1, L2, National League, FA Cup, EFL Cup).
+# The UK row here is the lowest-common-denominator answer used as a
+# fallback. The EFL_UK_OVERRIDES dict below provides per-competition UK
+# rows that take precedence — that's where Sky Sports+ for L1/L2 vs
+# Sky Sports for Championship vs DAZN UK for National League vs BBC+ITV
+# for FA Cup gets differentiated.
+#
+# Non-UK territories typically carry an EFL package that's largely the
+# same across Championship / L1 / L2 (and sometimes the FA/EFL Cups), so
+# we keep that side flat here.
 
 EFL_RIGHTS = {
     "United Kingdom":             {"broadcaster": "Sky Sports",                        "region": "UK"},
@@ -334,6 +357,44 @@ EFL_RIGHTS = {
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
+# EFL UK OVERRIDES — per-competition UK rights
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# These override the "United Kingdom" entry in EFL_RIGHTS for each
+# specific competition. They reflect the actual UK broadcaster reality
+# rather than the simplified "Sky Sports" catch-all:
+#
+#   ELC   Championship  → Sky Sports for picked games (typically 1-2 per
+#                         midweek and the headline Saturday match);
+#                         Sky Sports+ for the rest of the round
+#                         (5+ matches in parallel via app/red button)
+#   EL1   League One    → Sky Sports+ predominantly. Headline match
+#                         occasionally on a main Sky Sports channel.
+#   EL2   League Two    → Sky Sports+ predominantly, same pattern as L1.
+#   NAT   National League → DAZN UK (acquired the rights from BT/TNT in
+#                         2024/25). Some lower-tier rounds appear on
+#                         DAZN Ireland's feed for historical licensing
+#                         reasons.
+#   FACUP FA Cup        → BBC + ITV (free-to-air); some rounds also on
+#                         TNT Sports and ITVX streaming.
+#   EFLCUP EFL Cup      → Sky Sports (every match televised, mostly on
+#                         the main channels because of the lower fixture
+#                         volume).
+#
+# When merger.py builds the broadcaster list, it looks up the comp_code
+# here first and only falls back to EFL_RIGHTS["United Kingdom"] if the
+# code isn't present.
+
+EFL_UK_OVERRIDES = {
+    "ELC":    {"broadcaster": "Sky Sports; Sky Sports+",            "region": "UK"},
+    "EL1":    {"broadcaster": "Sky Sports+; Sky Sports",            "region": "UK"},
+    "EL2":    {"broadcaster": "Sky Sports+; Sky Sports",            "region": "UK"},
+    "NAT":    {"broadcaster": "DAZN UK",                            "region": "UK"},
+    "FACUP":  {"broadcaster": "BBC; ITV; TNT Sports",               "region": "UK"},
+    "EFLCUP": {"broadcaster": "Sky Sports",                         "region": "UK"},
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
 # SCOTTISH FOOTBALL BROADCAST RIGHTS  (2025/26)
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -350,11 +411,10 @@ SCOTTISH_RIGHTS = {
 
 # ─────────────────────────────────────────────────────────────────────────────
 # EUROPEAN LEAGUES BROADCAST RIGHTS  (2025/26)
-# Covers: La Liga, Bundesliga, Serie A, Ligue 1
+# Covers: La Liga, Bundesliga, Serie A, Ligue 1, Eredivisie, Primeira Liga
 # ─────────────────────────────────────────────────────────────────────────────
 
 EUROPEAN_LEAGUES_RIGHTS = {
-    # Format: territory -> { "la_liga": ..., "bundesliga": ..., "serie_a": ..., "ligue_1": ..., "eredivisie": ..., "primeira_liga": ... }
     "United Kingdom":         {"la_liga": "Premier Sports; FreeSports", "bundesliga": "Sky Sports; TNT Sports", "serie_a": "TNT Sports; Discovery+", "ligue_1": "beIN Sports UK",        "eredivisie": "Premier Sports",        "primeira_liga": "Premier Sports"},
     "Republic of Ireland":    {"la_liga": "Premier Sports",             "bundesliga": "Sky Sports",             "serie_a": "TNT Sports",             "ligue_1": "beIN Sports",           "eredivisie": "Premier Sports",        "primeira_liga": "Premier Sports"},
     "United States":          {"la_liga": "ESPN+; ESPN Deportes",        "bundesliga": "ESPN+",                  "serie_a": "Paramount+; CBS Golazo",  "ligue_1": "beIN Sports USA; fuboTV","eredivisie": "ESPN+",                 "primeira_liga": "ESPN+; GolTV"},
@@ -379,20 +439,28 @@ EUROPEAN_LEAGUES_RIGHTS = {
 
 # Map football-data.org competition codes to rights lookup key
 COMP_CODE_TO_RIGHTS_KEY = {
-    "PL":  "epl",        # Premier League
-    "CL":  "ucl",        # UEFA Champions League
-    "EL":  "ucl",        # UEFA Europa League — use UCL rights as proxy
-    "EC":  "ucl",        # UEFA Conference League
-    "ELC": "efl",        # EFL Championship
-    "EL1": "efl",        # EFL League One
-    "EL2": "efl",        # EFL League Two
-    "FAC": "efl",        # FA Cup — use EFL rights
-    "FL1": "ligue_1",    # Ligue 1
-    "BL1": "bundesliga", # Bundesliga
-    "SA":  "serie_a",    # Serie A
-    "PD":  "la_liga",    # La Liga
-    "DED": "eredivisie", # Eredivisie
-    "PPL": "la_liga",    # Primeira Liga — use La Liga rights as proxy (similar European territory coverage)
+    "PL":     "epl",        # Premier League
+    "CL":     "ucl",        # UEFA Champions League
+    "EL":     "ucl",        # UEFA Europa League — use UCL rights as proxy
+    "EC":     "ucl",        # UEFA Conference League
+    "ELC":    "efl",        # EFL Championship
+    "EL1":    "efl",        # EFL League One
+    "EL2":    "efl",        # EFL League Two
+    "NAT":    "efl",        # National League — uses EFL base + UK override
+    "FAC":    "efl",        # FA Cup (legacy code)
+    "FACUP":  "efl",        # FA Cup
+    "EFLCUP": "efl",        # EFL Cup
+    "SP1":    "scottish",   # Scottish Premiership
+    "SCH":    "scottish",   # Scottish Championship
+    "SC1":    "scottish",   # Scottish League One
+    "SCUP":   "scottish",   # Scottish Cup
+    "SLCUP":  "scottish",   # Scottish League Cup
+    "FL1":    "ligue_1",    # Ligue 1
+    "BL1":    "bundesliga", # Bundesliga
+    "SA":     "serie_a",    # Serie A
+    "PD":     "la_liga",    # La Liga
+    "DED":    "eredivisie", # Eredivisie
+    "PPL":    "la_liga",    # Primeira Liga — use La Liga rights as proxy
 }
 
 
@@ -412,7 +480,12 @@ def get_rights(competition_code: str, territory: str) -> dict | None:
     if key == "ucl":
         return UCL_RIGHTS.get(territory)
     if key == "efl":
+        # NEW: honour the per-competition UK override if one exists
+        if territory == "United Kingdom" and competition_code in EFL_UK_OVERRIDES:
+            return EFL_UK_OVERRIDES[competition_code]
         return EFL_RIGHTS.get(territory)
+    if key == "scottish":
+        return SCOTTISH_RIGHTS.get(territory)
     if key in ("la_liga", "bundesliga", "serie_a", "ligue_1"):
         row = EUROPEAN_LEAGUES_RIGHTS.get(territory)
         if row:
@@ -430,7 +503,13 @@ def get_all_rights_for_competition(competition_code: str) -> dict:
     if key == "ucl":
         return dict(UCL_RIGHTS)
     if key == "efl":
-        return dict(EFL_RIGHTS)
+        result = dict(EFL_RIGHTS)
+        # NEW: layer the per-competition UK override on top
+        if competition_code in EFL_UK_OVERRIDES:
+            result["United Kingdom"] = EFL_UK_OVERRIDES[competition_code]
+        return result
+    if key == "scottish":
+        return dict(SCOTTISH_RIGHTS)
     if key in ("la_liga", "bundesliga", "serie_a", "ligue_1"):
         result = {}
         for territory, row in EUROPEAN_LEAGUES_RIGHTS.items():
