@@ -308,7 +308,9 @@ UCL_RIGHTS = {
 #
 # Non-UK territories typically carry an EFL package that's largely the
 # same across Championship / L1 / L2 (and sometimes the FA/EFL Cups), so
-# we keep that side flat here.
+# we keep that side flat here. Where a competition has narrower
+# overseas coverage (e.g. L1/L2 not broadcast in Ireland), see
+# EFL_TERRITORY_EXCLUSIONS below.
 
 EFL_RIGHTS = {
     "United Kingdom":             {"broadcaster": "Sky Sports",                        "region": "UK"},
@@ -368,15 +370,16 @@ EFL_RIGHTS = {
 #                         midweek and the headline Saturday match);
 #                         Sky Sports+ for the rest of the round
 #                         (5+ matches in parallel via app/red button)
-#   EL1   League One    → Sky Sports+ predominantly. Headline match
-#                         occasionally on a main Sky Sports channel.
-#   EL2   League Two    → Sky Sports+ predominantly, same pattern as L1.
+#   EL1   League One    → Sky Sports+ predominantly. Headline matches
+#                         that go to a main Sky Sports channel will be
+#                         picked up by the EPG Tier-1 enrichment layer
+#                         and surfaced there, so we DON'T add Sky Sports
+#                         to the default UK row — would over-promise.
+#   EL2   League Two    → Same as L1: Sky Sports+ only by default.
 #   NAT   National League → DAZN UK (acquired the rights from BT/TNT in
-#                         2024/25). Some lower-tier rounds appear on
-#                         DAZN Ireland's feed for historical licensing
-#                         reasons.
+#                         2024/25).
 #   FACUP FA Cup        → BBC + ITV (free-to-air); some rounds also on
-#                         TNT Sports and ITVX streaming.
+#                         TNT Sports.
 #   EFLCUP EFL Cup      → Sky Sports (every match televised, mostly on
 #                         the main channels because of the lower fixture
 #                         volume).
@@ -387,11 +390,74 @@ EFL_RIGHTS = {
 
 EFL_UK_OVERRIDES = {
     "ELC":    {"broadcaster": "Sky Sports; Sky Sports+",            "region": "UK"},
-    "EL1":    {"broadcaster": "Sky Sports+; Sky Sports",            "region": "UK"},
-    "EL2":    {"broadcaster": "Sky Sports+; Sky Sports",            "region": "UK"},
+    "EL1":    {"broadcaster": "Sky Sports+",                        "region": "UK"},
+    "EL2":    {"broadcaster": "Sky Sports+",                        "region": "UK"},
     "NAT":    {"broadcaster": "DAZN UK",                            "region": "UK"},
     "FACUP":  {"broadcaster": "BBC; ITV; TNT Sports",               "region": "UK"},
     "EFLCUP": {"broadcaster": "Sky Sports",                         "region": "UK"},
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# EFL TERRITORY EXCLUSIONS — per-competition territory suppression
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# Some EFL-tier competitions aren't broadcast in every territory listed
+# in EFL_RIGHTS. The base map covers the full EFL package (which is
+# bought as a single product by most overseas broadcasters), but a few
+# competitions have narrower coverage:
+#
+#   EL1 / EL2 (League One / Two)
+#       • Not in Ireland — Sky Sports' Irish EFL package is Championship
+#         + EFL Cup only.
+#       • Outside the UK, only the US (ESPN+) and Canada (DAZN) carry
+#         L1/L2 reliably — most other overseas markets either cherry-pick
+#         only Championship matches or take the Championship-only feed.
+#       • Conservative best-guess: surface only ESPN+ / DAZN; suppress
+#         all other non-UK territories. Better to under-promise (user
+#         shrugs and looks elsewhere) than over-promise (user pays for
+#         a service that doesn't carry the match).
+#
+#   NAT (National League)
+#       • Not in Ireland — DAZN UK's Nat League licence is geo-locked
+#         to Great Britain only. (DAZN Ireland has a separate Nat League
+#         deal for some lower-round matches; if you later confirm which
+#         rounds are on which feed, add a per-territory override below.)
+#       • Most of the EFL_RIGHTS overseas territories don't carry Nat
+#         League at all. We keep the existing rights row for now per
+#         your instruction ("just drop ROI/Sky for Nat League, keep
+#         other territories") — i.e. we trust the EFL_RIGHTS list.
+#
+# Each value is a SET of territory names that should be suppressed for
+# that competition. The set is iterated in build_broadcaster_list and
+# matching territories are skipped.
+
+EFL_TERRITORY_EXCLUSIONS = {
+    # League One — keep UK + USA (ESPN+) + Canada (DAZN); drop everything else
+    "EL1": {
+        "Republic of Ireland", "Albania", "Armenia", "Austria", "Belgium",
+        "Bulgaria", "Croatia", "Czech Republic", "Denmark", "Estonia",
+        "Finland", "France", "Germany", "Greece", "Hungary", "Israel",
+        "Italy", "Latvia", "Lithuania", "Netherlands", "Norway", "Poland",
+        "Portugal", "Romania", "Serbia", "Spain", "Sweden", "Switzerland",
+        "Turkey", "Ukraine", "Brazil", "Australia", "New Zealand",
+        "Middle East & N. Africa", "Sub-Saharan Africa",
+        "India / South Asia", "Malaysia", "Hong Kong", "Japan", "South Korea",
+    },
+    # League Two — same pattern as L1
+    "EL2": {
+        "Republic of Ireland", "Albania", "Armenia", "Austria", "Belgium",
+        "Bulgaria", "Croatia", "Czech Republic", "Denmark", "Estonia",
+        "Finland", "France", "Germany", "Greece", "Hungary", "Israel",
+        "Italy", "Latvia", "Lithuania", "Netherlands", "Norway", "Poland",
+        "Portugal", "Romania", "Serbia", "Spain", "Sweden", "Switzerland",
+        "Turkey", "Ukraine", "Brazil", "Australia", "New Zealand",
+        "Middle East & N. Africa", "Sub-Saharan Africa",
+        "India / South Asia", "Malaysia", "Hong Kong", "Japan", "South Korea",
+    },
+    # National League — drop ROI per user instruction; keep other territories
+    "NAT": {
+        "Republic of Ireland",
+    },
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -468,6 +534,7 @@ def get_rights(competition_code: str, territory: str) -> dict | None:
     """
     Return broadcast rights info for a competition + territory.
     Returns dict with 'broadcaster', 'region' or None if no rights found.
+    Honours EFL_TERRITORY_EXCLUSIONS — returns None for excluded territories.
     """
     key = COMP_CODE_TO_RIGHTS_KEY.get(competition_code)
     if not key:
@@ -480,9 +547,13 @@ def get_rights(competition_code: str, territory: str) -> dict | None:
     if key == "ucl":
         return UCL_RIGHTS.get(territory)
     if key == "efl":
-        # NEW: honour the per-competition UK override if one exists
+        # Honour the per-competition UK override if one exists
         if territory == "United Kingdom" and competition_code in EFL_UK_OVERRIDES:
             return EFL_UK_OVERRIDES[competition_code]
+        # Honour territory exclusions (L1/L2/NAT have narrower coverage)
+        excluded = EFL_TERRITORY_EXCLUSIONS.get(competition_code, set())
+        if territory in excluded:
+            return None
         return EFL_RIGHTS.get(territory)
     if key == "scottish":
         return SCOTTISH_RIGHTS.get(territory)
@@ -494,7 +565,8 @@ def get_rights(competition_code: str, territory: str) -> dict | None:
 
 
 def get_all_rights_for_competition(competition_code: str) -> dict:
-    """Return the full territory → rights dict for a competition."""
+    """Return the full territory → rights dict for a competition,
+    after applying per-competition UK overrides and territory exclusions."""
     key = COMP_CODE_TO_RIGHTS_KEY.get(competition_code)
     if key == "epl":
         result = dict(EPL_RIGHTS)
@@ -504,9 +576,13 @@ def get_all_rights_for_competition(competition_code: str) -> dict:
         return dict(UCL_RIGHTS)
     if key == "efl":
         result = dict(EFL_RIGHTS)
-        # NEW: layer the per-competition UK override on top
+        # Layer the per-competition UK override on top
         if competition_code in EFL_UK_OVERRIDES:
             result["United Kingdom"] = EFL_UK_OVERRIDES[competition_code]
+        # Strip excluded territories
+        excluded = EFL_TERRITORY_EXCLUSIONS.get(competition_code, set())
+        for territory in excluded:
+            result.pop(territory, None)
         return result
     if key == "scottish":
         return dict(SCOTTISH_RIGHTS)
