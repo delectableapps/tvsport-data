@@ -48,6 +48,19 @@ try:
     from rights_db import EFL_TERRITORY_EXCLUSIONS        # type: ignore
 except ImportError:                                       # pragma: no cover
     EFL_TERRITORY_EXCLUSIONS = {}
+# UCL per-fixture overrides (UK Tue/Wed Amazon-vs-TNT rotation, IRE
+# RTÉ/Virgin/Premier rotation, FRA M6 final-only) and the highlights-only
+# broadcaster set (BBC, ZDF for UCL).
+try:
+    from rights_db import UCL_MATCH_OVERRIDES, get_ucl_match_override   # type: ignore
+except ImportError:                                       # pragma: no cover
+    UCL_MATCH_OVERRIDES = {}
+    def get_ucl_match_override(home, away, kickoff_iso):
+        return None
+try:
+    from rights_db import UCL_HIGHLIGHTS_ONLY              # type: ignore
+except ImportError:                                       # pragma: no cover
+    UCL_HIGHLIGHTS_ONLY = set()
 
 from channel_normaliser import normalise_channel_list
 
@@ -414,6 +427,12 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
     is_blackout  = (comp_code == "PL" and is_epl_blackout(kickoff))
     rights_key   = COMP_CODE_TO_RIGHTS_KEY.get(comp_code, "")
 
+    def _resolve_coverage(default: str, broadcaster: str) -> str:
+        """For UCL/UEL/UECL, force highlights-only broadcasters to highlights."""
+        if comp_code in ("CL", "EL", "ECL") and broadcaster in UCL_HIGHLIGHTS_ONLY:
+            return "highlights"
+        return default
+
     broadcasters = []
 
     # Get the appropriate rights dictionary for this competition
@@ -422,16 +441,32 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
         rights_map["United Kingdom"] = {"broadcaster": "Sky Sports; TNT Sports", "region": "UK"}
     elif comp_code in ("CL", "EL", "ECL"):
         rights_map = dict(UCL_RIGHTS)
+        # ── Per-fixture overrides for UCL knockout rotations ──
+        # See rights_db.UCL_MATCH_OVERRIDES for the seeded fixtures.
+        # The override row REPLACES the default rights row for that
+        # territory only — all other territories retain their default
+        # UCL_RIGHTS entry.
+        home = fixture.get("home_team", "")
+        away = fixture.get("away_team", "")
+        override = get_ucl_match_override(home, away, kickoff)
+        if override:
+            for territory, row in override.items():
+                # Editor convenience: accept "Ireland" as a synonym for
+                # "Republic of Ireland" if that's how UCL_RIGHTS labels it.
+                if territory == "Ireland" and "Republic of Ireland" in rights_map:
+                    rights_map["Republic of Ireland"] = row
+                else:
+                    rights_map[territory] = row
+            logger.info(
+                f"[ucl_override] {home} v {away} ({kickoff[:10]}): "
+                f"applied override for {sorted(override.keys())}"
+            )
     elif comp_code in ("ELC", "EL1", "EL2", "NAT", "FACUP", "EFLCUP"):
         rights_map = dict(EFL_RIGHTS)
         # ── Per-competition UK override ──
         if comp_code in EFL_UK_OVERRIDES:
             rights_map["United Kingdom"] = EFL_UK_OVERRIDES[comp_code]
         # ── Per-competition territory exclusions ──
-        # Some EFL-tier competitions aren't broadcast in every territory
-        # listed in the base rights map (e.g. L1/L2 not in Ireland;
-        # Nat League not in Ireland). Strip those rows so the front-end
-        # doesn't show wrong broadcasters.
         excluded = EFL_TERRITORY_EXCLUSIONS.get(comp_code, set())
         for territory in excluded:
             rights_map.pop(territory, None)
@@ -511,7 +546,11 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
             if not bcast_name:
                 continue
             meta = BROADCASTER_META.get(bcast_name, {})
-            coverage = "highlights" if bcast_name == "BBC" else "live"
+            # BBC is highlights for UCL (forced by _resolve_coverage via
+            # UCL_HIGHLIGHTS_ONLY); for other comps where it's listed as
+            # a UK rights holder it's live (e.g. FA Cup).
+            default_coverage = "highlights" if bcast_name == "BBC" else "live"
+            coverage = _resolve_coverage(default_coverage, bcast_name)
             broadcasters.append({
                 "territory":   "United Kingdom",
                 "region":      "UK",
@@ -641,7 +680,9 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
                     "broadcaster": epg_territory["broadcaster"],
                     "channels":    epg_territory["channels"],
                     "type":        meta.get("type", "pay_tv"),
-                    "coverage":    "live" if epg_territory.get("is_live") else "live",
+                    "coverage":    _resolve_coverage(
+                                       "live" if epg_territory.get("is_live") else "live",
+                                       epg_territory["broadcaster"]),
                     "confidence":  "high",
                     "source":      "epg",
                 })
@@ -655,7 +696,7 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
                     "broadcaster": bcast_name,
                     "channels":    channels,
                     "type":        meta.get("type", "pay_tv"),
-                    "coverage":    "live",
+                    "coverage":    _resolve_coverage("live", bcast_name),
                     "confidence":  "medium",
                     "source":      "rights",
                 })
@@ -667,7 +708,7 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
                 "broadcaster": bcast_name,
                 "channels":    [bcast_name],
                 "type":        meta.get("type", "pay_tv"),
-                "coverage":    "live",
+                "coverage":    _resolve_coverage("live", bcast_name),
                 "confidence":  "low",
                 "source":      "rights_db_generic",
             })
