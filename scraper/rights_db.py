@@ -360,6 +360,11 @@ UCL_HIGHLIGHTS_ONLY = {
 # existing merger.py iteration logic works unchanged.
 
 UCL_MATCH_OVERRIDES = {
+    # ── BEGIN_AUTO_OVERRIDES ──
+    # The block between BEGIN_AUTO_OVERRIDES and END_AUTO_OVERRIDES is
+    # managed by add_ucl_override.py. You can hand-edit too — the script
+    # preserves any extra comments/blank lines it finds. Just don't move
+    # the markers themselves.
     # ── 2025/26 SEMI-FINALS ──────────────────────────────────────────
     # 1st leg Tue 28 Apr — Amazon UK Tuesday top pick; Premier Sports IRE
     ("paris saint-germain", "bayern munich", "2026-04-28"): {
@@ -392,6 +397,7 @@ UCL_MATCH_OVERRIDES = {
         "Ireland":        {"broadcaster": "RTÉ; Virgin Media; Premier Sports", "region": "Europe"},
         "France":         {"broadcaster": "Canal+; M6",                        "region": "Europe"},
     },
+    # ── END_AUTO_OVERRIDES ──
 }
 
 
