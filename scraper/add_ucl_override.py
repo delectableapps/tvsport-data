@@ -85,10 +85,21 @@ IRELAND_PRESETS = {
 def normalise_for_key(name: str) -> str:
     """Match the normalisation used by rights_db._normalise_team_name.
 
-    Lower-case, strip accents, expand short-forms, apply city aliases,
-    strip prefixes/suffixes. Used here only to detect duplicates — the
-    actual key written into the dict preserves a human-readable form.
+    Imports rights_db._normalise_team_name dynamically so the two stay
+    in sync — if you change one, the other is updated automatically.
+    Falls back to a local copy if rights_db can't be imported (e.g. when
+    running the script before deployment).
     """
+    try:
+        # Lazy import — avoid hard dependency at module-load time so
+        # syntax errors in rights_db don't break the script's --help
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import rights_db
+        return rights_db._normalise_team_name(name)
+    except Exception:
+        pass
+    # Fallback (kept in case rights_db is unavailable). Should match
+    # rights_db._normalise_team_name byte-for-byte.
     if not name:
         return ""
     nfd = unicodedata.normalize("NFD", name)
@@ -108,12 +119,14 @@ def normalise_for_key(name: str) -> str:
     }
     for de, en in aliases.items():
         s = s.replace(de, en)
-    for prefix in ("fc ", "afc ", "ac ", "as ", "ss ", "us ", "sk ", "rb "):
+    for prefix in ("club ", "fc ", "afc ", "ac ", "as ", "ss ", "us ", "sk ", "rb "):
         if s.startswith(prefix):
             s = s[len(prefix):]
-    for suffix in (" fc", " afc", " cf", " cp", " sc", " bc"):
+    for suffix in (" fc", " afc", " cf", " cp", " sc", " bc", " sad"):
         if s.endswith(suffix):
             s = s[:-len(suffix)]
+    s = s.replace(" de ", " ").replace(" del ", " ").replace(" e ", " ")
+    s = " ".join(s.split())
     return s.strip()
 
 
