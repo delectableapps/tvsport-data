@@ -450,14 +450,24 @@ def _normalise_team_name(name: str) -> str:
     }
     for de, en in aliases.items():
         s = s.replace(de, en)
-    # Strip common boilerplate (prefixes)
-    for prefix in ("fc ", "afc ", "ac ", "as ", "ss ", "us ", "sk ", "rb "):
+    # Strip common boilerplate (prefixes). "club " covers Spanish and
+    # Portuguese full names like "Club Atlético de Madrid".
+    for prefix in ("club ", "fc ", "afc ", "ac ", "as ", "ss ", "us ", "sk ", "rb "):
         if s.startswith(prefix):
             s = s[len(prefix):]
     # Strip common boilerplate (suffixes)
-    for suffix in (" fc", " afc", " cf", " cp", " sc", " bc"):
+    for suffix in (" fc", " afc", " cf", " cp", " sc", " bc", " sad"):
         if s.endswith(suffix):
             s = s[:-len(suffix)]
+    # Collapse Romance-language connector words. Football-data.org uses
+    # full names like "Club Atlético de Madrid", "Real Sporting de
+    # Gijón" — collapse " de " to a single space so the canonical key
+    # ("atletico madrid") matches via substring.
+    s = s.replace(" de ", " ")
+    s = s.replace(" del ", " ")
+    s = s.replace(" e ", " ")  # e.g. "ass. calcio firenze e fiorentina"
+    # Collapse multiple spaces created by replacements
+    s = " ".join(s.split())
     return s.strip()
 
 
