@@ -257,7 +257,7 @@ UCL_RIGHTS = {
     "Indian Subcontinent":  {"broadcaster": "Sony Sports Network",                   "region": "Asia"},
     "Indonesia":            {"broadcaster": "beIN Sports; Emtek",                    "region": "Asia"},
     "Iran":                 {"broadcaster": "IRIB TV3; Persiana Sports; GEM Sport",  "region": "Asia"},
-    "Ireland":              {"broadcaster": "RTÉ; Premier Sports; TNT Sports; Prime Video", "region": "Europe"},
+    "Republic of Ireland":  {"broadcaster": "RTÉ; Premier Sports; TNT Sports; Prime Video", "region": "Europe"},
     "Israel":               {"broadcaster": "Sports Channel",                        "region": "Middle East"},
     "Italy":                {"broadcaster": "Sky Sport; Prime Video",                "region": "Europe"},
     "Ivory Coast":          {"broadcaster": "NCI",                                   "region": "Africa"},
@@ -368,23 +368,23 @@ UCL_MATCH_OVERRIDES = {
     # ── 2025/26 SEMI-FINALS ──────────────────────────────────────────
     # 1st leg Tue 28 Apr — Amazon UK Tuesday top pick; Premier Sports IRE
     ("paris saint-germain", "bayern munich", "2026-04-28"): {
-        "United Kingdom": {"broadcaster": "Prime Video; BBC", "region": "Europe"},
-        "Ireland":        {"broadcaster": "Premier Sports",   "region": "Europe"},
+        "United Kingdom":      {"broadcaster": "Prime Video; BBC", "region": "Europe"},
+        "Republic of Ireland": {"broadcaster": "Premier Sports",   "region": "Europe"},
     },
     # 1st leg Wed 29 Apr — TNT UK; RTÉ + Virgin + Premier IRE
     ("atletico madrid", "arsenal", "2026-04-29"): {
-        "United Kingdom": {"broadcaster": "TNT Sports; BBC",                  "region": "Europe"},
-        "Ireland":        {"broadcaster": "RTÉ; Virgin Media; Premier Sports","region": "Europe"},
+        "United Kingdom":      {"broadcaster": "TNT Sports; BBC",                   "region": "Europe"},
+        "Republic of Ireland": {"broadcaster": "RTÉ; Virgin Media; Premier Sports", "region": "Europe"},
     },
     # 2nd leg Tue 5 May — Amazon UK Tuesday top pick; Premier Sports IRE
     ("bayern munich", "paris saint-germain", "2026-05-05"): {
-        "United Kingdom": {"broadcaster": "Prime Video; BBC", "region": "Europe"},
-        "Ireland":        {"broadcaster": "Premier Sports",   "region": "Europe"},
+        "United Kingdom":      {"broadcaster": "Prime Video; BBC", "region": "Europe"},
+        "Republic of Ireland": {"broadcaster": "Premier Sports",   "region": "Europe"},
     },
     # 2nd leg Wed 6 May — TNT UK; RTÉ + Virgin + Premier IRE
     ("arsenal", "atletico madrid", "2026-05-06"): {
-        "United Kingdom": {"broadcaster": "TNT Sports; BBC",                  "region": "Europe"},
-        "Ireland":        {"broadcaster": "RTÉ; Virgin Media; Premier Sports","region": "Europe"},
+        "United Kingdom":      {"broadcaster": "TNT Sports; BBC",                   "region": "Europe"},
+        "Republic of Ireland": {"broadcaster": "RTÉ; Virgin Media; Premier Sports", "region": "Europe"},
     },
 
     # ── 2025/26 FINAL ────────────────────────────────────────────────
@@ -393,9 +393,9 @@ UCL_MATCH_OVERRIDES = {
     # use a wildcard ("*", "*") for home/away — the lookup helper treats
     # any UCL fixture on this exact date as matching this override.
     ("*", "*", "2026-05-30"): {
-        "United Kingdom": {"broadcaster": "TNT Sports; BBC",                   "region": "Europe"},
-        "Ireland":        {"broadcaster": "RTÉ; Virgin Media; Premier Sports", "region": "Europe"},
-        "France":         {"broadcaster": "Canal+; M6",                        "region": "Europe"},
+        "United Kingdom":      {"broadcaster": "TNT Sports; BBC",                    "region": "Europe"},
+        "Republic of Ireland": {"broadcaster": "RTÉ; Virgin Media; Premier Sports",  "region": "Europe"},
+        "France":              {"broadcaster": "Canal+; M6",                         "region": "Europe"},
     },
     # ── END_AUTO_OVERRIDES ──
 }
