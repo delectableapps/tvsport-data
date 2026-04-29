@@ -83,6 +83,10 @@ BROADCASTER_META = {
     "Optus Sport":       {"channels": ["Optus Sport"], "type": "streaming"},
     "Sky NZ":            {"channels": ["Sky Sport NZ"], "type": "pay_tv"},
     "JioStar":           {"channels": ["JioStar Sports", "Star Sports 1", "Star Sports 2"], "type": "streaming"},
+    # Sony Sports Network (India + South Asia): UCL/UEL/UECL until 2026/27.
+    # The "TEN" channels carry English-language coverage; Hindi/Tamil/Telugu
+    # commentary is split across other Sony channels at peak times.
+    "Sony Sports Network": {"channels": ["Sony Sports TEN 1", "Sony Sports TEN 2", "Sony Sports TEN 3", "Sony Sports TEN 4", "Sony Sports TEN 5", "SonyLIV"], "type": "pay_tv"},
     "Astro":             {"channels": ["Astro SuperSport 2", "Astro SuperSport 3"], "type": "pay_tv"},
     "beIN Sports MENA":  {"channels": ["beIN Sports HD 1", "beIN Sports HD 2", "beIN Sports HD 3"], "type": "pay_tv"},
     "StarHub":           {"channels": ["StarHub Sports"], "type": "pay_tv"},
@@ -286,7 +290,7 @@ UCL_RIGHTS = {
     "Norway":               {"broadcaster": "TV 2",                                  "region": "Europe"},
     "Pakistan":             {"broadcaster": "tapmad",                                "region": "Asia"},
     "Philippines":          {"broadcaster": "beIN Sports",                           "region": "Asia"},
-    "Poland":               {"broadcaster": "TVP; Canal+",                           "region": "Europe"},
+    "Poland":               {"broadcaster": "Canal+",                            "region": "Europe"},
     "Portugal":             {"broadcaster": "DAZN; Sport TV",                        "region": "Europe"},
     "Romania":              {"broadcaster": "Digi Sport; Prima Sport",               "region": "Europe"},
     "Russia":               {"broadcaster": "Okko",                                  "region": "Europe"},
@@ -312,6 +316,10 @@ UCL_RIGHTS = {
     "Uzbekistan":           {"broadcaster": "Zo'r TV",                               "region": "Asia"},
     "Vietnam":              {"broadcaster": "VTVcab; Viettel",                       "region": "Asia"},
     "Pacific Islands":      {"broadcaster": "Digicel",                               "region": "Asia-Pacific"},
+    # International — Sport 24 (IMG) carries UCL on flights and cruise ships
+    # globally. Same broadcaster as the EPL international row. Deal runs
+    # through the 2027/28 cycle.
+    "International (inflight / at-sea)": {"broadcaster": "Sport 24",                  "region": "International"},
 }
 
 
