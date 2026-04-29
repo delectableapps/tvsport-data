@@ -451,9 +451,15 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
         override = get_ucl_match_override(home, away, kickoff)
         if override:
             for territory, row in override.items():
-                # Editor convenience: accept "Ireland" as a synonym for
-                # "Republic of Ireland" if that's how UCL_RIGHTS labels it.
-                if territory == "Ireland" and "Republic of Ireland" in rights_map:
+                # Canonicalise both directions: "Ireland" → "Republic of
+                # Ireland" (the form used by EPL_RIGHTS, EFL_RIGHTS and
+                # the frontend). Hand-edited overrides may use either,
+                # but the output should always be canonical.
+                if territory == "Ireland":
+                    rights_map.pop("Ireland", None)
+                    rights_map["Republic of Ireland"] = row
+                elif territory == "Republic of Ireland":
+                    rights_map.pop("Ireland", None)
                     rights_map["Republic of Ireland"] = row
                 else:
                     rights_map[territory] = row
