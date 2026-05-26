@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-25T07:13:08Z",
-  "lastUpdated": "2026-05-25T07:13:08Z",
+  "generated_at": "2026-05-26T06:04:52Z",
+  "lastUpdated": "2026-05-26T06:04:52Z",
   "fixture_count": 1688,
   "fixtures": [
     {
@@ -1675,58 +1675,6 @@
       "broadcaster_count": 132
     },
     {
-      "id": "el2_NOT_SAL_2026-05-25",
-      "competition": "League Two",
-      "comp_code": "EL2",
-      "home_team": "Notts County",
-      "away_team": "Salford City",
-      "kickoff": "2026-05-25T14:00:00Z",
-      "matchday": 180,
-      "stage": "NS",
-      "group": null,
-      "is_blackout": false,
-      "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports+",
-          "channels": [
-            "Sky Sports+ (app)",
-            "Sky Sports+ (red button)"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "ESPN+",
-          "channels": [
-            "ESPN+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        }
-      ],
-      "broadcaster_count": 3
-    },
-    {
       "id": "facup_CAS_TOR_2026-05-28",
       "competition": "FA Cup",
       "comp_code": "FACUP",
@@ -2343,6 +2291,173 @@
         }
       ],
       "broadcaster_count": 47
+    },
+    {
+      "id": "sch_GEN_GEN_2026-05-31",
+      "competition": "Scottish Championship",
+      "comp_code": "SCH",
+      "home_team": "Gent",
+      "away_team": "Genk",
+      "kickoff": "2026-05-31T16:30:00Z",
+      "matchday": 0,
+      "stage": "NS",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Scotland",
+          "channels": [
+            "BBC Scotland"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Alba",
+          "channels": [
+            "BBC Alba"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "International",
+          "region": "International",
+          "broadcaster": "Premier Sports International",
+          "channels": [
+            "Premier Sports International"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 12
     },
     {
       "id": "of-73aaccc4d037",
