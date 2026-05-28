@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-05-27T07:02:36Z",
-  "lastUpdated": "2026-05-27T07:02:36Z",
+  "generated_at": "2026-05-28T06:09:49Z",
+  "lastUpdated": "2026-05-28T06:09:49Z",
   "fixture_count": 32,
   "fixtures": [
     {
@@ -1681,7 +1681,7 @@
       "home_team": "Casa Pia",
       "away_team": "Torreense",
       "kickoff": "2026-05-28T19:00:00Z",
-      "matchday": 0,
+      "matchday": 160,
       "stage": "NS",
       "group": null,
       "is_blackout": false,
