@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-07-23T05:50:52Z",
-  "lastUpdated": "2026-07-23T05:50:52Z",
-  "fixture_count": 319,
+  "generated_at": "2026-07-24T05:18:43Z",
+  "lastUpdated": "2026-07-24T05:18:43Z",
+  "fixture_count": 324,
   "fixtures": [
     {
       "id": "pl_ARS_COV_2026-08-21",
@@ -7502,6 +7502,4400 @@
         }
       ],
       "broadcaster_count": 100
+    },
+    {
+      "id": "pl_MAN_AFC_2026-08-23",
+      "competition": "Premier League",
+      "comp_code": "PL",
+      "home_team": "Manchester City FC",
+      "away_team": "AFC Bournemouth",
+      "kickoff": "2026-08-23T13:00:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC",
+          "channels": [
+            "BBC iPlayer",
+            "BBC One"
+          ],
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high",
+          "source": "rights"
+        },
+        {
+          "territory": "Albania",
+          "region": "Europe",
+          "broadcaster": "Digitalb",
+          "channels": [
+            "Digitalb"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Andorra",
+          "region": "Europe",
+          "broadcaster": "CANAL+ / DAZN",
+          "channels": [
+            "CANAL+ / DAZN"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Armenia",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Austria",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland AT",
+          "channels": [
+            "Sky Sport Austria",
+            "Sky Sport Uno",
+            "Sky Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Belarus",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Belgium",
+          "region": "Europe",
+          "broadcaster": "Telenet",
+          "channels": [
+            "Telenet"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Bulgaria",
+          "region": "Europe",
+          "broadcaster": "IMG / Nova Broadcasting Group",
+          "channels": [
+            "IMG / Nova Broadcasting Group"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Croatia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Cyprus",
+          "region": "Europe",
+          "broadcaster": "Cytavision",
+          "channels": [
+            "Cytavision"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Czech Republic",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Denmark",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Estonia",
+          "region": "Europe",
+          "broadcaster": "TV3",
+          "channels": [
+            "TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Finland",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Georgia",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Germany",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland",
+          "channels": [
+            "Sky Sport Premier League",
+            "Sky Sport Uno",
+            "Sky Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Greece",
+          "region": "Europe",
+          "broadcaster": "IMG / Nova",
+          "channels": [
+            "IMG / Nova"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Hungary",
+          "region": "Europe",
+          "broadcaster": "TV2",
+          "channels": [
+            "TV 2 Sport"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Iceland",
+          "region": "Europe",
+          "broadcaster": "Syn",
+          "channels": [
+            "Syn"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Israel",
+          "region": "Europe",
+          "broadcaster": "Charlton",
+          "channels": [
+            "Charlton"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "Sky Italia",
+          "channels": [
+            "Sky Sport 1 IT",
+            "Sky Sport Calcio"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Kosovo",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Latvia",
+          "region": "Europe",
+          "broadcaster": "TV3",
+          "channels": [
+            "TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Lithuania",
+          "region": "Europe",
+          "broadcaster": "TV3",
+          "channels": [
+            "TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Luxembourg",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Malta",
+          "region": "Europe",
+          "broadcaster": "TSN",
+          "channels": [
+            "TSN"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Moldova",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Montenegro",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Europe",
+          "broadcaster": "Ziggo Sport",
+          "channels": [
+            "Ziggo Sport",
+            "Ziggo Sport Select",
+            "Ziggo Sport Extra"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "North Macedonia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Norway",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Europe",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Romania",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Romania",
+          "region": "Europe",
+          "broadcaster": "VOYO / Pro TV",
+          "channels": [
+            "VOYO / Pro TV"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Serbia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Slovakia",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Slovenia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Spain",
+          "region": "Europe",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sweden",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Switzerland",
+          "region": "Europe",
+          "broadcaster": "CANAL+ (FR)",
+          "channels": [
+            "CANAL+ (FR)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Switzerland",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland (DE)",
+          "channels": [
+            "Sky Deutschland (DE)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Switzerland",
+          "region": "Europe",
+          "broadcaster": "Sky Italia (IT)",
+          "channels": [
+            "Sky Italia (IT)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Turkey",
+          "region": "Europe",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Ukraine",
+          "region": "Europe",
+          "broadcaster": "Setanta",
+          "channels": [
+            "Setanta"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Ukraine",
+          "region": "Europe",
+          "broadcaster": "Monomax",
+          "channels": [
+            "Monomax"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Stan Sport",
+          "channels": [
+            "Stan Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "Sky NZ",
+          "channels": [
+            "Sky Sport NZ"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Pacific Islands",
+          "region": "Asia-Pacific",
+          "broadcaster": "Digicel",
+          "channels": [
+            "Digicel"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Afghanistan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Azerbaijan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Cambodia",
+          "region": "Asia",
+          "broadcaster": "Jasmine International / Mono",
+          "channels": [
+            "Jasmine International / Mono"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "China",
+          "region": "Asia",
+          "broadcaster": "Migu",
+          "channels": [
+            "Migu Video"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Chinese Taipei",
+          "region": "Asia",
+          "broadcaster": "ELTA",
+          "channels": [
+            "ELTA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Hong Kong",
+          "region": "Asia",
+          "broadcaster": "PCCW",
+          "channels": [
+            "Now Sports",
+            "Now Premier League Channel"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Indonesia",
+          "region": "Asia",
+          "broadcaster": "EMTEK",
+          "channels": [
+            "SCTV",
+            "Vidio"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Asia",
+          "broadcaster": "U-Next",
+          "channels": [
+            "U-Next Soccer"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Kazakhstan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Kyrgyzstan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Laos",
+          "region": "Asia",
+          "broadcaster": "Jasmine International / Mono",
+          "channels": [
+            "Jasmine International / Mono"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Macao",
+          "region": "Asia",
+          "broadcaster": "M Plus",
+          "channels": [
+            "M Plus"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Asia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Mongolia",
+          "region": "Asia",
+          "broadcaster": "Unitel",
+          "channels": [
+            "Unitel"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Myanmar",
+          "region": "Asia",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Singapore",
+          "region": "Asia",
+          "broadcaster": "StarHub",
+          "channels": [
+            "StarHub Sports"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Asia",
+          "region": "Asia",
+          "broadcaster": "JioStar",
+          "channels": [
+            "JioStar Sports",
+            "Star Sports 1",
+            "Star Sports 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Korea",
+          "region": "Asia",
+          "broadcaster": "Coupang",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Tajikistan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Thailand",
+          "region": "Asia",
+          "broadcaster": "Jasmine International / Mono",
+          "channels": [
+            "Jasmine International / Mono"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Turkmenistan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Uzbekistan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Vietnam",
+          "region": "Asia",
+          "broadcaster": "FPT Play / Jasmine International / Mono",
+          "channels": [
+            "FPT Play / Jasmine International / Mono"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Botswana",
+          "region": "Africa",
+          "broadcaster": "YTV",
+          "channels": [
+            "YTV Botswana"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Cameroon",
+          "region": "Africa",
+          "broadcaster": "CRTV Sports",
+          "channels": [
+            "CRTV Sport"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil",
+          "region": "Americas",
+          "broadcaster": "ESPN",
+          "channels": [
+            "ESPN",
+            "ESPN2",
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "Fubo",
+          "channels": [
+            "Fubo Sports"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "DAZN CA",
+          "channels": [
+            "Fubo Sports on DAZN"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Caribbean",
+          "region": "Americas",
+          "broadcaster": "ESPN",
+          "channels": [
+            "ESPN",
+            "ESPN2",
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Costa Rica",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Costa Rica",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "El Salvador",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "El Salvador",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Guatemala",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Guatemala",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Honduras",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Honduras",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Mexico",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Mexico",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Nicaragua",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nicaragua",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Panama",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Panama",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South America",
+          "region": "Americas",
+          "broadcaster": "ESPN",
+          "channels": [
+            "ESPN",
+            "ESPN2",
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "NBC Sports / Peacock",
+          "channels": [
+            "USA Network",
+            "Peacock"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "International (inflight / at-sea)",
+          "region": "International",
+          "broadcaster": "Sport 24",
+          "channels": [
+            "Sport 24"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        }
+      ],
+      "broadcaster_count": 100
+    },
+    {
+      "id": "pl_BRI_AST_2026-08-23",
+      "competition": "Premier League",
+      "comp_code": "PL",
+      "home_team": "Brighton & Hove Albion FC",
+      "away_team": "Aston Villa FC",
+      "kickoff": "2026-08-23T13:00:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC",
+          "channels": [
+            "BBC iPlayer",
+            "BBC One"
+          ],
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high",
+          "source": "rights"
+        },
+        {
+          "territory": "Albania",
+          "region": "Europe",
+          "broadcaster": "Digitalb",
+          "channels": [
+            "Digitalb"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Andorra",
+          "region": "Europe",
+          "broadcaster": "CANAL+ / DAZN",
+          "channels": [
+            "CANAL+ / DAZN"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Armenia",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Austria",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland AT",
+          "channels": [
+            "Sky Sport Austria",
+            "Sky Sport Uno",
+            "Sky Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Belarus",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Belgium",
+          "region": "Europe",
+          "broadcaster": "Telenet",
+          "channels": [
+            "Telenet"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Bulgaria",
+          "region": "Europe",
+          "broadcaster": "IMG / Nova Broadcasting Group",
+          "channels": [
+            "IMG / Nova Broadcasting Group"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Croatia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Cyprus",
+          "region": "Europe",
+          "broadcaster": "Cytavision",
+          "channels": [
+            "Cytavision"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Czech Republic",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Denmark",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Estonia",
+          "region": "Europe",
+          "broadcaster": "TV3",
+          "channels": [
+            "TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Finland",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Georgia",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Germany",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland",
+          "channels": [
+            "Sky Sport Premier League",
+            "Sky Sport Uno",
+            "Sky Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Greece",
+          "region": "Europe",
+          "broadcaster": "IMG / Nova",
+          "channels": [
+            "IMG / Nova"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Hungary",
+          "region": "Europe",
+          "broadcaster": "TV2",
+          "channels": [
+            "TV 2 Sport"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Iceland",
+          "region": "Europe",
+          "broadcaster": "Syn",
+          "channels": [
+            "Syn"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Israel",
+          "region": "Europe",
+          "broadcaster": "Charlton",
+          "channels": [
+            "Charlton"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "Sky Italia",
+          "channels": [
+            "Sky Sport 1 IT",
+            "Sky Sport Calcio"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Kosovo",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Latvia",
+          "region": "Europe",
+          "broadcaster": "TV3",
+          "channels": [
+            "TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Lithuania",
+          "region": "Europe",
+          "broadcaster": "TV3",
+          "channels": [
+            "TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Luxembourg",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Malta",
+          "region": "Europe",
+          "broadcaster": "TSN",
+          "channels": [
+            "TSN"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Moldova",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Montenegro",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Europe",
+          "broadcaster": "Ziggo Sport",
+          "channels": [
+            "Ziggo Sport",
+            "Ziggo Sport Select",
+            "Ziggo Sport Extra"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "North Macedonia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Norway",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Europe",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Romania",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Romania",
+          "region": "Europe",
+          "broadcaster": "VOYO / Pro TV",
+          "channels": [
+            "VOYO / Pro TV"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Serbia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Slovakia",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Slovenia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Spain",
+          "region": "Europe",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sweden",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Switzerland",
+          "region": "Europe",
+          "broadcaster": "CANAL+ (FR)",
+          "channels": [
+            "CANAL+ (FR)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Switzerland",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland (DE)",
+          "channels": [
+            "Sky Deutschland (DE)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Switzerland",
+          "region": "Europe",
+          "broadcaster": "Sky Italia (IT)",
+          "channels": [
+            "Sky Italia (IT)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Turkey",
+          "region": "Europe",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Ukraine",
+          "region": "Europe",
+          "broadcaster": "Setanta",
+          "channels": [
+            "Setanta"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Ukraine",
+          "region": "Europe",
+          "broadcaster": "Monomax",
+          "channels": [
+            "Monomax"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Stan Sport",
+          "channels": [
+            "Stan Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "Sky NZ",
+          "channels": [
+            "Sky Sport NZ"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Pacific Islands",
+          "region": "Asia-Pacific",
+          "broadcaster": "Digicel",
+          "channels": [
+            "Digicel"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Afghanistan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Azerbaijan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Cambodia",
+          "region": "Asia",
+          "broadcaster": "Jasmine International / Mono",
+          "channels": [
+            "Jasmine International / Mono"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "China",
+          "region": "Asia",
+          "broadcaster": "Migu",
+          "channels": [
+            "Migu Video"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Chinese Taipei",
+          "region": "Asia",
+          "broadcaster": "ELTA",
+          "channels": [
+            "ELTA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Hong Kong",
+          "region": "Asia",
+          "broadcaster": "PCCW",
+          "channels": [
+            "Now Sports",
+            "Now Premier League Channel"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Indonesia",
+          "region": "Asia",
+          "broadcaster": "EMTEK",
+          "channels": [
+            "SCTV",
+            "Vidio"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Asia",
+          "broadcaster": "U-Next",
+          "channels": [
+            "U-Next Soccer"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Kazakhstan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Kyrgyzstan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Laos",
+          "region": "Asia",
+          "broadcaster": "Jasmine International / Mono",
+          "channels": [
+            "Jasmine International / Mono"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Macao",
+          "region": "Asia",
+          "broadcaster": "M Plus",
+          "channels": [
+            "M Plus"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Asia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Mongolia",
+          "region": "Asia",
+          "broadcaster": "Unitel",
+          "channels": [
+            "Unitel"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Myanmar",
+          "region": "Asia",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Singapore",
+          "region": "Asia",
+          "broadcaster": "StarHub",
+          "channels": [
+            "StarHub Sports"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Asia",
+          "region": "Asia",
+          "broadcaster": "JioStar",
+          "channels": [
+            "JioStar Sports",
+            "Star Sports 1",
+            "Star Sports 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Korea",
+          "region": "Asia",
+          "broadcaster": "Coupang",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Tajikistan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Thailand",
+          "region": "Asia",
+          "broadcaster": "Jasmine International / Mono",
+          "channels": [
+            "Jasmine International / Mono"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Turkmenistan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Uzbekistan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Vietnam",
+          "region": "Asia",
+          "broadcaster": "FPT Play / Jasmine International / Mono",
+          "channels": [
+            "FPT Play / Jasmine International / Mono"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Botswana",
+          "region": "Africa",
+          "broadcaster": "YTV",
+          "channels": [
+            "YTV Botswana"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Cameroon",
+          "region": "Africa",
+          "broadcaster": "CRTV Sports",
+          "channels": [
+            "CRTV Sport"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil",
+          "region": "Americas",
+          "broadcaster": "ESPN",
+          "channels": [
+            "ESPN",
+            "ESPN2",
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "Fubo",
+          "channels": [
+            "Fubo Sports"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "DAZN CA",
+          "channels": [
+            "Fubo Sports on DAZN"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Caribbean",
+          "region": "Americas",
+          "broadcaster": "ESPN",
+          "channels": [
+            "ESPN",
+            "ESPN2",
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Costa Rica",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Costa Rica",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "El Salvador",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "El Salvador",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Guatemala",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Guatemala",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Honduras",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Honduras",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Mexico",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Mexico",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Nicaragua",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nicaragua",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Panama",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Panama",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South America",
+          "region": "Americas",
+          "broadcaster": "ESPN",
+          "channels": [
+            "ESPN",
+            "ESPN2",
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "NBC Sports / Peacock",
+          "channels": [
+            "USA Network",
+            "Peacock"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "International (inflight / at-sea)",
+          "region": "International",
+          "broadcaster": "Sport 24",
+          "channels": [
+            "Sport 24"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        }
+      ],
+      "broadcaster_count": 100
+    },
+    {
+      "id": "pl_NEW_LIV_2026-08-23",
+      "competition": "Premier League",
+      "comp_code": "PL",
+      "home_team": "Newcastle United FC",
+      "away_team": "Liverpool FC",
+      "kickoff": "2026-08-23T15:30:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC",
+          "channels": [
+            "BBC iPlayer",
+            "BBC One"
+          ],
+          "type": "free_tv",
+          "coverage": "highlights",
+          "confidence": "high",
+          "source": "rights"
+        },
+        {
+          "territory": "Albania",
+          "region": "Europe",
+          "broadcaster": "Digitalb",
+          "channels": [
+            "Digitalb"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Andorra",
+          "region": "Europe",
+          "broadcaster": "CANAL+ / DAZN",
+          "channels": [
+            "CANAL+ / DAZN"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Armenia",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Austria",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland AT",
+          "channels": [
+            "Sky Sport Austria",
+            "Sky Sport Uno",
+            "Sky Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Belarus",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Belgium",
+          "region": "Europe",
+          "broadcaster": "Telenet",
+          "channels": [
+            "Telenet"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Bulgaria",
+          "region": "Europe",
+          "broadcaster": "IMG / Nova Broadcasting Group",
+          "channels": [
+            "IMG / Nova Broadcasting Group"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Croatia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Cyprus",
+          "region": "Europe",
+          "broadcaster": "Cytavision",
+          "channels": [
+            "Cytavision"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Czech Republic",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Denmark",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Estonia",
+          "region": "Europe",
+          "broadcaster": "TV3",
+          "channels": [
+            "TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Finland",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Georgia",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Germany",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland",
+          "channels": [
+            "Sky Sport Premier League",
+            "Sky Sport Uno",
+            "Sky Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Greece",
+          "region": "Europe",
+          "broadcaster": "IMG / Nova",
+          "channels": [
+            "IMG / Nova"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Hungary",
+          "region": "Europe",
+          "broadcaster": "TV2",
+          "channels": [
+            "TV 2 Sport"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Iceland",
+          "region": "Europe",
+          "broadcaster": "Syn",
+          "channels": [
+            "Syn"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Israel",
+          "region": "Europe",
+          "broadcaster": "Charlton",
+          "channels": [
+            "Charlton"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "Sky Italia",
+          "channels": [
+            "Sky Sport 1 IT",
+            "Sky Sport Calcio"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Kosovo",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Latvia",
+          "region": "Europe",
+          "broadcaster": "TV3",
+          "channels": [
+            "TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Lithuania",
+          "region": "Europe",
+          "broadcaster": "TV3",
+          "channels": [
+            "TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Luxembourg",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Malta",
+          "region": "Europe",
+          "broadcaster": "TSN",
+          "channels": [
+            "TSN"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Moldova",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Montenegro",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Europe",
+          "broadcaster": "Ziggo Sport",
+          "channels": [
+            "Ziggo Sport",
+            "Ziggo Sport Select",
+            "Ziggo Sport Extra"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "North Macedonia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Norway",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Europe",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Romania",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Romania",
+          "region": "Europe",
+          "broadcaster": "VOYO / Pro TV",
+          "channels": [
+            "VOYO / Pro TV"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Serbia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Slovakia",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Slovenia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Spain",
+          "region": "Europe",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sweden",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Switzerland",
+          "region": "Europe",
+          "broadcaster": "CANAL+ (FR)",
+          "channels": [
+            "CANAL+ (FR)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Switzerland",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland (DE)",
+          "channels": [
+            "Sky Deutschland (DE)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Switzerland",
+          "region": "Europe",
+          "broadcaster": "Sky Italia (IT)",
+          "channels": [
+            "Sky Italia (IT)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Turkey",
+          "region": "Europe",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Ukraine",
+          "region": "Europe",
+          "broadcaster": "Setanta",
+          "channels": [
+            "Setanta"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Ukraine",
+          "region": "Europe",
+          "broadcaster": "Monomax",
+          "channels": [
+            "Monomax"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Stan Sport",
+          "channels": [
+            "Stan Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "Sky NZ",
+          "channels": [
+            "Sky Sport NZ"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Pacific Islands",
+          "region": "Asia-Pacific",
+          "broadcaster": "Digicel",
+          "channels": [
+            "Digicel"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Afghanistan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Azerbaijan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Cambodia",
+          "region": "Asia",
+          "broadcaster": "Jasmine International / Mono",
+          "channels": [
+            "Jasmine International / Mono"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "China",
+          "region": "Asia",
+          "broadcaster": "Migu",
+          "channels": [
+            "Migu Video"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Chinese Taipei",
+          "region": "Asia",
+          "broadcaster": "ELTA",
+          "channels": [
+            "ELTA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Hong Kong",
+          "region": "Asia",
+          "broadcaster": "PCCW",
+          "channels": [
+            "Now Sports",
+            "Now Premier League Channel"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Indonesia",
+          "region": "Asia",
+          "broadcaster": "EMTEK",
+          "channels": [
+            "SCTV",
+            "Vidio"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Asia",
+          "broadcaster": "U-Next",
+          "channels": [
+            "U-Next Soccer"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Kazakhstan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Kyrgyzstan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Laos",
+          "region": "Asia",
+          "broadcaster": "Jasmine International / Mono",
+          "channels": [
+            "Jasmine International / Mono"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Macao",
+          "region": "Asia",
+          "broadcaster": "M Plus",
+          "channels": [
+            "M Plus"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Asia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Mongolia",
+          "region": "Asia",
+          "broadcaster": "Unitel",
+          "channels": [
+            "Unitel"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Myanmar",
+          "region": "Asia",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Singapore",
+          "region": "Asia",
+          "broadcaster": "StarHub",
+          "channels": [
+            "StarHub Sports"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Asia",
+          "region": "Asia",
+          "broadcaster": "JioStar",
+          "channels": [
+            "JioStar Sports",
+            "Star Sports 1",
+            "Star Sports 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Korea",
+          "region": "Asia",
+          "broadcaster": "Coupang",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Tajikistan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Thailand",
+          "region": "Asia",
+          "broadcaster": "Jasmine International / Mono",
+          "channels": [
+            "Jasmine International / Mono"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Turkmenistan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Uzbekistan",
+          "region": "Asia",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Vietnam",
+          "region": "Asia",
+          "broadcaster": "FPT Play / Jasmine International / Mono",
+          "channels": [
+            "FPT Play / Jasmine International / Mono"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Botswana",
+          "region": "Africa",
+          "broadcaster": "YTV",
+          "channels": [
+            "YTV Botswana"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Cameroon",
+          "region": "Africa",
+          "broadcaster": "CRTV Sports",
+          "channels": [
+            "CRTV Sport"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil",
+          "region": "Americas",
+          "broadcaster": "ESPN",
+          "channels": [
+            "ESPN",
+            "ESPN2",
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "Fubo",
+          "channels": [
+            "Fubo Sports"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "DAZN CA",
+          "channels": [
+            "Fubo Sports on DAZN"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Caribbean",
+          "region": "Americas",
+          "broadcaster": "ESPN",
+          "channels": [
+            "ESPN",
+            "ESPN2",
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Costa Rica",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Costa Rica",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "El Salvador",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "El Salvador",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Guatemala",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Guatemala",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Honduras",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Honduras",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Mexico",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Mexico",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Nicaragua",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nicaragua",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Panama",
+          "region": "Americas",
+          "broadcaster": "Fox Broadcasting Corporation",
+          "channels": [
+            "Fox Broadcasting Corporation"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Panama",
+          "region": "Americas",
+          "broadcaster": "TNT Sports Mexico",
+          "channels": [
+            "TNT Sports Mexico",
+            "Max Mexico"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South America",
+          "region": "Americas",
+          "broadcaster": "ESPN",
+          "channels": [
+            "ESPN",
+            "ESPN2",
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "NBC Sports / Peacock",
+          "channels": [
+            "USA Network",
+            "Peacock"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "International (inflight / at-sea)",
+          "region": "International",
+          "broadcaster": "Sport 24",
+          "channels": [
+            "Sport 24"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        }
+      ],
+      "broadcaster_count": 100
+    },
+    {
+      "id": "ded_SC _SBV_2026-08-07",
+      "competition": "Eredivisie",
+      "comp_code": "DED",
+      "home_team": "SC Cambuur-Leeuwarden",
+      "away_team": "SBV Excelsior",
+      "kickoff": "2026-08-07T18:00:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Republic of Ireland",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "ESPN+",
+          "channels": [
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Canada",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Germany",
+          "region": "Germany",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "Canal+ Sport FR",
+          "channels": [
+            "Canal+ Sport FR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Netherlands",
+          "broadcaster": "Ziggo Sport",
+          "channels": [
+            "Ziggo Sport",
+            "Ziggo Sport Select",
+            "Ziggo Sport Extra"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "Eleven Sports PT",
+          "channels": [
+            "Eleven Sports PT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Nordics",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Poland",
+          "broadcaster": "Eleven Sports PL",
+          "channels": [
+            "Eleven Sports PL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India / South Asia",
+          "region": "India / South Asia",
+          "broadcaster": "JioStar / Sony",
+          "channels": [
+            "JioStar / Sony"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Australia",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Japan",
+          "broadcaster": "DAZN JP",
+          "channels": [
+            "DAZN JP"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "South Korea",
+          "region": "South Korea",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Malaysia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 20
+    },
+    {
+      "id": "ppl_GD _FC _2026-08-07",
+      "competition": "Primeira Liga",
+      "comp_code": "PPL",
+      "home_team": "GD Estoril Praia",
+      "away_team": "FC Famalicão",
+      "kickoff": "2026-08-07T19:15:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "FreeSports",
+          "channels": [
+            "FreeSports"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Republic of Ireland",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "ESPN+",
+          "channels": [
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "ESPN Deportes",
+          "channels": [
+            "ESPN Deportes"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Canada",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Germany",
+          "region": "Germany",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "beIN Sports FR",
+          "channels": [
+            "beIN Sports FR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "Movistar LaLiga",
+          "channels": [
+            "Movistar LaLiga"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Netherlands",
+          "broadcaster": "Viaplay NL",
+          "channels": [
+            "Viaplay NL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "Eleven Sports PT",
+          "channels": [
+            "Eleven Sports PT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Nordics",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Poland",
+          "broadcaster": "Eleven Sports PL",
+          "channels": [
+            "Eleven Sports PL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India / South Asia",
+          "region": "India / South Asia",
+          "broadcaster": "JioStar / Sony",
+          "channels": [
+            "JioStar / Sony"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Australia",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Japan",
+          "broadcaster": "DAZN JP",
+          "channels": [
+            "DAZN JP"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "South Korea",
+          "region": "South Korea",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Malaysia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "Star+",
+          "channels": [
+            "Star+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 24
     },
     {
       "id": "sp1_DUN_RAN_2026-07-31",
@@ -15201,13 +19595,13 @@
           "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
+            "Premier Sports 1 HD Ireland",
+            "Premier Sports 1 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "epg"
         },
         {
           "territory": "United States",
