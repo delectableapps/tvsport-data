@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-08-08T04:09:04Z",
-  "lastUpdated": "2026-08-08T04:09:04Z",
-  "fixture_count": 181,
+  "generated_at": "2026-08-09T03:39:10Z",
+  "lastUpdated": "2026-08-09T03:39:10Z",
+  "fixture_count": 189,
   "fixtures": [
     {
       "id": "pl_ARS_COV_2026-08-21",
@@ -51629,6 +51629,611 @@
       "broadcaster_count": 46
     },
     {
+      "id": "elc_WES_BUR_2026-08-23",
+      "competition": "Championship",
+      "comp_code": "ELC",
+      "home_team": "West Bromwich Albion FC",
+      "away_team": "Burnley FC",
+      "kickoff": "2026-08-23T11:00:00Z",
+      "matchday": 2,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports+",
+          "channels": [
+            "Sky Sports+ (app)",
+            "Sky Sports+ (red button)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Albania",
+          "region": "Europe",
+          "broadcaster": "SuperSport Albania",
+          "channels": [
+            "SuperSport Albania"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Armenia",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Austria",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland",
+          "channels": [
+            "Sky Sport Premier League",
+            "Sky Sport Uno",
+            "Sky Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Belgium",
+          "region": "Europe",
+          "broadcaster": "Eleven Sports",
+          "channels": [
+            "Eleven Sports 1",
+            "Eleven Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Bulgaria",
+          "region": "Europe",
+          "broadcaster": "IMG / Nova",
+          "channels": [
+            "IMG / Nova"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Croatia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Czech Republic",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Denmark",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Estonia",
+          "region": "Europe",
+          "broadcaster": "Go3 / TV3",
+          "channels": [
+            "Go3 / TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Finland",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Germany",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland",
+          "channels": [
+            "Sky Sport Premier League",
+            "Sky Sport Uno",
+            "Sky Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Greece",
+          "region": "Europe",
+          "broadcaster": "Nova Sports",
+          "channels": [
+            "Nova Sports 1",
+            "Nova Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Hungary",
+          "region": "Europe",
+          "broadcaster": "TV2 Sport",
+          "channels": [
+            "TV2 Sport"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Israel",
+          "region": "Europe",
+          "broadcaster": "Sport Channel",
+          "channels": [
+            "Sport Channel"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "Sky Italia",
+          "channels": [
+            "Sky Sport 1 IT",
+            "Sky Sport Calcio"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Latvia",
+          "region": "Europe",
+          "broadcaster": "Go3 / TV3",
+          "channels": [
+            "Go3 / TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Lithuania",
+          "region": "Europe",
+          "broadcaster": "Go3 / TV3",
+          "channels": [
+            "Go3 / TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Norway",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Europe",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Romania",
+          "region": "Europe",
+          "broadcaster": "VOYO / Pro TV",
+          "channels": [
+            "VOYO / Pro TV"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Serbia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Spain",
+          "region": "Europe",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sweden",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Switzerland",
+          "region": "Europe",
+          "broadcaster": "Blue Sport",
+          "channels": [
+            "Blue Sport 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Switzerland",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland",
+          "channels": [
+            "Sky Sport Premier League",
+            "Sky Sport Uno",
+            "Sky Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Turkey",
+          "region": "Europe",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Ukraine",
+          "region": "Europe",
+          "broadcaster": "Monomax",
+          "channels": [
+            "Monomax"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "ESPN+",
+          "channels": [
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil",
+          "region": "Americas",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "Sky NZ",
+          "channels": [
+            "Sky Sport NZ"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India / South Asia",
+          "region": "Asia",
+          "broadcaster": "JioStar",
+          "channels": [
+            "JioStar Sports",
+            "Star Sports 1",
+            "Star Sports 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Asia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Hong Kong",
+          "region": "Asia",
+          "broadcaster": "PCCW / Now TV",
+          "channels": [
+            "PCCW / Now TV"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Japan",
+          "region": "Asia",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Korea",
+          "region": "Asia",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 46
+    },
+    {
       "id": "fl1_OLY_RC _2026-08-21",
       "competition": "Ligue 1",
       "comp_code": "FL1",
@@ -53363,6 +53968,873 @@
       "broadcaster_count": 22
     },
     {
+      "id": "fl1_ANG_LIL_2026-08-23",
+      "competition": "Ligue 1",
+      "comp_code": "FL1",
+      "home_team": "Angers SCO",
+      "away_team": "Lille OSC",
+      "kickoff": "2026-08-23T13:00:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "beIN Sports UK",
+          "channels": [
+            "beIN Sports UK"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Republic of Ireland",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "beIN Sports USA",
+          "channels": [
+            "beIN Sports USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "fuboTV",
+          "channels": [
+            "fuboTV"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Canada",
+          "broadcaster": "beIN Sports CA",
+          "channels": [
+            "beIN Sports CA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Germany",
+          "region": "Germany",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot",
+            "Canal+ Live 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "Amazon Prime",
+          "channels": [
+            "Amazon Prime Video"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Netherlands",
+          "broadcaster": "Viaplay NL",
+          "channels": [
+            "Viaplay NL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "Eleven Sports PT",
+          "channels": [
+            "Eleven Sports PT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Nordics",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Poland",
+          "broadcaster": "Eleven Sports PL",
+          "channels": [
+            "Eleven Sports PL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "Canal+ Afrique",
+          "channels": [
+            "Canal+ Sport Afrique"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India / South Asia",
+          "region": "India / South Asia",
+          "broadcaster": "JioStar / Sony",
+          "channels": [
+            "JioStar / Sony"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Australia",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Japan",
+          "broadcaster": "DAZN JP",
+          "channels": [
+            "DAZN JP"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "South Korea",
+          "region": "South Korea",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Malaysia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 22
+    },
+    {
+      "id": "fl1_LE _AS _2026-08-23",
+      "competition": "Ligue 1",
+      "comp_code": "FL1",
+      "home_team": "Le Havre AC",
+      "away_team": "AS Monaco FC",
+      "kickoff": "2026-08-23T15:15:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "beIN Sports UK",
+          "channels": [
+            "beIN Sports UK"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Republic of Ireland",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "beIN Sports USA",
+          "channels": [
+            "beIN Sports USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "fuboTV",
+          "channels": [
+            "fuboTV"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Canada",
+          "broadcaster": "beIN Sports CA",
+          "channels": [
+            "beIN Sports CA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Germany",
+          "region": "Germany",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot",
+            "Canal+ Live 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "Amazon Prime",
+          "channels": [
+            "Amazon Prime Video"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Netherlands",
+          "broadcaster": "Viaplay NL",
+          "channels": [
+            "Viaplay NL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "Eleven Sports PT",
+          "channels": [
+            "Eleven Sports PT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Nordics",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Poland",
+          "broadcaster": "Eleven Sports PL",
+          "channels": [
+            "Eleven Sports PL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "Canal+ Afrique",
+          "channels": [
+            "Canal+ Sport Afrique"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India / South Asia",
+          "region": "India / South Asia",
+          "broadcaster": "JioStar / Sony",
+          "channels": [
+            "JioStar / Sony"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Australia",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Japan",
+          "broadcaster": "DAZN JP",
+          "channels": [
+            "DAZN JP"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "South Korea",
+          "region": "South Korea",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Malaysia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 22
+    },
+    {
+      "id": "fl1_PAR_STA_2026-08-23",
+      "competition": "Ligue 1",
+      "comp_code": "FL1",
+      "home_team": "Paris Saint-Germain FC",
+      "away_team": "Stade Rennais FC 1901",
+      "kickoff": "2026-08-23T18:45:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "beIN Sports UK",
+          "channels": [
+            "beIN Sports UK"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Republic of Ireland",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "beIN Sports USA",
+          "channels": [
+            "beIN Sports USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "fuboTV",
+          "channels": [
+            "fuboTV"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Canada",
+          "broadcaster": "beIN Sports CA",
+          "channels": [
+            "beIN Sports CA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Germany",
+          "region": "Germany",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot",
+            "Canal+ Live 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "Amazon Prime",
+          "channels": [
+            "Amazon Prime Video"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Netherlands",
+          "broadcaster": "Viaplay NL",
+          "channels": [
+            "Viaplay NL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "Eleven Sports PT",
+          "channels": [
+            "Eleven Sports PT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Nordics",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Poland",
+          "broadcaster": "Eleven Sports PL",
+          "channels": [
+            "Eleven Sports PL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "Canal+ Afrique",
+          "channels": [
+            "Canal+ Sport Afrique"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India / South Asia",
+          "region": "India / South Asia",
+          "broadcaster": "JioStar / Sony",
+          "channels": [
+            "JioStar / Sony"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Australia",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Japan",
+          "broadcaster": "DAZN JP",
+          "channels": [
+            "DAZN JP"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "South Korea",
+          "region": "South Korea",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Malaysia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 22
+    },
+    {
       "id": "sa_UDI_COM_2026-08-22",
       "competition": "Serie A",
       "comp_code": "SA",
@@ -54317,6 +55789,1270 @@
       "home_team": "Parma Calcio 1913",
       "away_team": "Cagliari Calcio",
       "kickoff": "2026-08-22T18:45:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1",
+            "TNT Sports 2",
+            "TNT Sports 3",
+            "TNT Sports 4"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Discovery+",
+          "channels": [
+            "Discovery+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Republic of Ireland",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1",
+            "TNT Sports 2",
+            "TNT Sports 3",
+            "TNT Sports 4"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "CBS Golazo",
+          "channels": [
+            "CBS Golazo"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Canada",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Germany",
+          "region": "Germany",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "Canal+ Sport FR",
+          "channels": [
+            "Canal+ Sport FR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN IT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "Sky Sport",
+          "channels": [
+            "Sky Sport"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Netherlands",
+          "broadcaster": "Viaplay NL",
+          "channels": [
+            "Viaplay NL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "Eleven Sports PT",
+          "channels": [
+            "Eleven Sports PT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Nordics",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Poland",
+          "broadcaster": "Eleven Sports PL",
+          "channels": [
+            "Eleven Sports PL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India / South Asia",
+          "region": "India / South Asia",
+          "broadcaster": "JioStar / Sony",
+          "channels": [
+            "JioStar / Sony"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Australia",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Japan",
+          "region": "Japan",
+          "broadcaster": "DAZN JP",
+          "channels": [
+            "DAZN JP"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "South Korea",
+          "region": "South Korea",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Malaysia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "Star+",
+          "channels": [
+            "Star+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 24
+    },
+    {
+      "id": "sa_FRO_JUV_2026-08-23",
+      "competition": "Serie A",
+      "comp_code": "SA",
+      "home_team": "Frosinone Calcio",
+      "away_team": "Juventus FC",
+      "kickoff": "2026-08-23T16:30:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1",
+            "TNT Sports 2",
+            "TNT Sports 3",
+            "TNT Sports 4"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Discovery+",
+          "channels": [
+            "Discovery+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Republic of Ireland",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1",
+            "TNT Sports 2",
+            "TNT Sports 3",
+            "TNT Sports 4"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "CBS Golazo",
+          "channels": [
+            "CBS Golazo"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Canada",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Germany",
+          "region": "Germany",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "Canal+ Sport FR",
+          "channels": [
+            "Canal+ Sport FR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN IT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "Sky Sport",
+          "channels": [
+            "Sky Sport"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Netherlands",
+          "broadcaster": "Viaplay NL",
+          "channels": [
+            "Viaplay NL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "Eleven Sports PT",
+          "channels": [
+            "Eleven Sports PT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Nordics",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Poland",
+          "broadcaster": "Eleven Sports PL",
+          "channels": [
+            "Eleven Sports PL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India / South Asia",
+          "region": "India / South Asia",
+          "broadcaster": "JioStar / Sony",
+          "channels": [
+            "JioStar / Sony"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Australia",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Japan",
+          "region": "Japan",
+          "broadcaster": "DAZN JP",
+          "channels": [
+            "DAZN JP"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "South Korea",
+          "region": "South Korea",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Malaysia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "Star+",
+          "channels": [
+            "Star+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 24
+    },
+    {
+      "id": "sa_VEN_US _2026-08-23",
+      "competition": "Serie A",
+      "comp_code": "SA",
+      "home_team": "Venezia FC",
+      "away_team": "US Lecce",
+      "kickoff": "2026-08-23T16:30:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1",
+            "TNT Sports 2",
+            "TNT Sports 3",
+            "TNT Sports 4"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Discovery+",
+          "channels": [
+            "Discovery+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Republic of Ireland",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1",
+            "TNT Sports 2",
+            "TNT Sports 3",
+            "TNT Sports 4"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "CBS Golazo",
+          "channels": [
+            "CBS Golazo"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Canada",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Germany",
+          "region": "Germany",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "Canal+ Sport FR",
+          "channels": [
+            "Canal+ Sport FR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN IT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "Sky Sport",
+          "channels": [
+            "Sky Sport"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Netherlands",
+          "broadcaster": "Viaplay NL",
+          "channels": [
+            "Viaplay NL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "Eleven Sports PT",
+          "channels": [
+            "Eleven Sports PT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Nordics",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Poland",
+          "broadcaster": "Eleven Sports PL",
+          "channels": [
+            "Eleven Sports PL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India / South Asia",
+          "region": "India / South Asia",
+          "broadcaster": "JioStar / Sony",
+          "channels": [
+            "JioStar / Sony"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Australia",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Japan",
+          "region": "Japan",
+          "broadcaster": "DAZN JP",
+          "channels": [
+            "DAZN JP"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "South Korea",
+          "region": "South Korea",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Malaysia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "Star+",
+          "channels": [
+            "Star+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 24
+    },
+    {
+      "id": "sa_ATA_US _2026-08-23",
+      "competition": "Serie A",
+      "comp_code": "SA",
+      "home_team": "Atalanta BC",
+      "away_team": "US Sassuolo Calcio",
+      "kickoff": "2026-08-23T18:45:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1",
+            "TNT Sports 2",
+            "TNT Sports 3",
+            "TNT Sports 4"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Discovery+",
+          "channels": [
+            "Discovery+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Republic of Ireland",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1",
+            "TNT Sports 2",
+            "TNT Sports 3",
+            "TNT Sports 4"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "CBS Golazo",
+          "channels": [
+            "CBS Golazo"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Canada",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Germany",
+          "region": "Germany",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "Canal+ Sport FR",
+          "channels": [
+            "Canal+ Sport FR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN IT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "Sky Sport",
+          "channels": [
+            "Sky Sport"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Netherlands",
+          "broadcaster": "Viaplay NL",
+          "channels": [
+            "Viaplay NL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "Eleven Sports PT",
+          "channels": [
+            "Eleven Sports PT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Nordics",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Poland",
+          "broadcaster": "Eleven Sports PL",
+          "channels": [
+            "Eleven Sports PL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India / South Asia",
+          "region": "India / South Asia",
+          "broadcaster": "JioStar / Sony",
+          "channels": [
+            "JioStar / Sony"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Australia",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Japan",
+          "region": "Japan",
+          "broadcaster": "DAZN JP",
+          "channels": [
+            "DAZN JP"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "South Korea",
+          "region": "South Korea",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Malaysia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "Star+",
+          "channels": [
+            "Star+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 24
+    },
+    {
+      "id": "sa_TOR_AC _2026-08-23",
+      "competition": "Serie A",
+      "comp_code": "SA",
+      "home_team": "Torino FC",
+      "away_team": "AC Milan",
+      "kickoff": "2026-08-23T18:45:00Z",
       "matchday": 1,
       "stage": "REGULAR_SEASON",
       "group": null,
@@ -58383,13 +61119,13 @@
       "broadcaster_count": 24
     },
     {
-      "id": "ded_NEC_TEL_2026-08-08",
-      "competition": "Eredivisie",
-      "comp_code": "DED",
-      "home_team": "NEC",
-      "away_team": "Telstar 1963",
-      "kickoff": "2026-08-08T14:30:00Z",
-      "matchday": 1,
+      "id": "pd_CLU_VIL_2026-08-23",
+      "competition": "La Liga",
+      "comp_code": "PD",
+      "home_team": "Club Atlético de Madrid",
+      "away_team": "Villarreal CF",
+      "kickoff": "2026-08-23T15:00:00Z",
+      "matchday": 2,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
@@ -58403,6 +61139,17 @@
             "Premier Sports 2"
           ],
           "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "FreeSports",
+          "channels": [
+            "FreeSports"
+          ],
+          "type": "free_tv",
           "coverage": "live",
           "confidence": "medium"
         },
@@ -58425,6 +61172,18 @@
           "broadcaster": "ESPN+",
           "channels": [
             "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "ESPN Deportes",
+          "channels": [
+            "ESPN Deportes"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -58460,9 +61219,9 @@
         {
           "territory": "France",
           "region": "France",
-          "broadcaster": "Canal+ Sport FR",
+          "broadcaster": "beIN Sports FR",
           "channels": [
-            "Canal+ Sport FR"
+            "beIN Sports FR"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -58483,6 +61242,18 @@
           "source": "rights"
         },
         {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "Movistar LaLiga",
+          "channels": [
+            "Movistar LaLiga"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
           "territory": "Italy",
           "region": "Italy",
           "broadcaster": "DAZN",
@@ -58498,16 +61269,14 @@
         {
           "territory": "Netherlands",
           "region": "Netherlands",
-          "broadcaster": "Ziggo Sport",
+          "broadcaster": "Viaplay NL",
           "channels": [
-            "Ziggo Sport",
-            "Ziggo Sport Select",
-            "Ziggo Sport Extra"
+            "Viaplay NL"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "low",
+          "source": "rights_db_generic"
         },
         {
           "territory": "Portugal",
@@ -58646,18 +61415,30 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "Star+",
+          "channels": [
+            "Star+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
         }
       ],
-      "broadcaster_count": 20
+      "broadcaster_count": 24
     },
     {
-      "id": "ded_GO _WIL_2026-08-08",
-      "competition": "Eredivisie",
-      "comp_code": "DED",
-      "home_team": "Go Ahead Eagles",
-      "away_team": "Willem II Tilburg",
-      "kickoff": "2026-08-08T16:45:00Z",
-      "matchday": 1,
+      "id": "pd_GET_REA_2026-08-23",
+      "competition": "La Liga",
+      "comp_code": "PD",
+      "home_team": "Getafe CF",
+      "away_team": "Real Racing Club de Santander",
+      "kickoff": "2026-08-23T17:30:00Z",
+      "matchday": 2,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
@@ -58671,6 +61452,17 @@
             "Premier Sports 2"
           ],
           "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "FreeSports",
+          "channels": [
+            "FreeSports"
+          ],
+          "type": "free_tv",
           "coverage": "live",
           "confidence": "medium"
         },
@@ -58693,6 +61485,18 @@
           "broadcaster": "ESPN+",
           "channels": [
             "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "ESPN Deportes",
+          "channels": [
+            "ESPN Deportes"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -58728,9 +61532,9 @@
         {
           "territory": "France",
           "region": "France",
-          "broadcaster": "Canal+ Sport FR",
+          "broadcaster": "beIN Sports FR",
           "channels": [
-            "Canal+ Sport FR"
+            "beIN Sports FR"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -58751,6 +61555,18 @@
           "source": "rights"
         },
         {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "Movistar LaLiga",
+          "channels": [
+            "Movistar LaLiga"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
           "territory": "Italy",
           "region": "Italy",
           "broadcaster": "DAZN",
@@ -58766,16 +61582,14 @@
         {
           "territory": "Netherlands",
           "region": "Netherlands",
-          "broadcaster": "Ziggo Sport",
+          "broadcaster": "Viaplay NL",
           "channels": [
-            "Ziggo Sport",
-            "Ziggo Sport Select",
-            "Ziggo Sport Extra"
+            "Viaplay NL"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "low",
+          "source": "rights_db_generic"
         },
         {
           "territory": "Portugal",
@@ -58914,18 +61728,30 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "Star+",
+          "channels": [
+            "Star+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
         }
       ],
-      "broadcaster_count": 20
+      "broadcaster_count": 24
     },
     {
-      "id": "ded_PSV_FOR_2026-08-08",
-      "competition": "Eredivisie",
-      "comp_code": "DED",
-      "home_team": "PSV",
-      "away_team": "Fortuna Sittard",
-      "kickoff": "2026-08-08T18:00:00Z",
-      "matchday": 1,
+      "id": "pd_ELC_FC _2026-08-23",
+      "competition": "La Liga",
+      "comp_code": "PD",
+      "home_team": "Elche CF",
+      "away_team": "FC Barcelona",
+      "kickoff": "2026-08-23T19:30:00Z",
+      "matchday": 2,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
@@ -58939,6 +61765,17 @@
             "Premier Sports 2"
           ],
           "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "FreeSports",
+          "channels": [
+            "FreeSports"
+          ],
+          "type": "free_tv",
           "coverage": "live",
           "confidence": "medium"
         },
@@ -58961,6 +61798,18 @@
           "broadcaster": "ESPN+",
           "channels": [
             "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "ESPN Deportes",
+          "channels": [
+            "ESPN Deportes"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -58996,9 +61845,9 @@
         {
           "territory": "France",
           "region": "France",
-          "broadcaster": "Canal+ Sport FR",
+          "broadcaster": "beIN Sports FR",
           "channels": [
-            "Canal+ Sport FR"
+            "beIN Sports FR"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -59019,6 +61868,18 @@
           "source": "rights"
         },
         {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "Movistar LaLiga",
+          "channels": [
+            "Movistar LaLiga"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
           "territory": "Italy",
           "region": "Italy",
           "broadcaster": "DAZN",
@@ -59034,16 +61895,14 @@
         {
           "territory": "Netherlands",
           "region": "Netherlands",
-          "broadcaster": "Ziggo Sport",
+          "broadcaster": "Viaplay NL",
           "channels": [
-            "Ziggo Sport",
-            "Ziggo Sport Select",
-            "Ziggo Sport Extra"
+            "Viaplay NL"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "low",
+          "source": "rights_db_generic"
         },
         {
           "territory": "Portugal",
@@ -59182,269 +62041,13 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
-        }
-      ],
-      "broadcaster_count": 20
-    },
-    {
-      "id": "ded_AZ_ADO_2026-08-08",
-      "competition": "Eredivisie",
-      "comp_code": "DED",
-      "home_team": "AZ",
-      "away_team": "ADO Den Haag",
-      "kickoff": "2026-08-08T19:00:00Z",
-      "matchday": 1,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "is_blackout": false,
-      "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Republic of Ireland",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "ESPN+",
-          "channels": [
-            "ESPN+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Canada",
-          "region": "Canada",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Germany",
-          "region": "Germany",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "France",
-          "region": "France",
-          "broadcaster": "Canal+ Sport FR",
-          "channels": [
-            "Canal+ Sport FR"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Spain",
-          "region": "Spain",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Netherlands",
-          "region": "Netherlands",
-          "broadcaster": "Ziggo Sport",
-          "channels": [
-            "Ziggo Sport",
-            "Ziggo Sport Select",
-            "Ziggo Sport Extra"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Portugal",
-          "region": "Portugal",
-          "broadcaster": "Eleven Sports PT",
-          "channels": [
-            "Eleven Sports PT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Nordics",
-          "region": "Nordics",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay Sport 1",
-            "Viaplay Sport 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Poland",
-          "region": "Poland",
-          "broadcaster": "Eleven Sports PL",
-          "channels": [
-            "Eleven Sports PL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Middle East & N. Africa",
-          "region": "Middle East & N. Africa",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Sports HD 1",
-            "beIN Sports HD 2",
-            "beIN Sports HD 3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Sub-Saharan Africa",
-          "region": "Sub-Saharan Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Premier League",
-            "SuperSport Football",
-            "SuperSport Variety 1"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "India / South Asia",
-          "region": "India / South Asia",
-          "broadcaster": "JioStar / Sony",
-          "channels": [
-            "JioStar / Sony"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Australia",
-          "region": "Australia",
-          "broadcaster": "Optus Sport",
-          "channels": [
-            "Optus Sport"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Japan",
-          "region": "Japan",
-          "broadcaster": "DAZN JP",
-          "channels": [
-            "DAZN JP"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "South Korea",
-          "region": "South Korea",
-          "broadcaster": "Coupang Play",
-          "channels": [
-            "Coupang Play"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Malaysia",
-          "region": "Malaysia",
-          "broadcaster": "Astro",
-          "channels": [
-            "Astro SuperSport 2",
-            "Astro SuperSport 3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
         },
         {
           "territory": "Brazil / S. America",
           "region": "Brazil / S. America",
-          "broadcaster": "ESPN BR",
+          "broadcaster": "Star+",
           "channels": [
-            "ESPN BR"
+            "Star+"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -59452,7 +62055,7 @@
           "source": "rights_db_generic"
         }
       ],
-      "broadcaster_count": 20
+      "broadcaster_count": 24
     },
     {
       "id": "ded_SPA_FEY_2026-08-09",
@@ -64011,13 +66614,13 @@
       "broadcaster_count": 20
     },
     {
-      "id": "ppl_CS _CAS_2026-08-08",
-      "competition": "Primeira Liga",
-      "comp_code": "PPL",
-      "home_team": "CS Marítimo",
-      "away_team": "Casa Pia AC",
-      "kickoff": "2026-08-08T14:30:00Z",
-      "matchday": 1,
+      "id": "ded_GO _ADO_2026-08-23",
+      "competition": "Eredivisie",
+      "comp_code": "DED",
+      "home_team": "Go Ahead Eagles",
+      "away_team": "ADO Den Haag",
+      "kickoff": "2026-08-23T10:15:00Z",
+      "matchday": 3,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
@@ -64031,17 +66634,6 @@
             "Premier Sports 2"
           ],
           "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "FreeSports",
-          "channels": [
-            "FreeSports"
-          ],
-          "type": "free_tv",
           "coverage": "live",
           "confidence": "medium"
         },
@@ -64064,18 +66656,6 @@
           "broadcaster": "ESPN+",
           "channels": [
             "ESPN+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "ESPN Deportes",
-          "channels": [
-            "ESPN Deportes"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -64111,9 +66691,9 @@
         {
           "territory": "France",
           "region": "France",
-          "broadcaster": "beIN Sports FR",
+          "broadcaster": "Canal+ Sport FR",
           "channels": [
-            "beIN Sports FR"
+            "Canal+ Sport FR"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -64132,18 +66712,6 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
-        },
-        {
-          "territory": "Spain",
-          "region": "Spain",
-          "broadcaster": "Movistar LaLiga",
-          "channels": [
-            "Movistar LaLiga"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
         },
         {
           "territory": "Italy",
@@ -64161,14 +66729,16 @@
         {
           "territory": "Netherlands",
           "region": "Netherlands",
-          "broadcaster": "Viaplay NL",
+          "broadcaster": "Ziggo Sport",
           "channels": [
-            "Viaplay NL"
+            "Ziggo Sport",
+            "Ziggo Sport Select",
+            "Ziggo Sport Extra"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
+          "confidence": "medium",
+          "source": "rights"
         },
         {
           "territory": "Portugal",
@@ -64307,30 +66877,18 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
-        },
-        {
-          "territory": "Brazil / S. America",
-          "region": "Brazil / S. America",
-          "broadcaster": "Star+",
-          "channels": [
-            "Star+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
         }
       ],
-      "broadcaster_count": 24
+      "broadcaster_count": 20
     },
     {
-      "id": "ppl_VIT_FC _2026-08-08",
-      "competition": "Primeira Liga",
-      "comp_code": "PPL",
-      "home_team": "Vitória SC",
-      "away_team": "FC Arouca",
-      "kickoff": "2026-08-08T17:00:00Z",
-      "matchday": 1,
+      "id": "ded_PSV_FC _2026-08-23",
+      "competition": "Eredivisie",
+      "comp_code": "DED",
+      "home_team": "PSV",
+      "away_team": "FC Groningen",
+      "kickoff": "2026-08-23T12:30:00Z",
+      "matchday": 3,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
@@ -64344,17 +66902,6 @@
             "Premier Sports 2"
           ],
           "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "FreeSports",
-          "channels": [
-            "FreeSports"
-          ],
-          "type": "free_tv",
           "coverage": "live",
           "confidence": "medium"
         },
@@ -64377,18 +66924,6 @@
           "broadcaster": "ESPN+",
           "channels": [
             "ESPN+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "ESPN Deportes",
-          "channels": [
-            "ESPN Deportes"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -64424,9 +66959,9 @@
         {
           "territory": "France",
           "region": "France",
-          "broadcaster": "beIN Sports FR",
+          "broadcaster": "Canal+ Sport FR",
           "channels": [
-            "beIN Sports FR"
+            "Canal+ Sport FR"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -64445,18 +66980,6 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
-        },
-        {
-          "territory": "Spain",
-          "region": "Spain",
-          "broadcaster": "Movistar LaLiga",
-          "channels": [
-            "Movistar LaLiga"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
         },
         {
           "territory": "Italy",
@@ -64474,14 +66997,16 @@
         {
           "territory": "Netherlands",
           "region": "Netherlands",
-          "broadcaster": "Viaplay NL",
+          "broadcaster": "Ziggo Sport",
           "channels": [
-            "Viaplay NL"
+            "Ziggo Sport",
+            "Ziggo Sport Select",
+            "Ziggo Sport Extra"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
+          "confidence": "medium",
+          "source": "rights"
         },
         {
           "territory": "Portugal",
@@ -64620,30 +67145,18 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
-        },
-        {
-          "territory": "Brazil / S. America",
-          "region": "Brazil / S. America",
-          "broadcaster": "Star+",
-          "channels": [
-            "Star+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
         }
       ],
-      "broadcaster_count": 24
+      "broadcaster_count": 20
     },
     {
-      "id": "ppl_CF _SPO_2026-08-08",
-      "competition": "Primeira Liga",
-      "comp_code": "PPL",
-      "home_team": "CF Estrela da Amadora",
-      "away_team": "Sporting Clube de Portugal",
-      "kickoff": "2026-08-08T19:30:00Z",
-      "matchday": 1,
+      "id": "ded_SC _FEY_2026-08-23",
+      "competition": "Eredivisie",
+      "comp_code": "DED",
+      "home_team": "SC Cambuur-Leeuwarden",
+      "away_team": "Feyenoord Rotterdam",
+      "kickoff": "2026-08-23T14:45:00Z",
+      "matchday": 3,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
@@ -64657,17 +67170,6 @@
             "Premier Sports 2"
           ],
           "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "FreeSports",
-          "channels": [
-            "FreeSports"
-          ],
-          "type": "free_tv",
           "coverage": "live",
           "confidence": "medium"
         },
@@ -64690,18 +67192,6 @@
           "broadcaster": "ESPN+",
           "channels": [
             "ESPN+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "ESPN Deportes",
-          "channels": [
-            "ESPN Deportes"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -64737,9 +67227,9 @@
         {
           "territory": "France",
           "region": "France",
-          "broadcaster": "beIN Sports FR",
+          "broadcaster": "Canal+ Sport FR",
           "channels": [
-            "beIN Sports FR"
+            "Canal+ Sport FR"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -64758,18 +67248,6 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
-        },
-        {
-          "territory": "Spain",
-          "region": "Spain",
-          "broadcaster": "Movistar LaLiga",
-          "channels": [
-            "Movistar LaLiga"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
         },
         {
           "territory": "Italy",
@@ -64787,14 +67265,16 @@
         {
           "territory": "Netherlands",
           "region": "Netherlands",
-          "broadcaster": "Viaplay NL",
+          "broadcaster": "Ziggo Sport",
           "channels": [
-            "Viaplay NL"
+            "Ziggo Sport",
+            "Ziggo Sport Select",
+            "Ziggo Sport Extra"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
+          "confidence": "medium",
+          "source": "rights"
         },
         {
           "territory": "Portugal",
@@ -64933,21 +67413,9 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
-        },
-        {
-          "territory": "Brazil / S. America",
-          "region": "Brazil / S. America",
-          "broadcaster": "Star+",
-          "channels": [
-            "Star+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
         }
       ],
-      "broadcaster_count": 24
+      "broadcaster_count": 20
     },
     {
       "id": "ppl_FC _FC _2026-08-09",
@@ -70271,31 +72739,17 @@
       "broadcaster_count": 24
     },
     {
-      "id": "sp1_ST._ST._2026-08-08",
-      "competition": "Scottish Premiership",
-      "comp_code": "SP1",
-      "home_team": "St. Mirren",
-      "away_team": "St. Johnstone",
-      "kickoff": "2026-08-08T14:00:00Z",
-      "matchday": null,
+      "id": "ppl_VIT_CD _2026-08-23",
+      "competition": "Primeira Liga",
+      "comp_code": "PPL",
+      "home_team": "Vitória SC",
+      "away_team": "CD Nacional",
+      "kickoff": "2026-08-23T14:30:00Z",
+      "matchday": 3,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
         {
           "territory": "United Kingdom",
           "region": "UK",
@@ -70311,43 +72765,17 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "BBC Scotland",
+          "broadcaster": "FreeSports",
           "channels": [
-            "BBC Scotland"
+            "FreeSports"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Alba",
-          "channels": [
-            "BBC Alba"
-          ],
-          "type": "pay_tv",
+          "type": "free_tv",
           "coverage": "live",
           "confidence": "medium"
         },
         {
           "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
+          "region": "Republic of Ireland",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -70360,10 +72788,22 @@
         },
         {
           "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "Paramount+",
+          "region": "United States",
+          "broadcaster": "ESPN+",
           "channels": [
-            "Paramount+"
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "ESPN Deportes",
+          "channels": [
+            "ESPN Deportes"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -70372,10 +72812,36 @@
         },
         {
           "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "Paramount+",
+          "region": "Canada",
+          "broadcaster": "DAZN",
           "channels": [
-            "Paramount+"
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Germany",
+          "region": "Germany",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "beIN Sports FR",
+          "channels": [
+            "beIN Sports FR"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -70383,16 +72849,91 @@
           "source": "rights_db_generic"
         },
         {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Optus Sport",
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "DAZN",
           "channels": [
-            "Optus Sport"
+            "DAZN 1",
+            "DAZN 2"
           ],
           "type": "streaming",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "Movistar LaLiga",
+          "channels": [
+            "Movistar LaLiga"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Netherlands",
+          "broadcaster": "Viaplay NL",
+          "channels": [
+            "Viaplay NL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "Eleven Sports PT",
+          "channels": [
+            "Eleven Sports PT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Nordics",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Poland",
+          "broadcaster": "Eleven Sports PL",
+          "channels": [
+            "Eleven Sports PL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
         },
         {
           "territory": "Middle East & N. Africa",
@@ -70410,7 +72951,7 @@
         },
         {
           "territory": "Sub-Saharan Africa",
-          "region": "Africa",
+          "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
             "SuperSport Premier League",
@@ -70423,11 +72964,84 @@
           "source": "rights"
         },
         {
-          "territory": "International",
-          "region": "International",
-          "broadcaster": "Premier Sports International",
+          "territory": "India / South Asia",
+          "region": "India / South Asia",
+          "broadcaster": "JioStar / Sony",
           "channels": [
-            "Premier Sports International"
+            "JioStar / Sony"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Australia",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Japan",
+          "broadcaster": "DAZN JP",
+          "channels": [
+            "DAZN JP"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "South Korea",
+          "region": "South Korea",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Malaysia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "Star+",
+          "channels": [
+            "Star+"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -70435,34 +73049,20 @@
           "source": "rights_db_generic"
         }
       ],
-      "broadcaster_count": 12
+      "broadcaster_count": 24
     },
     {
-      "id": "sp1_DUN_ABE_2026-08-08",
-      "competition": "Scottish Premiership",
-      "comp_code": "SP1",
-      "home_team": "Dundee",
-      "away_team": "Aberdeen",
-      "kickoff": "2026-08-08T14:00:00Z",
-      "matchday": null,
+      "id": "ppl_CD _FC _2026-08-23",
+      "competition": "Primeira Liga",
+      "comp_code": "PPL",
+      "home_team": "CD Santa Clara",
+      "away_team": "FC Famalicão",
+      "kickoff": "2026-08-23T17:00:00Z",
+      "matchday": 3,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
       "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
         {
           "territory": "United Kingdom",
           "region": "UK",
@@ -70478,43 +73078,17 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "BBC Scotland",
+          "broadcaster": "FreeSports",
           "channels": [
-            "BBC Scotland"
+            "FreeSports"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Alba",
-          "channels": [
-            "BBC Alba"
-          ],
-          "type": "pay_tv",
+          "type": "free_tv",
           "coverage": "live",
           "confidence": "medium"
         },
         {
           "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
+          "region": "Republic of Ireland",
           "broadcaster": "Premier Sports",
           "channels": [
             "Premier Sports 1",
@@ -70527,10 +73101,22 @@
         },
         {
           "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "Paramount+",
+          "region": "United States",
+          "broadcaster": "ESPN+",
           "channels": [
-            "Paramount+"
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "ESPN Deportes",
+          "channels": [
+            "ESPN Deportes"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -70539,10 +73125,36 @@
         },
         {
           "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "Paramount+",
+          "region": "Canada",
+          "broadcaster": "DAZN",
           "channels": [
-            "Paramount+"
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Germany",
+          "region": "Germany",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "beIN Sports FR",
+          "channels": [
+            "beIN Sports FR"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -70550,16 +73162,91 @@
           "source": "rights_db_generic"
         },
         {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Optus Sport",
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "DAZN",
           "channels": [
-            "Optus Sport"
+            "DAZN 1",
+            "DAZN 2"
           ],
           "type": "streaming",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "Movistar LaLiga",
+          "channels": [
+            "Movistar LaLiga"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Netherlands",
+          "broadcaster": "Viaplay NL",
+          "channels": [
+            "Viaplay NL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "Eleven Sports PT",
+          "channels": [
+            "Eleven Sports PT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Nordics",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Poland",
+          "broadcaster": "Eleven Sports PL",
+          "channels": [
+            "Eleven Sports PL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
         },
         {
           "territory": "Middle East & N. Africa",
@@ -70577,7 +73264,7 @@
         },
         {
           "territory": "Sub-Saharan Africa",
-          "region": "Africa",
+          "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
             "SuperSport Premier League",
@@ -70590,11 +73277,84 @@
           "source": "rights"
         },
         {
-          "territory": "International",
-          "region": "International",
-          "broadcaster": "Premier Sports International",
+          "territory": "India / South Asia",
+          "region": "India / South Asia",
+          "broadcaster": "JioStar / Sony",
           "channels": [
-            "Premier Sports International"
+            "JioStar / Sony"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Australia",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Japan",
+          "broadcaster": "DAZN JP",
+          "channels": [
+            "DAZN JP"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "South Korea",
+          "region": "South Korea",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Malaysia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "Star+",
+          "channels": [
+            "Star+"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -70602,7 +73362,320 @@
           "source": "rights_db_generic"
         }
       ],
-      "broadcaster_count": 12
+      "broadcaster_count": 24
+    },
+    {
+      "id": "ppl_FC _FC _2026-08-23",
+      "competition": "Primeira Liga",
+      "comp_code": "PPL",
+      "home_team": "FC Porto",
+      "away_team": "FC Arouca",
+      "kickoff": "2026-08-23T19:30:00Z",
+      "matchday": 3,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "FreeSports",
+          "channels": [
+            "FreeSports"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Republic of Ireland",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "ESPN+",
+          "channels": [
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "ESPN Deportes",
+          "channels": [
+            "ESPN Deportes"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Canada",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Germany",
+          "region": "Germany",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "beIN Sports FR",
+          "channels": [
+            "beIN Sports FR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "Movistar LaLiga",
+          "channels": [
+            "Movistar LaLiga"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Netherlands",
+          "broadcaster": "Viaplay NL",
+          "channels": [
+            "Viaplay NL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "Eleven Sports PT",
+          "channels": [
+            "Eleven Sports PT"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Nordics",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Poland",
+          "broadcaster": "Eleven Sports PL",
+          "channels": [
+            "Eleven Sports PL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India / South Asia",
+          "region": "India / South Asia",
+          "broadcaster": "JioStar / Sony",
+          "channels": [
+            "JioStar / Sony"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Australia",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Japan",
+          "broadcaster": "DAZN JP",
+          "channels": [
+            "DAZN JP"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "South Korea",
+          "region": "South Korea",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Malaysia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "Star+",
+          "channels": [
+            "Star+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 24
     },
     {
       "id": "sp1_KIL_CEL_2026-08-09",
@@ -75385,13 +78458,13 @@
       "broadcaster_count": 3
     },
     {
-      "id": "nat_SCU_YEO_2026-08-08",
+      "id": "nat_SOU_SCU_2026-08-15",
       "competition": "National League",
       "comp_code": "NAT",
-      "home_team": "Scunthorpe United",
-      "away_team": "Yeovil Town",
-      "kickoff": "2026-08-08T14:00:00Z",
-      "matchday": 1,
+      "home_team": "Southend United",
+      "away_team": "Scunthorpe United",
+      "kickoff": "2026-08-15T14:00:00Z",
+      "matchday": 2,
       "stage": "NS",
       "group": null,
       "is_blackout": false,
@@ -75947,12 +79020,12 @@
       "broadcaster_count": 43
     },
     {
-      "id": "eflcup_CAM_BAR_2026-08-08",
+      "id": "eflcup_MAN_SHE_2026-08-09",
       "competition": "EFL Cup",
       "comp_code": "EFLCUP",
-      "home_team": "Cambridge United",
-      "away_team": "Barnet",
-      "kickoff": "2026-08-08T12:00:00Z",
+      "home_team": "Mansfield Town",
+      "away_team": "Sheffield United",
+      "kickoff": "2026-08-09T15:00:00Z",
       "matchday": 128,
       "stage": "NS",
       "group": null,
@@ -75977,15 +79050,15 @@
           "region": "Europe",
           "broadcaster": "Sky Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Sky Sports Main Event HD Ireland",
+            "Sky Sports Football HD Ireland",
+            "Sky Sports Main Event Ireland",
+            "Sky Sports Football Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "epg"
         },
         {
           "territory": "Republic of Ireland",
@@ -76540,12 +79613,12 @@
       "broadcaster_count": 45
     },
     {
-      "id": "facup_MAR_CAS_2026-08-08",
+      "id": "facup_POR_ALV_2026-08-09",
       "competition": "FA Cup",
       "comp_code": "FACUP",
-      "home_team": "Marítimo",
-      "away_team": "Casa Pia",
-      "kickoff": "2026-08-08T14:30:00Z",
+      "home_team": "Porto",
+      "away_team": "Alverca",
+      "kickoff": "2026-08-09T17:00:00Z",
       "matchday": 1,
       "stage": "NS",
       "group": null,
@@ -77158,12 +80231,12 @@
       "broadcaster_count": 47
     },
     {
-      "id": "sch_STA_CER_2026-08-08",
+      "id": "sch_GEN_MEC_2026-08-09",
       "competition": "Scottish Championship",
       "comp_code": "SCH",
-      "home_team": "Standard Liège",
-      "away_team": "Cercle Brugge",
-      "kickoff": "2026-08-08T16:15:00Z",
+      "home_team": "Gent",
+      "away_team": "Mechelen",
+      "kickoff": "2026-08-09T11:30:00Z",
       "matchday": 1,
       "stage": "NS",
       "group": null,
@@ -77325,12 +80398,12 @@
       "broadcaster_count": 12
     },
     {
-      "id": "scup_NEC_TEL_2026-08-08",
+      "id": "scup_SPA_FEY_2026-08-09",
       "competition": "Scottish Cup",
       "comp_code": "SCUP",
-      "home_team": "NEC Nijmegen",
-      "away_team": "Telstar",
-      "kickoff": "2026-08-08T14:30:00Z",
+      "home_team": "Sparta Rotterdam",
+      "away_team": "Feyenoord",
+      "kickoff": "2026-08-09T10:15:00Z",
       "matchday": 1,
       "stage": "NS",
       "group": null,
