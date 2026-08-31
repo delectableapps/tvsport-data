@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-08-31T08:03:31Z",
-  "lastUpdated": "2026-08-31T08:03:31Z",
+  "generated_at": "2026-08-31T09:16:47Z",
+  "lastUpdated": "2026-08-31T09:16:47Z",
   "fixture_count": 902,
   "fixtures": [
     {
@@ -110903,7 +110903,7 @@
       "comp_code": "SA",
       "home_team": "Cagliari Calcio",
       "away_team": "US Lecce",
-      "kickoff": "2026-09-07T16:00:00Z",
+      "kickoff": "2026-09-07T16:30:00Z",
       "matchday": 3,
       "stage": "REGULAR_SEASON",
       "group": null,
