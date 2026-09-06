@@ -57,6 +57,17 @@ jobs:
           cd scraper
           python merger.py
 
+      - name: Run TVsport RUGBY scraper
+        # Separate output file (output/rugby_fixtures.json) so a rugby
+        # source failure can never touch the football feed. Non-fatal: if
+        # it fails the previous rugby_fixtures.json stays in place.
+        if: always()
+        env:
+          LIVEONSAT_JSON_PATH: ../output/liveonsat.json
+        run: |
+          cd scraper
+          python rugby_merger.py || echo "::warning::rugby_merger.py failed - previous rugby_fixtures.json kept"
+
       - name: Audit fixture data
         if: always()
         run: |
@@ -64,6 +75,10 @@ jobs:
           python scraper/liveonsat_audit.py > /dev/null || true
           if [ -f output/liveonsat_audit.md ]; then
             cat output/liveonsat_audit.md >> $GITHUB_STEP_SUMMARY
+          fi
+          python scraper/rugby_liveonsat_audit.py > /dev/null || true
+          if [ -f output/rugby_liveonsat_audit.md ]; then
+            cat output/rugby_liveonsat_audit.md >> $GITHUB_STEP_SUMMARY
           fi
 
       - name: Health check (fails the run -> GitHub emails you)
@@ -140,11 +155,13 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add output/fixtures.json
+          [ -f output/rugby_fixtures.json ] && git add output/rugby_fixtures.json
           if git diff --staged --quiet; then
             echo "No changes — skipping commit"
           else
             COUNT=$(python3 -c "import json; print(json.load(open('output/fixtures.json'))['fixture_count'])")
-            git commit -m "Update fixtures.json — ${COUNT} fixtures [skip ci]"
+            RCOUNT=$(python3 -c "import json,os; print(json.load(open('output/rugby_fixtures.json'))['fixture_count'] if os.path.exists('output/rugby_fixtures.json') else 0)")
+            git commit -m "Update fixtures.json — ${COUNT} football, ${RCOUNT} rugby [skip ci]"
             git push
           fi
 
@@ -167,4 +184,22 @@ jobs:
                   print(f'- {comp}: {count}')
           except Exception as e:
               print(f'Could not generate summary: {e}')
+          try:
+              r = json.load(open('output/rugby_fixtures.json'))
+              rf = r.get('fixtures', [])
+              from collections import Counter
+              print()
+              print('## Rugby Union')
+              print(f"Total fixtures: {r.get('fixture_count',0)}")
+              for comp, count in sorted(Counter(f['competition'] for f in rf).items()):
+                  conf = sum(1 for f in rf if f['competition'] == comp and f.get('liveonsat_confirmed'))
+                  print(f'- {comp}: {count} ({conf} liveonsat-confirmed)')
+              rev = [f for f in rf if f.get('needs_review')]
+              if rev:
+                  print()
+                  print(f'### {len(rev)} rugby fixtures added from liveonsat only (check names):')
+                  for f in rev[:20]:
+                      print(f"- {f['competition']}: {f['home_team']} v {f['away_team']} {f['kickoff']}")
+          except Exception as e:
+              print(f'No rugby summary: {e}')
           PYEOF
