@@ -66,6 +66,61 @@ jobs:
             cat output/liveonsat_audit.md >> $GITHUB_STEP_SUMMARY
           fi
 
+      - name: Health check (fails the run -> GitHub emails you)
+        # Only conditions that need a human. Rights mismatches and coverage
+        # gaps are a backlog, not an alarm, so they stay in the summary only.
+        run: |
+          python3 - <<'PYEOF'
+          import json, os, sys, subprocess
+          from datetime import datetime, timezone
+          problems = []
+          now = datetime.now(timezone.utc)
+
+          # 1. liveonsat.json present and fresh (run_liveonsat.bat on the PC)
+          if not os.path.exists("output/liveonsat.json"):
+              problems.append("liveonsat.json missing - PC scrape or Dropbox link not working")
+          else:
+              d = json.load(open("output/liveonsat.json"))
+              try:
+                  age = (now - datetime.fromisoformat(d["fetched_at"].replace("Z", "+00:00"))).days
+              except Exception:
+                  age = 99
+              if age > 3:
+                  problems.append(f"liveonsat.json is {age} days old - has run_liveonsat.bat stopped running?")
+              if len(d.get("fixtures", [])) < 200:
+                  problems.append(f"liveonsat.json has only {len(d.get('fixtures', []))} fixtures - page structure may have changed")
+
+          # 2. fixtures.json sanity
+          f = json.load(open("output/fixtures.json"))
+          n = f.get("fixture_count", len(f.get("fixtures", [])))
+          if n < 100:
+              problems.append(f"fixtures.json has only {n} fixtures - a source has probably failed")
+          prev = subprocess.run(["git", "show", "HEAD:output/fixtures.json"], capture_output=True, text=True)
+          if prev.returncode == 0:
+              try:
+                  pn = json.loads(prev.stdout).get("fixture_count", 0)
+                  if pn and n < pn * 0.6:
+                      problems.append(f"fixture count dropped from {pn} to {n} (>40%)")
+              except Exception:
+                  pass
+
+          # 3. the ROI pick actually landed on at least one blackout match
+          #    (only meaningful when there are blackout fixtures in range)
+          bo = [x for x in f["fixtures"] if x.get("is_blackout")]
+          roi = [x for x in bo if any(b.get("source") == "liveonsat" for b in x["broadcasters"])]
+          if bo and not roi and os.path.exists("output/liveonsat.json"):
+              problems.append(f"{len(bo)} blackout fixtures but no liveonsat-confirmed ROI pick - matching may be broken")
+
+          if problems:
+              print("::error::HEALTH CHECK FAILED")
+              for p in problems:
+                  print(f"::error::{p}")
+              with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as fh:
+                  fh.write("\n\n## :rotating_light: Health check failed\n\n" + "\n".join(f"- {p}" for p in problems) + "\n")
+              sys.exit(1)
+          print("health check OK")
+          PYEOF
+
       - name: Validate fixtures.json
         run: |
           python3 - <<'PYEOF'
