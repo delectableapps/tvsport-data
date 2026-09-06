@@ -38,7 +38,7 @@ TSDB_COMPETITIONS = {
     # English EFL — verified IDs from thesportsdb.com URLs
     "4396":  {"name": "EFL League One",       "code": "EL1",    "display": "League One",        "days": 21},
     "4397":  {"name": "EFL League Two",       "code": "EL2",    "display": "League Two",        "days": 21},
-    "4479":  {"name": "National League",      "code": "NAT",    "display": "National League",   "days": 21},
+    "4590":  {"name": "National League",      "code": "NAT",    "display": "National League",   "days": 21},
     "4570":  {"name": "EFL Cup",              "code": "EFLCUP", "display": "EFL Cup",           "days": 30},
     # Scottish — supplement to Sportmonks (which only covers Premiership)
     # REMOVED 6 Sep 2026 — these IDs were WRONG and leaked foreign fixtures:
@@ -72,6 +72,7 @@ def _fetch_next_events(league_id: str, days: int) -> list:
     """
     Fetch upcoming events for a league using TheSportsDB v1 API.
     Uses eventsnextleague.php which returns the next 25 events.
+    Note: eventsseason.php requires premium API key - not available on free tier.
     """
     url = f"{API_BASE}/{API_KEY}/eventsnextleague.php"
     params = {"id": league_id}
