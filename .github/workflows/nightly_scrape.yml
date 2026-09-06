@@ -19,12 +19,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 1
 
       - name: Set up Python 3.11
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.11"
           cache: "pip"
@@ -33,13 +33,38 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r scraper/requirements.txt
 
+      - name: Fetch pre-scraped liveonsat.json
+        # liveonsat.com blocks GitHub's IP ranges, so run_liveonsat.bat on a
+        # home PC scrapes it into Dropbox and this step pulls it from there.
+        # Missing/empty secret or a failed download is NOT fatal: the merger
+        # falls back to EPG + rights.
+        env:
+          LIVEONSAT_JSON_URL: ${{ secrets.LIVEONSAT_JSON_URL }}
+        run: |
+          if [ -z "$LIVEONSAT_JSON_URL" ]; then
+            echo "LIVEONSAT_JSON_URL secret not set - skipping"; exit 0
+          fi
+          URL="${LIVEONSAT_JSON_URL/dl=0/dl=1}"
+          curl -sSL --max-time 60 -o output/liveonsat.json "$URL" || { echo "download failed"; rm -f output/liveonsat.json; exit 0; }
+          python3 -c "import json;d=json.load(open('output/liveonsat.json'));print('liveonsat.json:',len(d['fixtures']),'fixtures, fetched',d.get('fetched_at'))" || rm -f output/liveonsat.json
+
       - name: Run TVsport scraper
         env:
           FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
           SPORTMONKS_API_KEY: ${{ secrets.SPORTMONKS_API_KEY }}
+          LIVEONSAT_JSON_PATH: ../output/liveonsat.json
         run: |
           cd scraper
           python merger.py
+
+      - name: Audit fixture data
+        if: always()
+        run: |
+          python scraper/audit_fixtures.py || true
+          python scraper/liveonsat_audit.py > /dev/null || true
+          if [ -f output/liveonsat_audit.md ]; then
+            cat output/liveonsat_audit.md >> $GITHUB_STEP_SUMMARY
+          fi
 
       - name: Validate fixtures.json
         run: |
