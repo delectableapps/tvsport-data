@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-06T15:45:01Z",
-  "lastUpdated": "2026-09-06T15:45:01Z",
+  "generated_at": "2026-09-06T15:54:02Z",
+  "lastUpdated": "2026-09-06T15:54:02Z",
   "fixture_count": 261,
   "fixtures": [
     {
@@ -1494,6 +1494,18 @@
           "source": "rights_db_generic"
         },
         {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1 Ireland"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -2459,7 +2471,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 97
+      "broadcaster_count": 98
     },
     {
       "id": "pl_AST_NOT_2026-09-12",
@@ -16535,6 +16547,18 @@
           "source": "rights_db_generic"
         },
         {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1 Ireland"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "Italy",
           "region": "Europe",
           "broadcaster": "Sky Italia",
@@ -17500,7 +17524,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 97
+      "broadcaster_count": 98
     },
     {
       "id": "pl_NEW_HUL_2026-09-19",
