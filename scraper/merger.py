@@ -417,12 +417,32 @@ def enrich_epg(fixtures: list) -> dict:
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# STEP 4b — LIVEONSAT CONFIRMATION (per-match, per-territory)
+# Resolves things static rights cannot: e.g. which single 3pm-BST Saturday
+# EPL match Premier Sports Ireland actually selected.
+# ─────────────────────────────────────────────────────────────────────────────
+
+def enrich_liveonsat(fixtures: list) -> dict:
+    try:
+        from liveonsat_match import LiveOnSatIndex
+        index = LiveOnSatIndex.build()
+        data = index.lookup_all_fixtures(fixtures)
+        logger.info(f"[pipeline] liveonsat: matched {len(data)}/{len(fixtures)} fixtures")
+        return data
+    except Exception as e:
+        logger.warning(f"[pipeline] liveonsat enrichment failed: {e}")
+        return {}
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 # STEP 5 — BUILD BROADCASTER LIST PER FIXTURE
 # ─────────────────────────────────────────────────────────────────────────────
 
-def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> list:
+def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict,
+                           los_data: dict | None = None) -> list:
     comp_code    = fixture.get("comp_code", "")
     fixture_id   = fixture.get("id", "")
+    los_terrs    = (los_data or {}).get(fixture.get("id", "")) or {}
     kickoff      = fixture.get("kickoff", "")
     is_blackout  = (comp_code == "PL" and is_epl_blackout(kickoff))
     rights_key   = COMP_CODE_TO_RIGHTS_KEY.get(comp_code, "")
@@ -573,6 +593,28 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
             continue
 
         if comp_code == "PL" and territory == "Republic of Ireland":
+            # Tier 0: liveonsat explicitly lists the ROI broadcaster per match.
+            # This is the only source that says WHICH 3pm match Premier Sports
+            # Ireland picked, so it outranks both EPG and static rights.
+            los_roi = los_terrs.get("Republic of Ireland")
+            if los_roi:
+                broadcasters.append({
+                    "territory":   "Republic of Ireland",
+                    "region":      "Europe",
+                    "broadcaster": los_roi["broadcaster"],
+                    "channels":    los_roi["channels"],
+                    "type":        "pay_tv",
+                    "coverage":    "live",
+                    "confidence":  "high",
+                    "source":      "liveonsat",
+                })
+                continue
+
+            # If liveonsat matched this fixture but listed NO Irish channel,
+            # Ireland genuinely isn't showing it — omit rather than guess.
+            if los_terrs and is_blackout:
+                continue
+
             epg_territory = (epg_data.get(fixture_id) or {}).get("Republic of Ireland")
             if epg_territory:
                 broadcasters.append({
@@ -730,10 +772,11 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict) -> 
 # STEP 6 — ASSEMBLE OUTPUT
 # ─────────────────────────────────────────────────────────────────────────────
 
-def assemble_output(fixtures: list, uk_channels: dict, epg_data: dict) -> list:
+def assemble_output(fixtures: list, uk_channels: dict, epg_data: dict,
+                    los_data: dict | None = None) -> list:
     output = []
     for fixture in fixtures:
-        broadcasters = build_broadcaster_list(fixture, uk_channels, epg_data)
+        broadcasters = build_broadcaster_list(fixture, uk_channels, epg_data, los_data)
 
         output.append({
             "id":           fixture["id"],
@@ -772,8 +815,9 @@ def main():
 
     uk_channels = enrich_uk_channels(fixtures)
     epg_data = enrich_epg(fixtures)
+    los_data = enrich_liveonsat(fixtures)
 
-    output = assemble_output(fixtures, uk_channels, epg_data)
+    output = assemble_output(fixtures, uk_channels, epg_data, los_data)
 
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:

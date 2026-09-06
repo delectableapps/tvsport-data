@@ -62,6 +62,19 @@ BROADCASTER_META = {
     "Arena Sport":       {"channels": ["Arena Sport 1", "Arena Sport 2"], "type": "pay_tv"},
     "Nova Sports":       {"channels": ["Nova Sports 1", "Nova Sports 2"], "type": "pay_tv"},
     "Ziggo Sport":       {"channels": ["Ziggo Sport", "Ziggo Sport Select", "Ziggo Sport Extra"], "type": "pay_tv"},
+    "ESPN NL":           {"channels": ["ESPN 1", "ESPN 2", "ESPN 3", "ESPN Extra"], "type": "pay_tv"},
+    "DAZN PT":           {"channels": ["DAZN 1 Portugal", "DAZN 2 Portugal", "DAZN 3 Portugal"], "type": "pay_tv"},
+    "Sport TV":          {"channels": ["Sport TV1", "Sport TV2", "Sport TV3", "Sport TV+"], "type": "pay_tv"},
+    "DAZN GB":           {"channels": ["DAZN"], "type": "pay_tv"},
+    "DAZN Ireland":      {"channels": ["DAZN"], "type": "pay_tv"},
+    "DAZN France":       {"channels": ["DAZN"], "type": "pay_tv"},
+    "Ligue 1+":          {"channels": ["Ligue 1+", "Ligue 1+ 2", "Ligue 1+ 3", "Ligue 1+ 4", "Ligue 1+ 5"], "type": "streaming"},
+    "Prime Video UK (PPV)": {"channels": ["Prime Video UK PPV"], "type": "streaming"},
+    "Sky Bundesliga":    {"channels": ["Sky Sport Bundesliga 1", "Sky Sport Bundesliga 2", "Sky Sport Bundesliga 3", "Sky Sport Bundesliga 4", "Sky Sport Bundesliga 5", "WOW"], "type": "pay_tv"},
+    "Sky Sport Italia":  {"channels": ["Sky Sport Calcio", "Sky Sport 251"], "type": "pay_tv"},
+    "Movistar LaLiga":   {"channels": ["M+ LaLiga", "M+ LaLiga TV Bar"], "type": "pay_tv"},
+    "DAZN LaLiga":       {"channels": ["DAZN LaLiga", "DAZN LaLiga 2"], "type": "pay_tv"},
+    "ESPN NL Eredivisie":{"channels": ["ESPN 1", "ESPN 2"], "type": "pay_tv"},
     "Eleven Sports":     {"channels": ["Eleven Sports 1", "Eleven Sports 2"], "type": "pay_tv"},
     "RTL":               {"channels": ["RTL"], "type": "free_tv"},
     "TV2":               {"channels": ["TV 2 Sport"], "type": "pay_tv"},
@@ -651,16 +664,16 @@ SCOTTISH_RIGHTS = {
 # ─────────────────────────────────────────────────────────────────────────────
 
 EUROPEAN_LEAGUES_RIGHTS = {
-    "United Kingdom":         {"la_liga": "Premier Sports; FreeSports", "bundesliga": "Sky Sports; TNT Sports", "serie_a": "TNT Sports; Discovery+", "ligue_1": "beIN Sports UK",        "eredivisie": "Premier Sports",        "primeira_liga": "Premier Sports"},
-    "Republic of Ireland":    {"la_liga": "Premier Sports",             "bundesliga": "Sky Sports",             "serie_a": "TNT Sports",             "ligue_1": "beIN Sports",           "eredivisie": "Premier Sports",        "primeira_liga": "Premier Sports"},
+    "United Kingdom":         {"la_liga": "Premier Sports",            "bundesliga": "Sky Sports; BBC",        "serie_a": "DAZN GB; TNT Sports",     "ligue_1": "Prime Video UK (PPV)",  "eredivisie": None,                    "primeira_liga": "Premier Sports"},
+    "Republic of Ireland":    {"la_liga": "Premier Sports",             "bundesliga": "Sky Sports",             "serie_a": "DAZN Ireland",           "ligue_1": None,                    "eredivisie": None,                    "primeira_liga": "Premier Sports"},
     "United States":          {"la_liga": "ESPN+; ESPN Deportes",        "bundesliga": "ESPN+",                  "serie_a": "Paramount+; CBS Golazo",  "ligue_1": "beIN Sports USA; fuboTV","eredivisie": "ESPN+",                 "primeira_liga": "ESPN+; GolTV"},
     "Canada":                 {"la_liga": "DAZN",                        "bundesliga": "DAZN",                   "serie_a": "DAZN",                    "ligue_1": "beIN Sports CA",        "eredivisie": "DAZN",                  "primeira_liga": "DAZN"},
-    "Germany":                {"la_liga": "DAZN",                        "bundesliga": "Sky Deutschland; DAZN",  "serie_a": "DAZN",                    "ligue_1": "DAZN",                  "eredivisie": "DAZN",                  "primeira_liga": "DAZN"},
-    "France":                 {"la_liga": "beIN Sports FR",              "bundesliga": "beIN Sports FR",         "serie_a": "Canal+ Sport FR",         "ligue_1": "Canal+; Amazon Prime",  "eredivisie": "Canal+ Sport FR",       "primeira_liga": "Canal+ Sport FR"},
-    "Spain":                  {"la_liga": "DAZN; Movistar LaLiga",       "bundesliga": "DAZN",                   "serie_a": "DAZN",                    "ligue_1": "DAZN",                  "eredivisie": "DAZN",                  "primeira_liga": "DAZN"},
-    "Italy":                  {"la_liga": "DAZN",                        "bundesliga": "DAZN",                   "serie_a": "DAZN IT; Sky Sport",      "ligue_1": "DAZN",                  "eredivisie": "DAZN",                  "primeira_liga": "DAZN"},
-    "Netherlands":            {"la_liga": "Viaplay NL",                  "bundesliga": "Viaplay NL",             "serie_a": "Viaplay NL",              "ligue_1": "Viaplay NL",            "eredivisie": "Ziggo Sport",            "primeira_liga": "Viaplay NL"},
-    "Portugal":               {"la_liga": "Eleven Sports PT",            "bundesliga": "Eleven Sports PT",       "serie_a": "Eleven Sports PT",        "ligue_1": "Eleven Sports PT",      "eredivisie": "Eleven Sports PT",      "primeira_liga": "Sport TV; DAZN PT"},
+    "Germany":                {"la_liga": "DAZN",                        "bundesliga": "Sky Bundesliga; DAZN",   "serie_a": "DAZN",                    "ligue_1": "DAZN",                  "eredivisie": "DAZN",                  "primeira_liga": "DAZN"},
+    "France":                 {"la_liga": "beIN Sports FR",              "bundesliga": "beIN Sports FR",         "serie_a": "DAZN France",             "ligue_1": "Ligue 1+; beIN Sports FR","eredivisie": "Canal+ Sport FR",       "primeira_liga": "Canal+ Sport FR"},
+    "Spain":                  {"la_liga": "Movistar LaLiga; DAZN LaLiga","bundesliga": "DAZN",                   "serie_a": "DAZN",                    "ligue_1": "DAZN",                  "eredivisie": "DAZN",                  "primeira_liga": "DAZN"},
+    "Italy":                  {"la_liga": "DAZN",                        "bundesliga": "DAZN",                   "serie_a": "DAZN IT; Sky Sport Italia","ligue_1": "DAZN",                 "eredivisie": "DAZN",                  "primeira_liga": "DAZN"},
+    "Netherlands":            {"la_liga": "Viaplay NL",                  "bundesliga": "Viaplay NL",             "serie_a": "Viaplay NL",              "ligue_1": "Viaplay NL",            "eredivisie": "ESPN NL",               "primeira_liga": "Viaplay NL"},
+    "Portugal":               {"la_liga": "DAZN PT",                     "bundesliga": "DAZN PT",                "serie_a": "DAZN PT",                 "ligue_1": "DAZN PT",               "eredivisie": "DAZN PT",               "primeira_liga": "Sport TV; DAZN PT"},
     "Nordics":                {"la_liga": "Viaplay",                     "bundesliga": "Viaplay",                "serie_a": "Viaplay",                 "ligue_1": "Viaplay",               "eredivisie": "Viaplay",               "primeira_liga": "Viaplay"},
     "Poland":                 {"la_liga": "Eleven Sports PL",            "bundesliga": "Eleven Sports PL",       "serie_a": "Eleven Sports PL",        "ligue_1": "Eleven Sports PL",      "eredivisie": "Eleven Sports PL",      "primeira_liga": "Eleven Sports PL"},
     "Middle East & N. Africa":{"la_liga": "beIN Sports",                 "bundesliga": "beIN Sports",            "serie_a": "beIN Sports",             "ligue_1": "beIN Sports",           "eredivisie": "beIN Sports",           "primeira_liga": "beIN Sports"},
@@ -696,7 +709,7 @@ COMP_CODE_TO_RIGHTS_KEY = {
     "SA":     "serie_a",    # Serie A
     "PD":     "la_liga",    # La Liga
     "DED":    "eredivisie", # Eredivisie
-    "PPL":    "la_liga",    # Primeira Liga — use La Liga rights as proxy
+    "PPL":    "primeira_liga",  # Primeira Liga — own rights column
 }
 
 
@@ -725,7 +738,7 @@ def get_rights(competition_code: str, territory: str):
         return EFL_RIGHTS.get(territory)
     if key == "scottish":
         return SCOTTISH_RIGHTS.get(territory)
-    if key in ("la_liga", "bundesliga", "serie_a", "ligue_1"):
+    if key in ("la_liga", "bundesliga", "serie_a", "ligue_1", "eredivisie", "primeira_liga"):
         row = EUROPEAN_LEAGUES_RIGHTS.get(territory)
         if row:
             return {"broadcaster": row.get(key, ""), "region": "various"}
@@ -752,7 +765,7 @@ def get_all_rights_for_competition(competition_code: str) -> dict:
         return result
     if key == "scottish":
         return dict(SCOTTISH_RIGHTS)
-    if key in ("la_liga", "bundesliga", "serie_a", "ligue_1"):
+    if key in ("la_liga", "bundesliga", "serie_a", "ligue_1", "eredivisie", "primeira_liga"):
         result = {}
         for territory, row in EUROPEAN_LEAGUES_RIGHTS.items():
             broadcaster = row.get(key, "")
