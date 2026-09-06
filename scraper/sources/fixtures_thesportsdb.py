@@ -40,10 +40,14 @@ TSDB_COMPETITIONS = {
     "4397":  {"name": "EFL League Two",       "code": "EL2",    "display": "League Two",        "days": 21},
     "4590":  {"name": "National League",      "code": "NAT",    "display": "National League",   "days": 21},
     "4570":  {"name": "EFL Cup",              "code": "EFLCUP", "display": "EFL Cup",           "days": 30},
-    "4344":  {"name": "FA Cup",               "code": "FACUP",  "display": "FA Cup",            "days": 30},
     # Scottish — supplement to Sportmonks (which only covers Premiership)
-    "4338":  {"name": "Scottish Championship","code": "SCH",    "display": "Scottish Championship","days": 21},
-    "4337":  {"name": "Scottish Cup",         "code": "SCUP",   "display": "Scottish Cup",      "days": 30},
+    # REMOVED 6 Sep 2026 — these IDs were WRONG and leaked foreign fixtures:
+    #   4344 is Portuguese Primeira Liga (was labelled "FA Cup")
+    #   4337 is Dutch Eredivisie          (was labelled "Scottish Cup")
+    #   4338 is Belgian Pro League        (was labelled "Scottish Championship")
+    # FA Cup / Scottish Cup come from the BBC cups scraper; Scottish
+    # Championship is backfilled from liveonsat. Only re-add with IDs
+    # verified against thesportsdb.com/league/<id>.
     "4341":  {"name": "Scottish League Cup",  "code": "SLCUP",  "display": "Scottish League Cup","days": 30},
 }
 
