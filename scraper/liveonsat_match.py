@@ -158,6 +158,38 @@ _PREFIXES = ("fc ", "afc ", "ac ", "as ", "ss ", "ssc ", "us ", "sv ", "vfb ",
 _CONNECTORS = (" de ", " del ", " e ", " di ", " du ")
 
 _ALIASES = {
+    # ── liveonsat spelling -> our canonical (football-data.org) name ──
+    # CONVENTION (David, 6 Sep 2026): our fixture names are the canonical
+    # ones. When liveonsat spells a club differently, add the liveonsat
+    # form here as the KEY and our normalised form as the VALUE. Keys are
+    # the *normalised* liveonsat form (see normalise_team). Values must be
+    # exactly what normalise_team() produces for OUR name of the club.
+    # Source: the "probable name mismatches" table in the nightly report.
+    "angers": "angers sco",
+    "auxerre": "aj auxerre",
+    "az alkmaar": "az",
+    "bologna": "bologna fc 1909",
+    "brest": "stade brestois 29",
+    "cambuur leeuwarden": "sc cambuur leeuwarden",
+    "cheltenham": "cheltenham town",
+    "excelsior": "sbv excelsior",
+    "feyenoord": "feyenoord rotterdam",
+    "fiorentina": "acf fiorentina",
+    "genoa": "genoa cfc",
+    "heerenveen": "sc heerenveen",
+    "lens": "racing club lens",
+    "lille": "lille osc",
+    "lyon": "olympique lyonnais",
+    "marseille": "olympique marseille",
+    "nec nijmegen": "nec",
+    "nice": "ogc nice",
+    "psv eindhoven": "psv",
+    "rennes": "stade rennais fc 1901",
+    "strasbourg": "strasbourg alsace",
+    "telstar": "telstar 1963",
+    "troyes": "es troyes",
+    "twente": "twente 65",
+    "willem ii": "willem ii tilburg",
     "man city": "manchester city", "man utd": "manchester united",
     "man united": "manchester united", "spurs": "tottenham",
     "tottenham hotspur": "tottenham", "wolves": "wolverhampton wanderers",
