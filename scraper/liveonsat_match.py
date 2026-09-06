@@ -350,12 +350,16 @@ class LiveOnSatIndex:
 
             session = requests.Session()
             rows = []
+            session_tz = None
             for slug in pages:
                 if slug not in PAGES:
                     continue
                 try:
                     html = fetch_page(slug, session)
-                    fx, meta = parse_page(html, slug)
+                    fx, meta = parse_page(html, slug, fallback_tz=session_tz)
+                    if meta.get("offset_found") and session_tz is None:
+                        from liveonsat_fetcher import parse_page_offset
+                        session_tz = parse_page_offset(html)[1]
                     rows.extend(fx)
                     logger.info(f"[liveonsat] {slug}: {len(fx)} fixtures "
                                 f"(page offset {meta['page_offset']})")

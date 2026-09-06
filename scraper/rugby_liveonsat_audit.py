@@ -107,7 +107,7 @@ def run(fixtures_path, liveonsat_path, out_path):
     except Exception:
         ours = []
 
-    in_scope = [(los_comp_code(r.get("competition", "")), r) for r in rows]
+    in_scope = [(los_comp_code(r.get("competition", ""), r.get("home", ""), r.get("away", "")), r) for r in rows]
     scoped = [(c, r) for c, r in in_scope if c]
     out_of_scope = Counter(r.get("competition", "?") for c, r in in_scope if not c)
     idx = RugbyLosIndex([r for c, r in scoped])

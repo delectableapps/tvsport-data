@@ -61,13 +61,24 @@ LOS_COMP_RULES = [
     (r"super rugby pacific",                                         "SUPER"),
     (r"autumn nations|nations series|rugby championship|international|test match|"
      r"british and irish lions|lions tour|quilter|summer tour",       "INTL"),
+    (r"friendl",                                                     "FRIENDLY"),  # resolved per teams
 ]
+NATIONS = {"england", "scotland", "wales", "ireland", "france", "italy", "new zealand",
+           "australia", "south africa", "argentina", "japan", "fiji", "samoa", "tonga",
+           "georgia", "usa", "united states", "canada", "uruguay", "chile", "spain",
+           "portugal", "romania", "namibia", "hong kong", "china", "zimbabwe", "brazil",
+           "netherlands", "germany", "belgium", "kenya", "korea", "south korea",
+           "british and irish lions", "barbarians", "maori all blacks", "all blacks xv",
+           "england a", "scotland a", "wales a", "ireland a", "emerging ireland", "france a"}
 _LOS_COMP = [(re.compile(p, re.I), c) for p, c in LOS_COMP_RULES]
 
 
-def los_comp_code(heading: str) -> str | None:
+def los_comp_code(heading: str, home: str = "", away: str = "") -> str | None:
     for pat, code in _LOS_COMP:
         if pat.search(heading or ""):
+            if code == "FRIENDLY":
+                # club pre-season friendlies are out of scope; nation v nation is a Test
+                return "INTL" if rugby_norm(home) in NATIONS and rugby_norm(away) in NATIONS else None
             return code
     return None
 
@@ -180,6 +191,14 @@ def rugby_norm(name: str) -> str:
     return RUGBY_TEAM_ALIASES.get(s, s)
 
 
+# liveonsat spellings (normalised) → the display name we publish
+LOS_DISPLAY_FIXES = {
+    "clermont": "Clermont", "bordeaux begles": "Bordeaux-Bègles", "stade francais": "Stade Français",
+    "benetton": "Benetton", "cardiff": "Cardiff", "sharks": "Sharks", "racing 92": "Racing 92",
+    "glasgow warriors": "Glasgow Warriors", "la rochelle": "La Rochelle", "toulouse": "Toulouse",
+}
+
+
 class RugbyLosIndex:
     """liveonsat rugby rows keyed by normalised (home, away)."""
     TOL = 25 * 60   # seconds
@@ -253,8 +272,39 @@ def load_liveonsat_rugby():
         logger.warning(f"[rugby] liveonsat_match unavailable: {e}")
         return None
 
+    def _fix_legacy_offset(data: dict, rows: list) -> list:
+        """liveonsat.json written by a fetcher older than 6 Sep 2026: the rugby
+        page header is unparsable, so those rows were converted with the
+        GMT-4 fallback while the football pages used the real (UK) offset.
+        Re-derive the wall-clock time and reinterpret it in the UK page's zone."""
+        pages = data.get("pages", {})
+        rp, up = pages.get("rugby", {}), pages.get("uk", {})
+        if not rows or rp.get("offset_found") is not None:      # new fetcher → already right
+            return rows
+        uk_off = up.get("page_offset")
+        if rp.get("page_offset") != "-04:00" or not uk_off or uk_off == "-04:00":
+            return rows
+        from zoneinfo import ZoneInfo
+        from datetime import timedelta
+        zone = ZoneInfo("Europe/London") if uk_off in ("+00:00", "+01:00") else None
+        h, m = int(uk_off[1:3]), int(uk_off[4:6])
+        fixed = timezone(timedelta(hours=h, minutes=m) * (-1 if uk_off[0] == "-" else 1))
+        for r in rows:
+            try:
+                utc = datetime.fromisoformat(r["kickoff_utc"].replace("Z", "+00:00"))
+                wall = (utc - timedelta(hours=4)).replace(tzinfo=None)      # what the page showed
+                real = wall.replace(tzinfo=zone or fixed).astimezone(timezone.utc)
+                r["kickoff_utc"] = real.strftime("%Y-%m-%dT%H:%M:%SZ")
+            except Exception:
+                pass
+        logger.warning(f"[rugby] liveonsat rugby rows re-timed from GMT-4 fallback to "
+                       f"UK page offset {uk_off} ({len(rows)} rows) — re-run run_liveonsat.bat "
+                       f"with the updated liveonsat_fetcher.py to remove this step")
+        return rows
+
     def _rows_from_doc(data: dict, origin: str):
         rows = [r for r in data.get("fixtures", []) if r.get("source_page") == "rugby"]
+        rows = _fix_legacy_offset(data, rows)
         fetched = data.get("fetched_at", "")
         try:
             age = (datetime.now(timezone.utc)
@@ -316,9 +366,24 @@ def backfill_from_liveonsat(fixtures: list, index) -> list:
         return fixtures
     have = {(rugby_norm(f["home_team"]), rugby_norm(f["away_team"]), f["kickoff"][:10])
             for f in fixtures}
+    # One display name per club across both sources, so favourites / search
+    # match: prefer the spelling TheSportsDB rows already use, else tidy the
+    # liveonsat spelling ("Benetton Rugby" -> "Benetton").
+    from sources.fixtures_rugby_thesportsdb import clean_team
+    display = {}
+    for f in fixtures:
+        display.setdefault(rugby_norm(f["home_team"]), f["home_team"])
+        display.setdefault(rugby_norm(f["away_team"]), f["away_team"])
+    def disp(raw):
+        n = rugby_norm(raw)
+        if n in display:
+            return display[n]
+        name = LOS_DISPLAY_FIXES.get(n) or clean_team(raw)
+        display[n] = name
+        return name
     added = []
     for r in index.rows:
-        code = los_comp_code(r.get("competition", ""))
+        code = los_comp_code(r.get("competition", ""), r.get("home", ""), r.get("away", ""))
         if not code:
             continue
         if r.get("status") == "POSTPONED":
@@ -339,12 +404,12 @@ def backfill_from_liveonsat(fixtures: list, index) -> list:
         comp = RUGBY_COMPETITIONS[code]
         m = re.search(r"round\s*(\d+)", r.get("round", "") or "", re.I)
         added.append({
-            "id":          f"{code.lower()}_{_abbr(r['home'])}_{_abbr(r['away'])}_{ko[:10]}",
+            "id":          f"{code.lower()}_{_abbr(disp(r['home']))}_{_abbr(disp(r['away']))}_{ko[:10]}",
             "sport":       "rugby_union",
             "competition": comp["display"],
             "comp_code":   code,
-            "home_team":   r["home"],
-            "away_team":   r["away"],
+            "home_team":   disp(r["home"]),
+            "away_team":   disp(r["away"]),
             "kickoff":     ko,
             "matchday":    int(m.group(1)) if m else None,
             "stage":       "REGULAR_SEASON",

@@ -140,6 +140,13 @@ FLAG_PATTERNS = [
 ]
 TV_EMOJI = "\U0001F4FA"  # 📺
 
+# Rugby page headings that carry no " - Round" suffix. Kept deliberately
+# narrow so a channel name can never be mistaken for a heading.
+RUGBY_BARE_HEADING_RE = re.compile(
+    r"^(rugby union (friendly|friendlies|international|internationals|test)"
+    r"|autumn nations series|summer (tour|series|internationals)"
+    r"|international (friendly|match|test)|test match(es)?)\s*$", re.I)
+
 
 def _get_cffi(url: str) -> str:
     r = _cffi_requests.get(url, headers=HEADERS, impersonate="chrome",
@@ -189,20 +196,49 @@ def fetch_page(slug: str, session: requests.Session, retries: int = 2) -> str:
                        + " | ".join(errors))
 
 
-def parse_page_offset(text: str):
-    """Return (updated_date, tz_offset) parsed from the page header.
-    Falls back to GMT-4 (the observed cookie-less default) with a warning."""
+# liveonsat renders times in a *DST-aware* zone chosen from the viewer's IP
+# (UK viewers see Europe/London, US-hosted fetches see America/New_York), but
+# its header only prints the offset in force *today*. Fixtures on the other
+# side of a clock change would be an hour out if we applied that fixed
+# offset, so map the header offset to the zone it implies.
+_OFFSET_TO_ZONE = {
+    "+00:00": "Europe/London", "+01:00": "Europe/London",
+    "-04:00": "America/New_York", "-05:00": "America/New_York",
+}
+
+
+def _tz_from_offset(sign: str, oh: str, om: str):
+    key = f"{sign}{int(oh):02d}:{int(om):02d}"
+    zone = _OFFSET_TO_ZONE.get(key)
+    if zone:
+        try:
+            return ZoneInfo(zone)
+        except Exception:
+            pass
+    delta = timedelta(hours=int(oh), minutes=int(om))
+    return timezone(-delta if sign == "-" else delta)
+
+
+def parse_page_offset(text: str, fallback_tz=None):
+    """Return (updated_date, tz, found) parsed from the page header.
+
+    Some pages (the rugby union page, Sept 2026) print a broken header —
+    "... 07:04:14 PM GMT +" with no offset — so when the header can't be
+    parsed we use `fallback_tz` (the offset found on an earlier page in the
+    same run; the site renders every page in the same zone for one client)
+    and only as a last resort the historical cookie-less default, GMT-4."""
     m = UPDATED_RE.search(text)
     if not m:
+        if fallback_tz is not None:
+            sys.stderr.write("[liveonsat] WARNING: no page offset header; "
+                             f"using offset from an earlier page ({fallback_tz})\n")
+            return None, fallback_tz, False
         sys.stderr.write("[liveonsat] WARNING: could not find page offset "
                          "header; assuming GMT-04:00\n")
-        return None, timezone(timedelta(hours=-4))
+        return None, timezone(timedelta(hours=-4)), False
     dd, mm, yyyy, sign, oh, om = m.groups()
-    delta = timedelta(hours=int(oh), minutes=int(om))
-    if sign == "-":
-        delta = -delta
     updated = datetime(int(yyyy), int(mm), int(dd))
-    return updated, timezone(delta)
+    return updated, _tz_from_offset(sign, oh, om), True
 
 
 def infer_year(month: int, updated: datetime | None) -> int:
@@ -319,6 +355,17 @@ def parse_text_lines(lines, updated: datetime | None, page_tz: timezone,
                 # competition header is the nearest previous ' - ' line
                 continue
 
+        if source_page == "rugby" and RUGBY_BARE_HEADING_RE.match(line) \
+                and not _looks_like_competition(line):
+            # e.g. "Rugby Union Friendly" — no " - Round N" part, so the
+            # generic rule below never sees it and the fixture would inherit
+            # the previous competition (Scotland v Canada filed as Top 14).
+            lookahead = [lines[j].strip() for j in range(i + 1, min(i + 5, n))]
+            if any(TEAMS_RE.match(x) for x in lookahead) and any(ST_RE.match(x) for x in lookahead):
+                finalise()
+                pending_comp = line
+                continue
+
         if _looks_like_competition(line):
             # Might be a competition header for the NEXT fixture; check that
             # a teams+ST pair follows within a few lines before believing it.
@@ -339,21 +386,24 @@ def parse_text_lines(lines, updated: datetime | None, page_tz: timezone,
     return fixtures
 
 
-def parse_page(html: str, source_page: str, debug: bool = False):
-    updated, page_tz = parse_page_offset(html)
+def parse_page(html: str, source_page: str, debug: bool = False,
+               fallback_tz=None):
+    updated, page_tz, offset_found = parse_page_offset(html, fallback_tz)
     soup = BeautifulSoup(html, "html.parser")
     for bad in soup(["script", "style", "select", "option"]):
         bad.decompose()   # drops the giant timezone <select> menu
     text = soup.get_text("\n")
     lines = text.split("\n")
     fixtures = parse_text_lines(lines, updated, page_tz, source_page, debug)
-    off = page_tz.utcoffset(None)
+    off = datetime.now(page_tz).utcoffset() or timedelta(0)
     total_min = int(off.total_seconds() // 60)
     sign = "-" if total_min < 0 else "+"
     off_str = f"{sign}{abs(total_min) // 60:02d}:{abs(total_min) % 60:02d}"
     meta = {
         "page_updated": updated.strftime("%Y-%m-%d") if updated else None,
         "page_offset": off_str,
+        "page_zone": getattr(page_tz, "key", None),
+        "offset_found": offset_found,
         "fixture_count": len(fixtures),
     }
     if debug:
@@ -402,9 +452,12 @@ def main():
     print(f"liveonsat: HTTP client = "
           f"{'curl_cffi (Chrome impersonation)' if _HAVE_CFFI else 'requests'}")
     all_fixtures, meta = [], {}
+    session_tz = None          # offset from the first page with a good header
     for slug in args.pages:
         html = fetch_page(slug, session)
-        fx, m = parse_page(html, slug, args.debug)
+        fx, m = parse_page(html, slug, args.debug, fallback_tz=session_tz)
+        if m.get("offset_found") and session_tz is None:
+            _, session_tz, _ = parse_page_offset(html)
         all_fixtures.extend(fx)
         meta[slug] = m
         time.sleep(1.5)   # be polite: one page every ~1.5s
