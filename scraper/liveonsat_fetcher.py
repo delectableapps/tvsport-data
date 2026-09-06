@@ -77,7 +77,32 @@ PAGES = {
 }
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
-      "(KHTML, like Gecko) Chrome/126.0 Safari/537.36 TVsportLive/1.0")
+      "(KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36")
+
+# Full browser-like header set. Some hosts 403 on a bare User-Agent.
+HEADERS = {
+    "User-Agent": UA,
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,"
+              "image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "en-GB,en;q=0.9",
+    "Accept-Encoding": "gzip, deflate",   # NOT "br": requests cannot unpack Brotli
+    "Referer": "https://liveonsat.com/",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "same-origin",
+    "Cache-Control": "max-age=0",
+}
+
+# Optional: curl_cffi impersonates Chrome's TLS fingerprint, which defeats
+# bot detection that 403s plain `requests` even with browser headers.
+# `pip install curl_cffi`. Falls back to requests if not installed.
+try:
+    from curl_cffi import requests as _cffi_requests  # type: ignore
+    _HAVE_CFFI = True
+except Exception:  # pragma: no cover
+    _HAVE_CFFI = False
 
 UK_TZ = ZoneInfo("Europe/London")
 
@@ -111,18 +136,52 @@ FLAG_PATTERNS = [
 TV_EMOJI = "\U0001F4FA"  # 📺
 
 
-def fetch_page(slug: str, session: requests.Session, retries: int = 3) -> str:
+def _get_cffi(url: str) -> str:
+    r = _cffi_requests.get(url, headers=HEADERS, impersonate="chrome",
+                           timeout=30)
+    if r.status_code != 200:
+        raise RuntimeError(f"HTTP {r.status_code} (curl_cffi)")
+    if not _looks_like_html(r.text):
+        raise RuntimeError("response is not HTML (curl_cffi)")
+    return r.text
+
+
+def _looks_like_html(text: str) -> bool:
+    head = text[:4000].lower()
+    return "<html" in head or "<!doctype" in head or "<body" in head
+
+
+def _get_requests(url: str, session: requests.Session) -> str:
+    r = session.get(url, headers=HEADERS, timeout=30)
+    r.raise_for_status()
+    if not _looks_like_html(r.text):
+        raise RuntimeError(
+            f"response is not HTML (Content-Encoding="
+            f"{r.headers.get('Content-Encoding')!r}, {len(r.content)} bytes) "
+            f"- probably an undecoded compression scheme")
+    return r.text
+
+
+def fetch_page(slug: str, session: requests.Session, retries: int = 2) -> str:
+    """Fetch one liveonsat page. Tries curl_cffi (Chrome TLS impersonation)
+    first if installed, then plain requests. A 403 is treated as a hard
+    block and is NOT retried — retrying a block just wastes minutes."""
     url = BASE + PAGES[slug]
-    last_err = None
-    for attempt in range(retries):
-        try:
-            r = session.get(url, headers={"User-Agent": UA}, timeout=30)
-            r.raise_for_status()
-            return r.text
-        except requests.RequestException as e:  # pragma: no cover
-            last_err = e
-            time.sleep(2 * (attempt + 1))
-    raise RuntimeError(f"liveonsat fetch failed for {url}: {last_err}")
+    errors = []
+    clients = ([("curl_cffi", lambda: _get_cffi(url))] if _HAVE_CFFI else []) \
+              + [("requests", lambda: _get_requests(url, session))]
+    for name, call in clients:
+        for attempt in range(retries):
+            try:
+                return call()
+            except Exception as e:
+                msg = str(e)
+                errors.append(f"{name}: {msg}")
+                if "403" in msg:
+                    break              # blocked — no point retrying this client
+                time.sleep(2 * (attempt + 1))
+    raise RuntimeError(f"liveonsat fetch failed for {url}: "
+                       + " | ".join(errors))
 
 
 def parse_page_offset(text: str):
@@ -335,6 +394,8 @@ def main():
     args = ap.parse_args()
 
     session = requests.Session()
+    print(f"liveonsat: HTTP client = "
+          f"{'curl_cffi (Chrome impersonation)' if _HAVE_CFFI else 'requests'}")
     all_fixtures, meta = [], {}
     for slug in args.pages:
         html = fetch_page(slug, session)

@@ -67,6 +67,7 @@ CHANNEL_TERRITORY_RULES = [
     (r"sky sports|sky go uk|sky uk ultra|sky mix|sky one uk",
                                         "United Kingdom", "Sky Sports"),
     (r"tnt sports",                     "United Kingdom", "TNT Sports"),
+    (r"sky sports\+",                   "United Kingdom", "Sky Sports"),
     (r"\bbbc\b(?!.*\bni\b)",            "United Kingdom", "BBC"),
     (r"\bitv\b|\bitvx\b|\bstv\b|\butv\b","United Kingdom", "ITV"),
     (r"dazn great britain",             "United Kingdom", "DAZN"),
@@ -76,7 +77,8 @@ CHANNEL_TERRITORY_RULES = [
     (r"\bnifl tv\b",                    "United Kingdom", "NIFL TV"),
 
     # --- Germany ---
-    (r"sky sport bundesliga|sky go germany|sky sport top event",
+    (r"sky sport bundesliga|sky go germany|sky sport top event|"
+     r"sky sport premier league de\b|sky sport .*\bde$",
                                         "Germany", "Sky Deutschland"),
     (r"wow deutsch",                    "Germany", "WOW"),
     (r"dazn deutsch",                   "Germany", "DAZN"),
@@ -125,6 +127,12 @@ CHANNEL_TERRITORY_RULES = [
     (r"dazn canada|fubotv canada",      "Canada", "DAZN / Fubo"),
     (r"dazn japan",                     "Japan", "DAZN JP"),
     (r"sport 24 (at sea|in flight)",    "International", "Sport 24"),
+    (r"^premier league\+",              "International", "Premier League+"),
+    (r"dazn worldwide",                 "International", "DAZN Worldwide"),
+    (r"sky sport \d+ austria|sky sport austria", "Austria", "Sky Austria"),
+    (r"viaplay (norge|suomi|sverige|danmark)|viaplay \d urheilu",
+                                        "Nordics", "Viaplay"),
+    (r"bein connect t.rkiye|bein sports t.rkiye", "Turkey", "beIN Turkey"),
 ]
 
 _COMPILED = [(re.compile(p, re.I), t, b) for p, t, b in CHANNEL_TERRITORY_RULES]
@@ -213,7 +221,84 @@ class LiveOnSatIndex:
     # ---------------------------------------------------------------- build
     @classmethod
     def build(cls, pages: list | None = None):
-        """Fetch + parse liveonsat. Never raises — returns empty index on error."""
+        """Obtain liveonsat data. Never raises — returns empty index on error.
+
+        Source order:
+          1. LIVEONSAT_JSON_URL env var — a pre-scraped liveonsat.json (e.g. a
+             Dropbox shared link written by run_liveonsat.bat on a home PC).
+             Used because liveonsat.com blocks GitHub Actions' IP ranges.
+          2. Direct fetch from liveonsat.com (works from residential IPs).
+        """
+        import os
+        path = os.environ.get("LIVEONSAT_JSON_PATH", "").strip()
+        if path and os.path.exists(path):
+            idx = cls._from_file(path)
+            if idx is not None:
+                return idx
+        url = os.environ.get("LIVEONSAT_JSON_URL", "").strip()
+        if url:
+            idx = cls._from_url(url)
+            if idx is not None:
+                return idx
+            logger.warning("[liveonsat] pre-scraped JSON unusable — "
+                           "trying direct fetch")
+        return cls._direct(pages)
+
+    MAX_AGE_DAYS = 4   # older than this and the pick may have changed
+
+    @classmethod
+    def _from_file(cls, path: str):
+        try:
+            import json
+            with open(path, encoding="utf-8") as fh:
+                data = json.load(fh)
+            return cls._from_doc(data, f"file {path}")
+        except Exception as e:
+            logger.warning(f"[liveonsat] could not read {path}: {e}")
+            return None
+
+    @classmethod
+    def _from_doc(cls, data: dict, origin: str):
+        from datetime import datetime, timezone
+        rows = data.get("fixtures", [])
+        fetched = data.get("fetched_at", "")
+        try:
+            age = datetime.now(timezone.utc) - datetime.fromisoformat(
+                fetched.replace("Z", "+00:00"))
+            age_days = age.total_seconds() / 86400
+        except Exception:
+            age_days = None
+        if age_days is not None and age_days > cls.MAX_AGE_DAYS:
+            logger.warning(f"[liveonsat] {origin} is {age_days:.1f} days old "
+                           f"(> {cls.MAX_AGE_DAYS}) - ignoring")
+            return None
+        if not rows:
+            logger.warning(f"[liveonsat] {origin} has 0 fixtures")
+            return None
+        logger.info(f"[liveonsat] loaded {len(rows)} fixtures from {origin} "
+                    f"(fetched {fetched}, pages: "
+                    f"{list(data.get('pages', {}).keys())})")
+        return cls(rows)
+
+    @classmethod
+    def _from_url(cls, url: str):
+        try:
+            import requests
+            from datetime import datetime, timezone
+            # Dropbox links: force a direct download rather than the preview page
+            if "dropbox.com" in url:
+                url = url.replace("?dl=0", "?dl=1").replace("&dl=0", "&dl=1")
+                if "dl=1" not in url and "raw=1" not in url:
+                    url += ("&" if "?" in url else "?") + "dl=1"
+            r = requests.get(url, timeout=60, allow_redirects=True)
+            r.raise_for_status()
+            return cls._from_doc(r.json(), "LIVEONSAT_JSON_URL")
+        except Exception as e:
+            logger.warning(f"[liveonsat] could not load LIVEONSAT_JSON_URL: {e}")
+            return None
+
+    @classmethod
+    def _direct(cls, pages: list | None = None):
         pages = pages or DEFAULT_PAGES
         try:
             import time
