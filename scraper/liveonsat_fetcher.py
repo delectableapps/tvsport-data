@@ -74,6 +74,11 @@ PAGES = {
     "netherlands": "europe-netherlands-eredivisie.php",
     "portugal":    "europe-portugal-primeira-liga.php",
     "ucl":     "club-uefa-champions-league.php",
+    # Rugby Union (all competitions on one page). Rows carry
+    # source_page="rugby" so the football merger can ignore them and
+    # rugby_merger.py can select them. Add "rugby" to the --pages list in
+    # run_liveonsat.bat on the home PC.
+    "rugby":   "x-rugby-union.php",
 }
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "

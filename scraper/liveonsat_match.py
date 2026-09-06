@@ -242,8 +242,19 @@ def _parse_iso(s: str):
 class LiveOnSatIndex:
     """Indexes liveonsat fixtures for lookup by (home, away, kickoff)."""
 
-    def __init__(self, fixtures: list | None = None):
-        self.rows = fixtures or []
+    # Pages whose rows belong to another sport. The football index drops
+    # them so a rugby "Bath v Bristol" can never be matched to a football
+    # fixture; rugby_merger.py builds its own index from exactly these.
+    NON_FOOTBALL_PAGES = {"rugby"}
+
+    def __init__(self, fixtures: list | None = None, sport_pages: set | None = None):
+        rows = fixtures or []
+        if sport_pages is None:          # football (default) — exclude rugby
+            rows = [r for r in rows
+                    if r.get("source_page") not in self.NON_FOOTBALL_PAGES]
+        else:                            # explicit page set, e.g. {"rugby"}
+            rows = [r for r in rows if r.get("source_page") in sport_pages]
+        self.rows = rows
         self._by_pair = {}
         for r in self.rows:
             key = (normalise_team(r.get("home", "")),
