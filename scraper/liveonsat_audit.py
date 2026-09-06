@@ -160,6 +160,46 @@ def run(fixtures_path: str, liveonsat_path: str, out_path: str):
       f"pages: {', '.join(los_doc.get('pages', {}).keys())})")
     P("")
 
+    # ---- Section 0: backfill — what liveonsat ADDED and what it SKIPPED ---
+    backfilled = [f for f in fixtures if f.get("source") == "liveonsat"]
+    mm_path = os.path.join(os.path.dirname(fixtures_path), "liveonsat_mismatches.json")
+    mismatches = []
+    if os.path.exists(mm_path):
+        try:
+            mismatches = json.load(open(mm_path, encoding="utf-8"))
+        except Exception:
+            mismatches = []
+
+    P("## 0. Backfilled from liveonsat — needs review")
+    P("")
+    if backfilled:
+        P(f"**{len(backfilled)} fixtures are on the site only because liveonsat "
+          f"listed them.** Each one means a primary source missed a match. "
+          f"They carry `needs_review: true` in fixtures.json.")
+        P("")
+        by_src = defaultdict(list)
+        for f in backfilled:
+            by_src[f.get("expected_source") or "unknown"].append(f)
+        for src, fs in sorted(by_src.items()):
+            P(f"**Should have come from {src}** — {len(fs)}")
+            for f in sorted(fs, key=lambda x: x["kickoff"]):
+                P(f"- {f['kickoff'][:16].replace('T', ' ')}  [{f['competition']}] "
+                  f"{f['home_team']} v {f['away_team']}")
+            P("")
+    else:
+        P("_None — primary sources covered everything liveonsat lists in this window._")
+        P("")
+
+    if mismatches:
+        P(f"**{len(mismatches)} probable name mismatches (NOT added, to avoid "
+          f"duplicates)** — add these pairs to the normaliser aliases:")
+        P("")
+        P("| Competition | Date | liveonsat says | we have |")
+        P("|---|---|---|---|")
+        for m in sorted(mismatches, key=lambda x: (x["competition"], x["date"])):
+            P(f"| {m['competition']} | {m['date']} | {m['liveonsat']} | {m['ours']} |")
+        P("")
+
     # ---- Section 1: coverage gaps -------------------------------------
     our_keys = {}
     for f in fixtures:
@@ -182,8 +222,15 @@ def run(fixtures_path: str, liveonsat_path: str, out_path: str):
         k = (normalise_team(r["home"]), normalise_team(r["away"]), d)
         if k not in our_keys:
             gaps[comp].append(r)
+    # Anything backfilled or flagged as a name mismatch is not a "gap" any more
+    mm_pairs = {(m["liveonsat"], m["date"]) for m in mismatches}
+    for comp in list(gaps):
+        gaps[comp] = [r for r in gaps[comp]
+                      if (f"{r['home']} v {r['away']}", _date_of(r["kickoff_utc"])) not in mm_pairs]
+        if not gaps[comp]:
+            del gaps[comp]
 
-    P("## 1. Coverage gaps (liveonsat has it, we don't)")
+    P("## 1. Remaining coverage gaps (not backfilled, not a name mismatch)")
     P("")
     if not gaps:
         P("_None within our date window._")

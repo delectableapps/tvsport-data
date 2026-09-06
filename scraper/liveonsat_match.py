@@ -400,3 +400,167 @@ class LiveOnSatIndex:
                     picks.append(f)
                     break
         return picks
+
+
+# ═════════════════════════════════════════════════════════════════════════════
+# BACKFILL — add fixtures liveonsat has that the primary sources missed.
+# Added fixtures are flagged (source="liveonsat", needs_review=True) so the
+# nightly report can ask WHY the primary source missed them.
+# ═════════════════════════════════════════════════════════════════════════════
+
+# liveonsat competition name -> (our comp_code, our competition name).
+# Only competitions the site already publishes. Extend deliberately.
+LOS_COMPETITIONS = {
+    "English Premier League":   ("PL",     "Premier League"),
+    "English Championship":     ("ELC",    "Championship"),
+    "English League One":       ("EL1",    "League One"),
+    "English League Two":       ("EL2",    "League Two"),
+    "English National League":  ("NAT",    "National League"),
+    "English League Cup":       ("EFLCUP", "EFL Cup"),
+    "English FA Cup":           ("FAC",    "FA Cup"),
+    "Scottish Premiership":     ("SP1",    "Scottish Premiership"),
+    "Scottish Championship":    ("SCH",    "Scottish Championship"),
+    "Scottish Cup":             ("SCUP",   "Scottish Cup"),
+    "Scottish League Cup":      ("SLCUP",  "Scottish League Cup"),
+    "UEFA Champions League":    ("CL",     "UEFA Champions League"),
+    "German Bundesliga":        ("BL1",    "Bundesliga"),
+    "Italian Serie A":          ("SA",     "Serie A"),
+    "French Ligue 1":           ("FL1",    "Ligue 1"),
+    "Spanish La Liga":          ("PD",     "La Liga"),
+    "Spanish LaLiga":           ("PD",     "La Liga"),
+    "Dutch Eredivisie":         ("DED",    "Eredivisie"),
+    "Portuguese Primeira Liga": ("PPL",    "Primeira Liga"),
+    "Portuguese Liga":          ("PPL",    "Primeira Liga"),
+}
+
+# Which primary source *should* have supplied each competition — used in the
+# report so the "why was this missing?" question points somewhere.
+EXPECTED_SOURCE = {
+    "PL": "football-data.org", "ELC": "football-data.org",
+    "CL": "football-data.org", "BL1": "football-data.org",
+    "SA": "football-data.org", "FL1": "football-data.org",
+    "PD": "football-data.org", "DED": "football-data.org",
+    "PPL": "football-data.org",
+    "EL1": "TheSportsDB (25-event cap)", "EL2": "TheSportsDB (25-event cap)",
+    "NAT": "TheSportsDB", "EFLCUP": "BBC cups scraper", "FAC": "BBC cups scraper",
+    "SP1": "Sportmonks", "SCH": "TheSportsDB",
+    "SCUP": "BBC cups scraper", "SLCUP": "BBC cups scraper",
+}
+
+# Generic club-name furniture only. Deliberately NOT "united"/"city"/"town":
+# those distinguish Manchester United from Manchester City.
+_STOP = {"fc", "afc", "sc", "cf", "ac", "club", "de", "1901", "1909",
+         "1913", "1963", "65", "29", "calcio"}
+
+
+def _tokens(name: str) -> set:
+    return {t for t in normalise_team(name).split() if t not in _STOP}
+
+
+def _same_side(a: str, b: str) -> bool:
+    """Do two team names plausibly denote the same club?
+    True if one normalised name contains the other, or their token sets
+    overlap by at least half (Jaccard >= 0.5). A single shared city word
+    (Sparta Rotterdam / Feyenoord Rotterdam) is NOT enough."""
+    na, nb = normalise_team(a), normalise_team(b)
+    if na == nb or na in nb or nb in na:
+        return True
+    ta, tb = _tokens(a), _tokens(b)
+    if not ta or not tb:
+        return False
+    return len(ta & tb) / len(ta | tb) >= 0.5
+
+
+def _abbr(name: str) -> str:
+    n = normalise_team(name).replace(" ", "")
+    return (n[:4] or "xxxx").upper()
+
+
+def _round_to_stage(rnd: str):
+    """'Week 4' -> (matchday 4, REGULAR_SEASON); cup rounds -> stage text."""
+    m = re.search(r"week\s*(\d+)", rnd or "", re.I)
+    if m:
+        return int(m.group(1)), "REGULAR_SEASON"
+    return None, (rnd or "").strip().upper().replace(" ", "_") or "REGULAR_SEASON"
+
+
+def backfill_missing(fixtures: list, index: "LiveOnSatIndex"):
+    """Return (added_fixtures, probable_mismatches).
+
+    added_fixtures      - liveonsat rows in covered competitions, inside the
+                          date window of `fixtures`, with NO plausible match.
+                          Shaped like merger fixtures and flagged for review.
+    probable_mismatches - liveonsat rows that DO have a same-day, same-comp
+                          fixture whose team names partly overlap. These are
+                          almost certainly the same match under a different
+                          spelling, so they are NOT added (that would create a
+                          duplicate). They are reported for the normaliser.
+    """
+    if not fixtures or not index.rows:
+        return [], []
+    dates = sorted(f["kickoff"][:10] for f in fixtures if f.get("kickoff"))
+    lo, hi = dates[0], dates[-1]
+    # Primary sources drop matches once they kick off; liveonsat keeps them
+    # up all day. Never backfill anything that has already started.
+    now_iso = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+    exact = set()
+    by_day_comp = {}
+    for f in fixtures:
+        d = f["kickoff"][:10]
+        exact.add((normalise_team(f["home_team"]), normalise_team(f["away_team"]), d))
+        by_day_comp.setdefault((d, f.get("comp_code")), []).append(f)
+
+    added, mismatches, seen_new = [], [], set()
+    for r in index.rows:
+        comp = LOS_COMPETITIONS.get(r.get("competition", ""))
+        if not comp:
+            continue
+        code, comp_name = comp
+        d = (r.get("kickoff_utc") or "")[:10]
+        if not (lo <= d <= hi):
+            continue
+        if r.get("status") == "POSTPONED":
+            continue
+        if (r.get("kickoff_utc") or "") <= now_iso:
+            continue
+        nh, na = normalise_team(r["home"]), normalise_team(r["away"])
+        if (nh, na, d) in exact or (nh, na, d) in seen_new:
+            continue
+
+        # Fuzzy: same day + same competition + at least one side is
+        # plausibly the same club under a different spelling
+        near = None
+        for f in by_day_comp.get((d, code), []):
+            if _same_side(r["home"], f["home_team"]) or \
+               _same_side(r["away"], f["away_team"]):
+                near = f
+                break
+        if near:
+            mismatches.append({
+                "liveonsat": f"{r['home']} v {r['away']}",
+                "ours": f"{near['home_team']} v {near['away_team']}",
+                "competition": comp_name, "date": d,
+            })
+            continue
+
+        matchday, stage = _round_to_stage(r.get("round"))
+        fid = f"{code.lower()}_{_abbr(r['home'])}_{_abbr(r['away'])}_{d}"
+        seen_new.add((nh, na, d))
+        added.append({
+            "id":           fid,
+            "competition":  comp_name,
+            "comp_code":    code,
+            "home_team":    r["home"],
+            "away_team":    r["away"],
+            "kickoff":      r["kickoff_utc"],
+            "matchday":     matchday,
+            "stage":        stage,
+            "group":        None,
+            "source":       "liveonsat",
+            "needs_review": True,
+            "expected_source": EXPECTED_SOURCE.get(code, "unknown"),
+        })
+    logger.info(f"[liveonsat] backfill: +{len(added)} fixtures added, "
+                f"{len(mismatches)} probable name mismatches skipped")
+    return added, mismatches

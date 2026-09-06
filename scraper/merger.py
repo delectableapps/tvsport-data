@@ -422,10 +422,43 @@ def enrich_epg(fixtures: list) -> dict:
 # EPL match Premier Sports Ireland actually selected.
 # ─────────────────────────────────────────────────────────────────────────────
 
-def enrich_liveonsat(fixtures: list) -> dict:
+def build_liveonsat_index():
+    """Build once; shared by backfill and enrichment. Never raises."""
     try:
         from liveonsat_match import LiveOnSatIndex
-        index = LiveOnSatIndex.build()
+        return LiveOnSatIndex.build()
+    except Exception as e:
+        logger.warning(f"[pipeline] liveonsat index unavailable: {e}")
+        return None
+
+
+def backfill_from_liveonsat(fixtures: list, index) -> tuple:
+    """STEP 2b — add fixtures liveonsat lists that primary sources missed.
+    Added fixtures carry source='liveonsat' + needs_review=True so the
+    nightly report can flag them. Duplicate-safe: near-name matches are
+    skipped and reported instead. Returns (fixtures, probable_mismatches)."""
+    if index is None or not getattr(index, "rows", None):
+        return fixtures, []
+    try:
+        from liveonsat_match import backfill_missing
+        added, mismatches = backfill_missing(fixtures, index)
+        if added:
+            by_comp = {}
+            for a in added:
+                by_comp[a["competition"]] = by_comp.get(a["competition"], 0) + 1
+            logger.info("[pipeline] liveonsat backfill: " + ", ".join(
+                f"{c} +{n}" for c, n in sorted(by_comp.items())))
+        return fixtures + added, mismatches
+    except Exception as e:
+        logger.warning(f"[pipeline] liveonsat backfill failed: {e}")
+        return fixtures, []
+
+
+def enrich_liveonsat(fixtures: list, index=None) -> dict:
+    try:
+        from liveonsat_match import LiveOnSatIndex
+        if index is None:
+            index = LiveOnSatIndex.build()
         data = index.lookup_all_fixtures(fixtures)
         logger.info(f"[pipeline] liveonsat: matched {len(data)}/{len(fixtures)} fixtures")
         return data
@@ -761,11 +794,46 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict,
                 "source":      "rights_db_generic",
             })
 
+    # Backfilled fixture: the fixture itself came from liveonsat, so its
+    # per-match channel list beats generic rights for any territory we can
+    # classify. Rights rows stay for territories liveonsat doesn't cover.
+    if fixture.get("source") == "liveonsat" and los_terrs:
+        existing_region = {b["territory"]: b.get("region", "") for b in broadcasters}
+        keep = [b for b in broadcasters if b["territory"] not in los_terrs]
+        for territory, info in los_terrs.items():
+            keep.append({
+                "territory":   territory,
+                "region":      existing_region.get(territory) or _region_for(territory),
+                "broadcaster": info["broadcaster"],
+                "channels":    info["channels"],
+                "type":        "pay_tv",
+                "coverage":    "live",
+                "confidence":  "medium",
+                "source":      "liveonsat",
+            })
+        broadcasters = keep
+
     for b in broadcasters:
         if b.get("channels"):
             b["channels"] = normalise_channel_list(b["channels"])
 
     return broadcasters
+
+
+_REGION_FALLBACK = {
+    "United Kingdom": "UK", "Republic of Ireland": "Europe",
+    "Germany": "Europe", "Italy": "Europe", "France": "Europe",
+    "Spain": "Europe", "Netherlands": "Europe", "Portugal": "Europe",
+    "Austria": "Europe", "Nordics": "Europe", "Turkey": "Europe",
+    "United States": "Americas", "Canada": "Americas",
+    "Australia": "Oceania", "Japan": "Asia",
+    "Middle East & N. Africa": "MENA", "Sub-Saharan Africa": "Africa",
+    "International": "International",
+}
+
+
+def _region_for(territory: str) -> str:
+    return _REGION_FALLBACK.get(territory, "Other")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -791,6 +859,9 @@ def assemble_output(fixtures: list, uk_channels: dict, epg_data: dict,
             "is_blackout":  fixture.get("comp_code") == "PL" and is_epl_blackout(fixture.get("kickoff", "")),
             "broadcasters": broadcasters,
             "broadcaster_count": len(broadcasters),
+            **({"source": "liveonsat", "needs_review": True,
+                "expected_source": fixture.get("expected_source", "")}
+               if fixture.get("source") == "liveonsat" else {}),
         })
 
     return output
@@ -813,11 +884,22 @@ def main():
 
     fixtures = dedup_fixtures(raw_fixtures)
 
+    los_index = build_liveonsat_index()
+    fixtures, los_mismatches = backfill_from_liveonsat(fixtures, los_index)
+    fixtures.sort(key=lambda f: f.get("kickoff", ""))
+
     uk_channels = enrich_uk_channels(fixtures)
     epg_data = enrich_epg(fixtures)
-    los_data = enrich_liveonsat(fixtures)
+    los_data = enrich_liveonsat(fixtures, los_index)
 
     output = assemble_output(fixtures, uk_channels, epg_data, los_data)
+
+    try:
+        mm_path = os.path.join(os.path.dirname(OUTPUT_PATH), "liveonsat_mismatches.json")
+        with open(mm_path, "w", encoding="utf-8") as fh:
+            json.dump(los_mismatches, fh, indent=1, ensure_ascii=False)
+    except Exception as e:
+        logger.warning(f"[pipeline] could not write mismatch list: {e}")
 
     os.makedirs(os.path.dirname(OUTPUT_PATH), exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
