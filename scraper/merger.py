@@ -498,7 +498,7 @@ def build_broadcaster_list(fixture: dict, uk_channels: dict, epg_data: dict,
             rights_map.pop(territory, None)
     elif comp_code in ("SP1", "SC1", "SCH", "SCUP", "SLCUP"):
         rights_map = dict(SCOTTISH_RIGHTS)
-    elif rights_key in ("la_liga", "bundesliga", "serie_a", "ligue_1", "eredivisie"):
+    elif rights_key in ("la_liga", "bundesliga", "serie_a", "ligue_1", "eredivisie", "primeira_liga"):
         rights_map = {}
         for territory, row in EUROPEAN_LEAGUES_RIGHTS.items():
             broadcaster = row.get(rights_key, "")
