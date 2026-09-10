@@ -1,7 +1,7 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-09-09T07:49:35Z",
-  "lastUpdated": "2026-09-09T07:49:35Z",
+  "generated_at": "2026-09-10T06:59:49Z",
+  "lastUpdated": "2026-09-10T06:59:49Z",
   "fixture_count": 108,
   "competitions": [
     {
@@ -3377,6 +3377,18 @@
         {
           "territory": "Worldwide",
           "region": "International",
+          "broadcaster": "RugbyPass TV",
+          "channels": [
+            "RugbyPass TV"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Worldwide",
+          "region": "International",
           "broadcaster": "TV5MONDE",
           "channels": [
             "TV5MONDE (free-to-air, select matches)",
@@ -3402,7 +3414,7 @@
           "note": "Official LNR streaming service — geo-blocked in UK & Ireland (Premier Sports exclusivity)"
         }
       ],
-      "broadcaster_count": 39,
+      "broadcaster_count": 40,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -8625,6 +8637,18 @@
         {
           "territory": "Worldwide",
           "region": "International",
+          "broadcaster": "RugbyPass TV",
+          "channels": [
+            "RugbyPass TV"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Worldwide",
+          "region": "International",
           "broadcaster": "TV5MONDE",
           "channels": [
             "TV5MONDE (free-to-air, select matches)",
@@ -8650,7 +8674,7 @@
           "note": "Official LNR streaming service — geo-blocked in UK & Ireland (Premier Sports exclusivity)"
         }
       ],
-      "broadcaster_count": 39,
+      "broadcaster_count": 40,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -16646,6 +16670,18 @@
         {
           "territory": "Worldwide",
           "region": "International",
+          "broadcaster": "RugbyPass TV",
+          "channels": [
+            "RugbyPass TV"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Worldwide",
+          "region": "International",
           "broadcaster": "TV5MONDE",
           "channels": [
             "TV5MONDE (free-to-air, select matches)",
@@ -16671,7 +16707,7 @@
           "note": "Official LNR streaming service — geo-blocked in UK & Ireland (Premier Sports exclusivity)"
         }
       ],
-      "broadcaster_count": 39,
+      "broadcaster_count": 40,
       "source": "liveonsat",
       "needs_review": true
     },
