@@ -81,7 +81,40 @@ jobs:
             cat output/rugby_liveonsat_audit.md >> $GITHUB_STEP_SUMMARY
           fi
 
-      - name: Health check (fails the run -> GitHub emails you)
+      - name: Validate fixtures.json
+        id: validate
+        if: always()
+        run: |
+          python3 - <<'PYEOF'
+          import json, sys
+          with open('output/fixtures.json') as f:
+              data = json.load(f)
+          count = data.get('fixture_count', 0)
+          print(f'Fixture count: {count}')
+          if count == 0:
+              print('ERROR: fixtures.json is empty')
+              sys.exit(1)
+          print('Validation passed')
+          PYEOF
+
+      - name: Commit updated fixtures.json
+        if: always() && steps.validate.outcome == 'success'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add output/fixtures.json
+          [ -f output/rugby_fixtures.json ] && git add output/rugby_fixtures.json
+          if git diff --staged --quiet; then
+            echo "No changes — skipping commit"
+          else
+            COUNT=$(python3 -c "import json; print(json.load(open('output/fixtures.json'))['fixture_count'])")
+            RCOUNT=$(python3 -c "import json,os; print(json.load(open('output/rugby_fixtures.json'))['fixture_count'] if os.path.exists('output/rugby_fixtures.json') else 0)")
+            git commit -m "Update fixtures.json — ${COUNT} football, ${RCOUNT} rugby [skip ci]"
+            git push
+          fi
+
+      - name: Health check (runs AFTER publish; fails the run -> GitHub emails you)
+        if: always()
         # Only conditions that need a human. Rights mismatches and coverage
         # gaps are a backlog, not an alarm, so they stay in the summary only.
         run: |
@@ -135,35 +168,6 @@ jobs:
               sys.exit(1)
           print("health check OK")
           PYEOF
-
-      - name: Validate fixtures.json
-        run: |
-          python3 - <<'PYEOF'
-          import json, sys
-          with open('output/fixtures.json') as f:
-              data = json.load(f)
-          count = data.get('fixture_count', 0)
-          print(f'Fixture count: {count}')
-          if count == 0:
-              print('ERROR: fixtures.json is empty')
-              sys.exit(1)
-          print('Validation passed')
-          PYEOF
-
-      - name: Commit updated fixtures.json
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add output/fixtures.json
-          [ -f output/rugby_fixtures.json ] && git add output/rugby_fixtures.json
-          if git diff --staged --quiet; then
-            echo "No changes — skipping commit"
-          else
-            COUNT=$(python3 -c "import json; print(json.load(open('output/fixtures.json'))['fixture_count'])")
-            RCOUNT=$(python3 -c "import json,os; print(json.load(open('output/rugby_fixtures.json'))['fixture_count'] if os.path.exists('output/rugby_fixtures.json') else 0)")
-            git commit -m "Update fixtures.json — ${COUNT} football, ${RCOUNT} rugby [skip ci]"
-            git push
-          fi
 
       - name: Job summary
         if: always()
