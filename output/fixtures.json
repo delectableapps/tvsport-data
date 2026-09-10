@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-09-10T07:50:30Z",
-  "lastUpdated": "2026-09-10T07:50:30Z",
+  "generated_at": "2026-09-10T12:17:51Z",
+  "lastUpdated": "2026-09-10T12:17:51Z",
   "fixture_count": 375,
   "fixtures": [
     {
@@ -38456,15 +38456,13 @@
           "region": "Europe",
           "broadcaster": "Sky Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Sky Sports Football HD Ireland",
+            "Sky Sports Football Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "epg"
         },
         {
           "territory": "Republic of Ireland",
@@ -39098,13 +39096,12 @@
           "region": "Europe",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
+            "Premier Sports 1 HD Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "epg"
         },
         {
           "territory": "United States",
@@ -39214,13 +39211,12 @@
           "region": "Republic of Ireland",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
+            "Premier Sports 2 HD Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "epg"
         },
         {
           "territory": "United States",
@@ -40029,15 +40025,13 @@
           "region": "Europe",
           "broadcaster": "Sky Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Sky Sports Premier League HD Ireland",
+            "Sky Sports Premier League Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "epg"
         },
         {
           "territory": "Italy",
@@ -41933,13 +41927,13 @@
           "region": "Republic of Ireland",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
+            "Premier Sports 1 HD Ireland",
+            "Premier Sports 2 HD Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "epg"
         },
         {
           "territory": "United States",
@@ -43027,15 +43021,16 @@
           "region": "Europe",
           "broadcaster": "Sky Sports",
           "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
+            "Sky Sports Main Event HD Ireland",
+            "Sky Sports Premier League HD Ireland",
+            "Mutv Ireland",
+            "Sky Sports Main Event Ireland",
+            "Sky Sports Premier League Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "epg"
         },
         {
           "territory": "Italy",
