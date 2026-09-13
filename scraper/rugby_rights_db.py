@@ -90,6 +90,14 @@ RUGBY_BROADCASTER_META = {
     "EPCR TV":             {"channels": ["epcrugby.tv"], "type": "streaming"},
     "URC TV":              {"channels": ["urc.tv"], "type": "streaming"},
     "PRTV Live":           {"channels": ["PRTV Live"], "type": "streaming"},
+    # Women's (WXV)
+    "BBC Alba":            {"channels": ["BBC Alba", "BBC iPlayer"], "type": "free_tv"},
+    "England Rugby YouTube": {"channels": ["England Rugby YouTube channel"], "type": "streaming"},
+    "FIR YouTube":         {"channels": ["Federazione Italiana Rugby YouTube"], "type": "streaming"},
+    "J SPORTS":            {"channels": ["J SPORTS"], "type": "pay_tv"},
+    "STARZPLAY":           {"channels": ["STARZPLAY"], "type": "streaming"},
+    "Paramount+":          {"channels": ["Paramount+"], "type": "streaming"},
+    "Sport TV":            {"channels": ["Sport TV"], "type": "pay_tv"},
 }
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -324,6 +332,25 @@ SUPER_RUGBY_RIGHTS = {
     "Rest of World":        {"broadcaster": "NZR+", "region": "International"},
 }
 
+WXV_RIGHTS = {
+    # WXV Global Series 2026 (women's), 12 Sep – 31 Oct 2026. Source: World
+    # Rugby where-to-watch (world.rugby/wxv/en/where-to-watch) as mirrored by
+    # rugbypass.com and rugbyworld.com, Sept 2026. RugbyPass TV is the default
+    # worldwide platform wherever no local broadcaster is listed.
+    "United Kingdom":       {"broadcaster": "BBC; BBC Wales; BBC Alba; England Rugby YouTube", "region": "UK"},
+    "Republic of Ireland":  {"broadcaster": "TG4", "region": "Europe"},
+    "France":               {"broadcaster": "France Télévisions", "region": "Europe"},
+    "Italy":                {"broadcaster": "FIR YouTube", "region": "Europe"},
+    "Portugal":             {"broadcaster": "Sport TV", "region": "Europe"},
+    "Australia":            {"broadcaster": "Stan Sport", "region": "Asia-Pacific"},
+    "New Zealand":          {"broadcaster": "Sky Sport NZ", "region": "Asia-Pacific"},
+    "Canada":               {"broadcaster": "TSN", "region": "Americas"},
+    "United States":        {"broadcaster": "Paramount+", "region": "Americas"},
+    "Latin America":        {"broadcaster": "ESPN Sur", "region": "Americas"},
+    "Japan":                {"broadcaster": "J SPORTS", "region": "Asia"},
+    "Middle East & N. Africa": {"broadcaster": "TOD TV (Starzplay)", "region": "Middle East & N. Africa"},
+}
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Competition registry
 # ─────────────────────────────────────────────────────────────────────────────
@@ -337,6 +364,7 @@ RUGBY_COMPETITIONS = {
     "NATC":  {"display": "Nations Championship",        "rights": NATIONS_CHAMPIONSHIP_RIGHTS, "tz": "Europe/London"},
     "INTL":  {"display": "International",               "rights": INTERNATIONAL_RIGHTS,        "tz": "Europe/London"},
     "SUPER": {"display": "Super Rugby Pacific",         "rights": SUPER_RUGBY_RIGHTS,          "tz": "Pacific/Auckland"},
+    "WXV":   {"display": "WXV Global Series (Women)",   "rights": WXV_RIGHTS,                  "tz": "Europe/London", "women": True},
 }
 
 # Entries appended to EVERY fixture of a competition regardless of territory
@@ -359,10 +387,12 @@ ALWAYS_INCLUDE = {
               "broadcaster": "URC TV", "type": "streaming", "note": "urc.tv"}],
     "NATC": [{"territory": "Worldwide (outside rights-holder territories)", "region": "International",
               "broadcaster": "RugbyPass TV", "type": "streaming", "note": "Free with registration"}],
+    "WXV":  [{"territory": "Worldwide (outside rights-holder territories)", "region": "International",
+              "broadcaster": "RugbyPass TV", "type": "streaming", "note": "Free with registration — default platform for every WXV match"}],
 }
 
 # UK broadcasters that are free-to-air — used to flag FTA in the output
-UK_FTA = {"ITV", "BBC", "BBC Wales", "S4C", "STV"}
+UK_FTA = {"ITV", "BBC", "BBC Wales", "BBC Alba", "S4C", "STV"}
 
 
 def get_rights_map(comp_code: str) -> dict:

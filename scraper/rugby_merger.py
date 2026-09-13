@@ -50,7 +50,8 @@ OUTPUT_PATH = os.path.join(os.path.dirname(__file__), "..", "output", "rugby_fix
 # Headings look like "French TOP 14 - Round 1", "Nations Championship - Round 3"
 # ─────────────────────────────────────────────────────────────────────────────
 LOS_COMP_RULES = [
-    (r"\b(u20|under[- ]?20|women|womens|wxv|female)\b",              None),     # skip age-grade/women's
+    (r"\bwxv\b",                                                     "WXV"),    # women's — published
+    (r"\b(u20|under[- ]?20|women|womens|female)\b",                  None),     # other age-grade/women's: skip for now
     (r"top ?14",                                                     "TOP14"),
     (r"united rugby championship|\burc\b",                           "URC"),
     (r"nations championship",                                        "NATC"),
@@ -93,6 +94,11 @@ RUGBY_CHANNEL_RULES = [
     (r"premier sports (rugby|\d|gb player|player)", "United Kingdom", "Premier Sports"),
     (r"\bs4c\b",                              "United Kingdom", "S4C"),
     (r"bbc (one|two) wales|bbc wales",        "United Kingdom", "BBC Wales"),
+    (r"bbc alba",                             "United Kingdom", "BBC Alba"),
+    (r"england rugby (youtube|tv)",           "United Kingdom", "England Rugby YouTube"),
+    (r"\bfir\b.*youtube|federazione italiana", "Italy", "FIR YouTube"),
+    (r"j ?sports",                            "Japan", "J SPORTS"),
+    (r"paramount\+",                          "United States", "Paramount+"),
     (r"\bitv|\bstv\b|\butv\b",                "United Kingdom", "ITV"),
     (r"discovery\+|hbo max uk",               "United Kingdom", "Discovery+"),
     (r"\btg4\b",                              "Republic of Ireland", "TG4"),
@@ -185,6 +191,7 @@ def rugby_norm(name: str) -> str:
     s = re.sub(r"[^a-z0-9 ]+", " ", s)
     s = re.sub(r"\s+", " ", s).strip()
     s = re.sub(r"\brugby\b", " ", s)           # "Cardiff Rugby", "Ulster Rugby", "England Rugby"
+    s = re.sub(r"\b(women|womens|women s|ladies)\b", " ", s)   # "England Women" ↔ "England"
     s = re.sub(r"^(the|as|rc|us|sc|cs|asm)\s+", "", s)
     s = re.sub(r"\s+(rfc|fc|rc)$", "", s)
     s = re.sub(r"\s+", " ", s).strip()
@@ -364,7 +371,8 @@ def backfill_from_liveonsat(fixtures: list, index) -> list:
     """Add in-scope liveonsat rugby matches TheSportsDB doesn't have."""
     if index is None:
         return fixtures
-    have = {(rugby_norm(f["home_team"]), rugby_norm(f["away_team"]), f["kickoff"][:10])
+    def _w(code): return bool(RUGBY_COMPETITIONS.get(code, {}).get("women"))
+    have = {(_w(f["comp_code"]), rugby_norm(f["home_team"]), rugby_norm(f["away_team"]), f["kickoff"][:10])
             for f in fixtures}
     # One display name per club across both sources, so favourites / search
     # match: prefer the spelling TheSportsDB rows already use, else tidy the
@@ -374,7 +382,12 @@ def backfill_from_liveonsat(fixtures: list, index) -> list:
     for f in fixtures:
         display.setdefault(rugby_norm(f["home_team"]), f["home_team"])
         display.setdefault(rugby_norm(f["away_team"]), f["away_team"])
-    def disp(raw):
+    def disp(raw, women=False):
+        if women:
+            # keep women's sides distinct from the men's teams of the same
+            # name so favourites/search don't blur "England" and "England Women"
+            base = LOS_DISPLAY_FIXES.get(rugby_norm(raw)) or clean_team(raw)
+            return base if base.lower().endswith("women") else f"{base} Women"
         n = rugby_norm(raw)
         if n in display:
             return display[n]
@@ -389,27 +402,28 @@ def backfill_from_liveonsat(fixtures: list, index) -> list:
         if r.get("status") == "POSTPONED":
             continue
         ko = r.get("kickoff_utc", "")
-        key = (rugby_norm(r.get("home", "")), rugby_norm(r.get("away", "")), ko[:10])
+        key = (_w(code), rugby_norm(r.get("home", "")), rugby_norm(r.get("away", "")), ko[:10])
         if key in have:
             continue
         # Same pairing within ±1 day (late-night UTC kick-offs can sit on the
         # neighbouring date) → same match, don't duplicate.
         try:
             kd = datetime.fromisoformat(ko[:10])
-            if any(k[0] == key[0] and k[1] == key[1]
-                   and abs((datetime.fromisoformat(k[2]) - kd).days) <= 1 for k in have):
+            if any(k[0] == key[0] and k[1] == key[1] and k[2] == key[2]
+                   and abs((datetime.fromisoformat(k[3]) - kd).days) <= 1 for k in have):
                 continue
         except Exception:
             pass
         comp = RUGBY_COMPETITIONS[code]
+        women = bool(comp.get("women"))
         m = re.search(r"round\s*(\d+)", r.get("round", "") or "", re.I)
         added.append({
-            "id":          f"{code.lower()}_{_abbr(disp(r['home']))}_{_abbr(disp(r['away']))}_{ko[:10]}",
+            "id":          f"{code.lower()}_{_abbr(disp(r['home'], women))}_{_abbr(disp(r['away'], women))}_{ko[:10]}",
             "sport":       "rugby_union",
             "competition": comp["display"],
             "comp_code":   code,
-            "home_team":   disp(r["home"]),
-            "away_team":   disp(r["away"]),
+            "home_team":   disp(r["home"], women),
+            "away_team":   disp(r["away"], women),
             "kickoff":     ko,
             "matchday":    int(m.group(1)) if m else None,
             "stage":       "REGULAR_SEASON",
@@ -489,12 +503,45 @@ UK_RIGHTS_NOTES = {
     ("INTL", "Sky Sports"): "Rugby Championship and southern-hemisphere home Tests",
     ("INTL", "TNT Sports"): "Selected home-nation Tests in non-Nations-Championship years",
     ("INTL", "ITV"): "Nations Series Tests in 2026 and 2028",
+    ("WXV", "BBC"): "All matches on BBC iPlayer / BBC Sport website & app",
+    ("WXV", "England Rugby YouTube"): "England matches only",
+    ("WXV", "BBC Wales"): "Wales matches on BBC One Wales",
+    ("WXV", "BBC Alba"): "Scotland matches",
 }
+
+
+# Channel lists that differ from the broadcaster's default for one competition
+COMP_CHANNEL_OVERRIDES = {
+    ("WXV", "BBC"): ["BBC iPlayer", "BBC Sport website & app"],
+}
+
+
+# Broadcasters that only carry their own nation's matches in a competition
+# (World Rugby WXV where-to-watch: "Italy home/away matches", "Canada
+# matches only", etc.). Dropped from other fixtures.
+NATION_ONLY = {
+    ("WXV", "TG4"): "ireland", ("WXV", "France Télévisions"): "france",
+    ("WXV", "FIR YouTube"): "italy", ("WXV", "TSN"): "canada",
+    ("WXV", "J SPORTS"): "japan", ("WXV", "England Rugby YouTube"): "england",
+}
+
+
+def _nation_only_filter(code: str, names: list, home: str, away: str) -> list:
+    teams = f"{home} {away}".lower()
+    return [n for n in names
+            if (code, n) not in NATION_ONLY or NATION_ONLY[(code, n)] in teams]
 
 
 def _uk_rights_for_match(code: str, home: str, names: list) -> list:
     """Narrow the UK rights-holder list using per-match rules where the
-    split is known (Six Nations BBC/ITV by home nation)."""
+    split is known (Six Nations BBC/ITV by home nation; WXV BBC outlets)."""
+    if code == "WXV":
+        h = (home or "").lower()
+        keep = {"BBC"}                                   # iPlayer / BBC Sport app for all
+        if "wales" in h:     keep.add("BBC Wales")
+        if "scotland" in h:  keep.add("BBC Alba")
+        if "england" in h:   keep.add("England Rugby YouTube")
+        return [n for n in names if n in keep] or names
     if code == "SIXN":
         h = (home or "").lower()
         if any(n in h for n in SIXN_BBC_HOSTS):
@@ -535,14 +582,16 @@ def build_broadcasters(fixture: dict, los_terrs: dict) -> list:
         names = [b.strip() for b in row["broadcaster"].split(";") if b.strip()]
         if terr == "United Kingdom":
             names = _uk_rights_for_match(code, home, names)
+        names = _nation_only_filter(code, names, home, fixture.get("away_team", ""))
         for name in names:
             meta = broadcaster_meta(name)
             note = UK_RIGHTS_NOTES.get((code, name), "") if terr == "United Kingdom" else ""
+            chans = COMP_CHANNEL_OVERRIDES.get((code, name)) or meta["channels"]
             out.append({
                 "territory":   terr,
                 "region":      row["region"],
                 "broadcaster": name,
-                "channels":    list(meta["channels"]),
+                "channels":    list(chans),
                 "type":        meta["type"],
                 "coverage":    "live",
                 "confidence":  "medium",
@@ -585,7 +634,7 @@ def assemble(fixtures: list, index) -> list:
         # Free-to-air badge only when we're sure: liveonsat-confirmed FTA
         # channel, or a competition that is wholly FTA in the UK.
         uk_fta = any(b["territory"] == "United Kingdom" and b["type"] == "free_tv"
-                     and (b["confidence"] == "high" or f["comp_code"] in ("SIXN", "NATC"))
+                     and (b["confidence"] == "high" or f["comp_code"] in ("SIXN", "NATC", "WXV"))
                      for b in bcs)
         rec = {
             "id":           f["id"],

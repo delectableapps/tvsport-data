@@ -140,12 +140,19 @@ FLAG_PATTERNS = [
 ]
 TV_EMOJI = "\U0001F4FA"  # 📺
 
-# Rugby page headings that carry no " - Round" suffix. Kept deliberately
-# narrow so a channel name can never be mistaken for a heading.
+# Rugby page headings that carry no " - Round N" suffix ("WXV Womens Series",
+# "Rugby Union Friendly", "Super Rugby Australia"). A line is accepted as a
+# heading only if it (a) matches this competition vocabulary, (b) carries no
+# channel markers, and (c) is followed by a teams line + ST line — so a
+# channel name can never be mistaken for a heading.
 RUGBY_BARE_HEADING_RE = re.compile(
-    r"^(rugby union (friendly|friendlies|international|internationals|test)"
-    r"|autumn nations series|summer (tour|series|internationals)"
-    r"|international (friendly|match|test)|test match(es)?)\s*$", re.I)
+    r"^(?=.*\b(wxv|women|womens|friendl(y|ies)|international(s)?|test|tour|series|"
+    r"nations|championship|cup|trophy|shield|league|premiership|division|"
+    r"top ?14|pro ?d2|npc|super rugby|currie|rugby)\b)[a-z0-9 '&/\-]{4,60}$", re.I)
+RUGBY_CHANNEL_MARKER_RE = re.compile(
+    r"(\bhd\b|\[|\(|\$|\+|📺|\b(tv|online|app|player|play|iplayer|go|stream|sport \d|"
+    r"sports|bbc|itv|sky|canal|dazn|espn|supersport|stan|flo|rugbypass|wowow|"
+    r"virgin|s4c|rte|tg4|bein|movistar|now|youtube|tsn|paramount)\b)", re.I)
 
 
 def _get_cffi(url: str) -> str:
@@ -355,8 +362,10 @@ def parse_text_lines(lines, updated: datetime | None, page_tz: timezone,
                 # competition header is the nearest previous ' - ' line
                 continue
 
-        if source_page == "rugby" and RUGBY_BARE_HEADING_RE.match(line) \
-                and not _looks_like_competition(line):
+        if source_page == "rugby" and not _looks_like_competition(line) \
+                and RUGBY_BARE_HEADING_RE.match(line) \
+                and not RUGBY_CHANNEL_MARKER_RE.search(line) \
+                and not TEAMS_RE.match(line) and not ST_RE.match(line):
             # e.g. "Rugby Union Friendly" — no " - Round N" part, so the
             # generic rule below never sees it and the fixture would inherit
             # the previous competition (Scotland v Canada filed as Top 14).
