@@ -1,8 +1,8 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-09-23T08:14:54Z",
-  "lastUpdated": "2026-09-23T08:14:54Z",
-  "fixture_count": 101,
+  "generated_at": "2026-09-24T07:07:37Z",
+  "lastUpdated": "2026-09-24T07:07:37Z",
+  "fixture_count": 102,
   "competitions": [
     {
       "code": "SIXN",
@@ -953,14 +953,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "Supersport Extra 2"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -1171,14 +1169,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Grandstand"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -1376,14 +1372,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Rugby"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -1594,14 +1588,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Rugby"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -2179,6 +2171,155 @@
       "needs_review": true
     },
     {
+      "id": "wxv_ITA_SOU_2026-09-26",
+      "sport": "rugby_union",
+      "competition": "WXV Global Series (Women)",
+      "comp_code": "WXV",
+      "home_team": "Italy Women",
+      "away_team": "South Africa Women",
+      "kickoff": "2026-09-26T12:30:00Z",
+      "matchday": null,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "venue": null,
+      "status": "",
+      "is_blackout": false,
+      "uk_free_to_air": true,
+      "liveonsat_confirmed": true,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC",
+          "channels": [
+            "BBC iPlayer",
+            "BBC Sport website & app"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights",
+          "note": "All matches on BBC iPlayer / BBC Sport website & app"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "FIR YouTube",
+          "channels": [
+            "Federazione Italiana Rugby YouTube"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Europe",
+          "broadcaster": "Sport TV",
+          "channels": [
+            "Sport TV"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Latin America",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Stan Sport",
+          "channels": [
+            "Stan Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "Sky Sport NZ",
+          "channels": [
+            "Sky Sport 1 NZ",
+            "Sky Sport Now"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "TOD TV (Starzplay)",
+          "channels": [
+            "TOD",
+            "Starzplay"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Grandstand"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Worldwide (outside rights-holder territories)",
+          "region": "International",
+          "broadcaster": "RugbyPass TV",
+          "channels": [
+            "RugbyPass TV (free, registration)"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights",
+          "note": "Free with registration — default platform for every WXV match"
+        }
+      ],
+      "broadcaster_count": 10,
+      "source": "liveonsat",
+      "needs_review": true
+    },
+    {
       "id": "urc_SHA_OSP_2026-09-26",
       "sport": "rugby_union",
       "competition": "United Rugby Championship",
@@ -2347,14 +2488,13 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Action",
+            "SuperSport Rugby"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -5356,6 +5496,18 @@
           "source": "rights"
         },
         {
+          "territory": "South Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport OTT 4"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "Worldwide",
           "region": "International",
           "broadcaster": "RugbyPass TV",
@@ -5381,7 +5533,7 @@
           "note": "Free with registration — default platform for every WXV match"
         }
       ],
-      "broadcaster_count": 10,
+      "broadcaster_count": 11,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -6086,14 +6238,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Rugby"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -6291,14 +6441,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Grandstand"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -6522,14 +6670,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Rugby"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -7445,6 +7591,18 @@
           "source": "rights"
         },
         {
+          "territory": "South Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport OTT 4"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "Worldwide",
           "region": "International",
           "broadcaster": "RugbyPass TV",
@@ -7470,7 +7628,7 @@
           "note": "Free with registration — default platform for every WXV match"
         }
       ],
-      "broadcaster_count": 11,
+      "broadcaster_count": 12,
       "source": "liveonsat",
       "needs_review": true
     },
