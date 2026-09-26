@@ -1,7 +1,7 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-09-25T08:30:14Z",
-  "lastUpdated": "2026-09-25T08:30:14Z",
+  "generated_at": "2026-09-26T07:02:16Z",
+  "lastUpdated": "2026-09-26T07:02:16Z",
   "fixture_count": 130,
   "competitions": [
     {
@@ -47,18 +47,18 @@
   ],
   "fixtures": [
     {
-      "id": "prem_HAR_BAT_2026-09-25",
+      "id": "urc_BEN_DRA_2026-09-25",
       "sport": "rugby_union",
-      "competition": "Gallagher PREM",
-      "comp_code": "PREM",
-      "home_team": "Harlequins",
-      "away_team": "Bath",
+      "competition": "United Rugby Championship",
+      "comp_code": "URC",
+      "home_team": "Benetton",
+      "away_team": "Dragons",
       "kickoff": "2026-09-25T18:45:00Z",
       "matchday": 1,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": "Twickenham Stoop",
-      "status": "NS",
+      "venue": null,
+      "status": "",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -66,53 +66,15 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "HBO Max",
+          "broadcaster": "Premier Sports",
           "channels": [
-            "HBO Max (uk only)"
+            "Premier Sports GB Player",
+            "Premier Sports Rugby UK"
           ],
           "type": "pay_tv",
           "coverage": "live",
           "confidence": "high",
           "source": "liveonsat"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 5"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Discovery+",
-          "channels": [
-            "discovery+ (TNT Sports pass)"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
         },
         {
           "territory": "Republic of Ireland",
@@ -124,6 +86,19 @@
             "Premier Sports Player"
           ],
           "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "TG4",
+          "channels": [
+            "TG4",
+            "TG4 Player"
+          ],
+          "type": "free_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -143,42 +118,16 @@
           "source": "rights"
         },
         {
-          "territory": "Germany",
-          "region": "Europe",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
           "territory": "Italy",
           "region": "Europe",
-          "broadcaster": "Sky Italia",
+          "broadcaster": "Sky Sport Italia",
           "channels": [
-            "Sky Sport Arena",
-            "Sky Sport Uno",
-            "NOW"
+            "Sky Sport Max Italia"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Netherlands",
-          "region": "Europe",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Nordics",
@@ -193,68 +142,13 @@
           "source": "rights"
         },
         {
-          "territory": "Spain",
-          "region": "Europe",
-          "broadcaster": "Movistar",
-          "channels": [
-            "Movistar Plus+",
-            "M+ Deportes"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Argentina",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Brazil",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
           "territory": "Canada",
           "region": "Americas",
-          "broadcaster": "Sportsnet World",
+          "broadcaster": "URC TV",
           "channels": [
-            "Sportsnet World"
+            "urc.tv"
           ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Latin America",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
+          "type": "streaming",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -262,21 +156,9 @@
         {
           "territory": "United States",
           "region": "Americas",
-          "broadcaster": "FloRugby (FloSports)",
+          "broadcaster": "FloRugby",
           "channels": [
-            "FloRugby"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Stan Sport",
-          "channels": [
-            "Stan Sport Australia"
+            "FloRugby.com"
           ],
           "type": "streaming",
           "coverage": "live",
@@ -284,38 +166,25 @@
           "source": "liveonsat"
         },
         {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Setanta Sports",
+          "channels": [
+            "Setanta Sports"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
           "territory": "New Zealand",
           "region": "Asia-Pacific",
-          "broadcaster": "Sky Sport NZ",
+          "broadcaster": "Setanta Sports",
           "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
+            "Setanta Sports"
           ],
           "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Pacific Islands",
-          "region": "Asia-Pacific",
-          "broadcaster": "Digicel",
-          "channels": [
-            "Digicel Sports"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "India",
-          "region": "Asia",
-          "broadcaster": "RugbyPass TV",
-          "channels": [
-            "RugbyPass TV (free, registration)"
-          ],
-          "type": "streaming",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -326,18 +195,6 @@
           "broadcaster": "DAZN Japan",
           "channels": [
             "DAZN"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "South-East Asia",
-          "region": "Asia",
-          "broadcaster": "RugbyPass TV",
-          "channels": [
-            "RugbyPass TV (free, registration)"
           ],
           "type": "streaming",
           "coverage": "live",
@@ -359,11 +216,9 @@
         {
           "territory": "Middle East & N. Africa",
           "region": "Middle East & N. Africa",
-          "broadcaster": "beIN Sports",
+          "broadcaster": "Setanta Sports",
           "channels": [
-            "beIN Sports 1",
-            "beIN Sports 2",
-            "beIN Connect"
+            "Setanta Sports"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -375,43 +230,41 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "Supersport Extra 2"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Sub-Saharan Africa",
-          "region": "Sub-Saharan Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
           "region": "International",
-          "broadcaster": "PRTV Live",
+          "broadcaster": "URC TV",
           "channels": [
-            "PRTV Live"
+            "urc.tv"
           ],
           "type": "streaming",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
+        },
+        {
+          "territory": "Worldwide (outside rights-holder territories)",
+          "region": "International",
+          "broadcaster": "URC TV",
+          "channels": [
+            "URC TV"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 27
+      "broadcaster_count": 16,
+      "source": "liveonsat",
+      "needs_review": true
     },
     {
       "id": "prem_NOR_NEW_2026-09-25",
@@ -424,8 +277,8 @@
       "matchday": 1,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": "Franklin's Gardens",
-      "status": "NS",
+      "venue": null,
+      "status": "",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -778,21 +631,23 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 27
+      "broadcaster_count": 27,
+      "source": "liveonsat",
+      "needs_review": true
     },
     {
-      "id": "urc_BEN_DRA_2026-09-25",
+      "id": "urc_ULS_EDI_2026-09-25",
       "sport": "rugby_union",
       "competition": "United Rugby Championship",
       "comp_code": "URC",
-      "home_team": "Benetton",
-      "away_team": "Dragons",
+      "home_team": "Ulster",
+      "away_team": "Edinburgh",
       "kickoff": "2026-09-25T18:45:00Z",
       "matchday": 1,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": "Stadio di Monigo",
-      "status": "NS",
+      "venue": null,
+      "status": "",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -802,8 +657,8 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports GB Player",
-            "Premier Sports Rugby UK"
+            "Premier Sports 2 UK",
+            "Premier Sports GB Player"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -815,27 +670,12 @@
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 2 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "TG4",
-          "channels": [
-            "TG4",
-            "TG4 Player"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "France",
@@ -964,7 +804,7 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "Supersport Extra 2"
+            "SuperSport Rugby"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -996,7 +836,9 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 16
+      "broadcaster_count": 15,
+      "source": "liveonsat",
+      "needs_review": true
     },
     {
       "id": "urc_CON_STO_2026-09-25",
@@ -1009,8 +851,8 @@
       "matchday": 1,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": "Dexcom Stadium",
-      "status": "NS",
+      "venue": null,
+      "status": "",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -1212,21 +1054,23 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 16
+      "broadcaster_count": 16,
+      "source": "liveonsat",
+      "needs_review": true
     },
     {
-      "id": "urc_ULS_EDI_2026-09-25",
+      "id": "prem_HAR_BAT_2026-09-25",
       "sport": "rugby_union",
-      "competition": "United Rugby Championship",
-      "comp_code": "URC",
-      "home_team": "Ulster",
-      "away_team": "Edinburgh",
+      "competition": "Gallagher PREM",
+      "comp_code": "PREM",
+      "home_team": "Harlequins",
+      "away_team": "Bath",
       "kickoff": "2026-09-25T18:45:00Z",
       "matchday": 1,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": "Affidea Stadium",
-      "status": "NS",
+      "venue": null,
+      "status": "",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -1234,10 +1078,21 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
-          "broadcaster": "Premier Sports",
+          "broadcaster": "HBO Max",
           "channels": [
-            "Premier Sports 2 UK",
-            "Premier Sports GB Player"
+            "HBO Max (uk only)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 5"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -1247,14 +1102,43 @@
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
-          "broadcaster": "Premier Sports Ireland",
+          "broadcaster": "TNT Sports",
           "channels": [
-            "Premier Sports 2 Ireland"
+            "TNT Sports 1",
+            "TNT Sports 2",
+            "TNT Sports 3",
+            "TNT Sports 4"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Discovery+",
+          "channels": [
+            "discovery+ (TNT Sports pass)"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports Ireland",
+          "channels": [
+            "Premier Sports 1 Ireland",
+            "Premier Sports 2 Ireland",
+            "Premier Sports Player"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
         },
         {
           "territory": "France",
@@ -1271,11 +1155,37 @@
           "source": "rights"
         },
         {
-          "territory": "Italy",
+          "territory": "Germany",
           "region": "Europe",
-          "broadcaster": "DAZN Italy",
+          "broadcaster": "DAZN",
           "channels": [
             "DAZN"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "Sky Italia",
+          "channels": [
+            "Sky Sport Arena",
+            "Sky Sport Uno",
+            "NOW"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay"
           ],
           "type": "streaming",
           "coverage": "live",
@@ -1295,13 +1205,68 @@
           "source": "rights"
         },
         {
+          "territory": "Spain",
+          "region": "Europe",
+          "broadcaster": "Movistar",
+          "channels": [
+            "Movistar Plus+",
+            "M+ Deportes"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Argentina",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
           "territory": "Canada",
           "region": "Americas",
-          "broadcaster": "URC TV",
+          "broadcaster": "Sportsnet World",
           "channels": [
-            "urc.tv"
+            "Sportsnet World"
           ],
-          "type": "streaming",
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Latin America",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -1309,9 +1274,21 @@
         {
           "territory": "United States",
           "region": "Americas",
-          "broadcaster": "FloRugby",
+          "broadcaster": "FloRugby (FloSports)",
           "channels": [
-            "FloRugby.com"
+            "FloRugby"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Stan Sport",
+          "channels": [
+            "Stan Sport Australia"
           ],
           "type": "streaming",
           "coverage": "live",
@@ -1319,11 +1296,12 @@
           "source": "liveonsat"
         },
         {
-          "territory": "Australia",
+          "territory": "New Zealand",
           "region": "Asia-Pacific",
-          "broadcaster": "Setanta Sports",
+          "broadcaster": "Sky Sport NZ",
           "channels": [
-            "Setanta Sports"
+            "Sky Sport 1 NZ",
+            "Sky Sport Now"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -1331,13 +1309,25 @@
           "source": "rights"
         },
         {
-          "territory": "New Zealand",
+          "territory": "Pacific Islands",
           "region": "Asia-Pacific",
-          "broadcaster": "Setanta Sports",
+          "broadcaster": "Digicel",
           "channels": [
-            "Setanta Sports"
+            "Digicel Sports"
           ],
           "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India",
+          "region": "Asia",
+          "broadcaster": "RugbyPass TV",
+          "channels": [
+            "RugbyPass TV (free, registration)"
+          ],
+          "type": "streaming",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -1348,6 +1338,18 @@
           "broadcaster": "DAZN Japan",
           "channels": [
             "DAZN"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South-East Asia",
+          "region": "Asia",
+          "broadcaster": "RugbyPass TV",
+          "channels": [
+            "RugbyPass TV (free, registration)"
           ],
           "type": "streaming",
           "coverage": "live",
@@ -1369,9 +1371,11 @@
         {
           "territory": "Middle East & N. Africa",
           "region": "Middle East & N. Africa",
-          "broadcaster": "Setanta Sports",
+          "broadcaster": "beIN Sports",
           "channels": [
-            "Setanta Sports"
+            "beIN Sports 1",
+            "beIN Sports 2",
+            "beIN Connect"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -1383,39 +1387,45 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby"
+            "SuperSport Rugby",
+            "SuperSport Grandstand",
+            "DStv Stream"
           ],
           "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Rest of World",
-          "region": "International",
-          "broadcaster": "URC TV",
-          "channels": [
-            "urc.tv"
-          ],
-          "type": "streaming",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
         },
         {
-          "territory": "Worldwide (outside rights-holder territories)",
-          "region": "International",
-          "broadcaster": "URC TV",
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
           "channels": [
-            "URC TV"
+            "SuperSport Rugby",
+            "SuperSport Grandstand",
+            "DStv Stream"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Rest of World",
+          "region": "International",
+          "broadcaster": "PRTV Live",
+          "channels": [
+            "PRTV Live"
           ],
           "type": "streaming",
           "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
+          "confidence": "medium",
+          "source": "rights"
         }
       ],
-      "broadcaster_count": 15
+      "broadcaster_count": 27,
+      "source": "liveonsat",
+      "needs_review": true
     },
     {
       "id": "urc_LIO_LEI_2026-09-26",
@@ -1667,14 +1677,14 @@
         {
           "territory": "Italy",
           "region": "Europe",
-          "broadcaster": "FIR YouTube",
+          "broadcaster": "Sky Sport Italia",
           "channels": [
-            "Federazione Italiana Rugby YouTube"
+            "Sky Sport MIX Italia"
           ],
-          "type": "streaming",
+          "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Portugal",
@@ -3183,12 +3193,12 @@
       "broadcaster_count": 27
     },
     {
-      "id": "top14_STA_LYO_2026-09-26",
+      "id": "top14_TOU_VAN_2026-09-26",
       "sport": "rugby_union",
       "competition": "Top 14",
       "comp_code": "TOP14",
-      "home_team": "Stade Français",
-      "away_team": "Lyon",
+      "home_team": "Toulon",
+      "away_team": "Vannes",
       "kickoff": "2026-09-26T14:35:00Z",
       "matchday": 4,
       "stage": "REGULAR_SEASON",
@@ -3204,25 +3214,30 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 2 UK",
-            "Premier Sports GB Player"
+            "Premier Sports 1",
+            "Premier Sports 2",
+            "Premier Sports Rugby",
+            "Premier Sports Player"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
+          "confidence": "medium",
+          "source": "rights",
+          "note": "4 matches per round + finals — not every match is shown in the UK"
         },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 2 Ireland"
+            "Premier Sports 1 Ireland",
+            "Premier Sports 2 Ireland",
+            "Premier Sports Player"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
+          "confidence": "medium",
+          "source": "rights"
         },
         {
           "territory": "Andorra",
@@ -3285,7 +3300,7 @@
           "broadcaster": "Canal+",
           "channels": [
             "Canal+ France",
-            "Canal+ Live 4 France"
+            "Canal+ Live 5 France"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -3731,12 +3746,12 @@
       "needs_review": true
     },
     {
-      "id": "top14_TOU_VAN_2026-09-26",
+      "id": "top14_STA_LYO_2026-09-26",
       "sport": "rugby_union",
       "competition": "Top 14",
       "comp_code": "TOP14",
-      "home_team": "Toulon",
-      "away_team": "Vannes",
+      "home_team": "Stade Français",
+      "away_team": "Lyon",
       "kickoff": "2026-09-26T14:35:00Z",
       "matchday": 4,
       "stage": "REGULAR_SEASON",
@@ -3752,30 +3767,25 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2",
-            "Premier Sports Rugby",
-            "Premier Sports Player"
+            "Premier Sports 2 UK",
+            "Premier Sports GB Player"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "4 matches per round + finals — not every match is shown in the UK"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 2 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Andorra",
@@ -3838,7 +3848,7 @@
           "broadcaster": "Canal+",
           "channels": [
             "Canal+ France",
-            "Canal+ Live 5 France"
+            "Canal+ Live 4 France"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -6338,14 +6348,14 @@
         {
           "territory": "Italy",
           "region": "Europe",
-          "broadcaster": "DAZN Italy",
+          "broadcaster": "Sky Sport Italia",
           "channels": [
-            "DAZN"
+            "Sky Sport Max Italia"
           ],
-          "type": "streaming",
+          "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Nordics",
@@ -8592,6 +8602,18 @@
           "source": "liveonsat"
         },
         {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "TNT Sports",
@@ -8915,7 +8937,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 26
+      "broadcaster_count": 27
     },
     {
       "id": "urc_BEN_CON_2026-10-02",
@@ -8939,71 +8961,38 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2",
-            "Premier Sports Rugby",
-            "Premier Sports Player"
+            "Premier Sports 1 UK",
+            "Premier Sports GB Player"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "S4C",
-          "channels": [
-            "S4C",
-            "S4C Clic"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "20 Welsh-region matches free-to-air per season"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Wales",
-          "channels": [
-            "BBC One Wales",
-            "BBC Two Wales",
-            "BBC iPlayer"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "Selected Welsh-region matches"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 1 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "TG4",
           "channels": [
-            "TG4",
+            "TG4 Ireland",
             "TG4 Player"
           ],
           "type": "free_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "France",
@@ -9166,7 +9155,7 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 18
+      "broadcaster_count": 16
     },
     {
       "id": "urc_CAR_ZEB_2026-10-02",
@@ -9182,52 +9171,46 @@
       "venue": "Cardiff Arms Park",
       "status": "NS",
       "is_blackout": false,
-      "uk_free_to_air": false,
+      "uk_free_to_air": true,
       "liveonsat_confirmed": true,
       "broadcasters": [
         {
           "territory": "United Kingdom",
           "region": "UK",
+          "broadcaster": "BBC",
+          "channels": [
+            "BBC iPlayer"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2",
-            "Premier Sports Rugby",
-            "Premier Sports Player"
+            "Premier Sports GB Player",
+            "Premier Sports Rugby UK"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "United Kingdom",
           "region": "UK",
           "broadcaster": "S4C",
           "channels": [
-            "S4C",
-            "S4C Clic"
+            "S4C Clic",
+            "S4C Digital"
           ],
           "type": "free_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "20 Welsh-region matches free-to-air per season"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Wales",
-          "channels": [
-            "BBC One Wales",
-            "BBC Two Wales",
-            "BBC iPlayer"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "Selected Welsh-region matches"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Republic of Ireland",
@@ -9441,71 +9424,25 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2",
-            "Premier Sports Rugby",
-            "Premier Sports Player"
+            "Premier Sports 2 UK",
+            "Premier Sports GB Player"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "S4C",
-          "channels": [
-            "S4C",
-            "S4C Clic"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "20 Welsh-region matches free-to-air per season"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Wales",
-          "channels": [
-            "BBC One Wales",
-            "BBC Two Wales",
-            "BBC iPlayer"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "Selected Welsh-region matches"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 2 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "TG4",
-          "channels": [
-            "TG4",
-            "TG4 Player"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "France",
@@ -9668,7 +9605,7 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 18
+      "broadcaster_count": 15
     },
     {
       "id": "urc_LIO_OSP_2026-10-03",
@@ -9692,71 +9629,25 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2",
-            "Premier Sports Rugby",
-            "Premier Sports Player"
+            "Premier Sports 1 UK",
+            "Premier Sports GB Player"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "S4C",
-          "channels": [
-            "S4C",
-            "S4C Clic"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "20 Welsh-region matches free-to-air per season"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Wales",
-          "channels": [
-            "BBC One Wales",
-            "BBC Two Wales",
-            "BBC iPlayer"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "Selected Welsh-region matches"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 1 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "TG4",
-          "channels": [
-            "TG4",
-            "TG4 Player"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "France",
@@ -9919,7 +9810,7 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 18
+      "broadcaster_count": 15
     },
     {
       "id": "top14_BOR_LYO_2026-10-03",
@@ -9943,16 +9834,13 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2",
-            "Premier Sports Rugby",
-            "Premier Sports Player"
+            "Premier Sports GB Player",
+            "Premier Sports Rugby UK"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "4 matches per round + finals — not every match is shown in the UK"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Republic of Ireland",
@@ -10497,71 +10385,25 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2",
-            "Premier Sports Rugby",
-            "Premier Sports Player"
+            "Premier Sports 1 UK",
+            "Premier Sports GB Player"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "S4C",
-          "channels": [
-            "S4C",
-            "S4C Clic"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "20 Welsh-region matches free-to-air per season"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Wales",
-          "channels": [
-            "BBC One Wales",
-            "BBC Two Wales",
-            "BBC iPlayer"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "Selected Welsh-region matches"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 1 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "TG4",
-          "channels": [
-            "TG4",
-            "TG4 Player"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "France",
@@ -10724,7 +10566,7 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 18
+      "broadcaster_count": 15
     },
     {
       "id": "prem_BRI_NOR_2026-10-03",
@@ -10749,6 +10591,18 @@
           "broadcaster": "HBO Max",
           "channels": [
             "HBO Max (uk only)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -11079,7 +10933,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 26
+      "broadcaster_count": 27
     },
     {
       "id": "top14_VAN_PAU_2026-10-03",
@@ -13327,6 +13181,18 @@
           "source": "liveonsat"
         },
         {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "TNT Sports",
@@ -13650,7 +13516,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 26
+      "broadcaster_count": 27
     },
     {
       "id": "urc_SHA_LEI_2026-10-03",
@@ -13674,71 +13540,25 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2",
-            "Premier Sports Rugby",
-            "Premier Sports Player"
+            "Premier Sports GB Player",
+            "Premier Sports Rugby UK"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "S4C",
-          "channels": [
-            "S4C",
-            "S4C Clic"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "20 Welsh-region matches free-to-air per season"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Wales",
-          "channels": [
-            "BBC One Wales",
-            "BBC Two Wales",
-            "BBC iPlayer"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "Selected Welsh-region matches"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 1 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "TG4",
-          "channels": [
-            "TG4",
-            "TG4 Player"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "France",
@@ -13901,7 +13721,7 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 18
+      "broadcaster_count": 15
     },
     {
       "id": "prem_NEW_LEI_2026-10-03",
@@ -13933,6 +13753,18 @@
           "source": "liveonsat"
         },
         {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "TNT Sports",
@@ -14256,7 +14088,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 26
+      "broadcaster_count": 27
     },
     {
       "id": "urc_GLA_ULS_2026-10-03",
@@ -14280,44 +14112,13 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2",
-            "Premier Sports Rugby",
-            "Premier Sports Player"
+            "Premier Sports 1 UK",
+            "Premier Sports GB Player"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "S4C",
-          "channels": [
-            "S4C",
-            "S4C Clic"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "20 Welsh-region matches free-to-air per season"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Wales",
-          "channels": [
-            "BBC One Wales",
-            "BBC Two Wales",
-            "BBC iPlayer"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "Selected Welsh-region matches"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Republic of Ireland",
@@ -14507,7 +14308,7 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 18
+      "broadcaster_count": 16
     },
     {
       "id": "urc_MUN_BUL_2026-10-03",
@@ -14531,71 +14332,38 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2",
-            "Premier Sports Rugby",
-            "Premier Sports Player"
+            "Premier Sports 1 UK",
+            "Premier Sports GB Player"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "S4C",
-          "channels": [
-            "S4C",
-            "S4C Clic"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "20 Welsh-region matches free-to-air per season"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Wales",
-          "channels": [
-            "BBC One Wales",
-            "BBC Two Wales",
-            "BBC iPlayer"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "Selected Welsh-region matches"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 1 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "TG4",
           "channels": [
-            "TG4",
+            "TG4 Ireland",
             "TG4 Player"
           ],
           "type": "free_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "France",
@@ -14758,7 +14526,7 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 18,
+      "broadcaster_count": 16,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -14784,30 +14552,26 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2",
-            "Premier Sports Rugby",
-            "Premier Sports Player"
+            "Premier Sports 2 UK",
+            "Premier Sports GB Player",
+            "Premier Sports Rugby UK"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "4 matches per round + finals — not every match is shown in the UK"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 2 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Andorra",
@@ -15346,6 +15110,18 @@
           "source": "liveonsat"
         },
         {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "TNT Sports",
@@ -15669,7 +15445,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 26
+      "broadcaster_count": 27
     },
     {
       "id": "top14_MON_TOU_2026-10-04",
@@ -15693,30 +15469,25 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2",
-            "Premier Sports Rugby",
-            "Premier Sports Player"
+            "Premier Sports 1 UK",
+            "Premier Sports GB Player"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "4 matches per round + finals — not every match is shown in the UK"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 1 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Andorra",
