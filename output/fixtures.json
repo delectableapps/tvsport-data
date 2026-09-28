@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-27T08:53:58Z",
-  "lastUpdated": "2026-09-27T08:53:58Z",
-  "fixture_count": 431,
+  "generated_at": "2026-09-28T08:10:29Z",
+  "lastUpdated": "2026-09-28T08:10:29Z",
+  "fixture_count": 433,
   "fixtures": [
     {
       "id": "of-48888a5fa528",
@@ -42226,116 +42226,6 @@
       "broadcaster_count": 12
     },
     {
-      "id": "el1_BARN_MILT_2026-10-03",
-      "competition": "League One",
-      "comp_code": "EL1",
-      "home_team": "Barnsley",
-      "away_team": "Milton Keynes Dons",
-      "kickoff": "2026-10-03T14:00:00Z",
-      "matchday": 9,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "is_blackout": false,
-      "broadcasters": [
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "ESPN+",
-          "channels": [
-            "ESPN+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
-        }
-      ],
-      "broadcaster_count": 3,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "TheSportsDB (25-event cap)"
-    },
-    {
-      "id": "el1_SHEF_CAMB_2026-10-03",
-      "competition": "League One",
-      "comp_code": "EL1",
-      "home_team": "Sheffield Wednesday",
-      "away_team": "Cambridge United",
-      "kickoff": "2026-10-03T14:00:00Z",
-      "matchday": 9,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "is_blackout": false,
-      "broadcasters": [
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "ESPN+",
-          "channels": [
-            "ESPN+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
-        }
-      ],
-      "broadcaster_count": 3,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "TheSportsDB (25-event cap)"
-    },
-    {
       "id": "el1_BURT_HUDD_2026-10-03",
       "competition": "League One",
       "comp_code": "EL1",
@@ -42836,116 +42726,6 @@
       "comp_code": "EL1",
       "home_team": "Wigan Athletic",
       "away_team": "Mansfield Town",
-      "kickoff": "2026-10-03T14:00:00Z",
-      "matchday": 9,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "is_blackout": false,
-      "broadcasters": [
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "ESPN+",
-          "channels": [
-            "ESPN+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
-        }
-      ],
-      "broadcaster_count": 3,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "TheSportsDB (25-event cap)"
-    },
-    {
-      "id": "el1_WIMB_STEV_2026-10-03",
-      "competition": "League One",
-      "comp_code": "EL1",
-      "home_team": "AFC Wimbledon",
-      "away_team": "Stevenage",
-      "kickoff": "2026-10-03T14:00:00Z",
-      "matchday": 9,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "is_blackout": false,
-      "broadcasters": [
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "ESPN+",
-          "channels": [
-            "ESPN+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
-        }
-      ],
-      "broadcaster_count": 3,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "TheSportsDB (25-event cap)"
-    },
-    {
-      "id": "el1_BROM_WYCO_2026-10-03",
-      "competition": "League One",
-      "comp_code": "EL1",
-      "home_team": "Bromley",
-      "away_team": "Wycombe Wanderers",
       "kickoff": "2026-10-03T14:00:00Z",
       "matchday": 9,
       "stage": "REGULAR_SEASON",
@@ -60646,6 +60426,176 @@
       "broadcaster_count": 12
     },
     {
+      "id": "sch_AYRU_DUNF_2026-10-10",
+      "competition": "Scottish Championship",
+      "comp_code": "SCH",
+      "home_team": "Ayr United",
+      "away_team": "Dunfermline Athletic",
+      "kickoff": "2026-10-10T14:00:00Z",
+      "matchday": 10,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Scotland",
+          "channels": [
+            "BBC Scotland"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Alba",
+          "channels": [
+            "BBC Alba"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "International",
+          "region": "International",
+          "broadcaster": "Premier Sports International",
+          "channels": [
+            "Premier Sports International"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 12,
+      "source": "liveonsat",
+      "needs_review": true,
+      "expected_source": "TheSportsDB"
+    },
+    {
       "id": "pd_DEP_CLU_2026-10-10",
       "competition": "La Liga",
       "comp_code": "PD",
@@ -77892,11 +77842,11 @@
       "broadcaster_count": 22
     },
     {
-      "id": "sa_ATAL_VENE_2026-10-12",
+      "id": "sa_ATA_VEN_2026-10-12",
       "competition": "Serie A",
       "comp_code": "SA",
-      "home_team": "Atalanta",
-      "away_team": "Venezia",
+      "home_team": "Atalanta BC",
+      "away_team": "Venezia FC",
       "kickoff": "2026-10-12T16:30:00Z",
       "matchday": 6,
       "stage": "REGULAR_SEASON",
@@ -77904,6 +77854,43 @@
       "is_blackout": false,
       "broadcasters": [
         {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "DAZN GB",
+          "channels": [
+            "DAZN"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1",
+            "TNT Sports 2",
+            "TNT Sports 3",
+            "TNT Sports 4"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Republic of Ireland",
+          "broadcaster": "DAZN Ireland",
+          "channels": [
+            "DAZN"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
           "territory": "United States",
           "region": "United States",
           "broadcaster": "Paramount+",
@@ -78166,43 +78153,16 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN Great Britain"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Republic of Ireland",
-          "broadcaster": "DAZN Ireland",
-          "channels": [
-            "DAZN Ireland"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "football-data.org"
+      "broadcaster_count": 24
     },
     {
-      "id": "sa_TORI_UDIN_2026-10-12",
+      "id": "sa_TOR_UDI_2026-10-12",
       "competition": "Serie A",
       "comp_code": "SA",
-      "home_team": "Torino",
-      "away_team": "Udinese",
+      "home_team": "Torino FC",
+      "away_team": "Udinese Calcio",
       "kickoff": "2026-10-12T18:45:00Z",
       "matchday": 6,
       "stage": "REGULAR_SEASON",
@@ -78210,6 +78170,43 @@
       "is_blackout": false,
       "broadcasters": [
         {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "DAZN GB",
+          "channels": [
+            "DAZN"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1",
+            "TNT Sports 2",
+            "TNT Sports 3",
+            "TNT Sports 4"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Republic of Ireland",
+          "broadcaster": "DAZN Ireland",
+          "channels": [
+            "DAZN"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
           "territory": "United States",
           "region": "United States",
           "broadcaster": "Paramount+",
@@ -78472,36 +78469,9 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN Great Britain"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Republic of Ireland",
-          "broadcaster": "DAZN Ireland",
-          "channels": [
-            "DAZN Ireland"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "football-data.org"
+      "broadcaster_count": 24
     },
     {
       "id": "pl_COV_NEW_2026-10-12",
@@ -79773,6 +79743,606 @@
         }
       ],
       "broadcaster_count": 100
+    },
+    {
+      "id": "pd_LEV_SEV_2026-10-12",
+      "competition": "La Liga",
+      "comp_code": "PD",
+      "home_team": "Levante UD",
+      "away_team": "Sevilla FC",
+      "kickoff": "2026-10-12T19:00:00Z",
+      "matchday": 8,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Republic of Ireland",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "ESPN+",
+          "channels": [
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "ESPN Deportes",
+          "channels": [
+            "ESPN Deportes"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Canada",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Germany",
+          "region": "Germany",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "beIN Sports FR",
+          "channels": [
+            "beIN Sports FR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "Movistar LaLiga",
+          "channels": [
+            "M+ LaLiga",
+            "M+ LaLiga TV Bar"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "DAZN LaLiga",
+          "channels": [
+            "DAZN LaLiga",
+            "DAZN LaLiga 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Netherlands",
+          "broadcaster": "Viaplay NL",
+          "channels": [
+            "Viaplay NL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "DAZN PT",
+          "channels": [
+            "DAZN 1 Portugal",
+            "DAZN 2 Portugal",
+            "DAZN 3 Portugal"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Nordics",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Poland",
+          "broadcaster": "Eleven Sports PL",
+          "channels": [
+            "Eleven Sports PL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India / South Asia",
+          "region": "India / South Asia",
+          "broadcaster": "JioStar / Sony",
+          "channels": [
+            "JioStar / Sony"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Australia",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Japan",
+          "broadcaster": "DAZN JP",
+          "channels": [
+            "DAZN JP"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "South Korea",
+          "region": "South Korea",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Malaysia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "Star+",
+          "channels": [
+            "Star+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 23
+    },
+    {
+      "id": "ppl_FC _FC _2026-10-12",
+      "competition": "Primeira Liga",
+      "comp_code": "PPL",
+      "home_team": "FC Famalicão",
+      "away_team": "FC Alverca",
+      "kickoff": "2026-10-12T19:15:00Z",
+      "matchday": 8,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Republic of Ireland",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "ESPN+",
+          "channels": [
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "GolTV",
+          "channels": [
+            "GolTV"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Canada",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Germany",
+          "region": "Germany",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "France",
+          "broadcaster": "Canal+ Sport FR",
+          "channels": [
+            "Canal+ Sport FR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Spain",
+          "region": "Spain",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Netherlands",
+          "broadcaster": "Viaplay NL",
+          "channels": [
+            "Viaplay NL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "Sport TV",
+          "channels": [
+            "Sport TV1",
+            "Sport TV2",
+            "Sport TV3",
+            "Sport TV+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Portugal",
+          "broadcaster": "DAZN PT",
+          "channels": [
+            "DAZN 1 Portugal",
+            "DAZN 2 Portugal",
+            "DAZN 3 Portugal"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Nordics",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Poland",
+          "broadcaster": "Eleven Sports PL",
+          "channels": [
+            "Eleven Sports PL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India / South Asia",
+          "region": "India / South Asia",
+          "broadcaster": "JioStar / Sony",
+          "channels": [
+            "JioStar / Sony"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Australia",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Japan",
+          "broadcaster": "DAZN JP",
+          "channels": [
+            "DAZN JP"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "South Korea",
+          "region": "South Korea",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Malaysia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil / S. America",
+          "region": "Brazil / S. America",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 22
     },
     {
       "id": "cl_RAC_SPO_2026-10-13",
@@ -197289,6 +197859,841 @@
       "broadcaster_count": 45
     },
     {
+      "id": "sp1_ST._HIB_2026-10-28",
+      "competition": "Scottish Premiership",
+      "comp_code": "SP1",
+      "home_team": "St. Mirren",
+      "away_team": "Hibernian",
+      "kickoff": "2026-10-28T19:45:00Z",
+      "matchday": null,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Scotland",
+          "channels": [
+            "BBC Scotland"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Alba",
+          "channels": [
+            "BBC Alba"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "International",
+          "region": "International",
+          "broadcaster": "Premier Sports International",
+          "channels": [
+            "Premier Sports International"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 12
+    },
+    {
+      "id": "sp1_ST._MOT_2026-10-28",
+      "competition": "Scottish Premiership",
+      "comp_code": "SP1",
+      "home_team": "St. Johnstone",
+      "away_team": "Motherwell",
+      "kickoff": "2026-10-28T19:45:00Z",
+      "matchday": null,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Scotland",
+          "channels": [
+            "BBC Scotland"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Alba",
+          "channels": [
+            "BBC Alba"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "International",
+          "region": "International",
+          "broadcaster": "Premier Sports International",
+          "channels": [
+            "Premier Sports International"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 12
+    },
+    {
+      "id": "sp1_DUN_KIL_2026-10-28",
+      "competition": "Scottish Premiership",
+      "comp_code": "SP1",
+      "home_team": "Dundee",
+      "away_team": "Kilmarnock",
+      "kickoff": "2026-10-28T19:45:00Z",
+      "matchday": null,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Scotland",
+          "channels": [
+            "BBC Scotland"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Alba",
+          "channels": [
+            "BBC Alba"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "International",
+          "region": "International",
+          "broadcaster": "Premier Sports International",
+          "channels": [
+            "Premier Sports International"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 12
+    },
+    {
+      "id": "sp1_CEL_DUN_2026-10-28",
+      "competition": "Scottish Premiership",
+      "comp_code": "SP1",
+      "home_team": "Celtic",
+      "away_team": "Dundee United",
+      "kickoff": "2026-10-28T19:45:00Z",
+      "matchday": null,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Scotland",
+          "channels": [
+            "BBC Scotland"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Alba",
+          "channels": [
+            "BBC Alba"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "International",
+          "region": "International",
+          "broadcaster": "Premier Sports International",
+          "channels": [
+            "Premier Sports International"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 12
+    },
+    {
+      "id": "sp1_ABE_FAL_2026-10-28",
+      "competition": "Scottish Premiership",
+      "comp_code": "SP1",
+      "home_team": "Aberdeen",
+      "away_team": "Falkirk",
+      "kickoff": "2026-10-28T19:45:00Z",
+      "matchday": null,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Scotland",
+          "channels": [
+            "BBC Scotland"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Alba",
+          "channels": [
+            "BBC Alba"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "International",
+          "region": "International",
+          "broadcaster": "Premier Sports International",
+          "channels": [
+            "Premier Sports International"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 12
+    },
+    {
       "id": "of-85bcb8de030b",
       "competition": "EFL Cup",
       "comp_code": "EFLCUP",
@@ -199066,481 +200471,6 @@
         }
       ],
       "broadcaster_count": 45
-    },
-    {
-      "id": "sp1_HEAR_RANG_2026-10-28",
-      "competition": "Scottish Premiership",
-      "comp_code": "SP1",
-      "home_team": "Hearts",
-      "away_team": "Rangers",
-      "kickoff": "2026-10-28T19:45:00Z",
-      "matchday": 11,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "is_blackout": false,
-      "broadcasters": [
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Optus Sport",
-          "channels": [
-            "Optus Sport"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Middle East & N. Africa",
-          "region": "Middle East & N. Africa",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Sports HD 1",
-            "beIN Sports HD 2",
-            "beIN Sports HD 3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Sub-Saharan Africa",
-          "region": "Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Premier League",
-            "SuperSport Football",
-            "SuperSport Variety 1"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "International",
-          "region": "International",
-          "broadcaster": "Premier Sports International",
-          "channels": [
-            "Premier Sports International"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Go UK",
-            "Sky Sports Football"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
-        }
-      ],
-      "broadcaster_count": 9,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "Sportmonks"
-    },
-    {
-      "id": "sp1_SAIN_MOTH_2026-10-28",
-      "competition": "Scottish Premiership",
-      "comp_code": "SP1",
-      "home_team": "St Johnstone",
-      "away_team": "Motherwell",
-      "kickoff": "2026-10-28T19:45:00Z",
-      "matchday": 11,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "is_blackout": false,
-      "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Scotland",
-          "channels": [
-            "BBC Scotland"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Alba",
-          "channels": [
-            "BBC Alba"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Optus Sport",
-          "channels": [
-            "Optus Sport"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Middle East & N. Africa",
-          "region": "Middle East & N. Africa",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Sports HD 1",
-            "beIN Sports HD 2",
-            "beIN Sports HD 3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Sub-Saharan Africa",
-          "region": "Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Premier League",
-            "SuperSport Football",
-            "SuperSport Variety 1"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "International",
-          "region": "International",
-          "broadcaster": "Premier Sports International",
-          "channels": [
-            "Premier Sports International"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        }
-      ],
-      "broadcaster_count": 12,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "Sportmonks"
-    },
-    {
-      "id": "sp1_ABER_FALK_2026-10-28",
-      "competition": "Scottish Premiership",
-      "comp_code": "SP1",
-      "home_team": "Aberdeen",
-      "away_team": "Falkirk",
-      "kickoff": "2026-10-28T19:45:00Z",
-      "matchday": 11,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "is_blackout": false,
-      "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Scotland",
-          "channels": [
-            "BBC Scotland"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Alba",
-          "channels": [
-            "BBC Alba"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Optus Sport",
-          "channels": [
-            "Optus Sport"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Middle East & N. Africa",
-          "region": "Middle East & N. Africa",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Sports HD 1",
-            "beIN Sports HD 2",
-            "beIN Sports HD 3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Sub-Saharan Africa",
-          "region": "Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Premier League",
-            "SuperSport Football",
-            "SuperSport Variety 1"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "International",
-          "region": "International",
-          "broadcaster": "Premier Sports International",
-          "channels": [
-            "Premier Sports International"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        }
-      ],
-      "broadcaster_count": 12,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "Sportmonks"
     },
     {
       "id": "eflcup_BRAD_PETE_2026-10-28",
@@ -201936,6 +202866,173 @@
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
+    },
+    {
+      "id": "sp1_HEA_RAN_2026-10-28",
+      "competition": "Scottish Premiership",
+      "comp_code": "SP1",
+      "home_team": "Hearts",
+      "away_team": "Rangers",
+      "kickoff": "2026-10-28T20:00:00Z",
+      "matchday": null,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Scotland",
+          "channels": [
+            "BBC Scotland"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Alba",
+          "channels": [
+            "BBC Alba"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "International",
+          "region": "International",
+          "broadcaster": "Premier Sports International",
+          "channels": [
+            "Premier Sports International"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        }
+      ],
+      "broadcaster_count": 12
     },
     {
       "id": "of-75f89b210244",
@@ -206304,6 +207401,61 @@
       "expected_source": "TheSportsDB (25-event cap)"
     },
     {
+      "id": "el2_PORT_ROCH_2026-10-31",
+      "competition": "League Two",
+      "comp_code": "EL2",
+      "home_team": "Port Vale",
+      "away_team": "Rochdale",
+      "kickoff": "2026-10-31T12:30:00Z",
+      "matchday": 14,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "ESPN+",
+          "channels": [
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        }
+      ],
+      "broadcaster_count": 3,
+      "source": "liveonsat",
+      "needs_review": true,
+      "expected_source": "TheSportsDB (25-event cap)"
+    },
+    {
       "id": "pl_CHEL_MANC_2026-10-31",
       "competition": "Premier League",
       "comp_code": "PL",
@@ -207572,61 +208724,6 @@
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
-    },
-    {
-      "id": "el2_PORT_ROCH_2026-10-31",
-      "competition": "League Two",
-      "comp_code": "EL2",
-      "home_team": "Port Vale",
-      "away_team": "Rochdale",
-      "kickoff": "2026-10-31T12:30:00Z",
-      "matchday": 14,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "is_blackout": false,
-      "broadcasters": [
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "ESPN+",
-          "channels": [
-            "ESPN+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
-        }
-      ],
-      "broadcaster_count": 3,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "TheSportsDB (25-event cap)"
     },
     {
       "id": "el2_GRIM_YORK_2026-10-31",
