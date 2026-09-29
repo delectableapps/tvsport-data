@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-28T09:18:32Z",
-  "lastUpdated": "2026-09-28T09:18:32Z",
-  "fixture_count": 433,
+  "generated_at": "2026-09-29T07:50:34Z",
+  "lastUpdated": "2026-09-29T07:50:34Z",
+  "fixture_count": 432,
   "fixtures": [
     {
       "id": "of-48888a5fa528",
@@ -12390,624 +12390,6 @@
         }
       ],
       "broadcaster_count": 43
-    },
-    {
-      "id": "of-3b601aca7cc0",
-      "competition": "FA Cup",
-      "comp_code": "FACUP",
-      "home_team": "Woodford Town",
-      "away_team": "Mulbarton Wanderers",
-      "kickoff": "2026-09-29T18:45:00Z",
-      "matchday": null,
-      "stage": "2nd Round Qualifying",
-      "group": "",
-      "is_blackout": false,
-      "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC One",
-            "BBC Two",
-            "BBC iPlayer"
-          ],
-          "type": "free_tv",
-          "coverage": "highlights",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "ITV",
-          "channels": [
-            "ITV",
-            "ITVX"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Albania",
-          "region": "Europe",
-          "broadcaster": "SuperSport Albania",
-          "channels": [
-            "SuperSport Albania"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Armenia",
-          "region": "Europe",
-          "broadcaster": "Saran Media",
-          "channels": [
-            "Saran Media"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Austria",
-          "region": "Europe",
-          "broadcaster": "Sky Deutschland",
-          "channels": [
-            "Sky Sport Premier League",
-            "Sky Sport Uno",
-            "Sky Sport 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Belgium",
-          "region": "Europe",
-          "broadcaster": "Eleven Sports",
-          "channels": [
-            "Eleven Sports 1",
-            "Eleven Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Bulgaria",
-          "region": "Europe",
-          "broadcaster": "IMG / Nova",
-          "channels": [
-            "IMG / Nova"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Croatia",
-          "region": "Europe",
-          "broadcaster": "Arena Sport",
-          "channels": [
-            "Arena Sport 1",
-            "Arena Sport 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Czech Republic",
-          "region": "Europe",
-          "broadcaster": "CANAL+",
-          "channels": [
-            "Canal+ Sport",
-            "Canal+ Foot"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Denmark",
-          "region": "Europe",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay Sport 1",
-            "Viaplay Sport 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Estonia",
-          "region": "Europe",
-          "broadcaster": "Go3 / TV3",
-          "channels": [
-            "Go3 / TV3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Finland",
-          "region": "Europe",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay Sport 1",
-            "Viaplay Sport 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "CANAL+",
-          "channels": [
-            "Canal+ Sport",
-            "Canal+ Foot"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Germany",
-          "region": "Europe",
-          "broadcaster": "Sky Deutschland",
-          "channels": [
-            "Sky Sport Premier League",
-            "Sky Sport Uno",
-            "Sky Sport 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Greece",
-          "region": "Europe",
-          "broadcaster": "Nova Sports",
-          "channels": [
-            "Nova Sports 1",
-            "Nova Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Hungary",
-          "region": "Europe",
-          "broadcaster": "TV2 Sport",
-          "channels": [
-            "TV2 Sport"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Israel",
-          "region": "Europe",
-          "broadcaster": "Sport Channel",
-          "channels": [
-            "Sport Channel"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Europe",
-          "broadcaster": "Sky Italia",
-          "channels": [
-            "Sky Sport 1 IT",
-            "Sky Sport Calcio"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Latvia",
-          "region": "Europe",
-          "broadcaster": "Go3 / TV3",
-          "channels": [
-            "Go3 / TV3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Lithuania",
-          "region": "Europe",
-          "broadcaster": "Go3 / TV3",
-          "channels": [
-            "Go3 / TV3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Netherlands",
-          "region": "Europe",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay Sport 1",
-            "Viaplay Sport 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Norway",
-          "region": "Europe",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay Sport 1",
-            "Viaplay Sport 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Poland",
-          "region": "Europe",
-          "broadcaster": "CANAL+",
-          "channels": [
-            "Canal+ Sport",
-            "Canal+ Foot"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Portugal",
-          "region": "Europe",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Romania",
-          "region": "Europe",
-          "broadcaster": "VOYO / Pro TV",
-          "channels": [
-            "VOYO / Pro TV"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Serbia",
-          "region": "Europe",
-          "broadcaster": "Arena Sport",
-          "channels": [
-            "Arena Sport 1",
-            "Arena Sport 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Spain",
-          "region": "Europe",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Sweden",
-          "region": "Europe",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay Sport 1",
-            "Viaplay Sport 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Switzerland",
-          "region": "Europe",
-          "broadcaster": "Blue Sport",
-          "channels": [
-            "Blue Sport 1"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Switzerland",
-          "region": "Europe",
-          "broadcaster": "Sky Deutschland",
-          "channels": [
-            "Sky Sport Premier League",
-            "Sky Sport Uno",
-            "Sky Sport 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Turkey",
-          "region": "Europe",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Sports HD 1",
-            "beIN Sports HD 2",
-            "beIN Sports HD 3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Ukraine",
-          "region": "Europe",
-          "broadcaster": "Monomax",
-          "channels": [
-            "Monomax"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "ESPN+",
-          "channels": [
-            "ESPN+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Brazil",
-          "region": "Americas",
-          "broadcaster": "ESPN BR",
-          "channels": [
-            "ESPN BR"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Optus Sport",
-          "channels": [
-            "Optus Sport"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "Sky NZ",
-          "channels": [
-            "Sky Sport NZ"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Middle East & N. Africa",
-          "region": "Middle East & N. Africa",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Sports HD 1",
-            "beIN Sports HD 2",
-            "beIN Sports HD 3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Sub-Saharan Africa",
-          "region": "Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Premier League",
-            "SuperSport Football",
-            "SuperSport Variety 1"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "India / South Asia",
-          "region": "Asia",
-          "broadcaster": "JioStar",
-          "channels": [
-            "JioStar Sports",
-            "Star Sports 1",
-            "Star Sports 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Malaysia",
-          "region": "Asia",
-          "broadcaster": "Astro",
-          "channels": [
-            "Astro SuperSport 2",
-            "Astro SuperSport 3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Hong Kong",
-          "region": "Asia",
-          "broadcaster": "PCCW / Now TV",
-          "channels": [
-            "PCCW / Now TV"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Japan",
-          "region": "Asia",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "South Korea",
-          "region": "Asia",
-          "broadcaster": "Coupang Play",
-          "channels": [
-            "Coupang Play"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        }
-      ],
-      "broadcaster_count": 47
     },
     {
       "id": "of-7bcd0456819d",
@@ -83743,17 +83125,43 @@
       "broadcaster_count": 134
     },
     {
-      "id": "elc_BURN_CHAR_2026-10-13",
+      "id": "elc_WOL_BOL_2026-10-13",
       "competition": "Championship",
       "comp_code": "ELC",
-      "home_team": "Burnley",
-      "away_team": "Charlton Athletic",
+      "home_team": "Wolverhampton Wanderers FC",
+      "away_team": "Bolton Wanderers FC",
       "kickoff": "2026-10-13T18:45:00Z",
       "matchday": 10,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
       "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports+",
+          "channels": [
+            "Sky Sports+ (app)",
+            "Sky Sports+ (red button)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
@@ -84317,37 +83725,48 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 45,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "football-data.org"
+      "broadcaster_count": 46
     },
     {
-      "id": "elc_CARD_WATF_2026-10-13",
+      "id": "elc_WRE_WES_2026-10-13",
       "competition": "Championship",
       "comp_code": "ELC",
-      "home_team": "Cardiff City",
-      "away_team": "Watford",
+      "home_team": "Wrexham AFC",
+      "away_team": "West Bromwich Albion FC",
       "kickoff": "2026-10-13T18:45:00Z",
       "matchday": 10,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
       "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports+",
+          "channels": [
+            "Sky Sports+ (app)",
+            "Sky Sports+ (red button)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
@@ -84911,37 +84330,48 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 45,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "football-data.org"
+      "broadcaster_count": 46
     },
     {
-      "id": "elc_WOLV_BOLT_2026-10-13",
+      "id": "elc_MIL_SWA_2026-10-13",
       "competition": "Championship",
       "comp_code": "ELC",
-      "home_team": "Wolves",
-      "away_team": "Bolton Wanderers",
+      "home_team": "Millwall FC",
+      "away_team": "Swansea City AFC",
       "kickoff": "2026-10-13T18:45:00Z",
       "matchday": 10,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
       "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports+",
+          "channels": [
+            "Sky Sports+ (app)",
+            "Sky Sports+ (red button)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
@@ -85505,37 +84935,48 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 45,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "football-data.org"
+      "broadcaster_count": 46
     },
     {
-      "id": "elc_BRIS_BLAC_2026-10-13",
+      "id": "elc_CAR_WAT_2026-10-13",
       "competition": "Championship",
       "comp_code": "ELC",
-      "home_team": "Bristol City",
-      "away_team": "Blackburn Rovers",
+      "home_team": "Cardiff City FC",
+      "away_team": "Watford FC",
       "kickoff": "2026-10-13T18:45:00Z",
       "matchday": 10,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
       "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports+",
+          "channels": [
+            "Sky Sports+ (app)",
+            "Sky Sports+ (red button)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
@@ -86099,37 +85540,48 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 45,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "football-data.org"
+      "broadcaster_count": 46
     },
     {
-      "id": "elc_MILL_SWAN_2026-10-13",
+      "id": "elc_BUR_CHA_2026-10-13",
       "competition": "Championship",
       "comp_code": "ELC",
-      "home_team": "Millwall",
-      "away_team": "Swansea City",
+      "home_team": "Burnley FC",
+      "away_team": "Charlton Athletic FC",
       "kickoff": "2026-10-13T18:45:00Z",
       "matchday": 10,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
       "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports+",
+          "channels": [
+            "Sky Sports+ (app)",
+            "Sky Sports+ (red button)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
@@ -86693,37 +86145,48 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 45,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "football-data.org"
+      "broadcaster_count": 46
     },
     {
-      "id": "elc_WREX_WEST_2026-10-13",
+      "id": "elc_BRI_BLA_2026-10-13",
       "competition": "Championship",
       "comp_code": "ELC",
-      "home_team": "Wrexham",
-      "away_team": "West Bromwich Albion",
+      "home_team": "Bristol City FC",
+      "away_team": "Blackburn Rovers FC",
       "kickoff": "2026-10-13T18:45:00Z",
       "matchday": 10,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
       "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports+",
+          "channels": [
+            "Sky Sports+ (app)",
+            "Sky Sports+ (red button)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
@@ -87287,24 +86750,9 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 45,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "football-data.org"
+      "broadcaster_count": 46
     },
     {
       "id": "cl_FC _CLU_2026-10-13",
@@ -99200,17 +98648,43 @@
       "broadcaster_count": 134
     },
     {
-      "id": "elc_BIRM_PRES_2026-10-13",
+      "id": "elc_BIR_PRE_2026-10-13",
       "competition": "Championship",
       "comp_code": "ELC",
-      "home_team": "Birmingham City",
-      "away_team": "Preston N.E.",
+      "home_team": "Birmingham City FC",
+      "away_team": "Preston North End FC",
       "kickoff": "2026-10-13T19:00:00Z",
       "matchday": 10,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
       "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports+",
+          "channels": [
+            "Sky Sports+ (app)",
+            "Sky Sports+ (red button)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
@@ -99774,37 +99248,48 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 45,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "football-data.org"
+      "broadcaster_count": 46
     },
     {
-      "id": "elc_STOK_MIDD_2026-10-13",
+      "id": "elc_STO_MID_2026-10-13",
       "competition": "Championship",
       "comp_code": "ELC",
-      "home_team": "Stoke City",
-      "away_team": "Middlesbrough",
+      "home_team": "Stoke City FC",
+      "away_team": "Middlesbrough FC",
       "kickoff": "2026-10-13T19:00:00Z",
       "matchday": 10,
       "stage": "REGULAR_SEASON",
       "group": null,
       "is_blackout": false,
       "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports+",
+          "channels": [
+            "Sky Sports+ (app)",
+            "Sky Sports+ (red button)"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium"
+        },
         {
           "territory": "Republic of Ireland",
           "region": "Europe",
@@ -100368,28 +99853,9 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Go UK",
-            "Sky Sports Football",
-            "Sky Sports Main Event",
-            "Sky Sports Main Event UHD",
-            "Sky UK Ultra 1"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 45,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "football-data.org"
+      "broadcaster_count": 46
     },
     {
       "id": "cl_LAS_LIV_2026-10-14",
@@ -198694,15 +198160,15 @@
       "broadcaster_count": 12
     },
     {
-      "id": "of-85bcb8de030b",
+      "id": "eflcup_BOU_AST_2026-10-28",
       "competition": "EFL Cup",
       "comp_code": "EFLCUP",
       "home_team": "Bournemouth",
       "away_team": "Aston Villa",
       "kickoff": "2026-10-28T19:45:00Z",
-      "matchday": null,
-      "stage": "Last 16",
-      "group": "",
+      "matchday": 16,
+      "stage": "NS",
+      "group": null,
       "is_blackout": false,
       "broadcasters": [
         {
