@@ -1,7 +1,7 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-10-01T09:44:09Z",
-  "lastUpdated": "2026-10-01T09:44:09Z",
+  "generated_at": "2026-10-02T07:54:19Z",
+  "lastUpdated": "2026-10-02T07:54:19Z",
   "fixture_count": 110,
   "competitions": [
     {
@@ -289,13 +289,12 @@
           "region": "Asia-Pacific",
           "broadcaster": "Sky Sport NZ",
           "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
+            "Sky Sport 1 NZ"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Pacific Islands",
@@ -376,14 +375,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport OTT 2"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Sub-Saharan Africa",
@@ -596,14 +593,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Extra"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -732,14 +727,14 @@
         {
           "territory": "Italy",
           "region": "Europe",
-          "broadcaster": "DAZN Italy",
+          "broadcaster": "Sky Sport Italia",
           "channels": [
-            "DAZN"
+            "Sky Sport Max Italia"
           ],
-          "type": "streaming",
+          "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Nordics",
@@ -842,14 +837,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Extra 2"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -1047,14 +1040,14 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
+            "SuperSport CSN",
             "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Rugby"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -1252,14 +1245,15 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
+            "SuperSport Action",
+            "SuperSport CSN",
             "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Rugby"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -1392,14 +1386,12 @@
           "region": "Europe",
           "broadcaster": "Canal+",
           "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
+            "Canal+ France"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Georgia",
@@ -1785,14 +1777,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport ESPN"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Sub-Saharan Africa",
@@ -2008,14 +1998,14 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
+            "SuperSport CSN",
             "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Rugby"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -2287,13 +2277,12 @@
           "region": "Asia-Pacific",
           "broadcaster": "Sky Sport NZ",
           "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
+            "Sky Sport 2 NZ"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Pacific Islands",
@@ -2413,12 +2402,12 @@
       "broadcaster_count": 27
     },
     {
-      "id": "top14_VAN_PAU_2026-10-03",
+      "id": "top14_RAC_PER_2026-10-03",
       "sport": "rugby_union",
       "competition": "Top 14",
       "comp_code": "TOP14",
-      "home_team": "Vannes",
-      "away_team": "Pau",
+      "home_team": "Racing 92",
+      "away_team": "Perpignan",
       "kickoff": "2026-10-03T14:35:00Z",
       "matchday": 5,
       "stage": "REGULAR_SEASON",
@@ -2519,14 +2508,13 @@
           "region": "Europe",
           "broadcaster": "Canal+",
           "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
+            "Canal+ Live 1 France",
+            "Canal+ Sport France"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Georgia",
@@ -2967,12 +2955,12 @@
       "needs_review": true
     },
     {
-      "id": "top14_RAC_PER_2026-10-03",
+      "id": "top14_VAN_PAU_2026-10-03",
       "sport": "rugby_union",
       "competition": "Top 14",
       "comp_code": "TOP14",
-      "home_team": "Racing 92",
-      "away_team": "Perpignan",
+      "home_team": "Vannes",
+      "away_team": "Pau",
       "kickoff": "2026-10-03T14:35:00Z",
       "matchday": 5,
       "stage": "REGULAR_SEASON",
@@ -3073,14 +3061,12 @@
           "region": "Europe",
           "broadcaster": "Canal+",
           "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
+            "Canal+ Live 4 France"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Georgia",
@@ -3627,14 +3613,12 @@
           "region": "Europe",
           "broadcaster": "Canal+",
           "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
+            "Canal+ Live 3 France"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Georgia",
@@ -4020,14 +4004,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport ESPN"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Sub-Saharan Africa",
@@ -4181,14 +4163,12 @@
           "region": "Europe",
           "broadcaster": "Canal+",
           "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
+            "Canal+ Live 2 France"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Georgia",
@@ -4871,13 +4851,12 @@
           "region": "Asia-Pacific",
           "broadcaster": "Sky Sport NZ",
           "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
+            "Sky Sport 1 NZ"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Pacific Islands",
@@ -5165,14 +5144,14 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
+            "SuperSport CSN",
             "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Rugby"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -5444,13 +5423,12 @@
           "region": "Asia-Pacific",
           "broadcaster": "Sky Sport NZ",
           "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
+            "Sky Sport 1 NZ"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Pacific Islands",
@@ -5531,14 +5509,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Extra 2"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Sub-Saharan Africa",
@@ -5753,14 +5729,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Extra 2"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -5971,14 +5945,14 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
+            "SuperSport CSN",
             "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport Rugby"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Rest of World",
@@ -6112,14 +6086,13 @@
           "region": "Europe",
           "broadcaster": "Canal+",
           "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
+            "Canal+ France",
+            "Canal+ Live 1 France"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Georgia",
@@ -6505,14 +6478,12 @@
           "region": "Sub-Saharan Africa",
           "broadcaster": "SuperSport",
           "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
+            "SuperSport ESPN 2"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Sub-Saharan Africa",
@@ -6802,13 +6773,12 @@
           "region": "Asia-Pacific",
           "broadcaster": "Sky Sport NZ",
           "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
+            "Sky Sport 1 NZ"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Pacific Islands",
@@ -7029,14 +6999,13 @@
           "region": "Europe",
           "broadcaster": "Canal+",
           "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
+            "Canal+ France",
+            "Canal+ Live 1 France"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Georgia",
