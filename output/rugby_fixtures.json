@@ -1,7 +1,7 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-10-11T09:38:21Z",
-  "lastUpdated": "2026-10-11T09:38:21Z",
+  "generated_at": "2026-10-12T08:32:05Z",
+  "lastUpdated": "2026-10-12T08:32:05Z",
   "fixture_count": 107,
   "competitions": [
     {
@@ -6173,8 +6173,8 @@
       "matchday": 3,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": "Sandy Park",
-      "status": "NS",
+      "venue": null,
+      "status": "",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -6528,7 +6528,9 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 27
+      "broadcaster_count": 27,
+      "source": "liveonsat",
+      "needs_review": true
     },
     {
       "id": "prem_SAL_HAR_2026-10-11",
@@ -6541,8 +6543,8 @@
       "matchday": 3,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": "CorpAcq Stadium",
-      "status": "NS",
+      "venue": null,
+      "status": "",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -6895,7 +6897,9 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 27
+      "broadcaster_count": 27,
+      "source": "liveonsat",
+      "needs_review": true
     },
     {
       "id": "top14_TOU_BAY_2026-10-11",
