@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-10-13T08:54:25Z",
-  "lastUpdated": "2026-10-13T08:54:25Z",
+  "generated_at": "2026-10-13T10:03:10Z",
+  "lastUpdated": "2026-10-13T10:03:10Z",
   "fixture_count": 433,
   "fixtures": [
     {
@@ -110314,9 +110314,36 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "ViaPlay Danmark",
+            "ViaPlay Norge",
+            "ViaPlay Suomi",
+            "ViaPlay Sverige"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Europe",
+          "broadcaster": "Viaplay NL",
+          "channels": [
+            "ViaPlay Nederland"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 3,
+      "broadcaster_count": 5,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "TheSportsDB (25-event cap)"
@@ -169733,30 +169760,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -169803,31 +169806,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -170019,9 +169997,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -170039,30 +170041,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -170109,31 +170087,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -170325,9 +170278,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -170345,30 +170322,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -170415,31 +170368,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -170631,9 +170559,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -173858,30 +173810,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -173928,31 +173856,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -174144,9 +174047,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -174164,30 +174091,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -174234,31 +174137,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -174450,9 +174328,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -175230,30 +175132,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -175300,31 +175178,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -175516,9 +175369,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -176129,30 +176006,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -176199,31 +176052,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -176415,9 +176243,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -176812,6 +176664,7 @@
           "broadcaster": "BBC",
           "channels": [
             "BBC iPlayer",
+            "BBC iPlayer 4K",
             "BBC Scotland",
             "BBC Sport Scotland Online"
           ],
@@ -178963,604 +178816,6 @@
       "broadcaster_count": 100
     },
     {
-      "id": "elc_STOK_PRES_2026-10-31",
-      "competition": "Championship",
-      "comp_code": "ELC",
-      "home_team": "Stoke City",
-      "away_team": "Preston N.E.",
-      "kickoff": "2026-10-31T12:30:00Z",
-      "matchday": 13,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "is_blackout": false,
-      "broadcasters": [
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports Main Event",
-            "Sky Sports Premier League",
-            "Sky Sports Football",
-            "Sky Sports Action"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Albania",
-          "region": "Europe",
-          "broadcaster": "SuperSport Albania",
-          "channels": [
-            "SuperSport Albania"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Armenia",
-          "region": "Europe",
-          "broadcaster": "Saran Media",
-          "channels": [
-            "Saran Media"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Austria",
-          "region": "Europe",
-          "broadcaster": "Sky Deutschland",
-          "channels": [
-            "Sky Sport Premier League",
-            "Sky Sport Uno",
-            "Sky Sport 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Belgium",
-          "region": "Europe",
-          "broadcaster": "Eleven Sports",
-          "channels": [
-            "Eleven Sports 1",
-            "Eleven Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Bulgaria",
-          "region": "Europe",
-          "broadcaster": "IMG / Nova",
-          "channels": [
-            "IMG / Nova"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Croatia",
-          "region": "Europe",
-          "broadcaster": "Arena Sport",
-          "channels": [
-            "Arena Sport 1",
-            "Arena Sport 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Czech Republic",
-          "region": "Europe",
-          "broadcaster": "CANAL+",
-          "channels": [
-            "Canal+ Sport",
-            "Canal+ Foot"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Denmark",
-          "region": "Europe",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay Sport 1",
-            "Viaplay Sport 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Estonia",
-          "region": "Europe",
-          "broadcaster": "Go3 / TV3",
-          "channels": [
-            "Go3 / TV3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Finland",
-          "region": "Europe",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay Sport 1",
-            "Viaplay Sport 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "CANAL+",
-          "channels": [
-            "Canal+ Sport",
-            "Canal+ Foot"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Germany",
-          "region": "Europe",
-          "broadcaster": "Sky Deutschland",
-          "channels": [
-            "Sky Sport Premier League",
-            "Sky Sport Uno",
-            "Sky Sport 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Greece",
-          "region": "Europe",
-          "broadcaster": "Nova Sports",
-          "channels": [
-            "Nova Sports 1",
-            "Nova Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Hungary",
-          "region": "Europe",
-          "broadcaster": "TV2 Sport",
-          "channels": [
-            "TV2 Sport"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Israel",
-          "region": "Europe",
-          "broadcaster": "Sport Channel",
-          "channels": [
-            "Sport Channel"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Europe",
-          "broadcaster": "Sky Italia",
-          "channels": [
-            "Sky Sport 1 IT",
-            "Sky Sport Calcio"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Latvia",
-          "region": "Europe",
-          "broadcaster": "Go3 / TV3",
-          "channels": [
-            "Go3 / TV3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Lithuania",
-          "region": "Europe",
-          "broadcaster": "Go3 / TV3",
-          "channels": [
-            "Go3 / TV3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Netherlands",
-          "region": "Europe",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay Sport 1",
-            "Viaplay Sport 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Norway",
-          "region": "Europe",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay Sport 1",
-            "Viaplay Sport 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Poland",
-          "region": "Europe",
-          "broadcaster": "CANAL+",
-          "channels": [
-            "Canal+ Sport",
-            "Canal+ Foot"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Portugal",
-          "region": "Europe",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Romania",
-          "region": "Europe",
-          "broadcaster": "VOYO / Pro TV",
-          "channels": [
-            "VOYO / Pro TV"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Serbia",
-          "region": "Europe",
-          "broadcaster": "Arena Sport",
-          "channels": [
-            "Arena Sport 1",
-            "Arena Sport 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Spain",
-          "region": "Europe",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Sweden",
-          "region": "Europe",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay Sport 1",
-            "Viaplay Sport 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Switzerland",
-          "region": "Europe",
-          "broadcaster": "Blue Sport",
-          "channels": [
-            "Blue Sport 1"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Switzerland",
-          "region": "Europe",
-          "broadcaster": "Sky Deutschland",
-          "channels": [
-            "Sky Sport Premier League",
-            "Sky Sport Uno",
-            "Sky Sport 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Turkey",
-          "region": "Europe",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Sports HD 1",
-            "beIN Sports HD 2",
-            "beIN Sports HD 3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Ukraine",
-          "region": "Europe",
-          "broadcaster": "Monomax",
-          "channels": [
-            "Monomax"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "ESPN+",
-          "channels": [
-            "ESPN+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Brazil",
-          "region": "Americas",
-          "broadcaster": "ESPN BR",
-          "channels": [
-            "ESPN BR"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Optus Sport",
-          "channels": [
-            "Optus Sport"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "Sky NZ",
-          "channels": [
-            "Sky Sport NZ"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Middle East & N. Africa",
-          "region": "Middle East & N. Africa",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Sports HD 1",
-            "beIN Sports HD 2",
-            "beIN Sports HD 3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Sub-Saharan Africa",
-          "region": "Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Premier League",
-            "SuperSport Football",
-            "SuperSport Variety 1"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "India / South Asia",
-          "region": "Asia",
-          "broadcaster": "JioStar",
-          "channels": [
-            "JioStar Sports",
-            "Star Sports 1",
-            "Star Sports 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Malaysia",
-          "region": "Asia",
-          "broadcaster": "Astro",
-          "channels": [
-            "Astro SuperSport 2",
-            "Astro SuperSport 3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Hong Kong",
-          "region": "Asia",
-          "broadcaster": "PCCW / Now TV",
-          "channels": [
-            "PCCW / Now TV"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Japan",
-          "region": "Asia",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "South Korea",
-          "region": "Asia",
-          "broadcaster": "Coupang Play",
-          "channels": [
-            "Coupang Play"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Go UK",
-            "Sky Sports Football",
-            "Sky Sports Main Event",
-            "Sky Sports Main Event UHD",
-            "Sky UK Ultra 1"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
-        }
-      ],
-      "broadcaster_count": 45,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "football-data.org"
-    },
-    {
       "id": "elc_NORW_WATF_2026-10-31",
       "competition": "Championship",
       "comp_code": "ELC",
@@ -180208,6 +179463,604 @@
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "TheSportsDB (25-event cap)"
+    },
+    {
+      "id": "elc_STOK_PRES_2026-10-31",
+      "competition": "Championship",
+      "comp_code": "ELC",
+      "home_team": "Stoke City",
+      "away_team": "Preston N.E.",
+      "kickoff": "2026-10-31T12:30:00Z",
+      "matchday": 13,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports Main Event",
+            "Sky Sports Premier League",
+            "Sky Sports Football",
+            "Sky Sports Action"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Albania",
+          "region": "Europe",
+          "broadcaster": "SuperSport Albania",
+          "channels": [
+            "SuperSport Albania"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Armenia",
+          "region": "Europe",
+          "broadcaster": "Saran Media",
+          "channels": [
+            "Saran Media"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Austria",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland",
+          "channels": [
+            "Sky Sport Premier League",
+            "Sky Sport Uno",
+            "Sky Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Belgium",
+          "region": "Europe",
+          "broadcaster": "Eleven Sports",
+          "channels": [
+            "Eleven Sports 1",
+            "Eleven Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Bulgaria",
+          "region": "Europe",
+          "broadcaster": "IMG / Nova",
+          "channels": [
+            "IMG / Nova"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Croatia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Czech Republic",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Denmark",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Estonia",
+          "region": "Europe",
+          "broadcaster": "Go3 / TV3",
+          "channels": [
+            "Go3 / TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Finland",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Germany",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland",
+          "channels": [
+            "Sky Sport Premier League",
+            "Sky Sport Uno",
+            "Sky Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Greece",
+          "region": "Europe",
+          "broadcaster": "Nova Sports",
+          "channels": [
+            "Nova Sports 1",
+            "Nova Sports 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Hungary",
+          "region": "Europe",
+          "broadcaster": "TV2 Sport",
+          "channels": [
+            "TV2 Sport"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Israel",
+          "region": "Europe",
+          "broadcaster": "Sport Channel",
+          "channels": [
+            "Sport Channel"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "Sky Italia",
+          "channels": [
+            "Sky Sport 1 IT",
+            "Sky Sport Calcio"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Latvia",
+          "region": "Europe",
+          "broadcaster": "Go3 / TV3",
+          "channels": [
+            "Go3 / TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Lithuania",
+          "region": "Europe",
+          "broadcaster": "Go3 / TV3",
+          "channels": [
+            "Go3 / TV3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Norway",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Europe",
+          "broadcaster": "CANAL+",
+          "channels": [
+            "Canal+ Sport",
+            "Canal+ Foot"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Europe",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Romania",
+          "region": "Europe",
+          "broadcaster": "VOYO / Pro TV",
+          "channels": [
+            "VOYO / Pro TV"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Serbia",
+          "region": "Europe",
+          "broadcaster": "Arena Sport",
+          "channels": [
+            "Arena Sport 1",
+            "Arena Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Spain",
+          "region": "Europe",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sweden",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay Sport 1",
+            "Viaplay Sport 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Switzerland",
+          "region": "Europe",
+          "broadcaster": "Blue Sport",
+          "channels": [
+            "Blue Sport 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Switzerland",
+          "region": "Europe",
+          "broadcaster": "Sky Deutschland",
+          "channels": [
+            "Sky Sport Premier League",
+            "Sky Sport Uno",
+            "Sky Sport 2"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Turkey",
+          "region": "Europe",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Ukraine",
+          "region": "Europe",
+          "broadcaster": "Monomax",
+          "channels": [
+            "Monomax"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "ESPN+",
+          "channels": [
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil",
+          "region": "Americas",
+          "broadcaster": "ESPN BR",
+          "channels": [
+            "ESPN BR"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Optus Sport",
+          "channels": [
+            "Optus Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "Sky NZ",
+          "channels": [
+            "Sky Sport NZ"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports HD 1",
+            "beIN Sports HD 2",
+            "beIN Sports HD 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Premier League",
+            "SuperSport Football",
+            "SuperSport Variety 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India / South Asia",
+          "region": "Asia",
+          "broadcaster": "JioStar",
+          "channels": [
+            "JioStar Sports",
+            "Star Sports 1",
+            "Star Sports 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Malaysia",
+          "region": "Asia",
+          "broadcaster": "Astro",
+          "channels": [
+            "Astro SuperSport 2",
+            "Astro SuperSport 3"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Hong Kong",
+          "region": "Asia",
+          "broadcaster": "PCCW / Now TV",
+          "channels": [
+            "PCCW / Now TV"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Japan",
+          "region": "Asia",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Korea",
+          "region": "Asia",
+          "broadcaster": "Coupang Play",
+          "channels": [
+            "Coupang Play"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Go UK",
+            "Sky Sports Football",
+            "Sky Sports Main Event",
+            "Sky Sports Main Event UHD",
+            "Sky UK Ultra 1"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        }
+      ],
+      "broadcaster_count": 45,
+      "source": "liveonsat",
+      "needs_review": true,
+      "expected_source": "football-data.org"
     },
     {
       "id": "el1_LEYT_CAMB_2026-10-31",
@@ -181018,30 +180871,6 @@
           "source": "rights"
         },
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -181088,31 +180917,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -181280,9 +181084,33 @@
           "coverage": "live",
           "confidence": "low",
           "source": "rights_db_generic"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 24,
+      "broadcaster_count": 22,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -188526,30 +188354,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -188596,31 +188400,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -188812,9 +188591,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -190269,30 +190072,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -190339,31 +190118,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -190555,9 +190309,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -192652,30 +192430,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -192722,31 +192476,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -192938,9 +192667,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -193125,30 +192878,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -193195,31 +192924,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -193411,9 +193115,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -193431,30 +193159,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -193501,31 +193205,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -193717,9 +193396,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -195710,30 +195413,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -195780,31 +195459,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -195996,9 +195650,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -196016,30 +195694,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -196086,31 +195740,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -196302,9 +195931,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -196590,30 +196243,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -196660,31 +196289,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -196876,9 +196480,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -196896,30 +196524,6 @@
       "is_blackout": false,
       "broadcasters": [
         {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "United States",
-          "region": "United States",
-          "broadcaster": "CBS Golazo",
-          "channels": [
-            "CBS Golazo"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
           "territory": "Canada",
           "region": "Canada",
           "broadcaster": "DAZN",
@@ -196966,31 +196570,6 @@
             "DAZN 2"
           ],
           "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "DAZN IT",
-          "channels": [
-            "DAZN IT"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Italy",
-          "region": "Italy",
-          "broadcaster": "Sky Sport Italia",
-          "channels": [
-            "Sky Sport Calcio",
-            "Sky Sport 251"
-          ],
-          "type": "pay_tv",
           "coverage": "live",
           "confidence": "medium",
           "source": "rights"
@@ -197182,9 +196761,33 @@
           "coverage": "live",
           "confidence": "medium",
           "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Italy",
+          "broadcaster": "DAZN IT",
+          "channels": [
+            "DAZN Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United States",
+          "region": "United States",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+ USA"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 23,
+      "broadcaster_count": 21,
       "source": "liveonsat",
       "needs_review": true,
       "expected_source": "football-data.org"
@@ -236409,6 +236012,7 @@
           "broadcaster": "BBC",
           "channels": [
             "BBC iPlayer",
+            "BBC iPlayer 4K",
             "BBC Scotland",
             "BBC Sport Scotland Online"
           ],

@@ -1,7 +1,7 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-10-13T08:54:40Z",
-  "lastUpdated": "2026-10-13T08:54:40Z",
+  "generated_at": "2026-10-13T10:03:27Z",
+  "lastUpdated": "2026-10-13T10:03:27Z",
   "fixture_count": 110,
   "competitions": [
     {
@@ -273,7 +273,8 @@
           "region": "UK",
           "broadcaster": "BBC",
           "channels": [
-            "BBC iPlayer"
+            "BBC iPlayer",
+            "BBC iPlayer 4K"
           ],
           "type": "free_tv",
           "coverage": "live",
@@ -2659,6 +2660,226 @@
       "broadcaster_count": 17
     },
     {
+      "id": "ecc_LAR_LIO_2026-10-17",
+      "sport": "rugby_union",
+      "competition": "Investec Champions Cup",
+      "comp_code": "ECC",
+      "home_team": "La Rochelle",
+      "away_team": "Lions",
+      "kickoff": "2026-10-17T16:30:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "venue": null,
+      "status": "",
+      "is_blackout": false,
+      "uk_free_to_air": false,
+      "liveonsat_confirmed": true,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports GB Player",
+            "Premier Sports Rugby UK"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports Ireland",
+          "channels": [
+            "Premier Sports 1 Ireland",
+            "Premier Sports 2 Ireland",
+            "Premier Sports Player"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Europe (other)",
+          "region": "Europe",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Connect FRANCE"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "France Télévisions",
+          "channels": [
+            "beIN Sports France 2"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "FloRugby",
+          "channels": [
+            "FloRugby.com"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Stan Sport",
+          "channels": [
+            "Stan Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "Sky Sport NZ",
+          "channels": [
+            "Sky Sport 1 NZ",
+            "Sky Sport Now"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Asia",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Rugby",
+            "SuperSport Grandstand",
+            "DStv Stream"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Rest of World",
+          "region": "International",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Worldwide (outside rights-holder territories)",
+          "region": "International",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "EPCR TV"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        }
+      ],
+      "broadcaster_count": 16,
+      "source": "liveonsat",
+      "needs_review": true
+    },
+    {
       "id": "ecc_CON_SAR_2026-10-17",
       "sport": "rugby_union",
       "competition": "Investec Champions Cup",
@@ -2669,8 +2890,8 @@
       "matchday": 1,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": "Dexcom Stadium",
-      "status": "NS",
+      "venue": null,
+      "status": "",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -2876,657 +3097,9 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 16
-    },
-    {
-      "id": "ecc_LAR_LIO_2026-10-17",
-      "sport": "rugby_union",
-      "competition": "Investec Champions Cup",
-      "comp_code": "ECC",
-      "home_team": "La Rochelle",
-      "away_team": "Lions",
-      "kickoff": "2026-10-17T16:30:00Z",
-      "matchday": 1,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "venue": "Stade Marcel-Deflandre",
-      "status": "NS",
-      "is_blackout": false,
-      "uk_free_to_air": false,
-      "liveonsat_confirmed": true,
-      "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports GB Player",
-            "Premier Sports Rugby UK"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports Ireland",
-          "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Europe (other)",
-          "region": "Europe",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Connect FRANCE"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "France Télévisions",
-          "channels": [
-            "beIN Sports France 2"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Italy",
-          "region": "Europe",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "FloRugby",
-          "channels": [
-            "FloRugby.com"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Stan Sport",
-          "channels": [
-            "Stan Sport"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "Sky Sport NZ",
-          "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Japan",
-          "region": "Asia",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "South Africa",
-          "region": "Sub-Saharan Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Rest of World",
-          "region": "International",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Worldwide (outside rights-holder territories)",
-          "region": "International",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "EPCR TV"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        }
-      ],
-      "broadcaster_count": 16
-    },
-    {
-      "id": "ecc_BAT_MON_2026-10-17",
-      "sport": "rugby_union",
-      "competition": "Investec Champions Cup",
-      "comp_code": "ECC",
-      "home_team": "Bath",
-      "away_team": "Montpellier Hérault",
-      "kickoff": "2026-10-17T19:00:00Z",
-      "matchday": 1,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "venue": "The Recreation Ground Bath",
-      "status": "NS",
-      "is_blackout": false,
-      "uk_free_to_air": false,
-      "liveonsat_confirmed": true,
-      "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 2 UK",
-            "Premier Sports GB Player"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports Ireland",
-          "channels": [
-            "Premier Sports 2 Ireland"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Europe (other)",
-          "region": "Europe",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Connect FRANCE"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "France Télévisions",
-          "channels": [
-            "beIN Sports France 2"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Italy",
-          "region": "Europe",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "FloRugby",
-          "channels": [
-            "FloRugby.com"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Stan Sport",
-          "channels": [
-            "Stan Sport"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "Sky Sport NZ",
-          "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Japan",
-          "region": "Asia",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "South Africa",
-          "region": "Sub-Saharan Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Rest of World",
-          "region": "International",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Worldwide (outside rights-holder territories)",
-          "region": "International",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "EPCR TV"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        }
-      ],
-      "broadcaster_count": 16
-    },
-    {
-      "id": "ecc_MUN_RAC_2026-10-17",
-      "sport": "rugby_union",
-      "competition": "Investec Champions Cup",
-      "comp_code": "ECC",
-      "home_team": "Munster",
-      "away_team": "Racing 92",
-      "kickoff": "2026-10-17T19:00:00Z",
-      "matchday": 1,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "venue": "Thomond Park",
-      "status": "NS",
-      "is_blackout": false,
-      "uk_free_to_air": false,
-      "liveonsat_confirmed": true,
-      "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1 UK",
-            "Premier Sports GB Player"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports Ireland",
-          "channels": [
-            "Premier Sports 1 Ireland"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Europe (other)",
-          "region": "Europe",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Connect FRANCE"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "France Télévisions",
-          "channels": [
-            "beIN Sports France 4 max"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Italy",
-          "region": "Europe",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "FloRugby",
-          "channels": [
-            "FloRugby.com"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Stan Sport",
-          "channels": [
-            "Stan Sport"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "Sky Sport NZ",
-          "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Japan",
-          "region": "Asia",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "South Africa",
-          "region": "Sub-Saharan Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Rest of World",
-          "region": "International",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Worldwide (outside rights-holder territories)",
-          "region": "International",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "EPCR TV"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        }
-      ],
-      "broadcaster_count": 16
+      "broadcaster_count": 16,
+      "source": "liveonsat",
+      "needs_review": true
     },
     {
       "id": "echc_SCA_NEW_2026-10-17",
@@ -3767,154 +3340,18 @@
       "broadcaster_count": 17
     },
     {
-      "id": "wxv_UNI_ITA_2026-10-17",
+      "id": "ecc_BAT_MON_2026-10-17",
       "sport": "rugby_union",
-      "competition": "WXV Global Series (Women)",
-      "comp_code": "WXV",
-      "home_team": "United States Women",
-      "away_team": "Italy Women",
-      "kickoff": "2026-10-17T22:00:00Z",
-      "matchday": null,
+      "competition": "Investec Champions Cup",
+      "comp_code": "ECC",
+      "home_team": "Bath",
+      "away_team": "Montpellier",
+      "kickoff": "2026-10-17T19:00:00Z",
+      "matchday": 1,
       "stage": "REGULAR_SEASON",
       "group": null,
       "venue": null,
       "status": "",
-      "is_blackout": false,
-      "uk_free_to_air": true,
-      "liveonsat_confirmed": true,
-      "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC",
-          "channels": [
-            "BBC iPlayer",
-            "BBC Sport website & app"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "All matches on BBC iPlayer / BBC Sport website & app"
-        },
-        {
-          "territory": "Italy",
-          "region": "Europe",
-          "broadcaster": "FIR YouTube",
-          "channels": [
-            "Federazione Italiana Rugby YouTube"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Portugal",
-          "region": "Europe",
-          "broadcaster": "Sport TV",
-          "channels": [
-            "Sport TV"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Latin America",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "Paramount+",
-          "channels": [
-            "Paramount+"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Stan Sport",
-          "channels": [
-            "Stan Sport Australia"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "Sky Sport NZ",
-          "channels": [
-            "Sky Sport 1 NZ"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Middle East & N. Africa",
-          "region": "Middle East & N. Africa",
-          "broadcaster": "TOD TV (Starzplay)",
-          "channels": [
-            "TOD",
-            "Starzplay"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Worldwide (outside rights-holder territories)",
-          "region": "International",
-          "broadcaster": "RugbyPass TV",
-          "channels": [
-            "RugbyPass TV (free, registration)"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "Free with registration — default platform for every WXV match"
-        }
-      ],
-      "broadcaster_count": 9,
-      "source": "liveonsat",
-      "needs_review": true
-    },
-    {
-      "id": "ecc_PAU_LEI_2026-10-18",
-      "sport": "rugby_union",
-      "competition": "Investec Champions Cup",
-      "comp_code": "ECC",
-      "home_team": "Pau",
-      "away_team": "Leicester Tigers",
-      "kickoff": "2026-10-18T12:00:00Z",
-      "matchday": 1,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "venue": "Stade du Hameau",
-      "status": "NS",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -3924,7 +3361,7 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1 UK",
+            "Premier Sports 2 UK",
             "Premier Sports GB Player"
           ],
           "type": "pay_tv",
@@ -3937,7 +3374,7 @@
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland"
+            "Premier Sports 2 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -3961,10 +3398,21 @@
           "region": "Europe",
           "broadcaster": "beIN Sports",
           "channels": [
-            "beIN Connect FRANCE",
-            "beIN Sports France 1"
+            "beIN Connect FRANCE"
           ],
           "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "France Télévisions",
+          "channels": [
+            "beIN Sports France 2"
+          ],
+          "type": "free_tv",
           "coverage": "live",
           "confidence": "high",
           "source": "liveonsat"
@@ -4105,7 +3553,363 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 15
+      "broadcaster_count": 16,
+      "source": "liveonsat",
+      "needs_review": true
+    },
+    {
+      "id": "ecc_MUN_RAC_2026-10-17",
+      "sport": "rugby_union",
+      "competition": "Investec Champions Cup",
+      "comp_code": "ECC",
+      "home_team": "Munster",
+      "away_team": "Racing 92",
+      "kickoff": "2026-10-17T19:00:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "venue": null,
+      "status": "",
+      "is_blackout": false,
+      "uk_free_to_air": false,
+      "liveonsat_confirmed": true,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1 UK",
+            "Premier Sports GB Player"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports Ireland",
+          "channels": [
+            "Premier Sports 1 Ireland"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Europe (other)",
+          "region": "Europe",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Connect FRANCE"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "France Télévisions",
+          "channels": [
+            "beIN Sports France 4 max"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "FloRugby",
+          "channels": [
+            "FloRugby.com"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Stan Sport",
+          "channels": [
+            "Stan Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "Sky Sport NZ",
+          "channels": [
+            "Sky Sport 1 NZ",
+            "Sky Sport Now"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Asia",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Rugby",
+            "SuperSport Grandstand",
+            "DStv Stream"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Rest of World",
+          "region": "International",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Worldwide (outside rights-holder territories)",
+          "region": "International",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "EPCR TV"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        }
+      ],
+      "broadcaster_count": 16,
+      "source": "liveonsat",
+      "needs_review": true
+    },
+    {
+      "id": "wxv_UNI_ITA_2026-10-17",
+      "sport": "rugby_union",
+      "competition": "WXV Global Series (Women)",
+      "comp_code": "WXV",
+      "home_team": "United States Women",
+      "away_team": "Italy Women",
+      "kickoff": "2026-10-17T22:00:00Z",
+      "matchday": null,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "venue": null,
+      "status": "",
+      "is_blackout": false,
+      "uk_free_to_air": true,
+      "liveonsat_confirmed": true,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC",
+          "channels": [
+            "BBC iPlayer",
+            "BBC Sport website & app"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights",
+          "note": "All matches on BBC iPlayer / BBC Sport website & app"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "FIR YouTube",
+          "channels": [
+            "Federazione Italiana Rugby YouTube"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Europe",
+          "broadcaster": "Sport TV",
+          "channels": [
+            "Sport TV"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Latin America",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "Paramount+",
+          "channels": [
+            "Paramount+"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Stan Sport",
+          "channels": [
+            "Stan Sport Australia"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "Sky Sport NZ",
+          "channels": [
+            "Sky Sport 1 NZ"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "TOD TV (Starzplay)",
+          "channels": [
+            "TOD",
+            "Starzplay"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Worldwide (outside rights-holder territories)",
+          "region": "International",
+          "broadcaster": "RugbyPass TV",
+          "channels": [
+            "RugbyPass TV (free, registration)"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights",
+          "note": "Free with registration — default platform for every WXV match"
+        }
+      ],
+      "broadcaster_count": 9,
+      "source": "liveonsat",
+      "needs_review": true
     },
     {
       "id": "echc_BAY_CHE_2026-10-18",
@@ -4536,18 +4340,18 @@
       "broadcaster_count": 15
     },
     {
-      "id": "ecc_TOU_EXE_2026-10-18",
+      "id": "ecc_PAU_LEI_2026-10-18",
       "sport": "rugby_union",
       "competition": "Investec Champions Cup",
       "comp_code": "ECC",
-      "home_team": "Toulouse",
-      "away_team": "Exeter Chiefs",
-      "kickoff": "2026-10-18T14:15:00Z",
+      "home_team": "Pau",
+      "away_team": "Leicester Tigers",
+      "kickoff": "2026-10-18T12:00:00Z",
       "matchday": 1,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": "Stade Ernest-Wallon",
-      "status": "NS",
+      "venue": null,
+      "status": "",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -4738,21 +4542,23 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 15
+      "broadcaster_count": 15,
+      "source": "liveonsat",
+      "needs_review": true
     },
     {
-      "id": "ecc_NOR_CAR_2026-10-18",
+      "id": "ecc_TOU_EXE_2026-10-18",
       "sport": "rugby_union",
       "competition": "Investec Champions Cup",
       "comp_code": "ECC",
-      "home_team": "Northampton Saints",
-      "away_team": "Cardiff",
-      "kickoff": "2026-10-18T16:30:00Z",
+      "home_team": "Toulouse",
+      "away_team": "Exeter Chiefs",
+      "kickoff": "2026-10-18T14:15:00Z",
       "matchday": 1,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": "Franklin's Gardens",
-      "status": "NS",
+      "venue": null,
+      "status": "",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -4762,7 +4568,7 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 2 UK",
+            "Premier Sports 1 UK",
             "Premier Sports GB Player"
           ],
           "type": "pay_tv",
@@ -4775,7 +4581,7 @@
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 2 Ireland"
+            "Premier Sports 1 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -4799,28 +4605,13 @@
           "region": "Europe",
           "broadcaster": "beIN Sports",
           "channels": [
-            "beIN Sports 1",
-            "beIN Sports 2",
-            "beIN Connect"
+            "beIN Connect FRANCE",
+            "beIN Sports France 1"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "France Télévisions",
-          "channels": [
-            "France 2",
-            "France 3",
-            "france.tv"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Italy",
@@ -4958,7 +4749,9 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 16
+      "broadcaster_count": 15,
+      "source": "liveonsat",
+      "needs_review": true
     },
     {
       "id": "echc_CAS_BEN_2026-10-18",
@@ -5199,6 +4992,228 @@
       "broadcaster_count": 17
     },
     {
+      "id": "ecc_NOR_CAR_2026-10-18",
+      "sport": "rugby_union",
+      "competition": "Investec Champions Cup",
+      "comp_code": "ECC",
+      "home_team": "Northampton Saints",
+      "away_team": "Cardiff",
+      "kickoff": "2026-10-18T16:30:00Z",
+      "matchday": 1,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "venue": null,
+      "status": "",
+      "is_blackout": false,
+      "uk_free_to_air": false,
+      "liveonsat_confirmed": true,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 2 UK",
+            "Premier Sports GB Player"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports Ireland",
+          "channels": [
+            "Premier Sports 2 Ireland"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Europe (other)",
+          "region": "Europe",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports 1",
+            "beIN Sports 2",
+            "beIN Connect"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "France Télévisions",
+          "channels": [
+            "France 2",
+            "France 3",
+            "france.tv"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "FloRugby",
+          "channels": [
+            "FloRugby.com"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Stan Sport",
+          "channels": [
+            "Stan Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "Sky Sport NZ",
+          "channels": [
+            "Sky Sport 1 NZ",
+            "Sky Sport Now"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Asia",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Rugby",
+            "SuperSport Grandstand",
+            "DStv Stream"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Rest of World",
+          "region": "International",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Worldwide (outside rights-holder territories)",
+          "region": "International",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "EPCR TV"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        }
+      ],
+      "broadcaster_count": 16,
+      "source": "liveonsat",
+      "needs_review": true
+    },
+    {
       "id": "wxv_AUS_SCO_2026-10-23",
       "sport": "rugby_union",
       "competition": "WXV Global Series (Women)",
@@ -5359,26 +5374,12 @@
           "broadcaster": "Premier Sports Ireland",
           "channels": [
             "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 2 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "TG4",
-          "channels": [
-            "TG4",
-            "TG4 Player"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "France",
@@ -5541,7 +5542,7 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 16,
+      "broadcaster_count": 15,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -5580,27 +5581,12 @@
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 1 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "TG4",
-          "channels": [
-            "TG4",
-            "TG4 Player"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "France",
@@ -5763,7 +5749,7 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 16,
+      "broadcaster_count": 15,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -7183,27 +7169,12 @@
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 2 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "TG4",
-          "channels": [
-            "TG4",
-            "TG4 Player"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "France",
@@ -7366,7 +7337,7 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 16,
+      "broadcaster_count": 15,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -8097,27 +8068,12 @@
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 2 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "TG4",
-          "channels": [
-            "TG4",
-            "TG4 Player"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "France",
@@ -8280,7 +8236,7 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 16,
+      "broadcaster_count": 15,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -9421,7 +9377,7 @@
       "competition": "Top 14",
       "comp_code": "TOP14",
       "home_team": "Racing 92",
-      "away_team": "Montpellier Hérault",
+      "away_team": "Montpellier",
       "kickoff": "2026-10-24T14:35:00Z",
       "matchday": 7,
       "stage": "REGULAR_SEASON",
@@ -11463,27 +11419,12 @@
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 1 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "TG4",
-          "channels": [
-            "TG4",
-            "TG4 Player"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "France",
@@ -11646,7 +11587,7 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 16,
+      "broadcaster_count": 15,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -11685,27 +11626,12 @@
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 2 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "TG4",
-          "channels": [
-            "TG4",
-            "TG4 Player"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "France",
@@ -11868,7 +11794,7 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 16,
+      "broadcaster_count": 15,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -20715,227 +20641,6 @@
       "needs_review": true
     },
     {
-      "id": "ecc_GLA_PAU_2026-12-11",
-      "sport": "rugby_union",
-      "competition": "Investec Champions Cup",
-      "comp_code": "ECC",
-      "home_team": "Glasgow Warriors",
-      "away_team": "Pau",
-      "kickoff": "2026-12-11T20:00:00Z",
-      "matchday": 2,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "venue": "Scotstoun Stadium",
-      "status": "NS",
-      "is_blackout": false,
-      "uk_free_to_air": false,
-      "liveonsat_confirmed": true,
-      "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports GB Player"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports Ireland",
-          "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Europe (other)",
-          "region": "Europe",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Sports 1",
-            "beIN Sports 2",
-            "beIN Connect"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "France Télévisions",
-          "channels": [
-            "France 2",
-            "France 3",
-            "france.tv"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Europe",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "FloRugby",
-          "channels": [
-            "FloRugby.com"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Stan Sport",
-          "channels": [
-            "Stan Sport"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "Sky Sport NZ",
-          "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Japan",
-          "region": "Asia",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "South Africa",
-          "region": "Sub-Saharan Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Rest of World",
-          "region": "International",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "epcrugby.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Worldwide (outside rights-holder territories)",
-          "region": "International",
-          "broadcaster": "EPCR TV",
-          "channels": [
-            "EPCR TV"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        }
-      ],
-      "broadcaster_count": 16
-    },
-    {
       "id": "ecc_STA_NOR_2026-12-11",
       "sport": "rugby_union",
       "competition": "Investec Champions Cup",
@@ -20946,8 +20651,8 @@
       "matchday": 2,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": "Stade Jean-Bouin",
-      "status": "NS",
+      "venue": null,
+      "status": "",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -21154,7 +20859,232 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 16
+      "broadcaster_count": 16,
+      "source": "liveonsat",
+      "needs_review": true
+    },
+    {
+      "id": "ecc_GLA_PAU_2026-12-11",
+      "sport": "rugby_union",
+      "competition": "Investec Champions Cup",
+      "comp_code": "ECC",
+      "home_team": "Glasgow Warriors",
+      "away_team": "Pau",
+      "kickoff": "2026-12-11T20:00:00Z",
+      "matchday": 2,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "venue": null,
+      "status": "",
+      "is_blackout": false,
+      "uk_free_to_air": false,
+      "liveonsat_confirmed": true,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports GB Player"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports Ireland",
+          "channels": [
+            "Premier Sports 1 Ireland",
+            "Premier Sports 2 Ireland",
+            "Premier Sports Player"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Europe (other)",
+          "region": "Europe",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports 1",
+            "beIN Sports 2",
+            "beIN Connect"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "France Télévisions",
+          "channels": [
+            "France 2",
+            "France 3",
+            "france.tv"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "FloRugby",
+          "channels": [
+            "FloRugby.com"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Stan Sport",
+          "channels": [
+            "Stan Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "Sky Sport NZ",
+          "channels": [
+            "Sky Sport 1 NZ",
+            "Sky Sport Now"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Asia",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Rugby",
+            "SuperSport Grandstand",
+            "DStv Stream"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Rest of World",
+          "region": "International",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "epcrugby.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Worldwide (outside rights-holder territories)",
+          "region": "International",
+          "broadcaster": "EPCR TV",
+          "channels": [
+            "EPCR TV"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        }
+      ],
+      "broadcaster_count": 16,
+      "source": "liveonsat",
+      "needs_review": true
     },
     {
       "id": "echc_ULS_BAY_2026-12-12",
@@ -21864,7 +21794,7 @@
       "sport": "rugby_union",
       "competition": "Investec Champions Cup",
       "comp_code": "ECC",
-      "home_team": "Montpellier Hérault",
+      "home_team": "Montpellier",
       "away_team": "Bulls",
       "kickoff": "2026-12-12T15:15:00Z",
       "matchday": 2,
