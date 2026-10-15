@@ -1,7 +1,7 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-10-14T08:21:13Z",
-  "lastUpdated": "2026-10-14T08:21:13Z",
+  "generated_at": "2026-10-15T06:55:01Z",
+  "lastUpdated": "2026-10-15T06:55:01Z",
   "fixture_count": 110,
   "competitions": [
     {
@@ -5740,265 +5740,12 @@
       "needs_review": true
     },
     {
-      "id": "urc_CAR_SHA_2026-10-23",
-      "sport": "rugby_union",
-      "competition": "United Rugby Championship",
-      "comp_code": "URC",
-      "home_team": "Cardiff",
-      "away_team": "Sharks",
-      "kickoff": "2026-10-23T18:45:00Z",
-      "matchday": 4,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "venue": null,
-      "status": "",
-      "is_blackout": false,
-      "uk_free_to_air": false,
-      "liveonsat_confirmed": true,
-      "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 1",
-            "Premier Sports 2",
-            "Premier Sports Rugby",
-            "Premier Sports Player"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "S4C",
-          "channels": [
-            "S4C",
-            "S4C Clic"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "20 Welsh-region matches free-to-air per season"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "BBC Wales",
-          "channels": [
-            "BBC One Wales",
-            "BBC Two Wales",
-            "BBC iPlayer"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "Selected Welsh-region matches"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports Ireland",
-          "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "TG4",
-          "channels": [
-            "TG4",
-            "TG4 Player"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Sports 1",
-            "beIN Sports 2",
-            "beIN Connect"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Europe",
-          "broadcaster": "DAZN Italy",
-          "channels": [
-            "DAZN"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Nordics",
-          "region": "Europe",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "URC TV",
-          "channels": [
-            "urc.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "FloRugby (FloSports)",
-          "channels": [
-            "FloRugby"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Setanta Sports",
-          "channels": [
-            "Setanta Sports"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "Setanta Sports",
-          "channels": [
-            "Setanta Sports"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Japan",
-          "region": "Asia",
-          "broadcaster": "DAZN Japan",
-          "channels": [
-            "DAZN"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "South-East Asia",
-          "region": "Asia",
-          "broadcaster": "Setanta Sports",
-          "channels": [
-            "Setanta Sports"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Middle East & N. Africa",
-          "region": "Middle East & N. Africa",
-          "broadcaster": "Setanta Sports",
-          "channels": [
-            "Setanta Sports"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "South Africa",
-          "region": "Sub-Saharan Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Rest of World",
-          "region": "International",
-          "broadcaster": "URC TV",
-          "channels": [
-            "urc.tv"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Worldwide (outside rights-holder territories)",
-          "region": "International",
-          "broadcaster": "URC TV",
-          "channels": [
-            "URC TV"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        }
-      ],
-      "broadcaster_count": 18,
-      "source": "liveonsat",
-      "needs_review": true
-    },
-    {
-      "id": "prem_NEW_SAL_2026-10-23",
+      "id": "prem_GLO_BAT_2026-10-23",
       "sport": "rugby_union",
       "competition": "Gallagher PREM",
       "comp_code": "PREM",
-      "home_team": "Newcastle Red Bulls",
-      "away_team": "Sale Sharks",
+      "home_team": "Gloucester",
+      "away_team": "Bath",
       "kickoff": "2026-10-23T18:45:00Z",
       "matchday": 4,
       "stage": "REGULAR_SEASON",
@@ -6291,6 +6038,18 @@
           "source": "rights"
         },
         {
+          "territory": "Israel",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "Sport 5",
+          "channels": [
+            "Nova Sport 5 Czech"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "Middle East & N. Africa",
           "region": "Middle East & N. Africa",
           "broadcaster": "beIN Sports",
@@ -6345,17 +6104,270 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 26,
+      "broadcaster_count": 27,
       "source": "liveonsat",
       "needs_review": true
     },
     {
-      "id": "prem_GLO_BAT_2026-10-23",
+      "id": "urc_CAR_SHA_2026-10-23",
+      "sport": "rugby_union",
+      "competition": "United Rugby Championship",
+      "comp_code": "URC",
+      "home_team": "Cardiff",
+      "away_team": "Sharks",
+      "kickoff": "2026-10-23T18:45:00Z",
+      "matchday": 4,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "venue": null,
+      "status": "",
+      "is_blackout": false,
+      "uk_free_to_air": false,
+      "liveonsat_confirmed": true,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports 1",
+            "Premier Sports 2",
+            "Premier Sports Rugby",
+            "Premier Sports Player"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "S4C",
+          "channels": [
+            "S4C",
+            "S4C Clic"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights",
+          "note": "20 Welsh-region matches free-to-air per season"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "BBC Wales",
+          "channels": [
+            "BBC One Wales",
+            "BBC Two Wales",
+            "BBC iPlayer"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights",
+          "note": "Selected Welsh-region matches"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports Ireland",
+          "channels": [
+            "Premier Sports 1 Ireland",
+            "Premier Sports 2 Ireland",
+            "Premier Sports Player"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "TG4",
+          "channels": [
+            "TG4",
+            "TG4 Player"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports 1",
+            "beIN Sports 2",
+            "beIN Connect"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "DAZN Italy",
+          "channels": [
+            "DAZN"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "URC TV",
+          "channels": [
+            "urc.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "FloRugby (FloSports)",
+          "channels": [
+            "FloRugby"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Setanta Sports",
+          "channels": [
+            "Setanta Sports"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "Setanta Sports",
+          "channels": [
+            "Setanta Sports"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Asia",
+          "broadcaster": "DAZN Japan",
+          "channels": [
+            "DAZN"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South-East Asia",
+          "region": "Asia",
+          "broadcaster": "Setanta Sports",
+          "channels": [
+            "Setanta Sports"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "Setanta Sports",
+          "channels": [
+            "Setanta Sports"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Rugby",
+            "SuperSport Grandstand",
+            "DStv Stream"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Rest of World",
+          "region": "International",
+          "broadcaster": "URC TV",
+          "channels": [
+            "urc.tv"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Worldwide (outside rights-holder territories)",
+          "region": "International",
+          "broadcaster": "URC TV",
+          "channels": [
+            "URC TV"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        }
+      ],
+      "broadcaster_count": 18,
+      "source": "liveonsat",
+      "needs_review": true
+    },
+    {
+      "id": "prem_NEW_SAL_2026-10-23",
       "sport": "rugby_union",
       "competition": "Gallagher PREM",
       "comp_code": "PREM",
-      "home_team": "Gloucester",
-      "away_team": "Bath",
+      "home_team": "Newcastle Red Bulls",
+      "away_team": "Sale Sharks",
       "kickoff": "2026-10-23T18:45:00Z",
       "matchday": 4,
       "stage": "REGULAR_SEASON",
@@ -8747,6 +8759,18 @@
           "source": "rights"
         },
         {
+          "territory": "Israel",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "Sport 5",
+          "channels": [
+            "Nova Sport 5 Czech"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "Middle East & N. Africa",
           "region": "Middle East & N. Africa",
           "broadcaster": "beIN Sports",
@@ -8801,7 +8825,7 @@
           "source": "rights"
         }
       ],
-      "broadcaster_count": 26,
+      "broadcaster_count": 27,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -12925,14 +12949,12 @@
           "region": "Europe",
           "broadcaster": "Canal+",
           "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
+            "Canal+ Sport 1 Czech"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "France",
