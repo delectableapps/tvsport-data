@@ -1,7 +1,7 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-10-22T08:18:16Z",
-  "lastUpdated": "2026-10-22T08:18:16Z",
+  "generated_at": "2026-10-23T06:57:02Z",
+  "lastUpdated": "2026-10-23T06:57:02Z",
   "fixture_count": 88,
   "competitions": [
     {
@@ -5179,13 +5179,12 @@
           "region": "Europe",
           "broadcaster": "Movistar",
           "channels": [
-            "Movistar Plus+",
-            "M+ Deportes"
+            "M+ Deportes 3"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Switzerland",
@@ -7748,13 +7747,12 @@
           "region": "Europe",
           "broadcaster": "Movistar",
           "channels": [
-            "Movistar Plus+",
-            "M+ Deportes"
+            "M+ Deportes 3"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Argentina",
