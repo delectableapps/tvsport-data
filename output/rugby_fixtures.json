@@ -1,7 +1,7 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-10-24T06:53:03Z",
-  "lastUpdated": "2026-10-24T06:53:03Z",
+  "generated_at": "2026-10-24T07:54:06Z",
+  "lastUpdated": "2026-10-24T07:54:06Z",
   "fixture_count": 90,
   "competitions": [
     {
@@ -12730,9 +12730,9 @@
       "kickoff": "2026-11-06T20:10:00Z",
       "matchday": 4,
       "stage": "REGULAR_SEASON",
-      "group": null,
-      "venue": null,
-      "status": "",
+      "group": "N",
+      "venue": "Aviva Stadium",
+      "status": "NS",
       "is_blackout": false,
       "uk_free_to_air": true,
       "liveonsat_confirmed": true,
@@ -12877,9 +12877,7 @@
           "note": "Free with registration"
         }
       ],
-      "broadcaster_count": 11,
-      "source": "liveonsat",
-      "needs_review": true
+      "broadcaster_count": 11
     },
     {
       "id": "natc_ITA_SOU_2026-11-07",
@@ -16059,18 +16057,18 @@
       "needs_review": true
     },
     {
-      "id": "echc_OSP_HAR_2026-12-12",
+      "id": "echc_ULS_BAY_2026-12-12",
       "sport": "rugby_union",
       "competition": "EPCR Challenge Cup",
       "comp_code": "ECHC",
-      "home_team": "Ospreys",
-      "away_team": "Harlequins",
+      "home_team": "Ulster",
+      "away_team": "Bayonne",
       "kickoff": "2026-12-12T13:00:00Z",
       "matchday": 2,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": "St Helen's Rugby and Cricket Ground",
-      "status": "NS",
+      "venue": null,
+      "status": "",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -16294,15 +16292,17 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 17
+      "broadcaster_count": 17,
+      "source": "liveonsat",
+      "needs_review": true
     },
     {
-      "id": "echc_ULS_BAY_2026-12-12",
+      "id": "echc_OSP_HAR_2026-12-12",
       "sport": "rugby_union",
       "competition": "EPCR Challenge Cup",
       "comp_code": "ECHC",
-      "home_team": "Ulster",
-      "away_team": "Bayonne",
+      "home_team": "Ospreys",
+      "away_team": "Harlequins",
       "kickoff": "2026-12-12T13:00:00Z",
       "matchday": 2,
       "stage": "REGULAR_SEASON",
