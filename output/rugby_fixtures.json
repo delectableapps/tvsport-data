@@ -1,7 +1,7 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-10-27T08:38:59Z",
-  "lastUpdated": "2026-10-27T08:38:59Z",
+  "generated_at": "2026-10-28T07:55:36Z",
+  "lastUpdated": "2026-10-28T07:55:36Z",
   "fixture_count": 79,
   "competitions": [
     {
@@ -861,13 +861,12 @@
           "broadcaster": "BBC",
           "channels": [
             "BBC iPlayer",
-            "BBC Sport website & app"
+            "BBC Sport Website"
           ],
           "type": "free_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "All matches on BBC iPlayer / BBC Sport website & app"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Portugal",
@@ -2273,14 +2272,14 @@
         {
           "territory": "Italy",
           "region": "Europe",
-          "broadcaster": "DAZN Italy",
+          "broadcaster": "Sky Italia",
           "channels": [
-            "DAZN"
+            "Sky Sport Arena Italia"
           ],
-          "type": "streaming",
+          "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Nordics",
@@ -6389,14 +6388,14 @@
         {
           "territory": "Italy",
           "region": "Europe",
-          "broadcaster": "DAZN Italy",
+          "broadcaster": "Sky Italia",
           "channels": [
-            "DAZN"
+            "Sky Sport Arena Italia"
           ],
-          "type": "streaming",
+          "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Nordics",
@@ -6790,7 +6789,8 @@
           "broadcaster": "S4C",
           "channels": [
             "S4C Clic",
-            "S4C Digital"
+            "S4C Digital",
+            "YouTube: S4C Chwaraeon"
           ],
           "type": "free_tv",
           "coverage": "live",
@@ -8034,6 +8034,7 @@
           "broadcaster": "beIN Sports",
           "channels": [
             "beIN Connect MENA",
+            "beIN Sports MENA 3",
             "beIN Sports MENA 4"
           ],
           "type": "pay_tv",
@@ -15301,18 +15302,18 @@
       "needs_review": true
     },
     {
-      "id": "echc_ULS_BAY_2026-12-12",
+      "id": "echc_OSP_HAR_2026-12-12",
       "sport": "rugby_union",
       "competition": "EPCR Challenge Cup",
       "comp_code": "ECHC",
-      "home_team": "Ulster",
-      "away_team": "Bayonne",
+      "home_team": "Ospreys",
+      "away_team": "Harlequins",
       "kickoff": "2026-12-12T13:00:00Z",
       "matchday": 2,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": null,
-      "status": "",
+      "venue": "St Helen's Rugby and Cricket Ground",
+      "status": "NS",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -15536,17 +15537,15 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 17,
-      "source": "liveonsat",
-      "needs_review": true
+      "broadcaster_count": 17
     },
     {
-      "id": "echc_OSP_HAR_2026-12-12",
+      "id": "echc_ULS_BAY_2026-12-12",
       "sport": "rugby_union",
       "competition": "EPCR Challenge Cup",
       "comp_code": "ECHC",
-      "home_team": "Ospreys",
-      "away_team": "Harlequins",
+      "home_team": "Ulster",
+      "away_team": "Bayonne",
       "kickoff": "2026-12-12T13:00:00Z",
       "matchday": 2,
       "stage": "REGULAR_SEASON",
