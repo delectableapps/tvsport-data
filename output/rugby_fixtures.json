@@ -1,7 +1,7 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-10-29T08:00:42Z",
-  "lastUpdated": "2026-10-29T08:00:42Z",
+  "generated_at": "2026-10-29T09:18:59Z",
+  "lastUpdated": "2026-10-29T09:18:59Z",
   "fixture_count": 79,
   "competitions": [
     {
@@ -15302,18 +15302,18 @@
       "needs_review": true
     },
     {
-      "id": "echc_ULS_BAY_2026-12-12",
+      "id": "echc_OSP_HAR_2026-12-12",
       "sport": "rugby_union",
       "competition": "EPCR Challenge Cup",
       "comp_code": "ECHC",
-      "home_team": "Ulster",
-      "away_team": "Bayonne",
+      "home_team": "Ospreys",
+      "away_team": "Harlequins",
       "kickoff": "2026-12-12T13:00:00Z",
       "matchday": 2,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": null,
-      "status": "",
+      "venue": "St Helen's Rugby and Cricket Ground",
+      "status": "NS",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -15537,17 +15537,15 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 17,
-      "source": "liveonsat",
-      "needs_review": true
+      "broadcaster_count": 17
     },
     {
-      "id": "echc_OSP_HAR_2026-12-12",
+      "id": "echc_ULS_BAY_2026-12-12",
       "sport": "rugby_union",
       "competition": "EPCR Challenge Cup",
       "comp_code": "ECHC",
-      "home_team": "Ospreys",
-      "away_team": "Harlequins",
+      "home_team": "Ulster",
+      "away_team": "Bayonne",
       "kickoff": "2026-12-12T13:00:00Z",
       "matchday": 2,
       "stage": "REGULAR_SEASON",
