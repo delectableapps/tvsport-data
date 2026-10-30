@@ -1,7 +1,7 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-10-29T09:18:59Z",
-  "lastUpdated": "2026-10-29T09:18:59Z",
+  "generated_at": "2026-10-30T08:03:37Z",
+  "lastUpdated": "2026-10-30T08:03:37Z",
   "fixture_count": 79,
   "competitions": [
     {
@@ -923,13 +923,12 @@
           "region": "Asia-Pacific",
           "broadcaster": "Sky Sport NZ",
           "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
+            "Sky Sport 2 NZ"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Middle East & N. Africa",
@@ -1074,13 +1073,12 @@
           "region": "Asia-Pacific",
           "broadcaster": "Sky Sport NZ",
           "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
+            "Sky Sport 2 NZ"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Middle East & N. Africa",
@@ -1223,13 +1221,12 @@
           "region": "Asia-Pacific",
           "broadcaster": "Sky Sport NZ",
           "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
+            "Sky Sport 7 NZ"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Japan",
@@ -1602,13 +1599,12 @@
           "region": "Asia-Pacific",
           "broadcaster": "Sky Sport NZ",
           "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
+            "Sky Sport 1 NZ"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Middle East & N. Africa",
@@ -3622,13 +3618,12 @@
           "region": "Asia-Pacific",
           "broadcaster": "Sky Sport NZ",
           "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
+            "Sky Sport 1 NZ"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Pacific Islands",
@@ -6204,13 +6199,12 @@
           "region": "Asia-Pacific",
           "broadcaster": "Sky Sport NZ",
           "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
+            "Sky Sport 3 NZ"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Pacific Islands",
@@ -11915,9 +11909,34 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
+          "broadcaster": "BBC",
+          "channels": [
+            "BBC iPlayer"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
           "broadcaster": "ITV",
           "channels": [
             "ITV X"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "S4C",
+          "channels": [
+            "S4C Clic",
+            "S4C Digital"
           ],
           "type": "free_tv",
           "coverage": "live",
@@ -12052,7 +12071,7 @@
           "note": "Free with registration"
         }
       ],
-      "broadcaster_count": 11,
+      "broadcaster_count": 13,
       "source": "liveonsat",
       "needs_review": true
     },
