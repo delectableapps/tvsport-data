@@ -1,7 +1,7 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-11-03T10:28:16Z",
-  "lastUpdated": "2026-11-03T10:28:16Z",
+  "generated_at": "2026-11-04T08:35:11Z",
+  "lastUpdated": "2026-11-04T08:35:11Z",
   "fixture_count": 55,
   "competitions": [
     {
@@ -120,6 +120,18 @@
           "source": "liveonsat"
         },
         {
+          "territory": "Portugal",
+          "region": "Europe",
+          "broadcaster": "Sport TV",
+          "channels": [
+            "Sport TV6 Portugal"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "United States",
           "region": "Americas",
           "broadcaster": "RugbyPass TV",
@@ -208,7 +220,7 @@
           "note": "Free with registration"
         }
       ],
-      "broadcaster_count": 11,
+      "broadcaster_count": 12,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -286,6 +298,18 @@
           "source": "liveonsat"
         },
         {
+          "territory": "Portugal",
+          "region": "Europe",
+          "broadcaster": "Sport TV",
+          "channels": [
+            "Sport TV5 Portugal"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "United States",
           "region": "Americas",
           "broadcaster": "RugbyPass TV",
@@ -374,7 +398,7 @@
           "note": "Free with registration"
         }
       ],
-      "broadcaster_count": 11,
+      "broadcaster_count": 12,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -1000,6 +1024,18 @@
           "source": "liveonsat"
         },
         {
+          "territory": "Portugal",
+          "region": "Europe",
+          "broadcaster": "Sport TV",
+          "channels": [
+            "Sport TV5 Portugal"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "United States",
           "region": "Americas",
           "broadcaster": "RugbyPass TV",
@@ -1088,7 +1124,7 @@
           "note": "Free with registration"
         }
       ],
-      "broadcaster_count": 11,
+      "broadcaster_count": 12,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -3903,7 +3939,8 @@
           "broadcaster": "S4C",
           "channels": [
             "S4C Clic",
-            "S4C Digital"
+            "S4C Digital",
+            "YouTube: S4C Chwaraeon"
           ],
           "type": "free_tv",
           "coverage": "live",
@@ -3944,6 +3981,18 @@
           "channels": [
             "Sky Go Italy",
             "Sky Sport Arena Italia"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Portugal",
+          "region": "Europe",
+          "broadcaster": "Sport TV",
+          "channels": [
+            "Sport TV5 Portugal"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -4039,7 +4088,7 @@
           "note": "Free with registration"
         }
       ],
-      "broadcaster_count": 13,
+      "broadcaster_count": 14,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -4117,6 +4166,18 @@
           "source": "liveonsat"
         },
         {
+          "territory": "Portugal",
+          "region": "Europe",
+          "broadcaster": "Sport TV",
+          "channels": [
+            "Sport TV5 Portugal"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "United States",
           "region": "Americas",
           "broadcaster": "RugbyPass TV",
@@ -4205,7 +4266,7 @@
           "note": "Free with registration"
         }
       ],
-      "broadcaster_count": 11,
+      "broadcaster_count": 12,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -4231,7 +4292,11 @@
           "region": "UK",
           "broadcaster": "ITV",
           "channels": [
-            "ITV X"
+            "ITV 1 England",
+            "ITV X",
+            "STV Player",
+            "STV Scotland",
+            "UTV Northern Ireland"
           ],
           "type": "free_tv",
           "coverage": "live",
@@ -4243,6 +4308,7 @@
           "region": "Europe",
           "broadcaster": "Virgin Media",
           "channels": [
+            "Virgin Media One",
             "Virgin Media PLAY",
             "Virgin Media TV"
           ],
@@ -4278,6 +4344,18 @@
           "source": "liveonsat"
         },
         {
+          "territory": "Portugal",
+          "region": "Europe",
+          "broadcaster": "Sport TV",
+          "channels": [
+            "Sport TV5 Portugal"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
           "territory": "United States",
           "region": "Americas",
           "broadcaster": "RugbyPass TV",
@@ -4366,7 +4444,7 @@
           "note": "Free with registration"
         }
       ],
-      "broadcaster_count": 11,
+      "broadcaster_count": 12,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -4598,13 +4676,12 @@
           "region": "Europe",
           "broadcaster": "Movistar",
           "channels": [
-            "Movistar Plus+",
             "M+ Deportes"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Switzerland",
@@ -4955,6 +5032,7 @@
           "region": "Europe",
           "broadcaster": "Virgin Media",
           "channels": [
+            "Virgin Media One",
             "Virgin Media PLAY",
             "Virgin Media TV"
           ],
@@ -5116,6 +5194,7 @@
           "region": "Europe",
           "broadcaster": "Virgin Media",
           "channels": [
+            "Virgin Media One",
             "Virgin Media PLAY",
             "Virgin Media TV"
           ],
@@ -5263,9 +5342,35 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
+          "broadcaster": "BBC",
+          "channels": [
+            "BBC iPlayer"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
           "broadcaster": "ITV",
           "channels": [
             "ITV X"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "S4C",
+          "channels": [
+            "S4C Clic",
+            "S4C Digital",
+            "YouTube: S4C Chwaraeon"
           ],
           "type": "free_tv",
           "coverage": "live",
@@ -5277,6 +5382,7 @@
           "region": "Europe",
           "broadcaster": "Virgin Media",
           "channels": [
+            "Virgin Media One",
             "Virgin Media PLAY",
             "Virgin Media TV"
           ],
@@ -5400,7 +5506,7 @@
           "note": "Free with registration"
         }
       ],
-      "broadcaster_count": 11,
+      "broadcaster_count": 13,
       "source": "liveonsat",
       "needs_review": true
     },
@@ -5438,6 +5544,7 @@
           "region": "Europe",
           "broadcaster": "Virgin Media",
           "channels": [
+            "Virgin Media One",
             "Virgin Media PLAY",
             "Virgin Media TV"
           ],
@@ -5599,6 +5706,7 @@
           "region": "Europe",
           "broadcaster": "Virgin Media",
           "channels": [
+            "Virgin Media One",
             "Virgin Media PLAY",
             "Virgin Media TV"
           ],
@@ -5760,6 +5868,7 @@
           "region": "Europe",
           "broadcaster": "Virgin Media",
           "channels": [
+            "Virgin Media One",
             "Virgin Media PLAY",
             "Virgin Media TV"
           ],
@@ -6707,9 +6816,35 @@
         {
           "territory": "United Kingdom",
           "region": "UK",
+          "broadcaster": "BBC",
+          "channels": [
+            "BBC iPlayer"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
           "broadcaster": "ITV",
           "channels": [
             "ITV X"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "S4C",
+          "channels": [
+            "S4C Clic",
+            "S4C Digital",
+            "YouTube: S4C Chwaraeon"
           ],
           "type": "free_tv",
           "coverage": "live",
@@ -6843,7 +6978,7 @@
           "note": "Free with registration"
         }
       ],
-      "broadcaster_count": 11,
+      "broadcaster_count": 13,
       "source": "liveonsat",
       "needs_review": true
     },
