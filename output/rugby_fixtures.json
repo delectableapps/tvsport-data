@@ -1,7 +1,7 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-11-04T10:24:19Z",
-  "lastUpdated": "2026-11-04T10:24:19Z",
+  "generated_at": "2026-11-05T08:57:41Z",
+  "lastUpdated": "2026-11-05T08:57:41Z",
   "fixture_count": 55,
   "competitions": [
     {
@@ -403,554 +403,6 @@
       "needs_review": true
     },
     {
-      "id": "top14_VAN_BOR_2026-11-07",
-      "sport": "rugby_union",
-      "competition": "Top 14",
-      "comp_code": "TOP14",
-      "home_team": "Vannes",
-      "away_team": "Bordeaux-Bègles",
-      "kickoff": "2026-11-07T13:30:00Z",
-      "matchday": 9,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "venue": null,
-      "status": "",
-      "is_blackout": false,
-      "uk_free_to_air": false,
-      "liveonsat_confirmed": true,
-      "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports 2 UK",
-            "Premier Sports GB Player"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports Ireland",
-          "channels": [
-            "Premier Sports 2 Ireland"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Andorra",
-          "region": "Europe",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Andorra",
-          "region": "Europe",
-          "broadcaster": "Movistar",
-          "channels": [
-            "Movistar Plus+",
-            "M+ Deportes"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Austria",
-          "region": "Europe",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Czechia",
-          "region": "Europe",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+ France",
-            "Canal+ France UHDR"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Georgia",
-          "region": "Europe",
-          "broadcaster": "Imedi TV",
-          "channels": [
-            "Imedi TV"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Hungary",
-          "region": "Europe",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Europe",
-          "broadcaster": "Sky Italia",
-          "channels": [
-            "Sky Sport Arena",
-            "Sky Sport Uno",
-            "NOW"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Monaco",
-          "region": "Europe",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Netherlands",
-          "region": "Europe",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Poland",
-          "region": "Europe",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Romania",
-          "region": "Europe",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Slovakia",
-          "region": "Europe",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Spain",
-          "region": "Europe",
-          "broadcaster": "Movistar",
-          "channels": [
-            "Movistar Plus+",
-            "M+ Deportes"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Switzerland",
-          "region": "Europe",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Argentina",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Bolivia",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Chile",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Colombia",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Ecuador",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Haiti",
-          "region": "Americas",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Paraguay",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Peru",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "FloRugby",
-          "channels": [
-            "FloRugby.com"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Uruguay",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Venezuela",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Sports 1",
-            "beIN Sports 2",
-            "beIN Connect"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "TOP 14 Rugby TV",
-          "channels": [
-            "top14rugbytv.com (subscription / pay-per-view)"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "TOP 14 Rugby TV",
-          "channels": [
-            "top14rugbytv.com (subscription / pay-per-view)"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Pacific Islands",
-          "region": "Asia-Pacific",
-          "broadcaster": "Digicel",
-          "channels": [
-            "Digicel Sports"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Japan",
-          "region": "Asia",
-          "broadcaster": "DAZN Japan",
-          "channels": [
-            "DAZN"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Myanmar",
-          "region": "Asia",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Vietnam",
-          "region": "Asia",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "South Africa",
-          "region": "Sub-Saharan Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Sub-Saharan Africa",
-          "region": "Sub-Saharan Africa",
-          "broadcaster": "Canal+",
-          "channels": [
-            "Canal+",
-            "Canal+ Sport",
-            "myCANAL"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Worldwide",
-          "region": "International",
-          "broadcaster": "TV5MONDE",
-          "channels": [
-            "TV5MONDE (free-to-air, select matches)",
-            "TV5MONDEplus"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "Free-to-air coverage of select Top 14 matches via TV5MONDE website/app"
-        },
-        {
-          "territory": "Worldwide (170+ territories)",
-          "region": "International",
-          "broadcaster": "TOP 14 Rugby TV",
-          "channels": [
-            "TOP 14 Rugby TV"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        }
-      ],
-      "broadcaster_count": 39,
-      "source": "liveonsat",
-      "needs_review": true
-    },
-    {
       "id": "natc_SCO_NEW_2026-11-07",
       "sport": "rugby_union",
       "competition": "Nations Championship",
@@ -1002,13 +454,13 @@
           "region": "Europe",
           "broadcaster": "TF1",
           "channels": [
-            "TF1",
-            "TF1+"
+            "TF1 France",
+            "TF1 Suisse"
           ],
           "type": "free_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Italy",
@@ -1235,7 +687,8 @@
           "region": "Europe",
           "broadcaster": "Canal+",
           "channels": [
-            "Canal+ France"
+            "Canal+ France",
+            "Canal+ Live 1 France"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -1787,7 +1240,8 @@
           "region": "Europe",
           "broadcaster": "Canal+",
           "channels": [
-            "Canal+ France"
+            "Canal+ France",
+            "Canal+ Live 4 France"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -2339,7 +1793,8 @@
           "region": "Europe",
           "broadcaster": "Canal+",
           "channels": [
-            "Canal+ France"
+            "Canal+ France",
+            "Canal+ Live 6 France"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -2891,7 +2346,8 @@
           "region": "Europe",
           "broadcaster": "Canal+",
           "channels": [
-            "Canal+ France"
+            "Canal+ France",
+            "Canal+ Live 5 France"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -3443,7 +2899,8 @@
           "region": "Europe",
           "broadcaster": "Canal+",
           "channels": [
-            "Canal+ France"
+            "Canal+ France",
+            "Canal+ Live 2 France"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -4271,6 +3728,555 @@
       "needs_review": true
     },
     {
+      "id": "top14_VAN_BOR_2026-11-08",
+      "sport": "rugby_union",
+      "competition": "Top 14",
+      "comp_code": "TOP14",
+      "home_team": "Vannes",
+      "away_team": "Bordeaux-Bègles",
+      "kickoff": "2026-11-08T14:00:00Z",
+      "matchday": 9,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "venue": null,
+      "status": "",
+      "is_blackout": false,
+      "uk_free_to_air": false,
+      "liveonsat_confirmed": true,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Premier Sports",
+          "channels": [
+            "Premier Sports GB Player"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports Ireland",
+          "channels": [
+            "Premier Sports 1 Ireland",
+            "Premier Sports 2 Ireland",
+            "Premier Sports Player"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Andorra",
+          "region": "Europe",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+",
+            "Canal+ Sport",
+            "myCANAL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Andorra",
+          "region": "Europe",
+          "broadcaster": "Movistar",
+          "channels": [
+            "Movistar Plus+",
+            "M+ Deportes"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Austria",
+          "region": "Europe",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+",
+            "Canal+ Sport",
+            "myCANAL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Czechia",
+          "region": "Europe",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+",
+            "Canal+ Sport",
+            "myCANAL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+ Live 1 France",
+            "Canal+ Sport France"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Georgia",
+          "region": "Europe",
+          "broadcaster": "Imedi TV",
+          "channels": [
+            "Imedi TV"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Hungary",
+          "region": "Europe",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+",
+            "Canal+ Sport",
+            "myCANAL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "Sky Italia",
+          "channels": [
+            "Sky Sport Arena",
+            "Sky Sport Uno",
+            "NOW"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Monaco",
+          "region": "Europe",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+",
+            "Canal+ Sport",
+            "myCANAL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Europe",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+",
+            "Canal+ Sport",
+            "myCANAL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Poland",
+          "region": "Europe",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+",
+            "Canal+ Sport",
+            "myCANAL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Romania",
+          "region": "Europe",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+",
+            "Canal+ Sport",
+            "myCANAL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Slovakia",
+          "region": "Europe",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+",
+            "Canal+ Sport",
+            "myCANAL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Spain",
+          "region": "Europe",
+          "broadcaster": "Movistar",
+          "channels": [
+            "Movistar Plus+",
+            "M+ Deportes"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Switzerland",
+          "region": "Europe",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+",
+            "Canal+ Sport",
+            "myCANAL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Argentina",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Bolivia",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Chile",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Colombia",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Ecuador",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Haiti",
+          "region": "Americas",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+",
+            "Canal+ Sport",
+            "myCANAL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Paraguay",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Peru",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "FloRugby",
+          "channels": [
+            "FloRugby.com"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        },
+        {
+          "territory": "Uruguay",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Venezuela",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports 1",
+            "beIN Sports 2",
+            "beIN Connect"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "TOP 14 Rugby TV",
+          "channels": [
+            "top14rugbytv.com (subscription / pay-per-view)"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "TOP 14 Rugby TV",
+          "channels": [
+            "top14rugbytv.com (subscription / pay-per-view)"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Pacific Islands",
+          "region": "Asia-Pacific",
+          "broadcaster": "Digicel",
+          "channels": [
+            "Digicel Sports"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Asia",
+          "broadcaster": "DAZN Japan",
+          "channels": [
+            "DAZN"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Myanmar",
+          "region": "Asia",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+",
+            "Canal+ Sport",
+            "myCANAL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Vietnam",
+          "region": "Asia",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+",
+            "Canal+ Sport",
+            "myCANAL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Rugby",
+            "SuperSport Grandstand",
+            "DStv Stream"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "Canal+",
+          "channels": [
+            "Canal+",
+            "Canal+ Sport",
+            "myCANAL"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Worldwide",
+          "region": "International",
+          "broadcaster": "TV5MONDE",
+          "channels": [
+            "TV5MONDE (free-to-air, select matches)",
+            "TV5MONDEplus"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights",
+          "note": "Free-to-air coverage of select Top 14 matches via TV5MONDE website/app"
+        },
+        {
+          "territory": "Worldwide (170+ territories)",
+          "region": "International",
+          "broadcaster": "TOP 14 Rugby TV",
+          "channels": [
+            "TOP 14 Rugby TV"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "high",
+          "source": "liveonsat"
+        }
+      ],
+      "broadcaster_count": 39,
+      "source": "liveonsat",
+      "needs_review": true
+    },
+    {
       "id": "natc_ENG_AUS_2026-11-08",
       "sport": "rugby_union",
       "competition": "Nations Championship",
@@ -4322,13 +4328,13 @@
           "region": "Europe",
           "broadcaster": "TF1",
           "channels": [
-            "TF1",
-            "TF1+"
+            "TF1 France",
+            "TF1 Suisse"
           ],
           "type": "free_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Italy",
@@ -4554,6 +4560,7 @@
           "channels": [
             "Canal+ France",
             "Canal+ France UHDR",
+            "Canal+ Live 1 France",
             "Canal+ Sport Cesko"
           ],
           "type": "pay_tv",
@@ -5046,13 +5053,13 @@
           "region": "Europe",
           "broadcaster": "TF1",
           "channels": [
-            "TF1",
-            "TF1+"
+            "TF1 France",
+            "TF1 Suisse"
           ],
           "type": "free_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Italy",
