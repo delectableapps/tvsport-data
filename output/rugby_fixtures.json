@@ -1,8 +1,8 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-11-07T09:36:29Z",
-  "lastUpdated": "2026-11-07T09:36:29Z",
-  "fixture_count": 59,
+  "generated_at": "2026-11-08T08:33:25Z",
+  "lastUpdated": "2026-11-08T08:33:25Z",
+  "fixture_count": 58,
   "competitions": [
     {
       "code": "SIXN",
@@ -46,575 +46,6 @@
     }
   ],
   "fixtures": [
-    {
-      "id": "prem_NOR_LEI_2026-11-06",
-      "sport": "rugby_union",
-      "competition": "Gallagher PREM",
-      "comp_code": "PREM",
-      "home_team": "Northampton Saints",
-      "away_team": "Leicester Tigers",
-      "kickoff": "2026-11-06T19:45:00Z",
-      "matchday": 3,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "venue": null,
-      "status": "",
-      "is_blackout": false,
-      "uk_free_to_air": false,
-      "liveonsat_confirmed": true,
-      "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "HBO Max",
-          "channels": [
-            "HBO Max (uk only)"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 2"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "TNT Sports",
-          "channels": [
-            "TNT Sports 1",
-            "TNT Sports 2",
-            "TNT Sports 3",
-            "TNT Sports 4"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Discovery+",
-          "channels": [
-            "discovery+ (TNT Sports pass)"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Premier Sports Ireland",
-          "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Sports 1",
-            "beIN Sports 2",
-            "beIN Connect"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Germany",
-          "region": "Europe",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Europe",
-          "broadcaster": "Sky Italia",
-          "channels": [
-            "Sky Sport Arena",
-            "Sky Sport Uno",
-            "NOW"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Netherlands",
-          "region": "Europe",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Nordics",
-          "region": "Europe",
-          "broadcaster": "Viaplay",
-          "channels": [
-            "Viaplay"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Spain",
-          "region": "Europe",
-          "broadcaster": "Movistar",
-          "channels": [
-            "Movistar Plus+",
-            "M+ Deportes"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Argentina",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Brazil",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "Sportsnet World",
-          "channels": [
-            "Sportsnet World"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Latin America",
-          "region": "Americas",
-          "broadcaster": "ESPN Sur",
-          "channels": [
-            "ESPN",
-            "ESPN 2",
-            "Disney+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "FloRugby (FloSports)",
-          "channels": [
-            "FloRugby"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Stan Sport",
-          "channels": [
-            "Stan Sport"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "Sky Sport NZ",
-          "channels": [
-            "Sky Sport 1 NZ",
-            "Sky Sport Now"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Pacific Islands",
-          "region": "Asia-Pacific",
-          "broadcaster": "Digicel",
-          "channels": [
-            "Digicel Sports"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "India",
-          "region": "Asia",
-          "broadcaster": "RugbyPass TV",
-          "channels": [
-            "RugbyPass TV (free, registration)"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Japan",
-          "region": "Asia",
-          "broadcaster": "DAZN Japan",
-          "channels": [
-            "DAZN"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "South-East Asia",
-          "region": "Asia",
-          "broadcaster": "RugbyPass TV",
-          "channels": [
-            "RugbyPass TV (free, registration)"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "South-East Asia",
-          "region": "Asia",
-          "broadcaster": "Setanta Sports",
-          "channels": [
-            "Setanta Sports"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Middle East & N. Africa",
-          "region": "Middle East & N. Africa",
-          "broadcaster": "beIN Sports",
-          "channels": [
-            "beIN Sports 1",
-            "beIN Sports 2",
-            "beIN Connect"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "South Africa",
-          "region": "Sub-Saharan Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Sub-Saharan Africa",
-          "region": "Sub-Saharan Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Rugby",
-            "SuperSport Grandstand",
-            "DStv Stream"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Rest of World",
-          "region": "International",
-          "broadcaster": "PRTV Live",
-          "channels": [
-            "PRTV Live"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        }
-      ],
-      "broadcaster_count": 27,
-      "source": "liveonsat",
-      "needs_review": true
-    },
-    {
-      "id": "natc_IRE_ARG_2026-11-06",
-      "sport": "rugby_union",
-      "competition": "Nations Championship",
-      "comp_code": "NATC",
-      "home_team": "Ireland",
-      "away_team": "Argentina",
-      "kickoff": "2026-11-06T20:10:00Z",
-      "matchday": 4,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "venue": null,
-      "status": "",
-      "is_blackout": false,
-      "uk_free_to_air": true,
-      "liveonsat_confirmed": true,
-      "broadcasters": [
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "ITV",
-          "channels": [
-            "ITV 1 England",
-            "ITV X",
-            "STV Player",
-            "STV Scotland",
-            "UTV Northern Ireland"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Premier Sports",
-          "channels": [
-            "Premier Sports Rugby Asia"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Republic of Ireland",
-          "region": "Europe",
-          "broadcaster": "Virgin Media",
-          "channels": [
-            "Virgin Media One",
-            "Virgin Media PLAY",
-            "Virgin Media TV"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "France",
-          "region": "Europe",
-          "broadcaster": "TF1",
-          "channels": [
-            "TF1",
-            "TF1+"
-          ],
-          "type": "free_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Italy",
-          "region": "Europe",
-          "broadcaster": "Sky Italia",
-          "channels": [
-            "Sky Go Italy",
-            "Sky Sport Arena Italia"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Portugal",
-          "region": "Europe",
-          "broadcaster": "Sport TV",
-          "channels": [
-            "Sport TV6 Portugal"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "RugbyPass TV",
-          "channels": [
-            "RugbyPass TV (free, registration)"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Australia",
-          "region": "Asia-Pacific",
-          "broadcaster": "Stan Sport",
-          "channels": [
-            "Stan Sport Australia"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "New Zealand",
-          "region": "Asia-Pacific",
-          "broadcaster": "Sky Sport NZ",
-          "channels": [
-            "Sky Sport 1 NZ"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Japan",
-          "region": "Asia",
-          "broadcaster": "WOWOW",
-          "channels": [
-            "WOWOW Japan"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "South Africa",
-          "region": "Sub-Saharan Africa",
-          "broadcaster": "SuperSport",
-          "channels": [
-            "SuperSport Grandstand",
-            "SuperSport Rugby"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Netherlands",
-          "region": "International",
-          "broadcaster": "Ziggo Sport",
-          "channels": [
-            "Ziggo Sport 3"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
-        },
-        {
-          "territory": "Rest of World",
-          "region": "International",
-          "broadcaster": "RugbyPass TV",
-          "channels": [
-            "RugbyPass TV (free, registration)"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "Worldwide (outside rights-holder territories)",
-          "region": "International",
-          "broadcaster": "RugbyPass TV",
-          "channels": [
-            "RugbyPass TV (free, registration)"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights",
-          "note": "Free with registration"
-        }
-      ],
-      "broadcaster_count": 14,
-      "source": "liveonsat",
-      "needs_review": true
-    },
     {
       "id": "natc_ITA_SOU_2026-11-07",
       "sport": "rugby_union",
@@ -1571,6 +1002,392 @@
         }
       ],
       "broadcaster_count": 14,
+      "source": "liveonsat",
+      "needs_review": true
+    },
+    {
+      "id": "prem_EXE_BAT_2026-11-07",
+      "sport": "rugby_union",
+      "competition": "Gallagher PREM",
+      "comp_code": "PREM",
+      "home_team": "Exeter Chiefs",
+      "away_team": "Bath",
+      "kickoff": "2026-11-07T15:00:00Z",
+      "matchday": 3,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "venue": null,
+      "status": "",
+      "is_blackout": false,
+      "uk_free_to_air": false,
+      "liveonsat_confirmed": false,
+      "broadcasters": [
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1",
+            "TNT Sports 2",
+            "TNT Sports 3",
+            "TNT Sports 4"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Discovery+",
+          "channels": [
+            "discovery+ (TNT Sports pass)"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "ITV",
+          "channels": [
+            "ITV1",
+            "ITVX"
+          ],
+          "type": "free_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights",
+          "note": "7 selected live matches per season incl. the Final (also on TNT) — confirmed per match nearer the time"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "TNT Sports",
+          "channels": [
+            "TNT Sports 1",
+            "TNT Sports 2",
+            "TNT Sports 3",
+            "TNT Sports 4"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Discovery+",
+          "channels": [
+            "discovery+ (TNT Sports pass)"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Republic of Ireland",
+          "region": "Europe",
+          "broadcaster": "Premier Sports Ireland",
+          "channels": [
+            "Premier Sports 1 Ireland",
+            "Premier Sports 2 Ireland",
+            "Premier Sports Player"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "France",
+          "region": "Europe",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports 1",
+            "beIN Sports 2",
+            "beIN Connect"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Germany",
+          "region": "Europe",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Italy",
+          "region": "Europe",
+          "broadcaster": "Sky Italia",
+          "channels": [
+            "Sky Sport Arena",
+            "Sky Sport Uno",
+            "NOW"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Netherlands",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Nordics",
+          "region": "Europe",
+          "broadcaster": "Viaplay",
+          "channels": [
+            "Viaplay"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Spain",
+          "region": "Europe",
+          "broadcaster": "Movistar",
+          "channels": [
+            "Movistar Plus+",
+            "M+ Deportes"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Argentina",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Brazil",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "Sportsnet World",
+          "channels": [
+            "Sportsnet World"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Latin America",
+          "region": "Americas",
+          "broadcaster": "ESPN Sur",
+          "channels": [
+            "ESPN",
+            "ESPN 2",
+            "Disney+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "FloRugby (FloSports)",
+          "channels": [
+            "FloRugby"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Australia",
+          "region": "Asia-Pacific",
+          "broadcaster": "Stan Sport",
+          "channels": [
+            "Stan Sport"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "New Zealand",
+          "region": "Asia-Pacific",
+          "broadcaster": "Sky Sport NZ",
+          "channels": [
+            "Sky Sport 1 NZ",
+            "Sky Sport Now"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Pacific Islands",
+          "region": "Asia-Pacific",
+          "broadcaster": "Digicel",
+          "channels": [
+            "Digicel Sports"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "India",
+          "region": "Asia",
+          "broadcaster": "RugbyPass TV",
+          "channels": [
+            "RugbyPass TV (free, registration)"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Japan",
+          "region": "Asia",
+          "broadcaster": "DAZN Japan",
+          "channels": [
+            "DAZN"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South-East Asia",
+          "region": "Asia",
+          "broadcaster": "RugbyPass TV",
+          "channels": [
+            "RugbyPass TV (free, registration)"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South-East Asia",
+          "region": "Asia",
+          "broadcaster": "Setanta Sports",
+          "channels": [
+            "Setanta Sports"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Middle East & N. Africa",
+          "region": "Middle East & N. Africa",
+          "broadcaster": "beIN Sports",
+          "channels": [
+            "beIN Sports 1",
+            "beIN Sports 2",
+            "beIN Connect"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "South Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Rugby",
+            "SuperSport Grandstand",
+            "DStv Stream"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Sub-Saharan Africa",
+          "region": "Sub-Saharan Africa",
+          "broadcaster": "SuperSport",
+          "channels": [
+            "SuperSport Rugby",
+            "SuperSport Grandstand",
+            "DStv Stream"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "Rest of World",
+          "region": "International",
+          "broadcaster": "PRTV Live",
+          "channels": [
+            "PRTV Live"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        }
+      ],
+      "broadcaster_count": 28,
       "source": "liveonsat",
       "needs_review": true
     },
