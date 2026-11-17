@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-17T10:05:42Z",
-  "lastUpdated": "2026-11-17T10:05:42Z",
+  "generated_at": "2026-11-17T11:27:06Z",
+  "lastUpdated": "2026-11-17T11:27:06Z",
   "fixture_count": 453,
   "fixtures": [
     {
@@ -52643,6 +52643,7 @@
           "region": "Netherlands",
           "broadcaster": "ESPN NL",
           "channels": [
+            "ESPN 1 Nederland",
             "ESPN Extra Nederland"
           ],
           "type": "pay_tv",
@@ -66318,61 +66319,6 @@
       "broadcaster_count": 134
     },
     {
-      "id": "el1_STEV_SHEF_2026-11-24",
-      "competition": "League One",
-      "comp_code": "EL1",
-      "home_team": "Stevenage",
-      "away_team": "Sheffield Wednesday",
-      "kickoff": "2026-11-24T18:45:00Z",
-      "matchday": 8,
-      "stage": "REGULAR_SEASON",
-      "group": null,
-      "is_blackout": false,
-      "broadcasters": [
-        {
-          "territory": "United States",
-          "region": "Americas",
-          "broadcaster": "ESPN+",
-          "channels": [
-            "ESPN+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "low",
-          "source": "rights_db_generic"
-        },
-        {
-          "territory": "Canada",
-          "region": "Americas",
-          "broadcaster": "DAZN",
-          "channels": [
-            "DAZN 1",
-            "DAZN 2"
-          ],
-          "type": "streaming",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
-        },
-        {
-          "territory": "United Kingdom",
-          "region": "UK",
-          "broadcaster": "Sky Sports",
-          "channels": [
-            "Sky Sports+"
-          ],
-          "type": "pay_tv",
-          "coverage": "live",
-          "confidence": "medium",
-          "source": "liveonsat"
-        }
-      ],
-      "broadcaster_count": 3,
-      "source": "liveonsat",
-      "needs_review": true,
-      "expected_source": "TheSportsDB (25-event cap)"
-    },
-    {
       "id": "elc_CAR_PRE_2026-11-24",
       "competition": "Championship",
       "comp_code": "ELC",
@@ -70780,6 +70726,61 @@
       "comp_code": "EL2",
       "home_team": "Crawley Town",
       "away_team": "Barnet",
+      "kickoff": "2026-11-24T19:45:00Z",
+      "matchday": 8,
+      "stage": "REGULAR_SEASON",
+      "group": null,
+      "is_blackout": false,
+      "broadcasters": [
+        {
+          "territory": "United States",
+          "region": "Americas",
+          "broadcaster": "ESPN+",
+          "channels": [
+            "ESPN+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "low",
+          "source": "rights_db_generic"
+        },
+        {
+          "territory": "Canada",
+          "region": "Americas",
+          "broadcaster": "DAZN",
+          "channels": [
+            "DAZN 1",
+            "DAZN 2"
+          ],
+          "type": "streaming",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "rights"
+        },
+        {
+          "territory": "United Kingdom",
+          "region": "UK",
+          "broadcaster": "Sky Sports",
+          "channels": [
+            "Sky Sports+"
+          ],
+          "type": "pay_tv",
+          "coverage": "live",
+          "confidence": "medium",
+          "source": "liveonsat"
+        }
+      ],
+      "broadcaster_count": 3,
+      "source": "liveonsat",
+      "needs_review": true,
+      "expected_source": "TheSportsDB (25-event cap)"
+    },
+    {
+      "id": "el1_STEV_SHEF_2026-11-24",
+      "competition": "League One",
+      "comp_code": "EL1",
+      "home_team": "Stevenage",
+      "away_team": "Sheffield Wednesday",
       "kickoff": "2026-11-24T19:45:00Z",
       "matchday": 8,
       "stage": "REGULAR_SEASON",
