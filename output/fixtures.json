@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-23T10:14:32Z",
-  "lastUpdated": "2026-11-23T10:14:32Z",
+  "generated_at": "2026-11-23T11:42:58Z",
+  "lastUpdated": "2026-11-23T11:42:58Z",
   "fixture_count": 465,
   "fixtures": [
     {
@@ -51144,14 +51144,12 @@
           "region": "Asia",
           "broadcaster": "beIN Sports",
           "channels": [
-            "beIN Sports HD 1",
-            "beIN Sports HD 2",
-            "beIN Sports HD 3"
+            "beIN Sports HD 1"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "epg"
         },
         {
           "territory": "Hungary",
@@ -68278,7 +68276,8 @@
           "broadcaster": "Sky Sports",
           "channels": [
             "Sky Go UK",
-            "Sky Sports Football"
+            "Sky Sports Football",
+            "Sky UK Ultra 1"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -228541,7 +228540,9 @@
           "region": "UK",
           "broadcaster": "DAZN",
           "channels": [
-            "DAZN Great Britain"
+            "DAZN Great Britain",
+            "HBO Max (uk only)",
+            "TNT Sports 1"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -236146,7 +236147,9 @@
           "region": "UK",
           "broadcaster": "DAZN",
           "channels": [
-            "DAZN Great Britain"
+            "DAZN Great Britain",
+            "HBO Max (uk only)",
+            "TNT Sports 2"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -242065,7 +242068,9 @@
           "region": "UK",
           "broadcaster": "DAZN",
           "channels": [
-            "DAZN Great Britain"
+            "DAZN Great Britain",
+            "HBO Max (uk only)",
+            "TNT Sports 3"
           ],
           "type": "pay_tv",
           "coverage": "live",
@@ -259122,7 +259127,9 @@
           "region": "UK",
           "broadcaster": "DAZN",
           "channels": [
-            "DAZN Great Britain"
+            "DAZN Great Britain",
+            "HBO Max (uk only)",
+            "TNT Sports 1"
           ],
           "type": "pay_tv",
           "coverage": "live",
