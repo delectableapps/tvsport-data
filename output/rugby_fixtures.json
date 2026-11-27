@@ -1,7 +1,7 @@
 {
   "sport": "rugby_union",
-  "generated_at": "2026-11-26T11:52:57Z",
-  "lastUpdated": "2026-11-26T11:52:57Z",
+  "generated_at": "2026-11-27T10:31:49Z",
+  "lastUpdated": "2026-11-27T10:31:49Z",
   "fixture_count": 97,
   "competitions": [
     {
@@ -13115,18 +13115,18 @@
       "needs_review": true
     },
     {
-      "id": "echc_OSP_HAR_2026-12-12",
+      "id": "echc_ULS_BAY_2026-12-12",
       "sport": "rugby_union",
       "competition": "EPCR Challenge Cup",
       "comp_code": "ECHC",
-      "home_team": "Ospreys",
-      "away_team": "Harlequins",
+      "home_team": "Ulster",
+      "away_team": "Bayonne",
       "kickoff": "2026-12-12T13:00:00Z",
       "matchday": 2,
       "stage": "REGULAR_SEASON",
       "group": null,
-      "venue": "St Helen's Rugby and Cricket Ground",
-      "status": "NS",
+      "venue": null,
+      "status": "",
       "is_blackout": false,
       "uk_free_to_air": false,
       "liveonsat_confirmed": true,
@@ -13136,7 +13136,7 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 1 UK",
+            "Premier Sports 2 UK",
             "Premier Sports GB Player"
           ],
           "type": "pay_tv",
@@ -13149,14 +13149,12 @@
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 1 Ireland",
-            "Premier Sports 2 Ireland",
-            "Premier Sports Player"
+            "Premier Sports 2 Ireland"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "medium",
-          "source": "rights"
+          "confidence": "high",
+          "source": "liveonsat"
         },
         {
           "territory": "Europe (other)",
@@ -13334,15 +13332,17 @@
           "source": "liveonsat"
         }
       ],
-      "broadcaster_count": 16
+      "broadcaster_count": 16,
+      "source": "liveonsat",
+      "needs_review": true
     },
     {
-      "id": "echc_ULS_BAY_2026-12-12",
+      "id": "echc_OSP_HAR_2026-12-12",
       "sport": "rugby_union",
       "competition": "EPCR Challenge Cup",
       "comp_code": "ECHC",
-      "home_team": "Ulster",
-      "away_team": "Bayonne",
+      "home_team": "Ospreys",
+      "away_team": "Harlequins",
       "kickoff": "2026-12-12T13:00:00Z",
       "matchday": 2,
       "stage": "REGULAR_SEASON",
@@ -13358,7 +13358,7 @@
           "region": "UK",
           "broadcaster": "Premier Sports",
           "channels": [
-            "Premier Sports 2 UK",
+            "Premier Sports 1 UK",
             "Premier Sports GB Player"
           ],
           "type": "pay_tv",
@@ -13371,12 +13371,14 @@
           "region": "Europe",
           "broadcaster": "Premier Sports Ireland",
           "channels": [
-            "Premier Sports 2 Ireland"
+            "Premier Sports 1 Ireland",
+            "Premier Sports 2 Ireland",
+            "Premier Sports Player"
           ],
           "type": "pay_tv",
           "coverage": "live",
-          "confidence": "high",
-          "source": "liveonsat"
+          "confidence": "medium",
+          "source": "rights"
         },
         {
           "territory": "Europe (other)",
